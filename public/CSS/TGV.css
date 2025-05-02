@@ -1,0 +1,42 @@
+/* Page TGV (2 tailles dispos) */
+    /* Titre de la Page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+    /* Fin Titre de la page */
+
+    /* TGV */
+        .TGV{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+        /* Taille HO */
+            /* Image */
+                /* Id image TGVHO */
+                    #TGVHO{
+                        width: 60%;
+                        height: auto;
+                    }
+                /* Classe TGVHO*/
+                    .TGVHO{
+                        padding-right: 15%;
+                    }
+            /* Fin Image */
+        /* Fin Taille HO */
+
+        /* Taille N */
+            /* Image */
+                /* Id image TGVN*/
+                #TGVN{
+                    width: 85%;
+                    height: auto;
+                }
+            /* Fin Image */
+        /* Fin Taille N */
+    /* Fin TGV */
+/* Fin Page TGV */

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Acceuil utilisateur Non connectés{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('CSS/Acceuil_non_connecter.css') }}">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    </head>
+<body>
+                
+<div class="images_accueil">
+        <div id="contact">
+            <a href="#"><img src={{ asset('Images/Acceuil/logo_contact.png') }} alt="contact" class="contact"></a>
+            {# href="{{ path('app_contact') }}" #}
+            <p>Contactez-nous</p>
+        </div>
+        <div>
+            <a href="#"><img src={{ asset('Images/Acceuil/tgv_nouveauté.png') }} alt="nouveaute" class="nouveaute"></a>
+            {# href="{{ path('app_nouveautes') }}" #}
+            <p>Les nouveautés</p>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

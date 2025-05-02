@@ -1,0 +1,248 @@
+/* Page Produit Automotrices */
+    /* Titre de la page */
+    .titre{
+        display: flex;
+        flex-direction: row;
+    }
+    .titre a{
+        padding-right: 35%;
+        padding-left: 2%;
+        padding-top: 1%;
+        color: black;
+        text-decoration: none;
+    }
+        h1{
+            text-decoration: underline;
+            padding-top: 2%;
+        }
+    /* Fin Titre de la page */
+
+    /* Page Produit Autorails */
+        /* Taille HO Autorails*/
+            /* Images */
+                /* Id Image AutorailsTailleHOVue1 */
+                    #AutorailsTailleHOVue1{
+                        width: 45%;
+                        height: auto;
+                    }
+                /* Id Image AutorailsTailleHOVue2 */
+                    #AutorailsTailleHOVue2{
+                        width: 40%;
+                        height: auto;
+                    }
+            /* Fin Images */
+
+            /* Paragraphe de droite */
+                .droiteHOAutorails{
+                    padding-left: 50%;
+                    font-size: 24px;
+                }
+                /* classe pour le lien */
+                    .droiteHOAutorails a{
+                        color: black;
+                    }
+            /* Fin Paragraphe de droite */
+
+            /* Description */
+                /* classe de la div pour la description du produit */
+                    .descriptionHOAutorails{
+                        border: 5px black solid;
+                        padding-left: 2%;
+                        padding-top: 1%;
+                        width: 65%;
+                        height: auto;
+                        margin: 5% auto;
+                    }
+                    /* classe de la div de la description du produit en ciblant le paragraphe */
+                    .descriptionHOAutorails p{
+                        font-size: 24px;
+                    }
+            /* Fin Description */
+        /* Fin Taille HO */
+
+        /* Taille N Autorails*/
+            /* Images */
+                /* Id Image AutorailsTailleNVue1 */
+                    #AutorailsTailleNVue1{
+                        width: 40%;
+                        height: auto;
+                    }
+                    .AutorailsN{
+                        display: flex;
+                        flex-direction: row;
+                    }
+            /* Fin Image */
+
+            /* Paragraphe de droite */
+                /* classe de la div pour l'image et le texte */
+                .droiteNAutorails{
+                    padding-top: 5%;
+                    padding-left: 10%;
+                    font-size: 24px;
+                }
+                /* classe pour le lien */
+                .droiteNAutorails a{
+                    color: black;
+                }
+            /* Fin Paragraphe de droite */
+
+            /* Description */
+                /* classe de la div pour la description du produit */
+                .descriptionNAutorails{
+                    border: 5px black solid;
+                    padding-left: 2%;
+                    padding-top: 1%;
+                    width: 65%;
+                    height: auto;
+                    margin: 10% auto;
+                }
+                /* classe de la div de la description du produit en ciblant le paragraphe */
+                .descriptionNAutorails p{
+                    font-size: 24px;
+                }
+            /* Fin Description */
+        /* Fin Taille N */
+        
+        /* Taille G Autorails*/
+            /* Images */
+                /* Id Image AutorailsTailleGVue1 */
+                    #AutorailsTailleGVue1{
+                        width: 50%;
+                        height: auto;
+                    }
+                /* Id Image AutorailsTailleGVue2 */
+                    #AutorailsTailleGVue2{
+                        width: 20%;
+                        height: auto;
+                    }
+            /* Fin Images */
+            /* Description */
+                .descriptionGAutorails{
+                    border: 5px black solid;
+                    padding-left: 2%;
+                    padding-top: 1%;
+                    width: 65%;
+                    height: auto;
+                    margin: 3% auto;
+                }
+                .descriptionGAutorails p{
+                    font-size: 24px;
+                }
+            /* Fin Description */
+        /* Fin Taille G */
+    /* Fin Produits Autorails */
+    
+    /* Page Produit TGV */
+        /* Taille HO TGV*/
+            /* Images */
+                /* Id Image TGVTailleHOVue1 */
+                    #TGVTailleHOVue1{
+                        width: 25%;
+                        height: auto;
+                    }
+                /* Id Image TGVTailleHOVue2 */
+                    #TGVTailleHOVue2{
+                        width: 20%;
+                        height: auto;
+                    }
+                /* Id Image TGVTailleHOVue3 */
+                    #TGVTailleHOVue3{
+                        width: 30%;
+                        height: auto;
+                    }
+                /* Id Image TGVTailleHOVue4 */
+                    #TGVTailleHOVue4{
+                        width: 30%;
+                        height: auto;
+                    }
+            /* Fin Images */
+
+            /* Description */
+                .descriptionHOTGV{
+                    border: 5px black solid;
+                    padding-left: 2%;
+                    padding-top: 1%;
+                    width: 60%;
+                    height: auto;
+                    margin: 5% auto;
+                }
+                .descriptionHOTGV p{
+                    font-size: 24px;
+                }
+            /* Fin Description */
+            
+            /* Titre */
+                /* Classe pour le titre et le texte */
+                    .titreHOTGV{
+                        display: flex;
+                        flex-direction: row;
+                    }
+                /* lien de la div classe titre */
+                    .titreHOTGV a{
+                        padding-right: 35%;
+                        padding-left: 3%;
+                        padding-top: 1%;
+                        color: black;
+                    }
+            /* Fin Titre */
+        /* Fin Taille HO */
+        
+        /* Taille N */
+            /* Images */
+                /* Id Image TGVTailleNVue1 */
+                    #TGVTailleNVue1{
+                        width: 30%;
+                        height: auto;
+                    }
+                /* Id Image TGVTailleNVue2 */
+                    #TGVTailleNVue2{
+                        width: 30%;
+                        height: auto;
+                    }
+            /* Fin Images */
+            
+            /* Description */
+                .descriptionNTGV{
+                    border: 5px black solid;
+                    padding-left: 2%;
+                    padding-top: 1%;
+                    width: 65%;
+                    height: auto;
+                    margin: 5% auto;
+                }
+                .descriptionNTGV p{
+                    font-size: 24px;
+                }
+            /* Fin Description */
+
+            /* Titre */
+                /* Classe pour le titre et le texte */
+                    .titreNTGV{
+                        display: flex;
+                        flex-direction: row;
+                    }
+                    /* lien de la div classe titre */
+                    .titreNTGV a{
+                        padding-right: 30%;
+                        padding-left: 40px;
+                        padding-top: 10px;
+                        color: black;
+                    }
+            /* Fin Titre */
+        /* Fin Taille N */
+    /* Fin Page Produit TGV */
+
+    /* CSS Generale */
+        /* Paragraphe de droite */
+            /* Lien de la classe droite */
+                .droite a{
+                    color: black;
+                }
+            /* classe droite */
+                .droite{
+                    padding-left: 50%;
+                    font-size: 24px;
+                }
+        /* Fin Paragraphe de droite */
+    /* Fin CSS Generale */
+/* Fin Page Produits Automotrices */

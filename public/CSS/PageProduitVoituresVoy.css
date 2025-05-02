@@ -1,0 +1,247 @@
+/* Page Produits Voiture de Voyageurs */
+    /* CSS Generale */
+        /* Titre des pages */
+            /* Classe pour le titre et le texte */
+                .titre{
+                    display: flex;
+                    flex-direction: row;
+                }
+            /* lien de la div classe titre */
+                .titre a{
+                    padding-right: 15%;
+                    padding-left: 4%;
+                    padding-top: 2%;
+                    color: black;
+                    text-decoration: none;
+                }
+            /* Titre de la page */
+                h1{
+                    text-decoration: underline;
+                    padding-top: 2%;
+                }
+        /* Fin Titre des Pages */
+
+        /* Texte de droite */
+            /* Lien de la classe droite */
+                .droite a{
+                    color: black;
+                }
+            /* classe droite */
+                .droite{
+                    padding-left: 50%;
+                    font-size: 24px;
+                }
+        /* Fin Texte de droite */
+
+        /* Description */
+            /* classe description */
+                .description{
+                    border: 5px black solid;
+                    padding-left: 20px;
+                    padding-top: 10px;
+                    width: 65%;
+                    height: 100px;
+                    margin: 50px auto;
+                }
+            /* paragraphe de la classe description */
+                .description p{
+                    font-size: 24px;
+                }
+            /* titre de la description */
+                .titre_description{
+                    text-decoration: underline;
+                }
+        /* Fin Description */
+    /* Fin CSS Generale */
+
+    /* Taille HO */
+        /* Images */
+            /* Id Image VoituresVoyageursTailleHOVue1 */
+                #VoituresVoyageursTailleHOVue1{
+                    width: 25%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleHOVue2 */
+                #VoituresVoyageursTailleHOVue2{
+                    width: 25%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleHOVue3 */
+                #VoituresVoyageursTailleHOVue3{
+                    width: 50%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleHOVue4 */
+                #VoituresVoyageursTailleHOVue4{
+                    width: 30%;
+                    height: auto;
+                }
+        /* Fin Images */
+
+        /* Texte de droite */
+            /* classe de la div pour l'image et le texte */
+                .droiteHOVoy{
+                    padding-left: 50%;
+                    font-size: 24px;
+                }
+            /* classe pour le lien */
+                .droiteHOVoy a{
+                    color: black;
+                }
+        /* Fin Texte de droite */
+
+        /* Description */
+            /* classe de la div pour la description du produit */
+                .descriptionHOVoy{
+                    border: 5px black solid;
+                    padding-left: 2%;
+                    padding-top: 1%;
+                    width: 70%;
+                    height: auto;
+                    margin: 5% auto;
+                }
+            /* classe de la div de la description du produit en ciblant le paragraphe */
+                .descriptionHOVoy p{
+                    font-size: 24px;
+                }
+        /* Fin Description */
+    /* Fin Taille HO */
+    
+    /* Taille Z */
+        /* Image */
+            /* Id Image VoituresVoyageursTailleZVue1 */
+                #VoituresVoyageursTailleZVue1{
+                    width: 30%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleZVue2 */
+                #VoituresVoyageursTailleZVue2{
+                    width: 35%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleZVue3 */
+                #VoituresVoyageursTailleZVue3{
+                    width: 30%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleZVue4 */
+                #VoituresVoyageursTailleZVue4{
+                    width: 20%;
+                    height: auto;
+                }
+        /* Fin Image */
+
+        /* Texte a droite */
+            /* classe de la div pour l'image et le texte */
+                .droiteZVoy{
+                    padding-left: 50%;
+                    font-size: 24px;
+                }
+            /* classe pour le lien */
+                .droiteZVoy a{
+                    color: black;
+                }
+        /* Fin Texte de droite */
+
+        /* Description */
+            /* classe de la div pour la description du produit */
+                .descriptionZVoy{
+                    border: 5px black solid;
+                    padding-left: 2%;
+                    padding-top: 1%;
+                    width: 82%;
+                    height: auto;
+                    margin: 5% auto;
+                }
+            /* classe de la div de la description du produit en ciblant le paragraphe */
+                .descriptionZVoy p{
+                    font-size: 24px;
+                }
+        /* Fin Description */
+    /* Fin Taille Z */
+
+    /* Taille N */
+        /* Image */
+            /* Id Image VoituresVoyageursTailleNVue1 */
+                #VoituresVoyageursTailleNVue1{
+                    width: 30%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleNVue2 */
+                #VoituresVoyageursTailleNVue2{
+                    width: 25%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleNVue3 */
+                #VoituresVoyageursTailleNVue3{
+                    width: 40%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleNVue4 */
+                #VoituresVoyageursTailleNVue4{
+                    width: 30%;
+                    height: auto;
+                }
+        /* Fin Image */
+
+        /* Description */
+            .descriptionNVoy{
+                border: 5px black solid;
+                padding-left: 2%;
+                padding-top: 1%;
+                width: 62%;
+                height: auto;
+                margin: 5% auto;
+            }
+            .descriptionNVoy p{
+                font-size: 24px;
+            }
+        /* Fin Description */
+
+        /* Texte de droite */
+            /* classe de la div pour l'image et le texte */
+                .droiteNVoy{
+                    padding-left: 50%;
+                    font-size: 24px;
+                }
+            /* classe pour le lien */
+                .droiteNVoy a{
+                    color: black;
+                }
+        /* Fin texte de droite */
+    /* Fin Taille N */
+    
+    /* Taille G VoituresVoyageurs*/
+        /* Image */
+            /* Id Image VoituresVoyageursTailleGVue1 */
+                #VoituresVoyageursTailleGVue1{
+                    width: 40%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleGVue2 */
+                #VoituresVoyageursTailleGVue2{
+                    width: 30%;
+                    height: auto;
+                }
+            /* Id Image VoituresVoyageursTailleGVue3 */
+                #VoituresVoyageursTailleGVue3{
+                    width: 435px;
+                    height: 280px;
+                }
+        /* Fin Image */
+
+        /* Description */
+            .descriptionGVoy{
+                border: 5px black solid;
+                padding-left: 2%;
+                padding-top: 1%;
+                width: 70%;
+                height: auto;
+                margin: 5% auto;
+            }
+            .descriptionGVoy p{
+                font-size: 24px;
+            }
+        /* Fin Description */
+    /* Fin Taille G */
+/* Fin Page Produits Voitures de Voyageurs */

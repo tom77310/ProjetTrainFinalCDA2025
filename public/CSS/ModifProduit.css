@@ -1,0 +1,110 @@
+/* Page Modif Produit */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 2%;
+        }
+    /* Fin Titre de la page */
+
+    /* Cadre de modif produits */
+        #produits div {
+            margin-top: 10%;
+            margin-bottom: 5%;
+        }
+        #produits{
+            border: 5px solid black;
+            border-radius: 10px;
+            width: 25%;
+            height: auto;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* input description */
+            .detail{
+                width: 450px;
+                height: 100px;
+                resize: none;
+            }
+        /* Fin Input Desciption */
+
+        /* input nom du produit */
+            .nom{
+                width: 100%;
+                height: 100%;
+            }
+        /* Fin Input Nom */
+
+        /* input prix du produit */
+            .prix{
+                width: 100%;
+                height: 100%;
+            }
+        /* Fin Input Prix */
+
+        /* input quantite du produit */
+            .quantite{
+                width: 100%;
+                height: 100%;
+            }
+        /* Fin Input Quantité */
+
+        /* input nom categorie */
+            .nom_categorie{
+                width: 100%;
+                height: 100%;
+            }
+        /* Fin Input Nom Categorie */
+    /* Fin Cadre Modif Produits */
+
+    /* Boutton Modifier */
+        .modifier{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            margin: 40px auto;
+        }
+        .btn{
+            width: 10%;
+            height: auto;
+        }
+    /* Fin boutton modifier */
+    
+    /* boutton supprimer */
+        .btn_supprimer{
+            width: 10%;
+            height: auto;
+        }
+        .Supprimer{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            margin: 40px auto;
+        }
+    /* Fin Boutton Supprimer */
+
+    /* Lien Retour a la liste */
+        .Retour a{
+            color: black;
+            text-decoration: none;
+        }
+        .Retour{
+            border: 2px solid black;
+            width: 15%;
+            height: auto;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            margin: 40px auto;
+        }
+    /* Lien Retour a la liste */
+/* Fin Page Modif Produit */

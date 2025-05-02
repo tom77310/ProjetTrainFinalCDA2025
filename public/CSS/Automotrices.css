@@ -1,0 +1,46 @@
+/* Page Automotrices */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            padding: 2%;
+            text-decoration: underline;
+        }
+    /* Fin Titre */
+
+    /* Autorails */
+        /* div Classe Autorails */
+        .Autorails{
+            margin-left: 5%;
+        }
+        /* Paragraphe  Div Classe Autorails*/
+        .Autorails p{
+            margin-left: 10%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        /* Id Image Autorails */
+        #Autorails{
+            width: 30%;
+            height: auto;
+        }
+    /* Fin AUtorails */
+
+    /* TGV */
+        /* Id Image TGV */
+        #TGV{
+            width: 90%;
+            height: auto;
+        }
+        /* Div Classe TGV */
+        .TGV{
+            margin-left: 42%;
+            padding-bottom: 6%;
+        }
+        /* Paragraphe  Div Classe TGV*/
+        .TGV p{
+            margin-left: 45%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    /* Fin TGV */
+/* Fin Page Automotrices */

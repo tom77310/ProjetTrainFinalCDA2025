@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    /* padding: 0; */
+
+  }
+
+/* Barre de navigation */
+  .navbar{
+    background-color: rgba(30, 79, 255, 0.7);
+    padding: 0 1rem;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 100%; */
+    /* box-sizing: border-box; */
+  }
+  .navbar a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem; /* => 24px 1rem => 16px */
+  }
+  /* .navbar .nav-menu{
+    display: flex;
+  }*/
+  .navbar .nav-menu li{
+    margin: 0 30px;
+  } 
+  #logo_nav{
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+  }
+  /* Responsivité */
+    /* Menu Burger */
+      .nav-menu{  /* => designe les "ul" */
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: rgba(30, 79, 255, 0.7);
+        margin: 0;
+        list-style: none;
+      }
+      /* .nav-menu a{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      } */
+      .nav-menu.show,
+      .nav-drop.show .dropdown{
+        display: initial;
+      }
+      .nav-item, .nav-drop, .drop-item{
+        padding: 10px 20px;
+      }
+      .nav-button{
+        border: 1px solid;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .dropdown{
+        display: none;
+        list-style: none;
+      }
+      .nav-drop{
+        position: relative;
+      }
+      .nav-drop::after{
+        content: "";
+        position: absolute;
+        top: 14px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #000 transparent transparent;
+      }
+      .nav-drop.show::after{
+        border-color: transparent transparent black;
+      }
+
+      /* En dessous de 900px, les liens de la barre de nav disparait et le menu burger apparait avec les liens dedans */
+      @media screen and (min-width: 1000px ) {
+        .nav-button{
+          display: none;
+        }
+        .nav-menu{
+          display: initial;
+          position: static;
+          background-color: unset;
+        }
+        .nav-item, .nav-drop{
+          display: inline-block;
+          line-height: 50px;
+          height: 100%;
+          padding: 0px 10px;
+        }
+        .dropdown{
+          position: absolute;
+          top: 66px;
+          right: 0;
+          background-color: rgba(30, 79, 255, 0.7);
+          width: max-content;
+          left: 0;
+          margin: 0;
+          padding: 0 20px;
+        }
+        .nav-drop{
+          padding-right: 20px ;
+        }
+        .nav-drop::after{
+          top: 50%;
+          right: 5px;
+        }
+        .nav-drop.show::after{
+          top: calc(50% - 7px);
+        }
+
+      }
+      /* Entre 900px et 1100px, l'espace entre les liens dans le header est par default de 30px */
+      /* Quand l'ecran fait entre 900px et 1100px, la marge sur les cotés des liens du header, est de 0px */
+      @media screen and (max-width:1100px) {
+        .navbar .nav-menu li{
+          margin: 0;
+        }
+      }
+      @media screen and (min-width:1700px) {
+        .navbar .nav-menu li{
+          margin: 0 18px;
+        }
+      }
+
+      /* A partir de 2100px, la marge du header pour espacer les liens, est de 48px sur les cotés */
+      @media screen and (min-width:2100px) {
+        .navbar .nav-menu li{
+          margin: 0 48px;
+        }
+      }
+
+
+
+  /* Fin Responsivité */
+/* Fin de la barre de nav */

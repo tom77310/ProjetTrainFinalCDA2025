@@ -1,0 +1,35 @@
+footer {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+#logo_footer {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.reseau {
+    text-align: center;
+}
+
+.titre_reseau {
+    margin-bottom: 10px;
+color: white;
+}
+
+
+
+.titre_contact {
+    margin-left: auto;
+    color: white;
+
+}
+.insta, .fb, .twitter {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+}

@@ -1,0 +1,55 @@
+/* Page Les Voies */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            margin-top: 2%;
+            text-decoration: underline;
+        }
+    /* Fin TItre de la page */
+
+    /* Les Voies Haut */
+        .LesVoiesHaut{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 5%;
+            padding-top: 4%;
+            margin-right: 15%;
+        }
+        .TailleHO{
+            margin-right: 17%;
+        }
+        #TailleHO{
+            width: 50%;
+            height: auto;
+        }
+        #TailleZ{
+            width: 100%;
+            height: auto;
+        }
+    /* Fin Voies Haut */
+    
+    /* Voies Bas */
+        .LesVoiesBas{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 10%;
+            margin-left: 25%;
+        }
+
+        #TailleN{
+            width: 80%;
+            height: auto;
+        }
+        .TailleN{
+            margin-right: 20%;
+        }
+        #TailleG{
+            width: 100%;
+            height: auto;
+        }
+    /* Fin Voies Bas */
+/* Fin Page Voie */

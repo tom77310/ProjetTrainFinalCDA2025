@@ -1,0 +1,51 @@
+/* Page Wagon Fret  */
+    /* Titre de la Page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            padding: 2% 0% 7% 0%;
+        }
+    /* Fin Titre de la page */
+
+    /* Wagon de Fret */
+        /* classe des 3 images en haut de la page */
+        .WagonsFret{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 6%;
+        }
+        /* WagonRebord */
+            /* Classe WagonRebord */
+            .WagonRebord{
+                padding-right: 15%;
+            }
+            /* Id image wagonRebord*/
+            #WagonRebord{
+                width: 100%;
+                height: auto;
+            }
+        /* Fin Wagon Rebord */
+
+        /* Wagon Couvert */
+
+            /* Id image wagonCouvert */
+            #WagonCouvert{
+                width: 30%;
+                height: auto;
+            }
+        /* Fin Wagon Couvert */
+
+        /* Wagon Bache */
+            /* Id image wagonBache*/
+            #WagonBache{
+                width: 100%;
+                height: auto;
+            }
+            /* Classe WagonBache */
+            .WagonBache{
+                padding-right: 10%;
+            }
+        /* Fin Wagon Bache */
+    /* Fin Wagon Fret */
+/* Fin Pa */

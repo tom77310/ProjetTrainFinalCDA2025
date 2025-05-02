@@ -1,0 +1,92 @@
+/* Page Mode et Délais de Livraisons */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 2%;
+        }
+    /* Fin Titre de la page */
+    
+    /* Navigation Compte */
+        .Droite{
+            float: left;
+            width: 13%;
+            border: 5px solid black;
+            margin-left: 2%;
+        }
+        /* Lien de la navigation du compte */
+        .Droite a{
+            color: black;
+            text-align: center;
+            text-decoration: none;
+        }
+        .infosPersos{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        .Retour{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        .Livraison{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        .remboursement{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+    /* Fin Navigation du Compte */
+
+    /* Cadre infos modes et délais de livraisons */
+        .conditionspaiement{
+            border: 5px solid black;
+            border-radius: 10px;
+            width: 25%;
+            height: auto;
+            margin-left: 37% ;
+            margin-top: 2%;
+            margin-bottom: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* Type de Livraison */
+            .livraison{
+                margin-top: 5%;
+                text-align: center;
+            }
+            h2{
+                text-decoration: underline;
+                margin-bottom: 2%;
+                margin-top: 3%;
+            }
+            .pointrelais{
+                margin-bottom: 10%;
+                margin-top: 5%;
+            }
+            
+            .domicile{
+                margin-bottom: 15%;
+                margin-top: 5%;
+            }
+        /* Fin Type de Livraison */
+
+        /* Type de Paiement */
+            .plusieursfois{
+                margin-top: 5%;
+            }
+            /* Paiement en 1 seul fois */
+            .paiement{
+                text-align: center;
+                margin-top: 2%;
+            }
+        /* Fin Type de Paiement */
+    /* Fin Cadre infos modes et délais de livraisons */
+/* Fin Page Mode et delais livraisons */

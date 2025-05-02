@@ -1,0 +1,78 @@
+/* Page Wagon Rebord */
+    /* Titre de la Page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            padding: 2% 0% 2% 0%;
+        }
+    /* Fin Titre de la page */
+
+    /* Wagon Rebord Haut */
+        /* classe des 2 images en haut de la page */
+        .WagonsRebordsHaut{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 4%;
+            padding-top: 4%;
+        }
+        /* Taille HO */
+            /* Id image wagonRebordTailleHO */
+            #WagonRebordTailleHO{
+                width: 100%;
+                height: auto;
+            }
+            /* Classe WagonRebordTailleHO */
+            .WagonRebordTailleHO{
+                padding-left: 15%;
+                padding-right: 30%;
+            }
+        /* Fin Taille HO */
+
+        /* Taille Z */
+            /* Id image wagonRebordTailleZ*/
+            #WagonRebordTailleZ{
+                width: 100%;
+                height: auto;
+            }
+            /* Classe WagonRebordTailleZ*/
+            .WagonRebordTailleZ{
+                padding-right: 10%;
+            }
+        /* Fin Taille Z */
+    /* Fin Wagon Rebord Haut */
+
+    /* Wagon Rebord Bas */
+        /* classe des 3 images en Bas de la page */
+        .WagonsRebordsBas{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 80px;
+        }
+        /* Taille N */
+            /* Id image wagonRebordTailleN */
+            #WagonRebordTailleN{
+                width: 100%;
+                height: auto;
+            }
+            /* Classe WagonRebordTailleN*/
+            .WagonRebordTailleN{
+                padding-left: 15%;
+                padding-right: 25%;
+            }
+        /* Fin Taille N */
+
+        /* Taille G */
+            /* Id image wagonRebordTailleG*/
+            #WagonRebordTailleG{
+                width: 100%;
+                height: auto;
+            }
+            /* Classe WagonRebordTailleG */
+            .WagonRebordTailleG{
+                padding-right: 8%;
+            }
+        /* Fin Taille G */
+    /* Fin Wagon Rebord Bas */
+/* Fin Page Wagon Rebord */

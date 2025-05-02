@@ -1,0 +1,108 @@
+/* Page Ajout Produit */
+    /* titre */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 2%;
+        }
+    /* fin titre */
+
+    /* Formulaire d'ajout */
+        /* id de la div du formulaire d'ajout */
+        #produits{
+            border: 5px solid black;
+            border-radius: 10px;
+            width: 25%;
+            height: auto;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* div qui designe les input du formulaire */
+        #produits div {
+            margin-top: 10%;
+            margin-bottom: 5%;
+        }
+        /* input description */
+        .detail{
+            width: 450px;
+            height: 100px;
+            resize: none;
+        }
+        /* input nom du produit */
+        .nom{
+            width: 100%;
+            height: 100%;
+        }
+        /* input prix du produit */
+
+        .prix{
+            width: 100%;
+            height: 100%;
+        }
+        /* input quantite du produit */
+
+        .quantite{
+            width: 100%;
+            height: 100%;
+        }
+        /* input nom categorie */
+        .nom_categorie{
+            width: 100%;
+            height: 100%;
+        }
+    /* fin formulaire ajout */
+
+    /* Boutton Modifier Meme classe pour les boutton modif et ajout */
+    .modifier{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin: 40px auto;
+    }
+    /* boutton ajouter */
+    .btn{
+        width: 10%;
+        height: auto;
+    }
+    /* fin boutton ajouter */
+
+    /* Bouton Retour */
+        /* Cible le lien de la div pour le retour dans la liste des produits */
+        .Retour a{
+            color: black;
+            text-decoration: none;
+        }
+        .Retour{
+            border: 2px solid black;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 15%;
+            height: auto;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            margin: 40px auto;
+        }
+    /* fin retour */
+
+    /* Responsivité */
+            /* Entre 900px et 1200px, la longueur du formulaire est à 50% */
+        @media screen and (min-width: 900px) and (max-width:1200px) {
+            #produits{
+                width: 50%;
+            }
+        }
+        /* Entre 1200px et 1900px, la longueur du formulaire est à 30% */
+        @media screen and (min-width:1200px) and (max-width:1900px) {
+            #produits{
+                width: 30%;
+            }
+        }
+    /* Fin Responsivité */
+/* Fin Page Ajout Produit */

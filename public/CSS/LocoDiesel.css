@@ -1,0 +1,62 @@
+/* Locomotives Diesel (page des 4 tailles) */
+    /* Titre de la Page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            padding: 10px 0px 10px 0px;
+        }
+    /* Fin titre de la page */
+
+
+    /* Loco Diesel Haut */
+        .LocoDieselHaut{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 60px;
+            padding-top: 60px;
+        }
+    
+        /* LocoDieselTailleHO */
+            #LocoDieselTailleHO{
+                width: 40%;
+                height: auto;
+            }
+            .LocoDieselTailleHO{
+                padding-left: 245px;
+            }
+        /* Fin loco diesel Taille HO */
+
+        /* LocoDieselTailleZ*/
+            #LocoDieselTailleZ{
+                width: 85%;
+                height: auto;
+            }
+        /* Fin LocoDiesel TailleZ */
+    /* Fin Loco Diesel Haut */
+
+    /* LocoDiesel Bas */
+        .LocoDieselBas{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 80px;
+        }
+        /* Id image LocoDieselTailleN */
+            #LocoDieselTailleN{
+                width: 50%;
+                height: auto;
+            }
+            .LocoDieselTailleN{
+                padding-left: 105px;
+            }
+        /* Fin Loco Diesel Taille N */
+
+        /* Image LocoDieselTailleG*/
+            #LocoDieselTailleG{
+                width: 40%;
+                height: auto;
+            }
+        /* Fin Loco Diesel Taille G */
+    /* Fin LocoDiesel Bas */
+/* Fin Locomotives Diesel (page des 4 tailles) */

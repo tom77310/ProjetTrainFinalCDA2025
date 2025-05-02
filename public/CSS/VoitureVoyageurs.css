@@ -1,0 +1,78 @@
+/* Page Voitures de Voyageurs */
+    /* Titre de la Page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            padding: 2% 0% 2% 0%;
+        }
+    /* Fin Titre de la page */
+
+    /* Voitures Voyageurs Haut */
+        /* classe des 2 images en haut de la page */
+        .VoituresVoyageursHaut{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 7%;
+            padding-top: 2%;
+        }
+        /* Taille HO */
+            /* Id image VoituresVoyageursTailleHO */
+            #VoituresVoyageursTailleHO{
+                width: 80%;
+                height: auto;
+            }
+            /* Classe VoituresVoyageursTailleHO */
+            .VoituresVoyageursTailleHO{
+                padding-left: 20%;
+                padding-right: 25%;
+            }
+        /* Fin Taille HO */
+
+        /* Taille Z */
+            /* Id image VoituresVoyageursTailleZ*/
+            #VoituresVoyageursTailleZ{
+                width: 90%;
+                height: auto;
+            }
+            /* Classe VoituresVoyageursTailleZ*/
+            .VoituresVoyageursTailleZ{
+                padding-right: 10%;
+            }
+        /* Fin Taille Z */
+    /* Fin Voitures Voyageurs Haut */
+
+    /* Voitures Voyageurs Bas */
+        /* classe des 3 images en Bas de la page */
+        .VoituresVoyageursBas{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            padding-bottom: 8%;
+        }
+        /* Taille N */
+            /* Id image VoituresVoyageursTailleN */
+            #VoituresVoyageursTailleN{
+                width: 70%;
+                height: auto;
+            }
+            /* Classe VoituresVoyageursTailleN*/
+            .VoituresVoyageursTailleN{
+                padding-left: 10%;
+                padding-right: 25%;
+            }
+        /* Fin Taille N */
+
+        /* Taille G */
+            /* Classe VoituresVoyageursTailleG */
+            .VoituresVoyageursTailleG{
+                padding-right: 7%;
+            }
+            /* Id image VoituresVoyageursTailleG*/
+            #VoituresVoyageursTailleG{
+                width: 100%;
+                height: auto;
+            }
+        /* Fin Taille G */
+    /* Fin Voiture Voyageurs Bas */
+/* Fin Page Voitures de Voyageurs */

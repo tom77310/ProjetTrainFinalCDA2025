@@ -1,0 +1,39 @@
+/* Page Acceuil */
+  /* class de la div des 2 images d'accueil */
+    .images_accueil {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      gap: 3%;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 2%;
+      padding-top: 4%;
+      padding-bottom: 12%;
+    }
+    /* paragraphe des images acceuil */
+    .images_accueil p {
+      padding: 15px 0;
+    }
+    /* Contact */
+      /* image contact */
+            .contact {
+        width: 50%;
+        height: auto;
+      }
+      /* id de la div de l'image contact */
+      #contact{
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+    /* Fin Contact */
+
+    /* Nouveautés */
+      /* image nouveaute */
+      .nouveaute {
+        width: 80%;
+        height: auto;
+      }
+    /* Fin Nouveauté */
+  /* Fin Classe des 2 images */
+/* Fin Page d'acceuil */

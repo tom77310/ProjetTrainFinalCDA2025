@@ -1,0 +1,45 @@
+/* Page Locomotives avec les 3 types de locomotives */
+    /* Titre de la Page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            padding: 33px 0px 95px 0px;
+        }
+    /* Fin Titre de la page */
+
+    /* Locomotive */
+        .Locomotive{
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 50px;
+        }
+        
+        /* LocomotiveVapeur */
+            #LocomotiveVapeur{
+                width: 50%;
+                height: auto;
+            }
+            .LocomotiveVapeur{
+                padding-left: 80px;
+                padding-right: 120px;
+            }
+        /* Fin LocomotiveVapeur */
+
+        /* Id image LocomotiveDiesel*/
+            #LocomotiveDiesel{
+                width: 50%;
+                height: auto;
+            }
+            .LocomotiveDiesel{
+                padding-right: 75px;
+            }
+        /* Fin LocoDiesel */
+
+        /* LocomotiveElec*/
+            #LocomotiveElec{
+                width: 80%;
+                height: auto;
+            }
+        /* Fin locoElec */
+    /* Fin Locomotive */
+/* Fin Page 3 types de locomotives */

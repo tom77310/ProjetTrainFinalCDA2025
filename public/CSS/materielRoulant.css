@@ -1,0 +1,65 @@
+/* Page Materiel Roulants */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            padding: 1%;
+            text-decoration: underline;
+            margin-top: 1%;
+        }
+    /* Fin titre de la page */
+
+    /* materiel roulant haut */
+        .materielroulant{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 4%;
+            padding-top: 4%;
+            margin-right: 20%;
+        }
+        /* Locomotives */
+            .locomotives{
+                margin-right: 20%;
+            }
+            #Locomotives{
+                width: 50%;
+                height: auto;
+            }
+        /* Fin Locomotives */
+
+        /* Wagons Fret */
+            #WagonsFret{
+                width: 50%;
+                height: auto;
+            }
+        /* Fin Wagons Fret */
+    /* Fin Materiel Roulants Haut */
+
+    /* Materiel Roulant Bas */
+        .materielroulantbas{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 5%;
+            margin-left: 15%;
+        }
+        /* Automotrices */
+            #automotrices{
+                width: 50%;
+                height: auto;
+            }
+            .automotrices{
+                margin-right: 10%;
+            }
+        /* Fin Automotrices */
+
+        /* Voitures Voyageurs */
+            #VoituresVoyageurs{
+                width: 50%;
+                height: auto;
+            }
+        /* Fin Voitures Voyageurs */
+    /* Fin Materiel Roulants Bas */
+/* Fin Page Materiel Roulants */
