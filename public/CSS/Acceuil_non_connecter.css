@@ -1,6 +1,5 @@
 /* Page Acceuil */
-  /* class de la div des 2 images d'accueil */
-    .images_accueil {
+    .images_accueil { /* class de la div des 2 images d'accueil */
       display: flex;
       justify-content: center;
       text-align: center;
@@ -17,7 +16,7 @@
     }
     /* Contact */
       /* image contact */
-            .contact {
+        .contact {
         width: 50%;
         height: auto;
       }
