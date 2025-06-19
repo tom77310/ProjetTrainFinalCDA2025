@@ -1,35 +1,23 @@
-footer {
-    background-color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+.footer {
+  background-color: #0E2E45; /* couleur de fond du footer */
+  padding: 20px 10px;
 }
 
-#logo_footer {
-    width: 50px;
-    height: 50px;
-    border-radius: 20px;
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.reseau {
-    text-align: center;
+.footer-links li {
+  margin: 10px;
 }
-
-.titre_reseau {
-    margin-bottom: 10px;
-color: white;
-}
-
-
-
-.titre_contact {
-    margin-left: auto;
-    color: white;
-
-}
-.insta, .fb, .twitter {
-    width: 50px;
-    height: 50px;
-    margin: 0 5px;
+/* liens du footer */
+.footer-links a {
+  color: white; /* couleur du texte */
+  text-decoration: none; /* pas de soulignage */
+  font-size: 14px; /* taille du texte */
 }

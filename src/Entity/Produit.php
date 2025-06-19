@@ -25,8 +25,9 @@ class Produit
     #[ORM\Column(length: 255)]
     private ?string $quantite = null;
 
-    #[ORM\Column(length: 255)]
+   #[ORM\Column(type: 'text')]
     private ?string $detail = null;
+
 
     #[ORM\Column(length: 255)]
     private ?string $vue1 = null;
@@ -55,6 +56,10 @@ class Produit
 
     #[ORM\ManyToOne(inversedBy: 'produit')]
     private ?Commande $commande = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PageProduit $pageproduit = null;
 
     public function __construct()
     {
@@ -195,29 +200,7 @@ class Produit
     {
         return $this->page_produit;
     }
-
-    public function addPageProduit(PageProduit $pageProduit): static
-    {
-        if (!$this->page_produit->contains($pageProduit)) {
-            $this->page_produit->add($pageProduit);
-            $pageProduit->setProduit($this);
-        }
-
-        return $this;
-    }
-
-    public function removePageProduit(PageProduit $pageProduit): static
-    {
-        if ($this->page_produit->removeElement($pageProduit)) {
-            // set the owning side to null (unless already changed)
-            if ($pageProduit->getProduit() === $this) {
-                $pageProduit->setProduit(null);
-            }
-        }
-
-        return $this;
-    }
-
+    
     public function getCommande(): ?Commande
     {
         return $this->commande;
@@ -226,6 +209,13 @@ class Produit
     public function setCommande(?Commande $commande): static
     {
         $this->commande = $commande;
+
+        return $this;
+    }
+
+    public function setPageproduit(?PageProduit $pageproduit): static
+    {
+        $this->pageproduit = $pageproduit;
 
         return $this;
     }

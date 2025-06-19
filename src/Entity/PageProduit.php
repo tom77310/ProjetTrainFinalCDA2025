@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PageProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PageProduitRepository::class)]
@@ -28,9 +30,18 @@ class PageProduit
     #[ORM\Column(length: 255)]
     private ?string $taille_ho = null;
 
-    #[ORM\ManyToOne(inversedBy: 'page_produit')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Produit $produit = null;
+    /**
+     * @var Collection<int, Produit>
+     */
+    #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'pageproduit')]
+    private Collection $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -97,15 +108,35 @@ class PageProduit
         return $this;
     }
 
-    public function getProduit(): ?Produit
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
     {
-        return $this->produit;
+        return $this->produits;
     }
 
-    public function setProduit(?Produit $produit): static
+    public function addProduit(Produit $produit): static
     {
-        $this->produit = $produit;
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setPageproduit($this);
+        }
 
         return $this;
     }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getPageproduit() === $this) {
+                $produit->setPageproduit(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

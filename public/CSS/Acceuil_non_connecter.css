@@ -1,38 +1,110 @@
-/* Page Acceuil */
-    .images_accueil { /* class de la div des 2 images d'accueil */
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      gap: 3%;
-      flex-wrap: wrap;
-      align-items: center;
-      margin: 2%;
-      padding-top: 4%;
-      padding-bottom: 12%;
-    }
-    /* paragraphe des images acceuil */
-    .images_accueil p {
-      padding: 15px 0;
-    }
-    /* Contact */
-      /* image contact */
-        .contact {
-        width: 50%;
-        height: auto;
-      }
-      /* id de la div de l'image contact */
-      #contact{
-        padding-left: 5%;
-        padding-right: 5%;
-      }
-    /* Fin Contact */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e6e7ea;
+  margin: 0;
+  padding: 0;
+}
 
-    /* Nouveautés */
-      /* image nouveaute */
-      .nouveaute {
-        width: 80%;
-        height: auto;
+    /* Logo en haut à droite sous la nav */
+      .logo-container {
+        display: flex;
+        justify-content: flex-end; /* aligner le logo sur la droite*/
+        padding: 1em 2em 0 0;
       }
-    /* Fin Nouveauté */
-  /* Fin Classe des 2 images */
-/* Fin Page d'acceuil */
+      /* Centrer sur l'image du logo */
+      .logo-container img {
+        height: 80px; /* Longueur du logo */
+        width: auto; /* Hauteur du logo*/
+      }
+    /* Fin logo */
+
+/* SECTION PRINCIPALE */
+  .section_principale {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les images */
+    align-items: center; /* Aligne les images au centre de la section */
+    padding: 3% 10%;
+    background-color: #e6e7ea; /* Couleur de fond de la setion */
+  }
+
+  /* section de gauche  */
+    .section_left {
+      width: 45%; /* taille du texte du paragraphe de gauche */
+    }
+    /* Titre du texte de gauche */
+    .section_left h1 {
+      font-size: 2em; /* taille du texte */
+      font-weight: bold; /* texte en gras */
+      line-height: 1.3em; /* Espacement vertical du texte, interligne */
+      color: black; /* couleur du texte */
+    }
+    .section_left h1 span {
+      text-decoration: underline; /* Soulignage du texte  */
+    }
+    /* Paragraphe de gauche */
+    .section_left p {
+      margin-top: 1em; /* Esapcement entre le haut du texte et le bas du titre */
+      font-size: 0.95em; /* Taille du texte */
+    }
+    /* Button pour acceder a la page "materiel roulant" */
+    .cta-button {
+      display: inline-block;
+      margin-top: 1.5em;
+      padding: 0.8em 1.5em;
+      background-color: #e85440; /* Couleur de fond */
+      color: white; /* Couleur du texte */
+      text-decoration: none;
+      font-weight: bold; /* Texte en gras */
+      border-radius: 5px; /* Arrondis les angles du bouttons */
+      transition: background-color 0.3s; /* Permet d'avoir un delay pour pouvoir jouer l'animation on survol du boutton */
+    }
+
+    .cta-button:hover {
+      background-color: #c74232; /* Au survol du boutton la couleur de change */
+    }
+  /* Fin section gauche */
+  /* Section de droite */
+  .section_right {
+    display: flex; 
+    gap: 2em; /* Espacement entre les images */
+  }
+  /* Designe les images de la section de droite */
+  .section_right img {
+    width: 500px; 
+    height: auto;
+    border-radius: 5px;
+  }
+  /* Fin section de droite */
+/* fin section principale */
+
+/* Section Produits Populaires */
+.produits-populaires {
+  padding: 3% 10%;
+  text-align: center;
+}
+/* Titre produits populaires */
+.produits-populaires h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 2em;
+}
+/* Contient les 4 images de la section */
+.produits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* creér des colonnes pour que les images se mettent correctement dans les colonnes et de sorte pas */
+  gap: 2em; /* espacement entre les images */
+}
+/* designe les images de la section */
+.produit img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Elle force le contenu à rentrer entièrement dans son conteneur sans être coupé, tout en conservant ses proportions.*/
+}
+/* texte en dessous des images */
+.produit p {
+  margin-top: 0.5em;
+  font-size: 1em;
+  font-weight: bold;
+}
+/* fin section produits populaires */

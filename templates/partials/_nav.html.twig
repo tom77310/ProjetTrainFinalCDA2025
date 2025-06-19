@@ -1,77 +1,61 @@
-<ul class="navbar-nav text-center mx-auto">
-    <li class="nav-item">
-        <a class= "nav-link" href= {{ path('acceuil_index') }} >
-                Acceuil 
-                {# Logo #}
-        </a>
-    </li>
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Accueil</a>
+        </li>
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown">Le materiel roulant</a> {# href="{{ path('app_materiel_roulant') }}" #}
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Locomotives</a></li> {# href="{{ path('app_locomotives') }}" #}
-            <li><a class="dropdown-item" href="#">Les Wagons de Fret</a></li> {# href="{{ path('app_wagonfret') }}" #}
-            <li><a class="dropdown-item" href="#">Les Automotrices</a></li> {# href="{{ path('app_automotrices') }}" #}
-            <li><a class="dropdown-item" href="#">Les Voitures de Voyageurs</a></li> {# href="{{ path('app_VV') }}" #}
-        </ul>
-    </li>
-<li>
-        <a class="nav-link" href="">Les nouveautés</a>  {# href="{{ path('app_nouveautes')') }}" #}
-</li>
-<li>
-        <a class="nav-link" href="">Tailles existantes</a> {# href="{{ path('app_tailles')') }}" #}
-</li>
-<li>
-        <a class="nav-link" href="">Les Voies</a> {# href="{{ path('app_Voies')') }}" #}
-</li>
-</ul>
-<div class="text-right">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+            Nos produits
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #0E2E45;">
+            <li><a class="dropdown-item text-white" href="#">Les matériels roulants</a></li>
+            <li><a class="dropdown-item text-white" href="#">Les locomotives</a></li>
+            <li><a class="dropdown-item text-white" href="#">Les voitures de voyageurs</a></li>
+            <li><a class="dropdown-item text-white" href="#">Les automotrices</a></li>
+            <li><a class="dropdown-item text-white" href="#">Les wagons de fret</a></li>
+          </ul>
+        </li>
 
-    {% if app.user %}
-        <span class="navbar-text mx-2">
-            Bonjour {{ app.user.firstname }}
-        </span>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Tailles existantes</a>
+        </li>
 
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Les Voies</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Les Infrastructures Ferroviaires</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav mb-2 mb-lg-0">
         {% if is_granted('ROLE_ADMIN') %}
-        <li>
-            <a class="nav-link"
-               href="#">Liste des Utilisateurs</a> {# href="{{ path('ListeUtilisateurs')') }}" #}
-        </li>
-        <li>
-            <a class="nav-link"
-               href="#">Liste des produits</a> {# href="{{ path('ListeProduits')') }}" #}
-        </li>
-        <li>
-            <a class="nav-link"
-               href="#">Liste des commandes</a> {# href="{{ path('ListeCommandes') }}" (a mettre en place) #}
-        </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Liste des utilisateurs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Liste des produits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Déconnexion</a>
+          </li>
+        {% elseif is_granted('ROLE_USER') %}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Mon compte</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Mon panier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Déconnexion</a>
+          </li>
         {% else %}
-        <li>
-            <a class="nav-link"
-               href="#">Mon compte</a> {# href="{{ path('app_MonCompte')') }}" #}
-        </li>
-        <li>
-            <a class="nav-link"
-               href="#">Mes commandes</a> {# href="{{ path('app_MesCommandes')') }}" (a mettre en place) #}
-        </li>
-        <li>
-            <a class="nav-link"
-               href="#">Mon Panier</a> {# href="{{ path('app_MonPanier')') }}" #}
-        </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light me-2" href="#">Se connecter</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light text-primary" href="#">S'inscrire</a>
+          </li>
         {% endif %}
-
-        <a class="nav-item btn btn-outline-info" 
-           href="">Se déconnecter</a> {# href="{{ path('app_logout') }}" #}
-
-    {% else %}
-
-        <a class="nav-item btn btn-outline-warning"
-           href="">Inscription</a> {# href="{{ path('app_inscription') }}" #}
-
-        <a class="nav-item btn btn-outline-info"
-           href="">Connexion</a> {# href="{{ path('app_login') }}" #}
-
-    {% endif %}
-
-
-</div>
+      </ul>

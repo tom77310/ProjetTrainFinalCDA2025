@@ -18,9 +18,6 @@ class Categorie
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $image_produit = null;
-
     /**
      * @var Collection<int, Produit>
      */
@@ -45,18 +42,6 @@ class Categorie
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getImageProduit(): ?string
-    {
-        return $this->image_produit;
-    }
-
-    public function setImageProduit(string $image_produit): static
-    {
-        $this->image_produit = $image_produit;
 
         return $this;
     }
