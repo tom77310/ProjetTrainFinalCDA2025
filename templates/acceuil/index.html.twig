@@ -1,76 +1,93 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Acceuil utilisateur Non connectés{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('CSS/Acceuil_non_connecter.css') }}">
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    </head>
-<body>
-    <!-- Logo en haut à droite -->
-    <div class="logo-container">
-        <img src="{{ asset('Images/Page_acceuil/logo_site.png') }}" alt="Logo Le Monde du Rail">
-    </div>
-{# Section principale #}
-<section class="section_principale">
-    {# div de la Section de gauche dans la principale #}
-    <div class="section_left">
-        {# Titre de gauche #}
-        <h1>
-            Debutants ou <br>
-            Passionnés, <br> 
-            Bienvenue dans <br>
-            <span> Le Monde du Rail </span>
-        </h1>
-        {# Petit paragraphe d'accroche #}
-        <p>
-            Explorer la passion du rail à tout échelle, <br>
-            et construisez votre propre monde <br>
-            ferroviaire, pièce par pièce, un univers <br>
-            miniature pour tous les voyageurs <br>
-            imaginaires.
-        </p>
-        {# Boutton qui permet d'aller dans la page "Nos Produits". Je ne sais pas si je le garde #}
-        <a href="{{ path('acceuil_index') }}" class="cta-button">Accéder aux produits</a>
-    </div>
-    {# Fin div de la section de gauche dans la section principale #}
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>
+				{% block title %}Acceuil utilisateur Non connectés{% endblock %}
+			</title>
+			<link rel="stylesheet" href="{{ asset('CSS/Acceuil_non_connecter.css') }}">
+			<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		</head>
+		<body>
+			<!-- Logo en haut à droite -->
+			<div class="logo-container">
+				<img src="{{ asset('Images/Page_acceuil/logo_site.png') }}" alt="Logo Le Monde du Rail">
+			</div>
+			{# Section principale #}
+			<section class="section_principale">
+				{# div de la Section de gauche dans la principale #}
+				<div class="section_left">
+					{# Titre de gauche #}
+					<h1>
+						Debutants ou
+						<br>
+						Passionnés,
+						<br>
+						Bienvenue dans
+						<br>
+						<span>
+							Le Monde du Rail
+						</span>
+					</h1>
+					{# Petit paragraphe d'accroche #}
+					<p>
+						Explorer la passion du rail à tout échelle,
+						<br>
+						et construisez votre propre monde
+						<br>
+						ferroviaire, pièce par pièce, un univers
+						<br>
+						miniature pour tous les voyageurs
+						<br>
+						imaginaires.
+					</p>
+					{# Boutton qui permet d'aller dans la page "Nos Produits". Je ne sais pas si je le garde #}
+					<a href="{{ path('acceuil_index') }}" class="cta-button">Accéder aux produits</a>
+				</div>
+				{# Fin div de la section de gauche dans la section principale #}
 
-    {# div de la Section droite dans section principale #}
-    <div class="section_right">
-            <img src={{ asset('Images/Page_acceuil/Image_acceuil2.jpg') }} alt="LocoVapeur" class="LocoVapeur"> {# Image de la locomotive à vapeur a gauche #}
-            <img src={{ asset('Images/Page_acceuil/Image_acceuil1.png') }} alt="TGVM" class="TGVM"> {# Image du TGV a droite #}
-    </div>
-    {# fin div de la Section droite dans section principale #}
-</section>
-{# fin de la Section principale #}
+				{# div de la Section droite dans section principale #}
+				<div class="section_right">
+					<img src={{ asset('Images/Page_acceuil/Image_acceuil2.jpg') }} alt="LocoVapeur" class="LocoVapeur">
+					{# Image de la locomotive à vapeur a gauche #}
+					<img src={{ asset('Images/Page_acceuil/Image_acceuil1.png') }} alt="TGVM" class="TGVM">
+				{# Image du TGV a droite #}
+				</div>
+				{# fin div de la Section droite dans section principale #}
+			</section>
+			{# fin de la Section principale #}
 
-    {# Section du bas pour les produits populaires #}
-    <section class="produits-populaires">
-        {# Titre pour les produits populaires  #}
-        <h2>Nos Produits Populaires Du Moments</h2>
-        {# Div pour les images en dessous du second titre #}
-        <div class="produits-grid">
-            <div class="produit">
-                <img src="{{ asset('Images/Produits/WagonFret/Rebord/TailleHO/RebordHOVue1.png') }}" alt="Wagon de fret Rebord Taille HO">
-                <p>Wagon de fret à Rebord<br><small>Taille HO</small></p>
-            </div>
-            <div class="produit">
-                <img src="{{ asset('Images/Produits/TGV/TailleN/TGVNVue1.png') }}" alt="TGV Lyria Taille N">
-                <p>TGV Lyria<br><small>Taille N</small></p>
-            </div>
-            <div class="produit">
-                <img src="{{ asset('Images/Produits/Locomotives/Vapeur/TailleHO/VapeurHOVue1.png') }}" alt="Locomotive vapeur Taille HO">
-                <p>Locomotive à vapeur<br><small>Taille HO</small></p>
-            </div>
-            <div class="produit">
-                <img src="{{ asset('Images/Produits/Locomotives/Elec/TailleN/ElecNVue1.png') }}" alt="Locomotive électrique Taille N">
-                <p>Locomotive électrique<br><small>Taille N</small></p>
-            </div>
-        </div>
-        {# Fin de la div pour les images en dessous du second titre #}
-    </section>
-{# Fin de la Section du bas pour les produits populaires #}
-</body>
-</html>
+			{# Section du bas pour les produits populaires #}
+			<section class="produits-populaires">
+				{# Titre pour les produits populaires  #}
+				<h2>Nos Produits Populaires Du Moments</h2>
+				{# Div pour les images en dessous du second titre #}
+				<div class="produits-grid">
+					<div class="produit">
+						<img src="{{ asset('Images/Produits/WagonFret/Rebord/TailleHO/RebordHOVue1.png') }}" alt="Wagon de fret Rebord Taille HO">
+						<p>Wagon de fret à Rebord<br><small>Taille HO</small>
+						</p>
+					</div>
+					<div class="produit">
+						<img src="{{ asset('Images/Produits/TGV/TailleN/TGVNVue1.png') }}" alt="TGV Lyria Taille N">
+						<p>TGV Lyria<br><small>Taille N</small>
+						</p>
+					</div>
+					<div class="produit">
+						<img src="{{ asset('Images/Produits/Locomotives/Vapeur/TailleHO/VapeurHOVue1.png') }}" alt="Locomotive vapeur Taille HO">
+						<p>Locomotive à vapeur<br><small>Taille HO</small>
+						</p>
+					</div>
+					<div class="produit">
+						<img src="{{ asset('Images/Produits/Locomotives/Elec/TailleN/ElecNVue1.png') }}" alt="Locomotive électrique Taille N">
+						<p>Locomotive électrique<br><small>Taille N</small>
+						</p>
+					</div>
+				</div>
+				{# Fin de la div pour les images en dessous du second titre #}
+			</section>
+			{# Fin de la Section du bas pour les produits populaires #}
+		</body>
+	</html>
 {% endblock %}

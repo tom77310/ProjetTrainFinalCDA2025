@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Materiel Roulants{% endblock %}
+
+{% block body %}
+<html>
+		<head>
+			<meta charset="UTF-8">
+			<link rel="stylesheet" href="{{ asset('CSS/MaterielRoulants.css') }}"> {# CSS Perso #}
+			{# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> CSS Bootstrap #}
+		</head>
+		<body>
+			{# Section principale #}
+			<section class="section_principale">
+				{% for categorie in MaterielRoulant %}
+                <h1>Le Materiel Roulants</h1>
+                <section class="imageHaut">
+                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image2 }} alt="Locomotive"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+                    <p>Les Locomotives</p>
+                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image4 }} alt="WagonsFret"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+                    <p>Les Wagons de Fret</p>
+                </section>
+                <section class="imageBas">
+                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image1 }} alt="Automotrices"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+                    <p>Les Automotrices</p>
+                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image3 }} alt="VV"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+                    <p>Les Voitures de Voyageurs</p>
+                </section>
+			</section>
+			{# fin de la Section principale #}
+
+			{# Section du bas pour les produits populaires #}
+			<section class="produits-populaires">
+				
+			</section>
+			{# Fin de la Section du bas pour les produits populaires #}
+                {% endfor %}
+		</body>
+	</html>
+{% endblock %}
