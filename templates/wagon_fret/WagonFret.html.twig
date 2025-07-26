@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('CSS/TypeLocos.css') }}">
+    <title>Les Wagons de Fret</title>
+</head>
+{% for categorie in NomCategorie %}
+<body>
+    <h1>Les {{categorie.nom}} </h1>
+    {% endfor %}
+    {% for pageproduit in TypeWagonFretBache %}
+        <div class="WagonsFret">
+            <div class="WFBTailleG">
+                <a href={{ path('app_produits') }}> <img src={{ asset('Images/PageProduits/WagonFret/Bache/') ~ pageproduit.tailleG }} alt="WagonsFretBacheG" id="WagonsFretBacheG"></a>
+                <p>Wagons de Fret Bache Taille G </p>
+            </div>
+            <div class="DTailleN">
+                <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleN }} alt="Locomotivedieseln" id="LocoDieselN"></a>
+                <p>Locomotive diesel taille N</p>
+            </div>
+            <div class="DTailleZ">
+                <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleZ }} alt="Locomotivedieselz" id="LocoDieselZ"></a>
+                <p>Locomotive diesel taille Z</p>
+            </div>
+            <div class="DTailleHO">
+                <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleHo }} alt="Locomotivedieselho" id="LocoDieselHO"></a>
+                <p>Locomotive diesel taille HO</p>
+            </div>
+        </div>
+    {% endfor %}
+    {% for pageproduit in TypeWagonFretPlatRebord %}
+        <div class="LocoElec">
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleG }} alt="LocomotiveElecg" id="LocomotivesElec"></a>
+           <p>Locomotive Elec taille G</p>
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleN }} alt="LocomotiveElecn" id="LocomotivesElec"></a>
+           <p>Locomotive Elec taille N</p>
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleZ }} alt="LocomotiveElecz" id="LocomotivesElec"></a>
+           <p>Locomotive Elec taille Z</p>
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleHo }} alt="LocomotiveElecho" id="LocomotivesElec"></a>
+           <p>Locomotive Elec taille HO</p>
+        </div>
+    {% endfor %}
+    {% for pageproduit in TypeWagonFretCouvert %}
+        <div class="LocoVapeur">
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleG }} alt="LocomotiveVapeurg" id="LocomotivesVapeur"></a>
+           <p>Locomotive vapeur taille G</p>
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleN }} alt="LocomotiveVapeurn" id="LocomotivesVapeur"></a>
+           <p>Locomotive vapeur taille N</p>
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleZ }} alt="LocomotiveVapeurz" id="LocomotivesVapeur"></a>
+           <p>Locomotive vapeur taille Z</p>
+           <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleHo }} alt="LocomotiveVapeurho" id="LocomotivesVapeur"></a>
+           <p>Locomotive vapeur taille HO</p>
+        </div>
+    {% endfor %}
+</body>
+
+</html>
+{% endblock %}
+
+
+       
