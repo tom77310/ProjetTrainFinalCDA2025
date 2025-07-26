@@ -1,0 +1,63 @@
+/* Page Produits Locomotives */
+    /* Locomotive Diesel Taille G */
+        /* Titre de la page */
+            /* Div class titre */
+                .titre{
+                display: flex;
+                flex-direction: row;
+                }
+                /* Lien dans la class titre => Retour vers les types de locomotives */
+                .titre a{
+                    padding-right: 23%;
+                    padding-left: 3%;
+                    padding-top: 1%;
+                    color: black;
+                    text-decoration: none;
+                }
+                /* Fin Lien dans la class titre */
+                /* Balise titre */
+                h1{
+                    text-decoration: underline;
+                    padding-top: 2%;
+                }
+                /* Fin Balise titre */
+             /* Div class titre */
+             /* Paragraphe a droite de l'image */
+                .droiteGDiesel a{
+                    color: black;
+                }
+                /* classe droite */
+                .droiteGDiesel{
+                    padding-left: 50%;
+                    font-size: 24px;
+                }
+            /* Fin Paragraphe a droite de l'image */
+        /* Fin Titre de la page */
+        /* Description*/
+        .descriptionGDiesel{
+            border: 5px black solid;
+            padding-left: 20px;
+            padding-top: 10px;
+            width: 86%;
+            height: 135px;
+            margin: 50px auto;
+        }
+        /* paragraphe de la classe description */
+        .descriptionGDiesel p{
+            font-size: 24px;
+        }
+        /* titre de la description */
+            .titre_description{
+                text-decoration: underline;
+            }
+    /* Fin Description */
+            /* Image */
+                /* Vue1 */
+                    #LocoDieselTailleGVue1{
+                        width: 40%;
+                        height: auto;
+                    }
+                /* Fin Vue1 */
+            /* Fin Image */
+    /* Fin Locomotive Diesel Taille G */
+/* Fin Page Produits Locomotives */

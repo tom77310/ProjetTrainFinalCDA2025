@@ -1,0 +1,59 @@
+/* Titre de la page */
+h1{
+    text-decoration: underline;
+}
+
+/* Style global de la section principale */
+.section_principale {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Les deux sections pour séparer en haut/bas */
+.imageHaut,
+.imageBas {
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Espace entre les blocs */
+    margin: 20px 0;
+}
+
+/* Style commun pour chaque bloc d'image + texte */
+.imageHaut div,
+.imageBas div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Taille des images */
+.imageHaut img,
+.imageBas img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+
+
+/* Texte sous les images */
+.imageHaut p,
+.imageBas p {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Pour une meilleure responsivité */
+@media (max-width: 768px) {
+    .imageHaut,
+    .imageBas {
+        flex-direction: column;
+        align-items: center;
+    }
+}

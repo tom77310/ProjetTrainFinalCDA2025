@@ -12,19 +12,27 @@
 		<body>
 			{# Section principale #}
 			<section class="section_principale">
-				{% for categorie in MaterielRoulant %}
                 <h1>Le Materiel Roulants</h1>
+				{% for categorie in MaterielRoulant %}
                 <section class="imageHaut">
-                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image2 }} alt="Locomotive"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
-                    <p>Les Locomotives</p>
-                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image4 }} alt="WagonsFret"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
-                    <p>Les Wagons de Fret</p>
+					<div class="locomotives">
+						<a  href={{path('Locomotives_typelocos')}}><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image2 }} alt="Locomotive" id="Locomotives"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+						<p>Les Locomotives</p>
+					</div>
+					<div class="wagonfret">
+						<a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image4 }} alt="WagonsFret" id="WagonsFret"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+						<p>Les Wagons de Fret</p>
+					</div>	
                 </section>
                 <section class="imageBas">
-                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image1 }} alt="Automotrices"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
-                    <p>Les Automotrices</p>
-                    <a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image3 }} alt="VV"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
-                    <p>Les Voitures de Voyageurs</p>
+					<div class="automotrices">
+						<a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image1 }} alt="Automotrices" id="automotrices"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+						<p>Les Automotrices</p>
+					</div>
+					<div class="VoituresVoyageurs">
+						<a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image3 }} alt="VV" id"VoituresVoyageurs"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+						<p>Les Voitures de Voyageurs</p>
+					</div>
                 </section>
 			</section>
 			{# fin de la Section principale #}

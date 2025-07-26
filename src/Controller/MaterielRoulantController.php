@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\CategorieRepository;
+use App\Repository\PageProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,11 +11,12 @@ use Symfony\Component\Routing\Attribute\Route;
 final class MaterielRoulantController extends AbstractController
 {
     #[Route('/materiel_roulant', name: 'MaterielRoulant_matRoulant')]
-    public function PageLocomotive(CategorieRepository $LocomotiveCategorie): Response
+    public function PageMaterielRoulants(CategorieRepository $MaterielRoulantsCategorie): Response
     {
         return $this->render('materiel_roulant/matRoulants.html.twig', [
-            'MaterielRoulant' => $LocomotiveCategorie->findBy(['id' => 7]),
+            'MaterielRoulant' => $MaterielRoulantsCategorie->findBy(['id' => 7]), // Page materiel roulants => récuperer les images pour la page
         ]);
     }
+    
 
 }
