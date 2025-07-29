@@ -7,41 +7,43 @@ h1 {
     text-align: center;
     text-decoration: underline;
 }
-/* .LocoDiesel{
+.ImagesLigne1 div,
+.ImagesLigne2 div,
+.ImagesLigne3 div,
+.ImagesLigne4 div{
     display: flex;
-} */
-/* Loco Diesel taille G */
-    /* Image */
-        /* #LocoDieselG{ */
-    /* width: 100%; */
-    /* height: 100%; */
-    /* object-fit: cover; Remplit la div sans déformer l’image */
-    /* display: block;  */
-         /* } */
-    /* Class img + texte */
-/* .DTailleG{
-        width: 250px;
-    height: auto;
-} */
-        /* texte class */
-            /* .DTailleG p{
-                margin-top: 10px;
-                font-weight: bold;
-                font-size: 15px;
-                color: black;
-            } */
-
-
-
-/* #LocoDieselN{
-    width: 25%;
-    height: auto;
+    flex-direction: column;
+    align-items: center;
 }
-#LocoDieselZ{
-    width: 25%;
-    height: auto;
+.ImagesLigne1,
+.ImagesLigne2,
+.ImagesLigne3,
+.ImagesLigne4{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 20px;
 }
-#LocoDieselHO{
-    width: 25%;
+.ImagesLigne1 img,
+.ImagesLigne2 img,
+.ImagesLigne3 img,
+.ImagesLigne4 img{
+    width: 400px;
     height: auto;
-} */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.ImagesLigne1 p,
+.ImagesLigne2 p,
+.ImagesLigne3 p,
+.ImagesLigne4 p{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.LocoElecG,
+.LocoElecHO{
+    margin-top: 60px;
+}
