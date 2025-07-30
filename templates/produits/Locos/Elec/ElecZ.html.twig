@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="{{ asset('CSS/Carrousel.css') }}">
+			<link rel="stylesheet" href="{{ asset('CSS/ProduitLocos.css') }}">
+			<title>Locomotive Elec Taille Z</title>
+		</head>
+
+		<body>
+				<div
+					class="titre">
+					<a href={{ path('Locomotives_typelocos') }}>Retour vers les types de locomotives</a>
+					{% for Produits in LocoElecZ %}
+						<h1>{{Produits.NomProduit}}</h1>
+					</div>
+					<main>
+						<div id="carrousel">
+							<figure>
+								<img src={{ asset('images/Produits/Locomotives/Elec/TailleZ/') ~ Produits.vue1 }} alt="LocoElecTailleZvue1" id="LocoElecTailleZVue1">
+							</figure>
+							<figure>
+								<img src={{ asset('images/Produits/Locomotives/Elec/TailleZ/') ~ Produits.vue2 }} alt="LocoElecTailleZvue2" id="LocoElecTailleZVue2">
+							</figure>
+						</div>
+					</main>
+					<div class="LocoElecTailleZ">
+						<div class="droiteZElec">
+							<p>
+								Prix unitaire :
+								{{Produits.prix}}
+								€
+							</p>
+							{% if app.user %}
+
+								<a href={{ path('app_ajoutpanier', {id: Produits.id} ) }}>Ajouter au panier</a>
+
+							{% else %}
+
+								<a>Connectez-vous pour ajouter cet article a votre panier</a> {# lien a mettre quand je m'occuperait de la page login => href={{ path('app_login') }} #}
+
+							{% endif %}
+						</div>
+					</div>
+					<div class="descriptionZElec">
+						<p>
+							<span class="titre_description">Description du Produit :</span>
+							<br>
+							{{Produits.detail}}
+						</p>
+					</div>
+				{% endfor %}
+		</body>
+		<script src="./js/Carrousel.js"></script>
+	</html>
+{% endblock %}
