@@ -16,11 +16,11 @@
 				{% for categorie in MaterielRoulant %}
                 <section class="imageHaut">
 					<div class="locomotives">
-						<a  href={{path('Locomotives_typelocos')}}><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image2 }} alt="Locomotive" id="Locomotives"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+						<a  href={{path('TypeProduit_Locomotives')}}><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image2 }} alt="Locomotive" id="Locomotives"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
 						<p>Les Locomotives</p>
 					</div>
 					<div class="wagonfret">
-						<a href="#"><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image4 }} alt="WagonsFret" id="WagonsFret"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
+						<a href={{path('TypeProduit_WagonFret')}}><img src={{ asset('Images/MaterielRoulant/') ~ categorie.image4 }} alt="WagonsFret" id="WagonsFret"></a> {# href={{path('acceuil_index')}} => chemin pour redirection#}
 						<p>Les Wagons de Fret</p>
 					</div>	
                 </section>

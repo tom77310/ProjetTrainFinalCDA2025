@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('CSS/TypeWF.css') }}">
+    <title>Les Wagons Fret</title>
+</head>
+{% for categorie in NomCategorie %}
+<body>
+    <h1>Les {{categorie.nom}} </h1>
+    {% endfor %}
+    {% for pageproduit in TypeWagonFretBache %}
+            <div class="ImagesLigne1">
+                <div class="WagonBacheG">
+                    <a href={{ path('produits_dieselG') }}> <img src={{ asset('Images/PageProduits/WagonFret/Bache/') ~ pageproduit.tailleG }} alt="WagonBacheG" id="WagonBacheG"></a>
+                    <p>Wagon Bache taille G</p>
+                </div>
+                <div class="WagonBacheN">
+                    <a href={{ path('produits_dieselN') }}> <img src={{ asset('Images/PageProduits/WagonFret/Bache/') ~ pageproduit.tailleN }} alt="WagonBacheN" id="WagonBacheN"></a>
+                    <p>Wagon Bache taille N</p>
+                </div>
+                <div class="WagonBacheZ">
+                    <a href={{ path('produits_dieselZ') }}> <img src={{ asset('Images/PageProduits/WagonFret/Bache/') ~ pageproduit.tailleZ }} alt="WagonBacheZ" id="WagonBacheZ"></a>
+                    <p>Wagon Bache taille Z</p>
+                </div>
+            </div>
+            <div class="ImagesLigne2">
+                <div class="WagonBacheHO">
+                    <a href={{ path('produits_dieselHO') }}> <img src={{ asset('Images/PageProduits/WagonFret/Bache/') ~ pageproduit.tailleHo }} alt="WagonBacheHO" id="WagonBacheHO"></a>
+                    <p>Wagon Bache taille HO</p>
+                </div>
+                {% endfor %}
+                {% for pageproduit in TypeWagonFretPlatRebord %}
+                <div class="WagonRebordG">
+                    <a href={{ path('produits_ElecG') }}> <img src={{ asset('Images/PageProduits/WagonFret/Rebord/') ~ pageproduit.tailleG }} alt="WagonRebordG" id="WagonRebordG"></a>
+                    <p>Wagon Plat à Rebord en taille G</p>
+                </div>
+                <div class="WagonRebordN">
+                    <a href={{ path('produits_ElecN') }}> <img src={{ asset('Images/PageProduits/WagonFret/Rebord/') ~ pageproduit.tailleN }} alt="WagonRebordN" id="WagonRebordN"></a>
+                    <p>Wagon Plat à Rebord en taille N</p>
+                </div>
+            </div>
+            <div class="ImagesLigne3">
+                <div class="WagonRebordZ">
+                    <a href={{ path('produits_ElecZ') }}> <img src={{ asset('Images/PageProduits/WagonFret/Rebord/') ~ pageproduit.tailleZ }} alt="WagonRebordZ" id="WagonRebordZ"></a>
+                    <p>Wagon Plat à Rebord en taille Z</p>
+                </div>
+                <div class="WagonRebordHO">
+                    <a href={{ path('produits_ElecHO') }}> <img src={{ asset('Images/PageProduits/WagonFret/Rebord/') ~ pageproduit.tailleHo }} alt="WagonRebordHO" id="WagonRebordHO"></a>
+                    <p>Wagon Plat à Rebord en taille HO</p>
+                </div>
+                {% endfor %}
+                {% for pageproduit in TypeWagonsFretCouvert %}
+                <div class="WagonCouvertG">
+                    <a href={{ path('produits_VapeurG') }}> <img src={{ asset('Images/PageProduits/WagonFret/Couvert/') ~ pageproduit.tailleG }} alt="WagonCouvertG" id="WagonCouvertG"></a>
+                    <p>Wagon Couvert en taille G</p>
+                </div>
+            </div>
+            <div class="ImagesLigne4">
+                <div class="WagonCouvertN">
+                    <a href={{ path('produits_VapeurN') }}> <img src={{ asset('Images/PageProduits/WagonFret/Couvert/') ~ pageproduit.tailleN }} alt="WagonCouvertN" id="WagonCouvertN"></a>
+                    <p>Wagon Couvert en taille N</p>
+                </div>
+                <div class="WagonCouvertZ">
+                    <a href={{ path('produits_VapeurZ') }}> <img src={{ asset('Images/PageProduits/WagonFret/Couvert/') ~ pageproduit.tailleZ }} alt="WagonCouvertZ" id="WagonCouvertZ"></a>
+                    <p>Wagon Couvert en taille Z</p>
+                </div>
+                <div class="WagonCouvertHO">
+                    <a href={{ path('produits_VapeurHO') }}> <img src={{ asset('Images/PageProduits/WagonFret/Couvert/') ~ pageproduit.tailleHo }} alt="WagonCouvertHO" id="WagonCouvertHO"></a>
+                    <p>Wagon Couvert en taille HO</p>
+                </div>
+            </div>
+    {% endfor %}
+</body>
+
+</html>
+{% endblock %}
+
+
+       
