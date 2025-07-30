@@ -19,61 +19,61 @@
     {% for pageproduit in TypeLocoDiesel %}
             <div class="ImagesLigne1">
                 <div class="LocoDieselG">
-                    <a href={{ path('app_produits') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleG }} alt="Locomotivedieselg" id="LocoDieselG"></a>
+                    <a href={{ path('produits_dieselG') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleG }} alt="Locomotivedieselg" id="LocoDieselG"></a>
                     <p>Locomotive diesel taille G</p>
                 </div>
                 <div class="LocoDieselN">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleN }} alt="Locomotivedieseln" id="LocoDieselN"></a>
+                    <a href={{ path('produits_dieselN') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleN }} alt="Locomotivedieseln" id="LocoDieselN"></a>
                     <p>Locomotive diesel taille N</p>
                 </div>
                 <div class="LocoDieselZ">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleZ }} alt="Locomotivedieselz" id="LocoDieselZ"></a>
+                    <a href={{ path('produits_dieselZ') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleZ }} alt="Locomotivedieselz" id="LocoDieselZ"></a>
                     <p>Locomotive diesel taille Z</p>
                 </div>
             </div>
             <div class="ImagesLigne2">
                 <div class="LocoDieselHO">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleHo }} alt="Locomotivedieselho" id="LocoDieselHO"></a>
+                    <a href={{ path('produits_dieselHO') }}> <img src={{ asset('Images/PageProduits/Locomotives/Diesel/') ~ pageproduit.tailleHo }} alt="Locomotivedieselho" id="LocoDieselHO"></a>
                     <p>Locomotive diesel taille HO</p>
                 </div>
                 {% endfor %}
                 {% for pageproduit in TypeLocoElec %}
                 <div class="LocoElecG">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleG }} alt="LocomotiveElecg" id="LocomotivesElec"></a>
+                    <a href={{ path('produits_ElecG') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleG }} alt="LocomotiveElecg" id="LocomotivesElec"></a>
                     <p>Locomotive Elec taille G</p>
                 </div>
                 <div class="LocoElecN">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleN }} alt="LocomotiveElecn" id="LocomotivesElec"></a>
+                    <a href={{ path('produits_ElecN') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleN }} alt="LocomotiveElecn" id="LocomotivesElec"></a>
                     <p>Locomotive Elec taille N</p>
                 </div>
             </div>
             <div class="ImagesLigne3">
                 <div class="LocoElecZ">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleZ }} alt="LocomotiveElecz" id="LocomotivesElec"></a>
+                    <a href={{ path('produits_ElecZ') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleZ }} alt="LocomotiveElecz" id="LocomotivesElec"></a>
                     <p>Locomotive Elec taille Z</p>
                 </div>
                 <div class="LocoElecHO">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleHo }} alt="LocomotiveElecho" id="LocomotivesElec"></a>
+                    <a href={{ path('produits_ElecHO') }}> <img src={{ asset('Images/PageProduits/Locomotives/Elec/') ~ pageproduit.tailleHo }} alt="LocomotiveElecho" id="LocomotivesElec"></a>
                     <p>Locomotive Elec taille HO</p>
                 </div>
                 {% endfor %}
                 {% for pageproduit in TypeLocoVapeur %}
                 <div class="LocoVapeurG">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleG }} alt="LocomotiveVapeurg" id="LocomotivesVapeur"></a>
+                    <a href={{ path('produits_VapeurG') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleG }} alt="LocomotiveVapeurg" id="LocomotivesVapeur"></a>
                     <p>Locomotive vapeur taille G</p>
                 </div>
             </div>
             <div class="ImagesLigne4">
                 <div class="LocoVapeurN">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleN }} alt="LocomotiveVapeurn" id="LocomotivesVapeur"></a>
+                    <a href={{ path('produits_VapeurN') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleN }} alt="LocomotiveVapeurn" id="LocomotivesVapeur"></a>
                     <p>Locomotive vapeur taille N</p>
                 </div>
                 <div class="LocoVapeurZ">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleZ }} alt="LocomotiveVapeurz" id="LocomotivesVapeur"></a>
+                    <a href={{ path('produits_VapeurZ') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleZ }} alt="LocomotiveVapeurz" id="LocomotivesVapeur"></a>
                     <p>Locomotive vapeur taille Z</p>
                 </div>
                 <div class="LocoVapeurHO">
-                    <a href={{ path('Locomotives_typelocos') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleHo }} alt="LocomotiveVapeurho" id="LocomotivesVapeur"></a>
+                    <a href={{ path('produits_VapeurHO') }}> <img src={{ asset('Images/PageProduits/Locomotives/Vapeur/') ~ pageproduit.tailleHo }} alt="LocomotiveVapeurho" id="LocomotivesVapeur"></a>
                     <p>Locomotive vapeur taille HO</p>
                 </div>
             </div>
