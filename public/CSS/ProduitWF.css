@@ -1,0 +1,262 @@
+/* Style commun a toutes les pages produits */
+.titre{
+display: flex;
+flex-direction: row;
+}
+.titre a{
+padding-right: 23%;
+padding-left: 3%;
+padding-top: 1%;
+color: black;
+text-decoration: none;
+}
+h1{
+text-decoration: underline;
+padding-top: 2%;
+}
+.titre_description{
+text-decoration: underline;
+}
+/* Fin Style commun */
+
+/* Concerne Les pages Produits Wagons de Fret*/
+.droiteGBache a,
+.droiteNBache a,
+.droiteZBache a,
+.droiteHOBache a{
+color: black;
+}
+
+.droiteGBache,
+.droiteNBache,
+.droiteZBache,
+.droiteHOBache{
+padding-left: 50%;
+font-size: 24px;
+}
+
+.descriptionGBache,
+.descriptionNBache,
+.descriptionZBache,
+.descriptionHOBache{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 86%;
+height: 135px;
+margin: 50px auto;
+}
+.descriptionGBache p,
+.descriptionNBache p,
+.descriptionZBache p,
+.descriptionHOBache p{
+font-size: 24px;
+}
+
+
+/* Concerne Les pages Produits Locomotives Elec */
+.droiteGElec a,
+.droiteNElec a,
+.droiteZElec a,
+.droiteHOElec a{
+color: black;
+}
+
+.droiteGElec,
+.droiteNElec,
+.droiteZElec,
+.droiteHOElec{
+padding-left: 50%;
+font-size: 24px;
+}
+
+.descriptionZElec,
+.descriptionNElec,
+.descriptionGElec{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 90%;
+height: 165px;
+margin: 90px auto;
+}
+
+.descriptionHOElec{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 90%;
+height: 135px;
+margin: 95px auto;
+}
+
+
+.descriptionGElec p,
+.descriptionNElec p,
+.descriptionZElec p,
+.descriptionHOElec p{
+font-size: 24px;
+}
+
+/* Loco Vapeur */
+.droiteGVapeur a,
+.droiteNVapeur a,
+.droiteZVapeur a,
+.droiteHOVapeur a{
+color: black;
+}
+/* classe droite */
+.droiteGVapeur,
+.droiteNVapeur,
+.droiteZVapeur,
+.droiteHOVapeur{
+padding-left: 50%;
+font-size: 24px;
+}
+
+.descriptionGVapeur,
+.descriptionNVapeur,
+.descriptionZVapeur,
+.descriptionHOVapeur{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 86%;
+height: 135px;
+margin: 50px auto;
+}
+
+.descriptionGVapeur p,
+.descriptionNVapeur p,
+.descriptionZVapeur p,
+.descriptionHOVapeur p{
+font-size: 24px;
+}
+
+
+/* Image seule */
+#LocoElecTailleGVue1{
+width: 40%;
+}
+#LocoElecTailleHOVue1{
+width: 50%;
+}
+
+/* Carrousel */
+/* Image Wagon Fret Bache pour carrousel */
+#WagonFretBacheTailleGVue1,
+#WagonFretBacheTailleGVue2{
+width: 100%;
+}
+#WagonFretBacheTailleZVue1,
+#WagonFretBacheTailleZVue2{
+width: 100%;
+}
+#WagonFretBacheTailleHOVue1,
+#WagonFretBacheTailleHOVue2,
+#WagonFretBacheTailleHOVue3{
+width: 100%;
+}
+/* Image locos Elec pour carrousel */
+#LocoElecTailleNVue1,
+#LocoElecTailleNVue2{
+width: 80%;
+}
+#LocoElecTailleZVue1,
+#LocoElecTailleZVue2{
+width: 100%;
+}
+/* Image locos vapeur pour carrousel */
+#LocoVapeurTailleGVue1,
+#LocoVapeurTailleGVue2,
+#LocoVapeurTailleGVue3{
+width: 100%;
+}
+#LocoVapeurTailleHOVue1,
+#LocoVapeurTailleHOVue2,
+#LocoVapeurTailleHOVue3{
+width: 100%;
+}
+#LocoVapeurTailleNVue1,
+#LocoVapeurTailleNVue2,
+#LocoVapeurTailleNVue3{
+width: 100%;
+}
+#LocoVapeurTailleZVue1,
+#LocoVapeurTailleZVue2,
+#LocoVapeurTailleZVue3{
+width: 100%;
+}
+
+
+main{
+width: 50%;
+/* margin: auto; */
+position: relative;
+}
+
+#carrousel{
+border: 5px solid black;
+
+display: grid;
+grid-auto-flow: column;
+grid-auto-columns: 100%;
+gap: 2rem;
+overflow-x: auto;
+
+scrollbar-color: transparent transparent;
+padding: 1rem;
+padding-bottom: 0;
+scroll-snap-type: x mandatory;
+
+@media (prefers-reduced-motion: no-preference){
+scroll-behavior: smooth;
+}
+
+scroll-marker-group:after;
+
+&::scroll-marker-group{
+display: flex;
+justify-content: center;
+gap: 0.5rem;
+padding: 0.5rem;
+}
+
+figure{
+margin: 0;
+scroll-snap-align: center;
+position: relative;
+&::scroll-marker{
+content: " ";
+border: 2px solid black;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+}
+&::scroll-marker:target-current{
+background-color: grey;
+}
+
+}
+&::scroll-button(*){
+background-color: rgba(255, 255, 255, 0.7);
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+border: none;
+font-size: 2rem;
+width: 2rem;
+height: 2rem;
+border-radius: 50%;
+
+}
+&::scroll-button(right){
+content: ">";
+right: 20px;
+}
+&::scroll-button(left){
+content: "<";
+left: 20px;
+}
+
+}

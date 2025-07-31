@@ -111,4 +111,108 @@ final class ProduitsController extends AbstractController
             'LocoVapeurHO' => $Produitrepository->findBy(['id' => 42]),
         ]);
     }
+
+    // Wagons de fret
+    // Bache
+    // Produits Wagons de fret Bache Taille G
+    #[Route('/WFBacheG', name: 'produits_bacheG')]
+    public function WFBacheG(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Bache/WFBacheG.html.twig', [
+            'WFBacheG' => $Produitrepository->findBy(['id' => 49]),
+        ]);
+    }
+    // Produits Wagons de fret Bache Taille N
+    #[Route('/WFBacheN', name: 'produits_bacheN')]
+    public function WFBacheN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Bache/WFBacheN.html.twig', [
+            'WFBacheN' => $Produitrepository->findBy(['id' => 48]),
+        ]);
+    }
+    // Produits Wagons de Fret Bache Taille Z
+    #[Route('/WFBacheZ', name: 'produits_bacheZ')]
+    public function WFBacheZ(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Bache/WFBacheZ.html.twig', [
+            'WFBacheZ' => $Produitrepository->findBy(['id' => 47]),
+        ]);
+    }
+    // Produits Wagons de fret bache Taille HO
+    #[Route('/WFBacheHO', name: 'produits_bacheHO')]
+    public function WFBacheHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Bache/WFBacheHO.html.twig', [
+            'WFBacheHO' => $Produitrepository->findBy(['id' => 46]),
+        ]);
+    }
+
+    // Couvert
+    // Produits Wagons de fret Couvert Taille G
+    #[Route('/WFCouvertG', name: 'produits_couvertG')]
+    public function WFCouvertG(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Couvert/WFCouvertG.html.twig', [
+            'WFCouvertG' => $Produitrepository->findBy(['id' => 57]),
+        ]);
+    }
+    // Produits Wagons de fret Couvert Taille N
+    #[Route('/WFCouvertN', name: 'produits_couvertN')]
+    public function WFCouvertN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Couvert/WFCouvertN.html.twig', [
+            'WFCouvertN' => $Produitrepository->findBy(['id' => 56]),
+        ]);
+    }
+    // Produits Wagons de Fret Couvert Taille Z
+    #[Route('/WFCouvertZ', name: 'produits_couvertZ')]
+    public function WFCouvertZ(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Couvert/WFCouvertZ.html.twig', [
+            'WFCouvertZ' => $Produitrepository->findBy(['id' => 55]),
+        ]);
+    }
+    // Produits Wagons de Fret Couvert Taille HO
+    #[Route('/WFCouvertHO', name: 'produits_couvertHO')]
+    public function WFCouvertHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Couvert/WFCouvertHO.html.twig', [
+            'WFCouvertHO' => $Produitrepository->findBy(['id' => 54]),
+        ]);
+    }
+
+    // Plat à Rebord
+    // Produits Wagons de fret Rebord Taille G
+    #[Route('/WFRebordG', name: 'produits_rebordG')]
+    public function WFRebordG(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Rebord/WFRebordG.html.twig', [
+            'WFRebordG' => $Produitrepository->findBy(['id' => 53]),
+        ]);
+    }
+    // Produits Wagons de fret Rebord Taille N
+    #[Route('/WFRebordN', name: 'produits_rebordN')]
+    public function WFRebordN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Rebord/WFRebordN.html.twig', [
+            'WFRebordN' => $Produitrepository->findBy(['id' => 52]),
+        ]);
+    }
+    // Produits Wagons de Fret Rebord Taille Z
+    #[Route('/WFRebordZ', name: 'produits_rebordZ')]
+    public function WFRebordZ(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Rebord/WFRebordZ.html.twig', [
+            'WFRebordZ' => $Produitrepository->findBy(['id' => 51]),
+        ]);
+    }
+    // Produits Wagon de Fret Rebord Taille HO
+    #[Route('/WFRebordHO', name: 'produits_rebordHO')]
+    public function WFRebordHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/WagonsFret/Rebord/WFRebordHO.html.twig', [
+            'WFRebordHO' => $Produitrepository->findBy(['id' => 50]),
+        ]);
+    }
+    
 }
