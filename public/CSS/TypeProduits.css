@@ -22,7 +22,7 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 50px;
-    margin: 20px;
+    margin: 50px;
 }
 .ImagesLigne1 img,
 .ImagesLigne2 img,
@@ -42,3 +42,11 @@ h1 {
     font-size: 16px;
     color: #333;
 }
+
+/* CSS Specifique page locos */
+.LocoElecG,
+.LocoElecHO{
+    margin-top: 60px;
+}
+
+/* CSS Specifique page automotrices */

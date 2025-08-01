@@ -31,5 +31,15 @@ final class TypeProduitController extends AbstractController
             'TypeWagonsFretCouvert' => $PageProduit->findBy(['id' => 10]), // Recupere l'image de la table pageproduit pour l'afficher (Couvert)
         ]);
     }
+    // Type automotrices 
+     #[Route('/typeAutomotrices', name: 'TypeProduit_Automotrices')] // Page avec tous les type de wagons de fret
+    public function PageAutomotrices(CategorieRepository $AutomotriceCategorie, PageProduitRepository $PageProduit): Response
+    {
+        return $this->render('TypeProduits/Automotrices.html.twig', [
+            'NomCategorie' => $AutomotriceCategorie->findBy(['id' => 1]), // Recupere le nom de la categorie
+            'Autorails' => $PageProduit->findBy(['id' => 1]), // Recupere l'image de la table pageproduit pour l'afficher (Autorails)
+            'TGV' => $PageProduit->findBy(['id' => 6]), // Recupere l'image de la table pageproduit pour l'afficher (TGV)
+        ]);
+    }
 
 }

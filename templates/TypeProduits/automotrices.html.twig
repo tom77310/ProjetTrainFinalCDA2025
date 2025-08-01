@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('CSS/TypeProduits.css') }}">
+    <title>Les Automotrices</title>
+</head>
+{% for categorie in NomCategorie %}
+<body>
+    <h1>Les {{categorie.nom}} </h1>
+    {% endfor %}
+    {% for pageproduit in Autorails %}
+            <div class="ImagesLigne1">
+                <div class="AutorailsG">
+                    <a href={{ path('produits_dieselG') }}> <img src={{ asset('Images/PageProduits/Autorails/') ~ pageproduit.tailleG }} alt="AutorailsG" id="AutorailsG"></a>
+                    <p>Autorails taille G</p>
+                </div>
+                <div class="AutorailsN">
+                    <a href={{ path('produits_dieselN') }}> <img src={{ asset('Images/PageProduits/Autorails/') ~ pageproduit.tailleN }} alt="AutorailsN" id="AutorailsN"></a>
+                    <p>Autorails taille N</p>
+                </div>
+                <div class="AutorailsHO">
+                    <a href={{ path('produits_dieselZ') }}> <img src={{ asset('Images/PageProduits/Autorails/') ~ pageproduit.tailleHo }} alt="AutorailsHO" id="AutorailsHO"></a>
+                    <p>Autorails taille HO</p>
+                </div>
+            </div>
+                {% endfor %}
+                {% for pageproduit in TGV %}
+            <div class="ImagesLigne2">
+                <div class="TGVHO">
+                    <a href={{ path('produits_ElecG') }}> <img src={{ asset('Images/PageProduits/TGV/') ~ pageproduit.tailleHo }} alt="TGVHO" id="TGVHO"></a>
+                    <p>TGV en Taille HO</p>
+                </div>
+                <div class="TGVN">
+                    <a href={{ path('produits_ElecN') }}> <img src={{ asset('Images/PageProduits/TGV/') ~ pageproduit.tailleN }} alt="TGVN" id="TGVN"></a>
+                    <p>TGV taille N</p>
+                </div>
+            </div>
+                {% endfor %}
+</body>
+
+</html>
+{% endblock %}
+
+
+       
