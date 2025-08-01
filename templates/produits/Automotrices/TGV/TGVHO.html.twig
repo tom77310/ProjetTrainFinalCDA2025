@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="{{ asset('CSS/Carrousel.css') }}">
+			<link rel="stylesheet" href="{{ asset('CSS/ProduitsAutomotrices.css') }}">
+			<title>TGV Taille HO</title>
+		</head>
+
+		<body>
+			<div
+				class="titre">
+				<a href={{ path('TypeProduit_Automotrices') }}>Retour vers les types de locomotives</a>
+				{% for Produits in TGVHO %}
+					<h1>{{Produits.NomProduit}}</h1>
+				</div>
+                <main>
+						<div id="carrousel">
+							<figure>
+								<img src={{ asset('images/Produits/TGV/TailleHO/') ~ Produits.vue1 }} alt="TGVTailleHOVue1" id="TGVTailleHOVue1">
+							</figure>
+							<figure>
+								<img src={{ asset('images/Produits/TGV/TailleHO/') ~ Produits.vue2 }} alt="TGVTailleHOVue2" id="TGVTailleHOVue2">
+							</figure>
+						</div>
+					</main>
+				<div class="TGVTailleHO">
+					<div class="droiteHOTGV">
+						<p>
+							Prix unitaire :
+							{{Produits.prix}}
+							€
+						</p>
+						{% if app.user %}
+
+							<a href={{ path('app_ajoutpanier', {id: Produits.id} ) }}>Ajouter au panier</a>
+
+						{% else %}
+
+							<a>Connectez-vous pour ajouter cet article a votre panier</a> {# lien a mettre quand je m'occuperait de la page login => href={{ path('app_login') }} #}
+
+						{% endif %}
+					</div>
+				</div>
+				<div class="descriptionHOTGV">
+					<p>
+						<span class="titre_description">Description du Produit :</span>
+						<br>
+						{{Produits.detail}}
+					</p>
+				</div>
+			{% endfor %}
+		</body>
+		<script src="./js/Carrousel.js"></script>
+	</html>
+{% endblock %}

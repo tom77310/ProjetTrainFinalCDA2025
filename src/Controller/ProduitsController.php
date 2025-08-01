@@ -214,5 +214,47 @@ final class ProduitsController extends AbstractController
             'WFRebordHO' => $Produitrepository->findBy(['id' => 50]),
         ]);
     }
+
+    // Produits Automotrices
+    // Autorails Taille HO
+    #[Route('/AutorailsHO', name: 'produits_autorailsHO')]
+    public function AutorailsHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Automotrices/Autorails/AutorailsHO.html.twig', [
+            'AutorailsHO' => $Produitrepository->findBy(['id' => 1]),
+        ]);
+    }
+    // Autorails Taille G
+    #[Route('/AutorailsG', name: 'produits_autorailsG')]
+    public function AutorailsG(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Automotrices/Autorails/AutorailsG.html.twig', [
+            'AutorailsG' => $Produitrepository->findBy(['id' => 3]),
+        ]);
+    }
+    // Autorails Taille N
+    #[Route('/AutorailsN', name: 'produits_autorailsN')]
+    public function AutorailsN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Automotrices/Autorails/AutorailsN.html.twig', [
+            'AutorailsN' => $Produitrepository->findBy(['id' => 2]),
+        ]);
+    }
+     // TGV Taille HO
+    #[Route('/TGVHO', name: 'produits_TGVHO')]
+    public function TGVHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Automotrices/TGV/TGVHO.html.twig', [
+            'TGVHO' => $Produitrepository->findBy(['id' => 4]),
+        ]);
+    }
+    // TGV Taille N
+    #[Route('/TGVN', name: 'produits_TGVN')]
+    public function TGVN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Automotrices/TGV/TGVN.html.twig', [
+            'TGVN' => $Produitrepository->findBy(['id' => 5]),
+        ]);
+    }
     
 }
