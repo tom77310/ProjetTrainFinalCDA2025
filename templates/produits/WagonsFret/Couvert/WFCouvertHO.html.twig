@@ -11,28 +11,28 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<link rel="stylesheet" href="{{ asset('CSS/Carrousel.css') }}">
 			<link rel="stylesheet" href="{{ asset('CSS/ProduitWF.css') }}">
-			<title>Wagon de Fret Bache Taille G</title>
+			<title>Wagon de Fret Couvert Taille HO</title>
 		</head>
 
 		<body>
 				<div
 					class="titre">
 					<a href={{ path('TypeProduit_WagonFret') }}>Retour vers les types de Wagons de Fret</a>
-					{% for Produits in WFBacheG %}
+					{% for Produits in WFCouvertHO %}
 						<h1>{{Produits.NomProduit}}</h1>
 					</div>
 					<main>
 						<div id="carrousel">
 							<figure>
-								<img src={{ asset('images/Produits/WagonFret/Bache/TailleG/') ~ Produits.vue1 }} alt="WagonFretBacheTailleGVue1" id="WagonFretBacheTailleGVue1">
+								<img src={{ asset('images/Produits/WagonFret/Couvert/TailleHO/') ~ Produits.vue1 }} alt="WagonFretCouvertTailleHOVue1" id="WagonFretCouvertTailleHOVue1">
 							</figure>
 							<figure>
-								<img src={{ asset('images/Produits/WagonFret/Bache/TailleG/') ~ Produits.vue2 }} alt="WagonFretBacheTailleGVue2" id="WagonFretBacheTailleGVue2">
+								<img src={{ asset('images/Produits/WagonFret/Couvert/TailleHO/') ~ Produits.vue2 }} alt="WagonFretCouvertTailleHOVue2" id="WagonFretCouvertTailleHOVue2">
 							</figure>
 						</div>
 					</main>
-					<div class="WFBacheTailleG">
-						<div class="droiteGBache">
+					<div class="WFCouvertTailleHO">
+						<div class="droiteHOCouvert">
 							<p>
 								Prix unitaire :
 								{{Produits.prix}}
@@ -49,7 +49,7 @@
 							{% endif %}
 						</div>
 					</div>
-					<div class="descriptionGBache">
+					<div class="descriptionHOCouvert">
 						<p>
 							<span class="titre_description">Description du Produit :</span>
 							<br>

@@ -36,7 +36,6 @@ font-size: 24px;
 }
 
 .descriptionGBache,
-.descriptionNBache,
 .descriptionZBache,
 .descriptionHOBache{
 border: 5px black solid;
@@ -46,6 +45,15 @@ width: 86%;
 height: 135px;
 margin: 50px auto;
 }
+.descriptionGBache,
+.descriptionNBache{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 86%;
+height: 135px;
+margin: 102px auto;
+}
 .descriptionGBache p,
 .descriptionNBache p,
 .descriptionZBache p,
@@ -54,25 +62,25 @@ font-size: 24px;
 }
 
 
-/* Concerne Les pages Produits Locomotives Elec */
-.droiteGElec a,
-.droiteNElec a,
-.droiteZElec a,
-.droiteHOElec a{
+/* Concerne Les pages Produits Locomotives Rebord */
+.droiteGRebord a,
+.droiteNRebord a,
+.droiteZRebord a,
+.droiteHORebord a{
 color: black;
 }
 
-.droiteGElec,
-.droiteNElec,
-.droiteZElec,
-.droiteHOElec{
+.droiteGRebord,
+.droiteNRebord,
+.droiteZRebord,
+.droiteHORebord{
 padding-left: 50%;
 font-size: 24px;
 }
 
-.descriptionZElec,
-.descriptionNElec,
-.descriptionGElec{
+.descriptionZRebord,
+.descriptionNRebord,
+.descriptionGRebord{
 border: 5px black solid;
 padding-left: 20px;
 padding-top: 10px;
@@ -81,64 +89,81 @@ height: 165px;
 margin: 90px auto;
 }
 
-.descriptionHOElec{
+.descriptionHORebord{
 border: 5px black solid;
 padding-left: 20px;
 padding-top: 10px;
 width: 90%;
-height: 135px;
+height: 165px;
 margin: 95px auto;
 }
 
 
-.descriptionGElec p,
-.descriptionNElec p,
-.descriptionZElec p,
-.descriptionHOElec p{
+.descriptionGRebord p,
+.descriptionNRebord p,
+.descriptionZRebord p,
+.descriptionHORebord p{
 font-size: 24px;
 }
 
-/* Loco Vapeur */
-.droiteGVapeur a,
-.droiteNVapeur a,
-.droiteZVapeur a,
-.droiteHOVapeur a{
+/* Loco Couvert */
+.droiteGCouvert a,
+.droiteNCouvert a,
+.droiteZCouvert a,
+.droiteHOCouvert a{
 color: black;
 }
 /* classe droite */
-.droiteGVapeur,
-.droiteNVapeur,
-.droiteZVapeur,
-.droiteHOVapeur{
+.droiteGCouvert,
+.droiteNCouvert,
+.droiteZCouvert,
+.droiteHOCouvert{
 padding-left: 50%;
 font-size: 24px;
 }
 
-.descriptionGVapeur,
-.descriptionNVapeur,
-.descriptionZVapeur,
-.descriptionHOVapeur{
+.descriptionGCouvert{
 border: 5px black solid;
 padding-left: 20px;
 padding-top: 10px;
 width: 86%;
-height: 135px;
+height: 165px;
 margin: 50px auto;
 }
 
-.descriptionGVapeur p,
-.descriptionNVapeur p,
-.descriptionZVapeur p,
-.descriptionHOVapeur p{
+.descriptionNCouvert,
+.descriptionHOCouvert{
+    border: 5px black solid;
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 86%;
+    height: 170px;
+    margin: 50px auto;
+}
+.descriptionZCouvert{
+        border: 5px black solid;
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 86%;
+    height: 200px;
+    margin: 50px auto;
+}
+.descriptionGCouvert p,
+.descriptionNCouvert p,
+.descriptionZCouvert p,
+.descriptionHOCouvert p{
 font-size: 24px;
 }
 
 
 /* Image seule */
-#LocoElecTailleGVue1{
-width: 40%;
+/* Wagon Bache */
+#WagonFretBacheTailleNVue1{
+width: 50%;
 }
-#LocoElecTailleHOVue1{
+
+/* Wagon Rebord */
+#WagonFretRebordTailleGVue1{
 width: 50%;
 }
 
@@ -153,40 +178,41 @@ width: 100%;
 width: 100%;
 }
 #WagonFretBacheTailleHOVue1,
-#WagonFretBacheTailleHOVue2,
-#WagonFretBacheTailleHOVue3{
+#WagonFretBacheTailleHOVue2{
 width: 100%;
 }
-/* Image locos Elec pour carrousel */
-#LocoElecTailleNVue1,
-#LocoElecTailleNVue2{
+/* Image Wagon de Fret à Rebord pour carrousel */
+#WagonFretRebordTailleNVue1,
+#WagonFretRebordTailleNVue2{
 width: 80%;
 }
-#LocoElecTailleZVue1,
-#LocoElecTailleZVue2{
+#WagonFretRebordTailleZVue1,
+#WagonFretRebordTailleZVue2{
 width: 100%;
 }
-/* Image locos vapeur pour carrousel */
-#LocoVapeurTailleGVue1,
-#LocoVapeurTailleGVue2,
-#LocoVapeurTailleGVue3{
+
+
+/* Image Wagons Fret Couvert pour carrousel */
+#WagonFretCouvertTailleGVue1,
+#WagonFretCouvertTailleGVue2,
+#WagonFretCouvertTailleGVue3{
 width: 100%;
 }
-#LocoVapeurTailleHOVue1,
-#LocoVapeurTailleHOVue2,
-#LocoVapeurTailleHOVue3{
+ #WagonFretCouvertTailleHOVue1,
+#WagonFretCouvertTailleHOVue2{
 width: 100%;
 }
-#LocoVapeurTailleNVue1,
-#LocoVapeurTailleNVue2,
-#LocoVapeurTailleNVue3{
+/*
+#LocoCouvertTailleNVue1,
+#LocoCouvertTailleNVue2,
+#LocoCouvertTailleNVue3{
 width: 100%;
 }
-#LocoVapeurTailleZVue1,
-#LocoVapeurTailleZVue2,
-#LocoVapeurTailleZVue3{
+#LocoCouvertTailleZVue1,
+#LocoCouvertTailleZVue2,
+#LocoCouvertTailleZVue3{
 width: 100%;
-}
+} */
 
 
 main{
