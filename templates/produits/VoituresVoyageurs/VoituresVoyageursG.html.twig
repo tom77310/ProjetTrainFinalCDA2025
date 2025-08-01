@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="{{ asset('CSS/Carrousel.css') }}">
+			<link rel="stylesheet" href="{{ asset('CSS/ProduitsVoituresVoyageurs.css') }}">
+			<title>Locomotive a VoitureVoyageurs Taille G</title>
+		</head>
+
+		<body>
+			<div
+				class="titre">
+				<a href={{ path('TypeProduit_VoituresVoyageurs') }}>Retour vers les types de Voitures de Voyageurs</a>
+				{% for Produits in VoituresVoyageursG %}
+					<h1>{{Produits.NomProduit}}</h1>
+				</div>
+				<main>
+						<div id="carrousel">
+							<figure>
+								<img src={{ asset('images/Produits/VoitureVoyageurs/TailleG/') ~ Produits.vue1 }} alt="VoituresVoyageursTailleGvue1" id="VoituresVoyageursTailleGVue1">
+							</figure>
+							<figure>
+								<img src={{ asset('images/Produits/VoitureVoyageurs/TailleG/') ~ Produits.vue2 }} alt="VoituresVoyageursTailleGvue2" id="VoituresVoyageursTailleGVue2">
+							</figure>
+						</div>
+					</main>
+				<div class="VoituresVoyageursTailleG">
+					<div class="droiteGVoituresVoyageurs">
+						<p>
+							Prix unitaire :
+							{{Produits.prix}}
+							€
+						</p>
+						{% if app.user %}
+
+							<a href={{ path('app_ajoutpanier', {id: Produits.id} ) }}>Ajouter au panier</a>
+
+						{% else %}
+
+							<a>Connectez-vous pour ajouter cet article a votre panier</a> {# lien a mettre quand je m'occuperait de la page login => href={{ path('app_login') }} #}
+
+						{% endif %}
+					</div>
+				</div>
+				<div class="descriptionGVoituresVoyageurs">
+					<p>
+						<span class="titre_description">Description du Produit :</span>
+						<br>
+						{{Produits.detail}}
+					</p>
+				</div>
+			{% endfor %}
+		</body>
+		<script src="./js/Carrousel.js"></script>
+	</html>
+{% endblock %}

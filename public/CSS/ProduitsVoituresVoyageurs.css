@@ -18,23 +18,26 @@ padding-top: 2%;
 text-decoration: underline;
 }
 /* Fin Style commun */
-
-/* Concerne Les pages Produits Automotrices*/
-.droiteGAutorails a,
-.droiteNAutorails a,
-.droiteHOAutorails a{
+/* Concerne Les pages Produits Locomotives VoituresVoyageurs */
+.droiteGVoituresVoyageurs a,
+.droiteNVoituresVoyageurs a,
+.droiteZVoituresVoyageurs a,
+.droiteHOVoituresVoyageurs a{
 color: black;
 }
 
-.droiteGAutorails,
-.droiteNAutorails,
-.droiteHOAutorails{
+.droiteGVoituresVoyageurs,
+.droiteNVoituresVoyageurs,
+.droiteZVoituresVoyageurs,
+.droiteHOVoituresVoyageurs{
 padding-left: 50%;
 font-size: 24px;
 }
 
 
-.descriptionHOAutorails{
+
+
+.descriptionHOVoituresVoyageurs{
 border: 5px black solid;
 padding-left: 20px;
 padding-top: 10px;
@@ -42,100 +45,47 @@ width: 86%;
 height: 135px;
 margin: 50px auto;
 }
-
-.descriptionGAutorails{
-border: 5px black solid;
-padding-left: 20px;
-padding-top: 10px;
-width: 86%;
-height: 135px;
-margin: 150px auto;
+.descriptionZVoituresVoyageurs,
+.descriptionNVoituresVoyageurs,
+.descriptionGVoituresVoyageurs{
+    border: 5px black solid;
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 86%;
+    height: 170px;
+    margin: 50px auto;
 }
 
-.descriptionNAutorails{
-border: 5px black solid;
-padding-left: 20px;
-padding-top: 10px;
-width: 86%;
-height: 135px;
-margin: 160px auto;
-}
-.descriptionGAutorails p,
-.descriptionNAutorails p,
-.descriptionHOAutorails p{
+
+.descriptionGVoituresVoyageurs p,
+.descriptionNVoituresVoyageurs p,
+.descriptionZVoituresVoyageurs p,
+.descriptionHOVoituresVoyageurs p{
 font-size: 24px;
 }
 
-
-/* Concerne Les pages Produits Locomotives TGV */
-
-.droiteNTGV a,
-.droiteHOTGV a{
-color: black;
-}
-
-
-.droiteNTGV,
-.droiteHOTGV{
-padding-left: 50%;
-font-size: 24px;
-}
-
-.descriptionNTGV{
-border: 5px black solid;
-padding-left: 20px;
-padding-top: 10px;
-width: 90%;
-height: 165px;
-margin: 90px auto;
-}
-
-.descriptionHOTGV{
-border: 5px black solid;
-padding-left: 20px;
-padding-top: 10px;
-width: 90%;
-height: 165px;
-margin: 95px auto;
-}
-
-
-
-.descriptionNTGV p,
-.descriptionHOTGV p{
-font-size: 24px;
-}
-
-
-
-
-/* Image seule */
-/* Autorails */
-#AutorailsTailleGVue1{
-width: 50%;
-}
 
 /* Carrousel */
-/* Image Autorails pour carrousel */
-#AutorailsTailleHOVue1,
-#AutorailsTailleHOVue2{
+/* Images VoituresVoyageurs pour carrousel */
+#VoituresVoyageursTailleNVue1,
+#VoituresVoyageursTailleNVue2,
+#VoituresVoyageursTailleNVue3{
 width: 100%;
 }
-
-/* Image Wagon de Fret à TGV pour carrousel */
-#TGVTailleNVue1,
-#TGVTailleNVue2{
-width: 80%;
-}
-#TGVTailleHOVue1,
-#TGVTailleHOVue2,
-#TGVTailleHOVue3{
+#VoituresVoyageursTailleZVue1,
+#VoituresVoyageursTailleZVue2,
+#VoituresVoyageursTailleZVue3{
 width: 100%;
 }
-
-
-
-
+#VoituresVoyageursTailleHOVue1,
+#VoituresVoyageursTailleHOVue2,
+#VoituresVoyageursTailleHOVue3{
+width: 100%;
+}
+#VoituresVoyageursTailleGVue1,
+#VoituresVoyageursTailleGVue2{
+width: 100%;
+}
 
 main{
 width: 50%;

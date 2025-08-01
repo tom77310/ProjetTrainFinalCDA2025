@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('CSS/TypeProduits.css') }}">
+    <title>Les Voitures de Voyageurs</title>
+</head>
+{% for categorie in NomCategorie %}
+<body>
+    <h1>Les {{categorie.nom}} </h1>
+    {% endfor %}
+    {% for pageproduit in VoituresVoyageurs %}
+            <div class="ImagesLigne1">
+                <div class="VoituresVoyageursG">
+                    <a href={{ path('produits_VoituresVoyageursG') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleG }} alt="VoituresVoyageursG" id="VoituresVoyageursG"></a>
+                    <p>Voitures de Voyageurs taille G</p>
+                </div>
+                <div class="VoituresVoyageursN">
+                    <a href={{ path('produits_VoituresVoyageursN') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleN }} alt="VoituresVoyageursN" id="VoituresVoyageursN"></a>
+                    <p>Voitures de Voyageurs taille N</p>
+                </div>
+            </div>
+            <div class="ImagesLigne2">
+                <div class="VoituresVoyageursHO">
+                    <a href={{ path('produits_VoituresVoyageursHO') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleHo }} alt="VoituresVoyageursHO" id="VoituresVoyageursHO"></a>
+                    <p>VoituresVoyageurs taille HO</p>
+                </div>
+                <div class="VoituresVoyageursZ">
+                    <a href={{ path('produits_VoituresVoyageursZ') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleZ }} alt="VoituresVoyageursZ" id="VoituresVoyageursZ"></a>
+                    <p>VoituresVoyageurs taille Z</p>
+                </div>
+            </div>
+                {% endfor %}
+                
+</body>
+
+</html>
+{% endblock %}
+
+
+       

@@ -256,5 +256,38 @@ final class ProduitsController extends AbstractController
             'TGVN' => $Produitrepository->findBy(['id' => 5]),
         ]);
     }
+    // VoituresVoyageurs
+    // Taille HO
+    #[Route('/VoituresVoyageursHO', name: 'produits_VoituresVoyageursHO')]
+    public function VoituresVoyageursHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/VoituresVoyageurs/VoituresVoyageursHO.html.twig', [
+            'VoituresVoyageursHO' => $Produitrepository->findBy(['id' => 6]),
+        ]);
+    }
+    // Taille Z
+    #[Route('/VoituresVoyageursZ', name: 'produits_VoituresVoyageursZ')]
+    public function VoituresVoyageursZ(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/VoituresVoyageurs/VoituresVoyageursZ.html.twig', [
+            'VoituresVoyageursZ' => $Produitrepository->findBy(['id' => 7]),
+        ]);
+    }
+    // Taille N
+    #[Route('/VoituresVoyageursN', name: 'produits_VoituresVoyageursN')]
+    public function VoituresVoyageursN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/VoituresVoyageurs/VoituresVoyageursN.html.twig', [
+            'VoituresVoyageursN' => $Produitrepository->findBy(['id' => 8]),
+        ]);
+    }
+    // Taille G
+    #[Route('/VoituresVoyageursG', name: 'produits_VoituresVoyageursG')]
+    public function VoituresVoyageursG(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/VoituresVoyageurs/VoituresVoyageursG.html.twig', [
+            'VoituresVoyageursG' => $Produitrepository->findBy(['id' => 9]),
+        ]);
+    }
     
 }
