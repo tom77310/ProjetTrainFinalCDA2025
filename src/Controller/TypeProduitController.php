@@ -41,5 +41,14 @@ final class TypeProduitController extends AbstractController
             'TGV' => $PageProduit->findBy(['id' => 6]), // Recupere l'image de la table pageproduit pour l'afficher (TGV)
         ]);
     }
+    // Type VoituresVoyageurs 
+     #[Route('/typeVoituresVoyageutrs', name: 'TypeProduit_VoituresVoyageurs')] // Page avec tous les type de Voitures de Voyageurs
+    public function PageVoituresVoyageurs(CategorieRepository $VoituresVoyageursCategorie, PageProduitRepository $PageProduit): Response
+    {
+        return $this->render('TypeProduits/VoituresVoyageurs.html.twig', [
+            'NomCategorie' => $VoituresVoyageursCategorie->findBy(['id' => 3]), // Recupere le nom de la categorie
+            'VoituresVoyageurs' => $PageProduit->findBy(['id' => 8]), // Recupere l'image de la table pageproduit pour l'afficher (Autorails)
+        ]);
+    }
 
 }
