@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+   <link rel="stylesheet" href="{{ asset('CSS/Inscription.css') }}">
+    <title>Inscription</title>
+
+
+
+    <!-- Body -->
+  <div class="FormulaireInscription">
+        <h1>Formulaire d'inscription</h1>
+        {{form(f)}}
+         <p>Votre Mot de Passe doit contenir au moins une majuscule, <br>
+         une minuscule et un chiffre. <br>
+         Il doit être composé d'au moins 12 caractères. <br>
+         Il ne doit pas être composer de caractères spéciaux.</p>
+    </div>
+
+
+
+
+
+
+
+
+<!-- footer -->
+ {# {%include 'footer.html.twig' %} #}
+{% endblock %}
