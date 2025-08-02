@@ -63,4 +63,14 @@ final class TypeProduitController extends AbstractController
         ]);
     }
 
+    // Type Voies ferroviaires
+     #[Route('/typeVoies', name: 'TypeProduit_Voies')] // Page avec tous les type de infra
+    public function PageVoies(CategorieRepository $VoiesCategorie, PageProduitRepository $PageProduit): Response
+    {
+        return $this->render('TypeProduits/Voies.html.twig', [
+            'NomCategorie' => $VoiesCategorie->findBy(['id' => 6]), // Recupere le nom de la categorie
+            'Voies' => $PageProduit->findBy(['id' => 7]), // Recupere l'image de la table pageproduit pour l'afficher (Voies)
+        ]);
+    }
+
 }

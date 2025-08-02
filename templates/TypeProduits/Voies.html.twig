@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('CSS/TypeProduits.css') }}">
+    <title>Les Automotrices</title>
+</head>
+{% for categorie in NomCategorie %}
+<body>
+    <h1>Les {{categorie.nom}} </h1>
+    {% endfor %}
+    {% for pageproduit in Voies %}
+            <div class="ImagesLigne1">
+                <div class="VoiesZ">
+                    <a href={{ path('produits_voiesZ') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleZ }} alt="VoiesZ" id="VoiesZ"></a>
+                    <p>Voies taille Z</p>
+                </div>
+                <div class="VoiesN">
+                    <a href={{ path('produits_voiesN') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleN }} alt="VoiesN" id="VoiesN"></a>
+                    <p>Voies taille N</p>
+                </div>
+                <div class="VoiesHO">
+                    <a href={{ path('produits_voiesHO') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleHo }} alt="VoiesHO" id="VoiesHO"></a>
+                    <p>Voies taille HO</p>
+                </div>
+            </div>
+            <div class="ImagesLigne2">
+                <div class="VoiesG">
+                    <a href={{ path('produits_voiesG') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleG }} alt="VoiesG" id="VoiesG"></a>
+                    <p>Voies taille G</p>
+                </div>
+            </div>
+                {% endfor %}
+</body>
+
+</html>
+{% endblock %}
+
+
+       

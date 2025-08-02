@@ -360,5 +360,39 @@ final class ProduitsController extends AbstractController
             'SignaN' => $Produitrepository->findBy(['id' => 69]),
         ]);
     }
+    // Voies
+    // Voies HO
+    #[Route('/VoiesHO', name: 'produits_voiesHO')]
+    public function VoiesHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Voies/VoiesHO.html.twig', [
+            'VoiesHO' => $Produitrepository->findBy(['id' => 58]),
+        ]);
+    }
+    // Voies Z
+    #[Route('/VoiesZ', name: 'produits_voiesZ')]
+    public function VoiesZ(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Voies/VoiesZ.html.twig', [
+            'VoiesZ' => $Produitrepository->findBy(['id' => 59]),
+        ]);
+    }
+    // Voies N
+    #[Route('/VoiesN', name: 'produits_voiesN')]
+    public function VoiesN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Voies/VoiesN.html.twig', [
+            'VoiesN' => $Produitrepository->findBy(['id' => 60]),
+        ]);
+    }
+    
+    // Voies G
+    #[Route('/VoiesG', name: 'produits_voiesG')]
+    public function VoiesG(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Voies/VoiesG.html.twig', [
+            'VoiesG' => $Produitrepository->findBy(['id' => 61]),
+        ]);
+    }
     
 }
