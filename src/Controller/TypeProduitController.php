@@ -73,4 +73,13 @@ final class TypeProduitController extends AbstractController
         ]);
     }
 
+    // Tailles existantes
+     #[Route('/taillesExistantes', name: 'TypeProduit_TaillesExistantes')] // Page avec tous les type de infra
+    public function PageTailles(): Response
+    {
+        return $this->render('TypeProduits/TaillesExistantes.html.twig',[
+            'controller_name' => 'TypeProduitController', // Je n'ai pas besoin de récuperer des données de la BDD, juste la page qui correspond
+        ]); 
+    }
+
 }
