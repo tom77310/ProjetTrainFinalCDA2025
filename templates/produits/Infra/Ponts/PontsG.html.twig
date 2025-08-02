@@ -10,29 +10,21 @@
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<link rel="stylesheet" href="{{ asset('CSS/Carrousel.css') }}">
-			<link rel="stylesheet" href="{{ asset('CSS/ProduitsAutomotrices.css') }}">
-			<title>Autorails Taille HO</title>
+			<link rel="stylesheet" href="{{ asset('CSS/Produitsinfra.css') }}">
+			<title>Ponts Taille G</title>
 		</head>
 
 		<body>
 			<div
 				class="titre">
-				<a href={{ path('TypeProduit_Automotrices') }}>Retour vers les types d'automotrices'</a>
-				{% for Produits in AutorailsHO %}
+				<a href={{ path('TypeProduit_Infrastructures') }}>Retour vers les types d'Infrastructures</a>
+				{% for Produits in PontsG %}
 					<h1>{{Produits.NomProduit}}</h1>
 				</div>
-                <main>
-						<div id="carrousel">
-							<figure>
-								<img src={{ asset('images/Produits/Autorails/TailleHO/') ~ Produits.vue1 }} alt="AutorailsTailleHOVue1" id="AutorailsTailleHOVue1">
-							</figure>
-							<figure>
-								<img src={{ asset('images/Produits/Autorails/TailleHO/') ~ Produits.vue2 }} alt="AutorailsTailleHOVue2" id="AutorailsTailleHOVue2">
-							</figure>
-						</div>
-					</main>
-				<div class="AutorailsTailleHO">
-					<div class="droiteHOAutorails">
+				<div class="PontsTailleG">
+								<img src={{ asset('Images/Produits/Infrastructure_ferroviaires/Ponts/') ~ Produits.vue1 }} alt="PontsTailleGVue1" id="PontsTailleGVue1">
+
+                    <div class="droiteGPonts">
 						<p>
 							Prix unitaire :
 							{{Produits.prix}}
@@ -49,15 +41,15 @@
 						{% endif %}
 					</div>
 				</div>
-				<div class="descriptionHOAutorails">
+				<div class="descriptionGPonts">
 					<p>
 						<span class="titre_description">Description du Produit :</span>
 						<br>
 						{{Produits.detail}}
 					</p>
 				</div>
+                
 			{% endfor %}
 		</body>
-		<script src="./js/Carrousel.js"></script>
 	</html>
 {% endblock %}

@@ -1,0 +1,137 @@
+/* Style commun a toutes les pages produits */
+.titre{
+display: flex;
+flex-direction: row;
+}
+.titre a{
+padding-right: 23%;
+padding-left: 3%;
+padding-top: 1%;
+color: black;
+text-decoration: none;
+}
+h1{
+text-decoration: underline;
+padding-top: 2%;
+}
+.titre_description{
+text-decoration: underline;
+}
+/* Fin Style commun */
+/* Concerne Les pages Produits Ponts */
+.droiteGPonts a,
+.droiteZPonts a,
+.droiteHOPonts a{
+color: black;
+}
+
+.droiteGPonts,
+.droiteZPonts,
+.droiteHOPonts{
+padding-left: 50%;
+font-size: 24px;
+}
+
+.descriptionGPonts,
+.descriptionZPonts,
+.descriptionHOPonts{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 86%;
+height: 135px;
+margin: 50px auto;
+}
+.descriptionGPonts p,
+.descriptionZPonts p,
+.descriptionHOPonts p{
+font-size: 24px;
+}
+
+
+/* Concerne Les pages Produits Locomotives Tunnels */
+.droiteHO1Tunnels a,
+.droiteHO2Tunnels a,
+.droiteNTunnels a{
+color: black;
+}
+
+.droiteHO1Tunnels,
+.droiteHO2Tunnels,
+.droiteNTunnels{
+padding-left: 50%;
+font-size: 24px;
+}
+
+.descriptionHO1Tunnels,
+.descriptionHO2Tunnels,
+.descriptionNTunnels{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 90%;
+height: 165px;
+margin: 90px auto;
+}
+
+
+.descriptionHO1Tunnels p,
+.descriptionHO2Tunnels p,
+.descriptionNTunnels p{
+font-size: 24px;
+}
+
+/* Signas */
+.droiteNSignas a,
+.droiteHOSignas a{
+color: black;
+}
+
+
+.droiteNSignas,
+.droiteHOSignas{
+padding-left: 50%;
+font-size: 24px;
+}
+
+.descriptionNSignas,
+.descriptionHOSignas{
+border: 5px black solid;
+padding-left: 20px;
+padding-top: 10px;
+width: 86%;
+height: 135px;
+margin: 50px auto;
+}
+
+.descriptionNSignas p,
+.descriptionHOSignas p{
+font-size: 24px;
+}
+
+
+/* Image seule */
+/* Ponts */
+#PontsTailleGVue1,
+#PontsTailleZVue1,
+#PontsTailleHOVue1{
+width: 40%;
+}
+
+/* Tunnels */
+
+#TunnelsTailleHO1Vue1,
+#TunnelsTailleHO2Vue1,
+#TunnelsTailleNVue1{
+width: 40%;
+}
+
+
+/* Signalisation */
+
+#SignasTailleHOVue1,
+#SignasTailleNVue1{
+width: 30%;
+}
+
+

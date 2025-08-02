@@ -289,5 +289,76 @@ final class ProduitsController extends AbstractController
             'VoituresVoyageursG' => $Produitrepository->findBy(['id' => 9]),
         ]);
     }
+
+    // Infra
+    // Ponts
+    // Taille HO
+    #[Route('/PontsHO', name: 'produits_PontsHO')]
+    public function PontsHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Ponts/PontsHO.html.twig', [
+            'PontsHO' => $Produitrepository->findBy(['id' => 65]),
+        ]);
+    }
+    
+    // Taille Z
+    #[Route('/PontsZ', name: 'produits_PontsZ')]
+    public function PontsZ(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Ponts/PontsZ.html.twig', [
+            'PontsZ' => $Produitrepository->findBy(['id' => 66]),
+        ]);
+    }
+
+    // Taille G
+    #[Route('/PontsG', name: 'produits_PontsG')]
+    public function PontsG(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Ponts/PontsG.html.twig', [
+            'PontsG' => $Produitrepository->findBy(['id' => 67]),
+        ]);
+    }
+    // Tunnels
+    // Taille HO 1
+    #[Route('/TunnelHO1', name: 'produits_TunnelHO1')]
+    public function TunnelHO1(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Tunnels/TunnelHO1.html.twig', [
+            'TunnelHO1' => $Produitrepository->findBy(['id' => 62]),
+        ]);
+    }
+    // Taille HO 2
+    #[Route('/TunnelHO2', name: 'produits_TunnelHO2')]
+    public function TunnelHO2(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Tunnels/TunnelHO2.html.twig', [
+            'TunnelHO2' => $Produitrepository->findBy(['id' => 63]),
+        ]);
+    }
+    // Taille N
+    #[Route('/TunnelN', name: 'produits_TunnelN')]
+    public function TunnelN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Tunnels/TunnelN.html.twig', [
+            'TunnelN' => $Produitrepository->findBy(['id' => 64]),
+        ]);
+    }
+    // Signalisation
+    // Signa HO
+    #[Route('/SignaHO', name: 'produits_SignaHO')]
+    public function SignaHO(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Signa/SignaHO.html.twig', [
+            'SignaHO' => $Produitrepository->findBy(['id' => 68]),
+        ]);
+    }
+    // Signa N
+    #[Route('/SignaN', name: 'produits_SignaN')]
+    public function SignaN(ProduitRepository $Produitrepository): Response
+    {
+        return $this->render('produits/Infra/Signa/SignaN.html.twig', [
+            'SignaN' => $Produitrepository->findBy(['id' => 69]),
+        ]);
+    }
     
 }

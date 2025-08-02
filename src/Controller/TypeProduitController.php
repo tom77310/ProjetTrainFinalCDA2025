@@ -42,12 +42,24 @@ final class TypeProduitController extends AbstractController
         ]);
     }
     // Type VoituresVoyageurs 
-     #[Route('/typeVoituresVoyageutrs', name: 'TypeProduit_VoituresVoyageurs')] // Page avec tous les type de Voitures de Voyageurs
+     #[Route('/typeVoituresVoyageurs', name: 'TypeProduit_VoituresVoyageurs')] // Page avec tous les type de Voitures de Voyageurs
     public function PageVoituresVoyageurs(CategorieRepository $VoituresVoyageursCategorie, PageProduitRepository $PageProduit): Response
     {
         return $this->render('TypeProduits/VoituresVoyageurs.html.twig', [
             'NomCategorie' => $VoituresVoyageursCategorie->findBy(['id' => 3]), // Recupere le nom de la categorie
             'VoituresVoyageurs' => $PageProduit->findBy(['id' => 8]), // Recupere l'image de la table pageproduit pour l'afficher (Autorails)
+        ]);
+    }
+
+    // Type Infrastructures Ferroviaires
+     #[Route('/typeInfra', name: 'TypeProduit_Infrastructures')] // Page avec tous les type de infra
+    public function PageInfra(CategorieRepository $InfraCategorie, PageProduitRepository $PageProduit): Response
+    {
+        return $this->render('TypeProduits/Infra.html.twig', [
+            'NomCategorie' => $InfraCategorie->findBy(['id' => 5]), // Recupere le nom de la categorie
+            'Ponts' => $PageProduit->findBy(['id' => 12]), // Recupere l'image de la table pageproduit pour l'afficher (Ponts)
+            'Signalisation' => $PageProduit->findBy(['id' => 13]), // Recupere l'image de la table pageproduit pour l'afficher (Signa)
+            'Tunnel' => $PageProduit->findBy(['id' => 5]), // Recupere l'image de la table pageproduit pour l'afficher (Tunnels)
         ]);
     }
 
