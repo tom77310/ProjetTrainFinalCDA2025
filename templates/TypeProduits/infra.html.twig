@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('CSS/TypeProduits.css') }}">
+    <title>Les Infrastructures Ferroviaires</title>
+</head>
+{% for categorie in NomCategorie %}
+<body>
+    <h1>Les {{categorie.nom}} </h1>
+    {% endfor %}
+    {% for pageproduit in Ponts %}
+            <div class="ImagesLigne1">
+                <div class="PontsG">
+                    <a href={{ path('produits_PontsG') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Ponts/') ~ pageproduit.tailleG }} alt="PontsG" id="PontsG"></a>
+                    <p>Ponts taille G</p>
+                </div>
+                <div class="PontsN">
+                    <a href={{ path('produits_PontsZ') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Ponts/') ~ pageproduit.tailleZ }} alt="PontsZ" id="PontsZ"></a>
+                    <p>Ponts taille Z</p>
+                </div>
+                <div class="PontsHO">
+                    <a href={{ path('produits_PontsHO') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Ponts/') ~ pageproduit.tailleHo }} alt="PontsHO" id="PontsHO"></a>
+                    <p>Ponts taille HO</p>
+                </div>
+            </div>
+                {% endfor %}
+                {% for pageproduit in Tunnel %}
+            <div class="ImagesLigne2">
+                <div class="TunnelHO1">
+                    <a href={{ path('produits_TunnelHO1') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Tunnel/') ~ pageproduit.tailleZ}} alt="TunnelHO1" id="TunnelHO1"></a>
+                    <p>Tunnel en Taille HO</p>
+                </div>
+                <div class="TunnelHO2">
+                    <a href={{ path('produits_TunnelHO2') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Tunnel/') ~ pageproduit.tailleHo}} alt="TunnelHO2" id="TunnelHO2"></a>
+                    <p>Pont et Tunnel en Taille HO</p>
+                </div>
+                <div class="TunnelN">
+                    <a href={{ path('produits_TunnelN') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Tunnel/') ~ pageproduit.tailleN}} alt="TunnelN" id="TunnelN"></a>
+                    <p>Tunnel taille N</p>
+                </div>
+            </div>
+                {% endfor %}
+                {% for pageproduit in Signalisation %}
+                <div class="ImagesLigne2">
+                    <div class="SignaHO">
+                        <a href={{ path('produits_SignaHO') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Signa/') ~ pageproduit.tailleHo }} alt="SignaHO" id="SignaHO"></a>
+                        <p>Signalisation en Taille HO</p>
+                    </div>
+                    <div class="SignaN">
+                        <a href={{ path('produits_SignaN') }}> <img src={{ asset('Images/PageProduits/Infrastructures_ferroviaires/Signa/') ~ pageproduit.tailleN }} alt="SignaN" id="SignaN"></a>
+                        <p>Signalisation Taille N</p>
+                    </div>
+                </div>
+                {% endfor %}
+</body>
+
+</html>
+{% endblock %}
+
+
+       

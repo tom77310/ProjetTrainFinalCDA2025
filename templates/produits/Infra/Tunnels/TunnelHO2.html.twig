@@ -8,31 +8,23 @@
 
 		<head>
 			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="viewport" content="width=device-width, initial-scale=2.0">
 			<link rel="stylesheet" href="{{ asset('CSS/Carrousel.css') }}">
-			<link rel="stylesheet" href="{{ asset('CSS/ProduitsAutomotrices.css') }}">
-			<title>TGV Taille N</title>
+			<link rel="stylesheet" href="{{ asset('CSS/Produitsinfra.css') }}">
+			<title>Tunnel Taille HO</title>
 		</head>
 
 		<body>
 			<div
 				class="titre">
-				<a href={{ path('TypeProduit_Automotrices') }}>Retour vers les types de TGV</a>
-				{% for Produits in TGVN %}
-					<h1>{{Produits.NomProduit}}</h1>
+				<a href={{ path('TypeProduit_Infrastructures') }}>Retour vers les types d'Infrastructures</a>
+				{% for Produits in TunnelHO2 %}
+					<h2>{{Produits.NomProduit}}</h2>
 				</div>
-				    <main>
-						<div id="carrousel">
-							<figure>
-								<img src={{ asset('images/Produits/TGV/TailleN/') ~ Produits.vue1 }} alt="TGVTailleNVue1" id="TGVTailleNVue1">
-							</figure>
-							<figure>
-								<img src={{ asset('images/Produits/TGV/TailleN/') ~ Produits.vue2 }} alt="TGVTailleNVue2" id="TGVTailleNVue2">
-							</figure>
-						</div>
-					</main>
-				<div class="TGVTailleN">
-					<div class="droiteNTGV">
+				<div class="TunnelsTailleHO2">
+								<img src={{ asset('Images/Produits/Infrastructure_ferroviaires/Tunnels/HO/') ~ Produits.vue1 }} alt="TunnelsTailleHO2Vue2" id="TunnelsTailleHO2Vue2">
+
+                    <div class="droiteHO2Tunnels">
 						<p>
 							Prix unitaire :
 							{{Produits.prix}}
@@ -49,15 +41,15 @@
 						{% endif %}
 					</div>
 				</div>
-				<div class="descriptionNTGV">
+				<div class="descriptionHO2Tunnels">
 					<p>
 						<span class="titre_description">Description du Produit :</span>
 						<br>
 						{{Produits.detail}}
 					</p>
 				</div>
+                
 			{% endfor %}
 		</body>
-		<script src="./js/Carrousel.js"></script>
 	</html>
 {% endblock %}
