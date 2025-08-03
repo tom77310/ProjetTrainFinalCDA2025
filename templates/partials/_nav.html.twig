@@ -38,7 +38,7 @@
             <a class="nav-link text-white" href="#">Liste des produits</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Déconnexion</a>
+            <a class="nav-link text-white" href={{path('app_logout')}}>Déconnexion</a>
           </li>
         {% elseif is_granted('ROLE_USER') %}
           <li class="nav-item">
@@ -48,11 +48,11 @@
             <a class="nav-link text-white" href="#">Mon panier</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Déconnexion</a>
+            <a class="nav-link text-white" href={{path('app_logout')}}>Déconnexion</a>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="btn btn-outline-light me-2" href="#">Se connecter</a>
+            <a class="btn btn-outline-light me-2" href={{path('app_login')}}>Se connecter</a>
           </li>
           <li class="nav-item">
             <a class="btn btn-light text-primary" href={{path('Utilisateur_Inscription')}}>S'inscrire</a>

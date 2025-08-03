@@ -1,0 +1,225 @@
+/* Formulaire de connexion */
+    /* Titre de la page */
+        h1{
+            margin-top: 10%;
+            text-decoration: underline;
+        }
+    /* Fin du titre de la page */
+
+    /* Formulaire de connexion */
+        /* Classe pour tous le formulaire */
+        .formulaireconnexion{
+            border: 5px solid black;
+            border-radius: 10px;
+            width: 25%;
+            height: auto;
+            margin: 200px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* Fin Classe pour tous le formulaire */
+
+        /* classe pour les 2 input */
+        .formulaire{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+        /* Fin des 2 input  */
+
+        /* Input + label Email */
+        .Email{
+            padding-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        #inputEmail{
+            width: 100%;
+            height: 100%;
+        }
+        /* Fin Input + label Email */
+
+
+        /* Classe Input + label MotDePasse */
+            .Mdp{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 40px;
+                width: 100%;
+                height: auto;
+            }
+            .Mdp p{
+                margin-top: 10%;
+            }
+        /* Fin Input + label Mot de Passe */
+
+        /* Boutton de connexion */
+            .connexion{
+                margin-bottom: 10%;
+            }
+        /* Fin Boutton conexion */
+    /* Fin Formulaire connexion */
+/* Fin Page Connexion */
+
+/* Page Inscription */
+/* ===== Titre ===== */
+h1 {
+    text-decoration: underline;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* ===== Conteneur principal ===== */
+.FormulaireInscription {
+    border: 3px solid black;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto 50px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+/* ===== Formulaire en 2 colonnes ===== */
+#inscription_utilisateur_form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* espace entre colonnes et lignes */
+}
+
+/* Chaque champ (label + input) */
+#inscription_utilisateur_form div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+#inscription_utilisateur_form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Inputs et selects */
+#inscription_utilisateur_form input,
+#inscription_utilisateur_form select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Pour que le bouton prenne toute la largeur */
+#inscription_utilisateur_form .inscription {
+    grid-column: span 2; /* reste sur 2 colonnes */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 200px;       /* largeur fixe */
+    margin-left: auto;  /* centrage horizontal */
+    margin-right: auto; /* centrage horizontal */
+}
+
+/* Effet hover bouton */
+#inscription_utilisateur_form .inscription:hover {
+    background-color: #45a049;
+}
+
+/* Texte sous mot de passe */
+.password-hint {
+    grid-column: span 2;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* Responsive : une colonne en mobile */
+@media (max-width: 700px) {
+    #inscription_utilisateur_form {
+        grid-template-columns: 1fr;
+    }
+    #inscription_utilisateur_form .inscription {
+        grid-column: span 1;
+    }
+    .password-hint {
+        grid-column: span 1;
+    }
+}
+/* Fin Page Inscription */
+
+/* Page de contact */
+.contact-container {
+    width: 50%;
+    margin: 80px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.contact-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn-submit {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #0056b3;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    padding: 10px;
+    border-radius: 5px;
+    color: #155724;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 5px;
+    color: #721c24;
+}

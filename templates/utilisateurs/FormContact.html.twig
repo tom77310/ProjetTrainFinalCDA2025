@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+ {% block title %}Formulaire Contact{% endblock %}
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
+<div class="contact-container">
+    <h1>Formulaire de contact</h1>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">{{ message }}</div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+        {{ form_row(form.objet) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.pieceJointe) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.login) }}
+        <button type="submit" class="btn-submit">Envoyer</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -2,10 +2,14 @@
 
 namespace App\Form;
 
-use App\Entity\Produit;
 use App\Entity\Utilisateur;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,26 +19,67 @@ class InscriptionFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('civilite')
-        ->add('nom')
-        ->add('prenom')
-        ->add('date_naissance', null, [
-            'widget' => 'single_text',
+            ->add('civilite', ChoiceType::class, [
+                'required' => false,
+                'choices' => [
+                    'Mr' => 'Monsieur',
+                    'Mme' => 'Madame',
+                    'Mlle' => 'Mademoiselle'
+                ],
+                'placeholder' => 'Sélectionnez',
+                'label' => 'Civilité',
             ])
-        ->add('adresse')
-        ->add('cp')
-        ->add('ville')
-        ->add('telephone')
-        ->add('email')
-        ->add('login')
-        ->add('password')
-        ->add('roles')
-        ->add('save', SubmitType::class, [
-            'label' => 'Inscription',
-            'attr' => [
-                'class' => 'inscription',
-            ],
-        ]);
+            ->add('nom', TextType::class, [
+                'required' => true,
+                'label' => 'Nom de famille*',
+            ])
+            ->add('prenom', TextType::class, [
+                'required' => true,
+                'label' => 'Prénom*',
+            ])
+            ->add('date_naissance', DateType::class, [
+                'widget' => 'single_text',
+                'label' => 'Date de naissance',
+                'required' => false,
+            ])
+            ->add('adresse', TextType::class, [
+                'required' => true,
+                'label' => 'Adresse postale*',
+            ])
+            ->add('cp', NumberType::class, [
+                'label' => 'Code postal',
+                'required' => false,
+            ])
+            ->add('ville', TextType::class, [
+                'label' => 'Ville',
+                'required' => false,
+            ])
+            ->add('telephone', NumberType::class, [
+                'label' => 'Téléphone',
+                'required' => false,
+            ])
+            ->add('email', EmailType::class, [
+                'required' => true,
+                'label' => 'Email*',
+            ])
+            ->add('login', TextType::class, [
+                'label' => "Nom d'utilisateur",
+                'required' => false,
+            ])
+            ->add('password', PasswordType::class, [
+                'required' => true,
+                'label' => 'Mot de passe*',
+                'attr' => [
+                    'minlength' => '12',
+                    'pattern' => '[a-zA-Z0-9]{12,50}',
+                ]
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Inscription',
+                'attr' => [
+                    'class' => 'inscription'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
