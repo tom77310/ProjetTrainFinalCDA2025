@@ -51,20 +51,14 @@ class Produit
     /**
      * @var Collection<int, PageProduit>
      */
-    #[ORM\OneToMany(targetEntity: PageProduit::class, mappedBy: 'produit')]
-    private Collection $page_produit;
 
-    #[ORM\ManyToOne(inversedBy: 'produit')]
-    private ?Commande $commande = null;
 
-    #[ORM\ManyToOne(inversedBy: 'produits')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?PageProduit $pageproduit = null;
+
+
 
     public function __construct()
     {
         $this->utilisateur = new ArrayCollection();
-        $this->page_produit = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -196,27 +190,7 @@ class Produit
     /**
      * @return Collection<int, PageProduit>
      */
-    public function getPageProduit(): Collection
-    {
-        return $this->page_produit;
-    }
     
-    public function getCommande(): ?Commande
-    {
-        return $this->commande;
-    }
 
-    public function setCommande(?Commande $commande): static
-    {
-        $this->commande = $commande;
 
-        return $this;
-    }
-
-    public function setPageproduit(?PageProduit $pageproduit): static
-    {
-        $this->pageproduit = $pageproduit;
-
-        return $this;
-    }
 }

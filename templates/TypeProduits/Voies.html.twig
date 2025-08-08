@@ -16,28 +16,34 @@
 <body>
     <h1>Les {{categorie.nom}} </h1>
     {% endfor %}
-    {% for pageproduit in Voies %}
+            {% for ProduitZ in VoiesZ %}
             <div class="ImagesLigne1">
                 <div class="VoiesZ">
-                    <a href={{ path('produits_voiesZ') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleZ }} alt="VoiesZ" id="VoiesZ"></a>
+                    <a href={{ path('produits_voiesZ') }}> <img src={{ asset('Images/Produits/Voies/') ~ ProduitZ.LibelesTailles }} alt="VoiesZ" id="VoiesZ"></a>
                     <p>Voies taille Z</p>
                 </div>
+                {% endfor %}
+                {% for ProduitN in VoiesN %}
                 <div class="VoiesN">
-                    <a href={{ path('produits_voiesN') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleN }} alt="VoiesN" id="VoiesN"></a>
+                    <a href={{ path('produits_voiesN') }}> <img src={{ asset('Images/Produits/Voies/') ~ ProduitN.LibelesTailles }} alt="VoiesN" id="VoiesN"></a>
                     <p>Voies taille N</p>
                 </div>
+                 {% endfor %}
+                 {% for ProduitHO in VoiesHO %}
                 <div class="VoiesHO">
-                    <a href={{ path('produits_voiesHO') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleHo }} alt="VoiesHO" id="VoiesHO"></a>
+                    <a href={{ path('produits_voiesHO') }}> <img src={{ asset('Images/Produits/Voies/') ~ ProduitHO.LibelesTailles }} alt="VoiesHO" id="VoiesHO"></a>
                     <p>Voies taille HO</p>
                 </div>
+                {% endfor %}
             </div>
+             {% for ProduitG in VoiesG %}
             <div class="ImagesLigne2">
                 <div class="VoiesG">
-                    <a href={{ path('produits_voiesG') }}> <img src={{ asset('Images/PageProduits/Voies/') ~ pageproduit.tailleG }} alt="VoiesG" id="VoiesG"></a>
+                    <a href={{ path('produits_voiesG') }}> <img src={{ asset('Images/Produits/Voies/') ~ ProduitG.LibelesTailles }} alt="VoiesG" id="VoiesG"></a>
                     <p>Voies taille G</p>
                 </div>
-            </div>
                 {% endfor %}
+            </div>
 </body>
 
 </html>

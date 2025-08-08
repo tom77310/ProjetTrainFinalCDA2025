@@ -16,28 +16,34 @@
 <body>
     <h1>Les {{categorie.nom}} </h1>
     {% endfor %}
-    {% for pageproduit in VoituresVoyageurs %}
+            {% for ProduitG in VVG %}
             <div class="ImagesLigne1">
                 <div class="VoituresVoyageursG">
-                    <a href={{ path('produits_VoituresVoyageursG') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleG }} alt="VoituresVoyageursG" id="VoituresVoyageursG"></a>
+                    <a href={{ path('produits_VoituresVoyageursG') }}> <img src={{ asset('Images/Produits/VoitureVoyageurs/TailleG/') ~  ProduitG.LibelesTailles }} alt="VoituresVoyageursG" id="VoituresVoyageursG"></a>
                     <p>Voitures de Voyageurs taille G</p>
                 </div>
+                {% endfor %}
+                {% for ProduitN in VVN %}
                 <div class="VoituresVoyageursN">
-                    <a href={{ path('produits_VoituresVoyageursN') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleN }} alt="VoituresVoyageursN" id="VoituresVoyageursN"></a>
+                    <a href={{ path('produits_VoituresVoyageursN') }}> <img src={{ asset('Images/Produits/VoitureVoyageurs/TailleN/') ~ ProduitN.LibelesTailles }} alt="VoituresVoyageursN" id="VoituresVoyageursN"></a>
                     <p>Voitures de Voyageurs taille N</p>
                 </div>
+                {% endfor %}
             </div>
+            {% for ProduitHO in VVHO %}
             <div class="ImagesLigne2">
                 <div class="VoituresVoyageursHO">
-                    <a href={{ path('produits_VoituresVoyageursHO') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleHo }} alt="VoituresVoyageursHO" id="VoituresVoyageursHO"></a>
-                    <p>VoituresVoyageurs taille HO</p>
+                    <a href={{ path('produits_VoituresVoyageursHO') }}> <img src={{ asset('Images/Produits/VoitureVoyageurs/TailleHO/') ~  ProduitHO.LibelesTailles }} alt="VoituresVoyageursHO" id="VoituresVoyageursHO"></a>
+                    <p>Voitures de Voyageurs taille HO</p>
                 </div>
-                <div class="VoituresVoyageursZ">
-                    <a href={{ path('produits_VoituresVoyageursZ') }}> <img src={{ asset('Images/PageProduits/VoitureVoyageurs/') ~ pageproduit.tailleZ }} alt="VoituresVoyageursZ" id="VoituresVoyageursZ"></a>
-                    <p>VoituresVoyageurs taille Z</p>
-                </div>
-            </div>
                 {% endfor %}
+                {% for ProduitZ in VVZ %}
+                <div class="VoituresVoyageursZ">
+                    <a href={{ path('produits_VoituresVoyageursZ') }}> <img src={{ asset('Images/Produits/VoitureVoyageurs/TailleZ/') ~  ProduitZ.LibelesTailles }} alt="VoituresVoyageursZ" id="VoituresVoyageursZ"></a>
+                    <p>Voitures de Voyageurs taille Z</p>
+                </div>
+                 {% endfor %}
+            </div>
                 
 </body>
 

@@ -16,34 +16,40 @@
 <body>
     <h1>Les {{categorie.nom}} </h1>
     {% endfor %}
-    {% for pageproduit in Autorails %}
+            {% for ProduitG in AutorailsG %}
             <div class="ImagesLigne1">
                 <div class="AutorailsG">
-                    <a href={{ path('produits_autorailsG') }}> <img src={{ asset('Images/PageProduits/Autorails/') ~ pageproduit.tailleG }} alt="AutorailsG" id="AutorailsG"></a>
+                    <a href={{ path('produits_autorailsG') }}> <img src={{ asset('Images/Produits/Autorails/TailleG/') ~ ProduitG.LibelesTailles }} alt="AutorailsG" id="AutorailsG"></a>
                     <p>Autorails taille G</p>
                 </div>
+                {% endfor %}
+                {% for ProduitN in AutorailsN %}
                 <div class="AutorailsN">
-                    <a href={{ path('produits_autorailsN') }}> <img src={{ asset('Images/PageProduits/Autorails/') ~ pageproduit.tailleN }} alt="AutorailsN" id="AutorailsN"></a>
+                    <a href={{ path('produits_autorailsN') }}> <img src={{ asset('Images/Produits/Autorails/TailleN/') ~ ProduitN.LibelesTailles }} alt="AutorailsN" id="AutorailsN"></a>
                     <p>Autorails taille N</p>
                 </div>
+                {% endfor %}
+                {% for ProduitHO in AutorailsHO %}
                 <div class="AutorailsHO">
-                    <a href={{ path('produits_autorailsHO') }}> <img src={{ asset('Images/PageProduits/Autorails/') ~ pageproduit.tailleHo }} alt="AutorailsHO" id="AutorailsHO"></a>
+                    <a href={{ path('produits_autorailsHO') }}> <img src={{ asset('Images/Produits/Autorails/TailleHO/') ~ ProduitHO.LibelesTailles }} alt="AutorailsHO" id="AutorailsHO"></a>
                     <p>Autorails taille HO</p>
                 </div>
-            </div>
                 {% endfor %}
-                {% for pageproduit in TGV %}
+            </div>
+                {% for ProduitHO in TGVHO %}
             <div class="ImagesLigne2">
                 <div class="TGVHO">
-                    <a href={{ path('produits_TGVHO') }}> <img src={{ asset('Images/PageProduits/TGV/') ~ pageproduit.tailleHo }} alt="TGVHO" id="TGVHO"></a>
+                    <a href={{ path('produits_TGVHO') }}> <img src={{ asset('Images/Produits/TGV/TailleHO/') ~ ProduitHO.LibelesTailles }} alt="TGVHO" id="TGVHO"></a>
                     <p>TGV en Taille HO</p>
                 </div>
+                {% endfor %}
+                {% for ProduitN in TGVN %}
                 <div class="TGVN">
-                    <a href={{ path('produits_TGVN') }}> <img src={{ asset('Images/PageProduits/TGV/') ~ pageproduit.tailleN }} alt="TGVN" id="TGVN"></a>
+                    <a href={{ path('produits_TGVN') }}> <img src={{ asset('Images/Produits/TGV/TailleN/') ~ ProduitN.LibelesTailles }} alt="TGVN" id="TGVN"></a>
                     <p>TGV taille N</p>
                 </div>
-            </div>
                 {% endfor %}
+            </div>
 </body>
 
 </html>
