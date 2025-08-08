@@ -73,11 +73,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Messages::class, mappedBy: 'message_utilisateur')]
     private Collection $message_utilisateur;
 
-    /**
-     * @var Collection<int, Produit>
-     */
-    #[ORM\ManyToMany(targetEntity: Produit::class, mappedBy: 'utilisateur')]
-    private Collection $produits;
+
 
     /**
      * @var Collection<int, Commande>
@@ -85,11 +81,14 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'utilisateur')]
     private Collection $commandes;
 
+
+
+
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
         $this->message_utilisateur = new ArrayCollection();
-        $this->produits = new ArrayCollection();
         $this->commandes = new ArrayCollection();
     }
 
@@ -314,64 +313,10 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Produit>
-     */
-    public function getProduits(): Collection
-    {
-        return $this->produits;
-    }
-
-    public function addProduit(Produit $produit): static
-    {
-        if (!$this->produits->contains($produit)) {
-            $this->produits->add($produit);
-            $produit->addUtilisateur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduit(Produit $produit): static
-    {
-        if ($this->produits->removeElement($produit)) {
-            $produit->removeUtilisateur($this);
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Commande>
      */
     public function getCommandes(): Collection
     {
         return $this->commandes;
     }
-
-    public function addCommande(Commande $commande): static
-    {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->setUtilisateur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommande(Commande $commande): static
-    {
-        if ($this->commandes->removeElement($commande)) {
-            // set the owning side to null (unless already changed)
-            if ($commande->getUtilisateur() === $this) {
-                $commande->setUtilisateur(null);
-            }
-        }
-
-        return $this;
-    }
-
-    
-
-   
-
 }

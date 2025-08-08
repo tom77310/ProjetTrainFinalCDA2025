@@ -18,23 +18,24 @@ class Commande
     #[ORM\Column(length: 255)]
     private ?string $reference = null;
 
+
+
+
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     private ?Utilisateur $utilisateur = null;
 
     /**
      * @var Collection<int, Produit>
      */
-    #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'commande')]
-    private Collection $produit;
-
-    #[ORM\OneToOne(inversedBy: 'commande', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?DetailsCommande $detailscommande = null;
+    #[ORM\ManyToMany(targetEntity: Produit::class, inversedBy: 'commandes')]
+    private Collection $Produits;
 
     public function __construct()
     {
-        $this->produit = new ArrayCollection();
+        $this->Produits = new ArrayCollection();
     }
+
+
 
     public function getId(): ?int
     {
@@ -68,16 +69,15 @@ class Commande
     /**
      * @return Collection<int, Produit>
      */
-    public function getProduit(): Collection
+    public function getProduits(): Collection
     {
-        return $this->produit;
+        return $this->Produits;
     }
 
     public function addProduit(Produit $produit): static
     {
-        if (!$this->produit->contains($produit)) {
-            $this->produit->add($produit);
-            $produit->setCommande($this);
+        if (!$this->Produits->contains($produit)) {
+            $this->Produits->add($produit);
         }
 
         return $this;
@@ -85,25 +85,12 @@ class Commande
 
     public function removeProduit(Produit $produit): static
     {
-        if ($this->produit->removeElement($produit)) {
-            // set the owning side to null (unless already changed)
-            if ($produit->getCommande() === $this) {
-                $produit->setCommande(null);
-            }
-        }
+        $this->Produits->removeElement($produit);
 
         return $this;
     }
 
-    public function getDetailscommande(): ?DetailsCommande
-    {
-        return $this->detailscommande;
-    }
 
-    public function setDetailscommande(DetailsCommande $detailscommande): static
-    {
-        $this->detailscommande = $detailscommande;
 
-        return $this;
-    }
+
 }

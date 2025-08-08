@@ -49,16 +49,27 @@ class Produit
     private ?Categorie $categorie = null;
 
     /**
-     * @var Collection<int, PageProduit>
+     * @var Collection<int, Tailles>
      */
+    #[ORM\ManyToMany(targetEntity: Tailles::class, inversedBy: 'produits')]
+    private Collection $Tailles;
 
+    /**
+     * @var Collection<int, Commande>
+     */
+    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'Produits')]
+    private Collection $commandes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Test = null;
 
 
 
     public function __construct()
     {
         $this->utilisateur = new ArrayCollection();
+        $this->Tailles = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -187,9 +198,74 @@ class Produit
         return $this;
     }
 
+
+
     /**
-     * @return Collection<int, PageProduit>
+     * @return Collection<int, Tailles>
      */
+    public function getTailles(): Collection
+    {
+        return $this->Tailles;
+    }
+
+    public function addTaille(Tailles $taille): static
+    {
+        if (!$this->Tailles->contains($taille)) {
+            $this->Tailles->add($taille);
+        }
+
+        return $this;
+    }
+
+    public function removeTaille(Tailles $taille): static
+    {
+        $this->Tailles->removeElement($taille);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): static
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes->add($commande);
+            $commande->addProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): static
+    {
+        if ($this->commandes->removeElement($commande)) {
+            $commande->removeProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function getTest(): ?string
+    {
+        return $this->Test;
+    }
+
+    public function setTest(string $Test): static
+    {
+        $this->Test = $Test;
+
+        return $this;
+    }
+
+
+
+
     
 
 
