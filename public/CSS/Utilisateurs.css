@@ -87,7 +87,7 @@ h1 {
     background-color: #f8f8f8;
 }
 
-/* ===== Formulaire en 2 colonnes ===== */
+/* Formulaire en 2 colonnes */
 #inscription_utilisateur_form {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -224,3 +224,246 @@ textarea {
     color: #721c24;
 }
 /* Fin Page Contact */
+
+/* Page Compte Utilisateurs */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            padding: 2%;
+            text-decoration: underline;
+        }
+    /* Fin Titre de la page */
+
+    /* Compte Haut */
+        .CompteHaut{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 50px;
+            padding-top: 10px;
+        }
+        /* InfosPersos */
+            .InfosPersos{
+                margin-right: 30%;
+            }
+            #InfosPersos{
+                width: 60%;
+                height: auto;
+            }
+        /* Fin Infos Persos */
+
+        /* Formulaire de Retractation */
+            #Retractation{
+                width: 60%;
+                height: auto;
+            }
+            .Retractation{
+                margin-right: 25%;
+            }
+        /* Fin Formulaire de retractation */
+    /* Fin Compte Haut */
+
+    /* Compte Bas */
+        .CompteBas{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 50px;
+            margin-left: 269px;
+        }
+
+        /* Boite de reception */
+            #Reception{
+                width: 60%;
+                height: auto;
+            }
+        /* Fin Modes et délais de livraison */
+
+        /* Conditions de Remboursemnts */
+            #Historique{
+                width: 55%;
+                height: auto;
+            }
+            .Hitorique{
+                margin-right: 20%;
+            }
+        /* Fin Conditions Remboursement */
+    /* Fin Compte Bas */
+/* Fin Page Mon Compte Utilisateurs */
+
+/* Informations Personnelles de l'utilisateurs connecter */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 2%;
+        }
+    /* Fin titre de la page */
+
+    /* Cadre informations personnelles */
+        .InfosPersos{
+            border: 5px solid black;
+            border-radius: 10px;
+            width: 25%;
+            height: auto;
+            margin-left: 37% ;
+            margin-top: 2%;
+            margin-bottom: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    /* Fin cadre informations personnelles */
+
+    /* Cadre de navigation de gauche */
+        .Droite{
+            float: left;
+            width: 13%;
+            border: 5px solid black;
+            margin-left: 2%;
+        }
+        /* Lien du cadre de navigation de gauche */
+        .Droite a{
+            color: black;
+            margin-bottom: 10%;
+            margin-top: 10%;
+            text-decoration: none;
+        }
+        /* Lien du boutton modifier les infos */
+        .button a{
+            color: black;
+            text-decoration: none;
+        }
+        /* Lien info persos */
+        .infosPersos{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        /* lien formulaire de retour */
+        .Retour{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        /* lien Mode et délais de livraison */
+        .Livraison{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        /* Lien conditions de remboursement */
+        .remboursement{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+    /* Fin cadre de navigation gauche */
+/* Fin infos perso utilisateurs */
+
+/* Page formulaire de retour */
+    /* Titre de la page */
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 2%;
+        }
+    /* Fin Titre de la page */
+
+    /* Formulaire de retour */
+        .FormRetour{
+            border: 5px solid black;
+            border-radius: 10px;
+            width: 25%;
+            height: auto;
+            margin-left: 37% ;
+            margin-top: 2%;
+            margin-bottom: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* Toutes les div presentes dans la div classe = FormRetour */
+            .FormRetour div{ 
+                margin-top: 10%;
+                margin-bottom: 5%;
+            }
+        /* Input Nom */
+            .Nom{
+                width: 90%;
+                height: auto;
+            }
+        /* Input Prenom */
+            .Prenom{
+                width: 90%;
+                height: auto;
+            }
+        /* Input Email */
+            .Email{
+                width: 90%;
+                height: auto;
+            }
+        /* Input Telephone */
+            .Telephone{
+                width: 90%;
+                height: auto;
+            }
+        /* Input Sujet */
+            .Sujet{
+                width: 90%;
+                height: auto;
+            }
+        /* Input Message */
+            .Message{
+                width: 90%;
+                height: auto;
+            }
+    /* Fin Formulaire de retour */
+    
+    /* Menu de navigation du compte */
+        .Droite{
+            float: left;
+            width: 13%;
+            border: 5px solid black;
+            margin-left: 2%;
+        }
+        .Droite p{
+            margin-bottom: 10%;
+            margin-top: 10%;
+        }
+        .Droite a{
+            color: black;
+            margin-bottom: 10%;
+            margin-top: 10%;
+            text-decoration: none;
+        }
+        /* class du menu de navigation */
+            .infosPersos{
+                margin-bottom: 10%;
+                margin-top: 5%;
+                text-align: center;
+            }
+            .Retour{
+                margin-bottom: 10%;
+                margin-top: 5%;
+                text-align: center;
+            }
+            .Livraison{
+                margin-bottom: 10%;
+                margin-top: 5%;
+                text-align: center;
+            }
+            .remboursement{
+                margin-bottom: 10%;
+                margin-top: 5%;
+                text-align: center;
+            }
+        /* Class Menu nav compte */
+    /* Fin Menu Nav Compte */
+/* Fin Page formulaire de retour */

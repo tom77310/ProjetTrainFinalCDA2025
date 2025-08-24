@@ -60,9 +60,6 @@ class Produit
     #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'Produits')]
     private Collection $commandes;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Test = null;
-
 
 
     public function __construct()
@@ -251,22 +248,7 @@ class Produit
         return $this;
     }
 
-    public function getTest(): ?string
-    {
-        return $this->Test;
-    }
-
-    public function setTest(string $Test): static
-    {
-        $this->Test = $Test;
-
-        return $this;
-    }
-
-
-
-
-    
+      
 
 
 }

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
+    <title>Formulaire de retractation</title>
+</head>
+<body>
+    <h1>Formulaire de retour</h1> 
+        <div class='Droite'>
+            <div class="infosPersos">
+                <a href={{ path('CompteUtilisateur_infosPersos') }}>Mes Informations Personnelles</a>
+            </div>
+            <div class="Retour">
+                <a href="#">Formulaire de retour</a>
+            </div>
+            <div class="Livraison">
+                <a href={{ path('CompteUtilisateur_HistoriqueCommande') }}>Historique de vos Commandes</a>
+            </div>
+            <div class="remboursement">
+                <a href={{ path('CompteUtilisateur_BoiteReception') }}>Boite de Reception</a>
+            </div>
+        </div> {# Fin div Droite #}
+        <div class="FormRetour"> <br>
+                {{form(f)}}
+        </div> {# Fin div FormRetour #}
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,48 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
+    <title>{% block title %}Informations Personnelles{% endblock %}</title>
+</head>
+<body>
+
+    <h1>Mes Informations Personnelles</h1> 
+        <div class='Droite'>
+            <div class="infosPersos">
+                <a href="#">Mes Informations Personnelles</a>
+            </div>
+            <div class="Retour">
+                <a href={{ path('CompteUtilisateur_FormRetractation') }}>Formulaire de retour</a>
+            </div>
+            <div class="Livraison">
+                <a href={{ path('CompteUtilisateur_HistoriqueCommande') }}>Historique de vos Commandes</a>
+            </div>
+            <div class="remboursement">
+                <a href={{ path('CompteUtilisateur_BoiteReception') }}>Boite de Reception</a>
+            </div>
+        </div> {# Fin div Droite #}
+
+        {# recupere les infos de l'utilisateur connecter#}
+        <div class="InfosPersos"> <br>
+            <p> Nom : {{app.User.Nom}} </p> <br>  
+            <p> Prenom : {{app.User.Prenom}} </p> <br>
+            <p> Email : {{app.User.Email}} </p> <br>
+            <p> Adresse : {{app.User.Adresse}} </p>  <br>
+            <p> Code Postal : {{app.User.cp}} </p>  <br>
+            <p> Ville : {{app.User.ville}} </p> <br>
+            <p> Numero de Telephone : {{app.User.Telephone}} </p> <br>
+   
+            <button type="button" class='button'><a href={{ path('CompteUtilisateur_modifInfos', {id: app.User.id}) }}>Modifier vos informations<a></button>
+                
+        </div> {# Fin div infosPersos #}
+            
+
+</body>
+</html>
+{% endblock %}

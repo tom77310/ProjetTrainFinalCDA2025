@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ asset('CSS/Utilisateurs.css') }}>
+    <title>MonCompteUser</title>
+</head>
+
+<body>
+    <h1>Mon Compte</h1>
+    <div class="CompteHaut">
+        <div class="InfosPersos"> {# Infos Peros #}
+            <a href={{ path('CompteUtilisateur_infosPersos') }}><img src={{ asset('Images/MonCompte/IconeInfosPersos.png') }} alt="InformationsPersonnelles" id="InfosPersos"></a>
+            <p>Mes Informations Personnelles</p>
+        </div>
+        
+        <div class="Retractation"> {# Formulaire Retractation peut surement sauter #}
+            <a href={{ path('CompteUtilisateur_FormRetractation') }}><img src={{ asset('Images/MonCompte/Retractation.png') }} alt="Formulaire de Retractation" id="Retractation"></a>
+            <p>Formulaire de Retractation</p>
+        </div>
+
+    </div>
+
+        <div class="CompteBas">
+            <div class="Remboursement"> {# Historique de commandes #}
+            <a href={{ path('CompteUtilisateur_HistoriqueCommande') }}><img src={{ asset('Images/MonCompte/HistoriqueCommande.png') }} alt="Historique des commandes" id="Historique"></a>
+                <p>Historique des commandes</p>
+            </div>
+            <div class="Paiement"> {# Boite de reception #}
+            <a href={{ path('CompteUtilisateur_BoiteReception') }}><img src={{ asset('Images/MonCompte/BoiteReception.png') }} alt="Boite de Reception" id="Reception"></a>
+            <p>Boite de reception</p>
+            </div>
+        </div>
+</body>
+
+</html>
+{% endblock %}

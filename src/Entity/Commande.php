@@ -73,6 +73,10 @@ class Commande
     {
         return $this->Produits;
     }
+    public function setProduits(): Collection
+    {
+        return $this->Produits;
+    }
 
     public function addProduit(Produit $produit): static
     {

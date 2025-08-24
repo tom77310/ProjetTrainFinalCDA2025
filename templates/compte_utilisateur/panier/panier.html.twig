@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{ asset('CSS/Panier.css') }}">
+    <title>Panier</title>
+</head>
+<body>
+
+
+    <h1>Votre Panier </h1>
+    <div class="panier">    
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom du Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in dataPanier %}
+                        <tr>
+                            <td>{{ element.produit.NomProduit }}</td>
+                            <td>{{ element.produit.prix }} €</td>
+                            <td><a href="{{ path('CompteUtilisateur_DiminuerQuantite', {'id': element.produit.id}) }}">-</a> 
+                            {{ element.quantite }}
+                            <a href={{ path('CompteUtilisateur_AjoutPanier', {'id': element.produit.id}) }}>+</a>
+                            </td>
+                            <td>{{ element.quantite * element.produit.prix }} €</td>
+                            <td>
+                            <a href="{{ path('CompteUtilisateur_SupprimerProduit', {'id': element.produit.id}) }}">Supprimer</a>
+                            </td>
+                        </tr>
+                {% else %}
+                    <tr>
+                    <td colspan='5'>Votre panier est vide</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <td colspan='3'> Total de votre panier </td>
+            
+                <td> {{ total}} €</td>
+                <td>
+                 <a href="{{ path('CompteUtilisateur_SupprimerPanier')}}">Supprimer Votre panier</a>
+                </td>
+            </tfoot>
+        </table>
+           <div class="valider">
+        <a href={{ path('CompteUtilisateur_Commande') }}>Valider le panier<a>
+        </div>
+    </div>
+     
+</body>
+</html>
+{% endblock %}

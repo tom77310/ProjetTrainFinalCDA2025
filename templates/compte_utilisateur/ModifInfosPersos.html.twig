@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+   <link rel="stylesheet" href="{{ asset('CSS/FormModifInfos.css') }}">
+    <title>Mofif Infos Persos</title>
+
+    <!-- Body -->
+        <h1>Modifier mes informations personnelles</h1>
+    <div class="FormulaireModifInfos">
+            {{form(form)}}
+    </div>
+
+{% endblock %}
