@@ -11,19 +11,19 @@ class Messages
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $objet = null;
+    private ?string $objet;
 
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    private ?string $description;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $piece_jointe = null;
+    private ?string $piece_jointe;
 
     #[ORM\ManyToOne(inversedBy: 'messages')]
-    private ?Utilisateur $utilisateur = null;
+    private ?Utilisateur $utilisateur;
 
 
 

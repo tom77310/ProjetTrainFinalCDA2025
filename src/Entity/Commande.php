@@ -13,29 +13,25 @@ class Commande
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $reference = null;
-
-
-
-
-    #[ORM\ManyToOne(inversedBy: 'commandes')]
-    private ?Utilisateur $utilisateur = null;
+    private ?string $reference;
 
     /**
-     * @var Collection<int, Produit>
+     * @var Collection<int, LigneDeCommande>
      */
-    #[ORM\ManyToMany(targetEntity: Produit::class, inversedBy: 'commandes')]
-    private Collection $Produits;
+    #[ORM\OneToMany(targetEntity: LigneDeCommande::class,mappedBy: 'commande',cascade: ['persist', 'remove'])]
+    private Collection $ligneDeCommandes;
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Utilisateur $utilisateur;
 
     public function __construct()
     {
-        $this->Produits = new ArrayCollection();
+        $this->ligneDeCommandes = new ArrayCollection();
     }
-
-
 
     public function getId(): ?int
     {
@@ -50,6 +46,35 @@ class Commande
     public function setReference(string $reference): static
     {
         $this->reference = $reference;
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LigneDeCommande>
+     */
+    public function getLigneDeCommandes(): Collection
+    {
+        return $this->ligneDeCommandes;
+    }
+
+    public function addLigneDeCommande(LigneDeCommande $ligneDeCommande): static
+    {
+        if (!$this->ligneDeCommandes->contains($ligneDeCommande)) {
+            $this->ligneDeCommandes->add($ligneDeCommande);
+            $ligneDeCommande->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLigneDeCommande(LigneDeCommande $ligneDeCommande): static
+    {
+        if ($this->ligneDeCommandes->removeElement($ligneDeCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($ligneDeCommande->getCommande() === $this) {
+                $ligneDeCommande->setCommande(null);
+            }
+        }
 
         return $this;
     }
@@ -62,39 +87,6 @@ class Commande
     public function setUtilisateur(?Utilisateur $utilisateur): static
     {
         $this->utilisateur = $utilisateur;
-
         return $this;
     }
-
-    /**
-     * @return Collection<int, Produit>
-     */
-    public function getProduits(): Collection
-    {
-        return $this->Produits;
-    }
-    public function setProduits(): Collection
-    {
-        return $this->Produits;
-    }
-
-    public function addProduit(Produit $produit): static
-    {
-        if (!$this->Produits->contains($produit)) {
-            $this->Produits->add($produit);
-        }
-
-        return $this;
-    }
-
-    public function removeProduit(Produit $produit): static
-    {
-        $this->Produits->removeElement($produit);
-
-        return $this;
-    }
-
-
-
-
 }

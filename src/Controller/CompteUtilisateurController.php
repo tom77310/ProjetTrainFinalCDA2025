@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Entity\LigneDeCommande;
 use App\Entity\Messages;
 use App\Entity\Produit;
 use App\Entity\Utilisateur;
@@ -220,51 +221,50 @@ public function ModifInfosPersos(Request $req, ManagerRegistry $doctrine, Entity
     #[Route('/commande', name: 'CompteUtilisateur_Commande')]
         public function Commande(SessionInterface $session, ProduitRepository $produitRepository, CommandeRepository $commandeReposiory, EntityManagerInterface $em):Response
         {
-            $this->denyAccessUnlessGranted('ROLE_USER');
-    
-            $panier = $session->get('panier', []);
-    
-            if($panier === []){
-                $this->addFlash('message', 'Votre panier est vide');
-                return $this->redirectToRoute('app_acceuil');
-            }
-    
-            //Le panier n'est pas vide, on crée la commande
-            $commande = new Commande();
-    
-            // On remplit la commande
-            $commande->setUtilisateur($this->getUser());
-            $commande->setReference(uniqid(2));
-    
-            // On parcourt le panier pour créer les détails de commande
-            foreach($panier as $item => $quantite){
-                $DetailCommande = new Commande();
-    
-                // On va chercher le produit
-                $produit = $produitRepository->find($item);
-                $commande = $commandeReposiory->find($item);
-                
-                // $prix = $produit->getPrix();
-                // $quantitecommande = $produit->setQuantite();
-                // $reference = $commande->setReference(uniqid(1));
+             $this->denyAccessUnlessGranted('ROLE_USER');
 
-                // On crée le détail de commande
-                $DetailCommande->setProduits($produit);
-                // $produit->setPrix($prix);
-                // $produit->setQuantite($quantitecommande);
-                // $DetailCommande->setReference($commande);
-    
-                // $commande->addProduit($DetailCommande);
-            }
-    
-            // On persiste et on flush
-            $em->persist($commande); // persist => prépare les données lors de la création de la requete
-            $em->flush(); // flush => sauvegarde les infos dans la base de données
-    
-            $session->remove('panier');
-    
-           // $this->addFlash('message', 'Commande validée'); // sencé afficher un message apres avoir valider la commande dans le panier
-            // return $this->redirectToRoute('CompteUtilisateur_Panier');
-            return $this->render('compte_utilisateur/commande/commande.html.twig');
+        $panier = $session->get('panier', []);
+
+        if($panier === []){
+            $this->addFlash('message', 'Votre panier est vide');
+            return $this->redirectToRoute('acceuil_index');
         }
+
+        //Le panier n'est pas vide, on crée la commande
+        $commande = new Commande();
+
+        // On remplit la commande
+        $commande->setUtilisateur($this->getUser());
+        $commande->setReference(uniqid());
+
+        // On parcourt le panier pour créer les détails de commande
+        foreach($panier as $item => $quantite){
+            $LigneDeCommande = new LigneDeCommande();
+
+            // On va chercher le produit
+            $produit = $produitRepository->find($item);
+            
+            $prix = $produit->getPrix();
+
+            // On crée le détail de commande
+            $LigneDeCommande->setProduit($produit);
+            $LigneDeCommande->setPrixunitaireproduit($prix);
+            $LigneDeCommande->setQuantitecommande($quantite);
+            $LigneDeCommande->setCommande($commande);
+
+            $commande->addLigneDeCommande($LigneDeCommande);
+        }
+
+        // On persiste et on flush
+        $em->persist($commande); // persist => prépare les données lors de la création de la requete
+        // $em->persist($LigneDeCommande); // persist => prépare les données lors de la création de la requete
+        $em->flush(); // flush => sauvegarde les infos dans la base de données
+
+        $session->remove('panier');
+
+       // $this->addFlash('message', 'Commande validée'); // sencé afficher un message apres avoir valider la commande dans le panier
+        // return $this->redirectToRoute('CompteUtilisateur_Commande');
+        return $this->render('compte_utilisateur/commande/commande.html.twig');
+
+    }
 }

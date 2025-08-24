@@ -13,15 +13,15 @@ class Tailles
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $libeles_tailles = null;
+    private ?string $libeles_tailles;
 
     /**
      * @var Collection<int, Produit>
      */
-    #[ORM\ManyToMany(targetEntity: Produit::class, mappedBy: 'Tailles')]
+    #[ORM\ManyToMany(targetEntity: Produit::class, mappedBy: 'tailles')]
     private Collection $produits;
 
     public function __construct()
@@ -42,7 +42,6 @@ class Tailles
     public function setLibelesTailles(string $libeles_tailles): static
     {
         $this->libeles_tailles = $libeles_tailles;
-
         return $this;
     }
 
@@ -60,7 +59,6 @@ class Tailles
             $this->produits->add($produit);
             $produit->addTaille($this);
         }
-
         return $this;
     }
 
@@ -69,7 +67,6 @@ class Tailles
         if ($this->produits->removeElement($produit)) {
             $produit->removeTaille($this);
         }
-
         return $this;
     }
 }

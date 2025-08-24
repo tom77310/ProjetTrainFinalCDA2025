@@ -13,60 +13,43 @@ class Produit
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
-
-    #[ORM\Column]
-    private ?int $prix = null;
-
+    private ?int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom_produit = null;
+    private ?string $nomproduit;
 
-    #[ORM\Column(length: 255)]
-    private ?string $quantite = null;
+    #[ORM\Column(type: 'text', nullable: true)]
+    private ?string $description;
 
-   #[ORM\Column(type: 'text')]
-    private ?string $detail = null;
+    #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
+    private ?string $prix;
 
-
-    #[ORM\Column(length: 255)]
-    private ?string $vue1 = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $vue2 = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $vue3 = null;
-
-    /**
-     * @var Collection<int, Utilisateur>
-     */
-    #[ORM\ManyToMany(targetEntity: Utilisateur::class, inversedBy: 'produits')]
-    private Collection $utilisateur;
+    #[ORM\Column(nullable: true)]
+    private ?int $stock;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Categorie $categorie = null;
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Categorie $categorie;
 
     /**
      * @var Collection<int, Tailles>
      */
     #[ORM\ManyToMany(targetEntity: Tailles::class, inversedBy: 'produits')]
-    private Collection $Tailles;
+    #[ORM\JoinTable(name: "produit_taille")]
+    private Collection $tailles;
 
-    /**
-     * @var Collection<int, Commande>
-     */
-    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'Produits')]
-    private Collection $commandes;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $vue1 = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $vue2 = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $vue3 = null;
 
     public function __construct()
     {
-        $this->utilisateur = new ArrayCollection();
-        $this->Tailles = new ArrayCollection();
-        $this->commandes = new ArrayCollection();
+        $this->tailles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -74,61 +57,89 @@ class Produit
         return $this->id;
     }
 
-    public function getPrix(): ?int
+    public function getNomProduit(): ?string
+    {
+        return $this->nomproduit;
+    }
+
+    public function setNomProduit(string $nomproduit): static
+    {
+        $this->nomproduit = $nomproduit;
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function getPrix(): ?string
     {
         return $this->prix;
     }
 
-    public function setPrix(int $prix): static
+    public function setPrix(string $prix): static
     {
         $this->prix = $prix;
-
         return $this;
     }
 
-    public function getNomProduit(): ?string
+    public function getStock(): ?int
     {
-        return $this->nom_produit;
+        return $this->stock;
     }
 
-    public function setNomProduit(string $nom_produit): static
+    public function setStock(?int $stock): static
     {
-        $this->nom_produit = $nom_produit;
-
+        $this->stock = $stock;
         return $this;
     }
 
-    public function getQuantite(): ?string
+    public function getCategorie(): ?Categorie
     {
-        return $this->quantite;
+        return $this->categorie;
     }
 
-    public function setQuantite(string $quantite): static
+    public function setCategorie(?Categorie $categorie): static
     {
-        $this->quantite = $quantite;
-
+        $this->categorie = $categorie;
         return $this;
     }
 
-    public function getDetail(): ?string
+    /**
+     * @return Collection<int, Tailles>
+     */
+    public function getTailles(): Collection
     {
-        return $this->detail;
+        return $this->tailles;
     }
 
-    public function setDetail(string $detail): static
+    public function addTaille(Tailles $taille): static
     {
-        $this->detail = $detail;
-
+        if (!$this->tailles->contains($taille)) {
+            $this->tailles->add($taille);
+        }
         return $this;
     }
 
+    public function removeTaille(Tailles $taille): static
+    {
+        $this->tailles->removeElement($taille);
+        return $this;
+    }
 
     public function getVue1(): ?string
     {
         return $this->vue1;
     }
 
-    public function setVue1(string $vue1): static
+    public function setVue1(?string $vue1): static
     {
         $this->vue1 = $vue1;
 
@@ -152,103 +163,10 @@ class Produit
         return $this->vue3;
     }
 
-    public function setVue3(string $vue3): static
+    public function setVue3(?string $vue3): static
     {
         $this->vue3 = $vue3;
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Utilisateur>
-     */
-    public function getUtilisateur(): Collection
-    {
-        return $this->utilisateur;
-    }
-
-    public function addUtilisateur(Utilisateur $utilisateur): static
-    {
-        if (!$this->utilisateur->contains($utilisateur)) {
-            $this->utilisateur->add($utilisateur);
-        }
-
-        return $this;
-    }
-
-    public function removeUtilisateur(Utilisateur $utilisateur): static
-    {
-        $this->utilisateur->removeElement($utilisateur);
-
-        return $this;
-    }
-
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): static
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-
-
-    /**
-     * @return Collection<int, Tailles>
-     */
-    public function getTailles(): Collection
-    {
-        return $this->Tailles;
-    }
-
-    public function addTaille(Tailles $taille): static
-    {
-        if (!$this->Tailles->contains($taille)) {
-            $this->Tailles->add($taille);
-        }
-
-        return $this;
-    }
-
-    public function removeTaille(Tailles $taille): static
-    {
-        $this->Tailles->removeElement($taille);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Commande>
-     */
-    public function getCommandes(): Collection
-    {
-        return $this->commandes;
-    }
-
-    public function addCommande(Commande $commande): static
-    {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->addProduit($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommande(Commande $commande): static
-    {
-        if ($this->commandes->removeElement($commande)) {
-            $commande->removeProduit($this);
-        }
-
-        return $this;
-    }
-
-      
-
-
 }

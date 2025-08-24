@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250619134749 extends AbstractMigration
+final class Version20250824172856 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -21,7 +21,7 @@ final class Version20250619134749 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql(<<<'SQL'
-            ALTER TABLE categorie ADD image VARCHAR(255) DEFAULT NULL
+            ALTER TABLE produit ADD vue1 VARCHAR(255) DEFAULT NULL, ADD vue2 VARCHAR(255) NOT NULL, ADD vue3 VARCHAR(255) DEFAULT NULL
         SQL);
     }
 
@@ -29,7 +29,7 @@ final class Version20250619134749 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql(<<<'SQL'
-            ALTER TABLE categorie DROP image
+            ALTER TABLE produit DROP vue1, DROP vue2, DROP vue3
         SQL);
     }
 }
