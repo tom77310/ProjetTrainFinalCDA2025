@@ -7,13 +7,18 @@ use App\Entity\LigneDeCommande;
 use App\Entity\Messages;
 use App\Entity\Produit;
 use App\Entity\Utilisateur;
+use App\Form\ContactFormType;
+use App\Form\MessageFormType;
 use App\Form\ModifInfosPersosFormType;
 use App\Form\RetractationFormType;
 use App\Repository\CommandeRepository;
+use App\Repository\MessagesRepository;
 use App\Repository\ProduitRepository;
+use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -64,72 +69,203 @@ public function ModifInfosPersos(Request $req, ManagerRegistry $doctrine, Entity
     ]);
 }
 
-    #[Route('/historique', name: 'CompteUtilisateur_HistoriqueCommande')]
-    public function HistoriqueCommandes(): Response
-    {
-        return $this->render('compte_utilisateur/historique.html.twig', [
-            'controller_name' => 'CompteUtilisateurController',
-        ]);
-    }
 
+   #[Route('/formRetractation', name: 'CompteUtilisateur_FormRetractation')]
+public function FormRetractation(Request $request, ManagerRegistry $doctrine, UtilisateurRepository $utilisateurRepository): Response
+{
+    $message = new Messages();
+    $form = $this->createForm(RetractationFormType::class, $message);
+    $form->handleRequest($request);
 
-    #[Route('/formRetractation', name: 'CompteUtilisateur_FormRetractation')]
-    public function FormRetractation(Request $request, ManagerRegistry $doctrine): Response
-    {
-        $message = new Messages();
-        $form = $this->createForm(RetractationFormType::class, $message);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $em = $doctrine->getManager();
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Récupérer email et login du formulaire
-            $email = $form->get('email')->getData();
-            $login = $form->get('login')->getData();
-
-            // Chercher l'utilisateur correspondant
-            $utilisateur = $doctrine->getRepository(Utilisateur::class)->findOneBy([
-                'email' => $email,
-                'login' => $login
-            ]);
-
-            if (!$utilisateur) {
-                $this->addFlash('error', 'Utilisateur non trouvé');
-                return $this->redirectToRoute('acceuil_index');
-            }
-
-            // Associer l'utilisateur au message
-            $message->setUtilisateur($utilisateur);
-
-            // Gérer la pièce jointe
-            $file = $form->get('pieceJointe')->getData();
-            if ($file) {
-                $newFilename = uniqid().'.'.$file->guessExtension();
-                $file->move($this->getParameter('messages_directory'), $newFilename);
-                $message->setPieceJointe($newFilename);
-            }
-
-            // Sauvegarder
-            $em = $doctrine->getManager();
-            $em->persist($message);
-            $em->flush();
-
-            $this->addFlash('success', 'Message envoyé avec succès !');
-            return $this->redirectToRoute('CompteUtilisateur_FormRetractation');
+        /** @var \App\Entity\Utilisateur $user */
+        $user = $this->getUser();
+        if (!$user) {
+            $this->addFlash('error', 'Vous devez être connecté pour envoyer un message.');
+            return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('compte_utilisateur/formRetractation.html.twig', [
-            'f' => $form->createView()
-        ]);
+        // Associer l'expéditeur
+        $message->setExpediteur($user);
+
+        // Gérer la pièce jointe
+        $file = $form->get('pieceJointe')->getData();
+        if ($file) {
+            $newFilename = uniqid().'.'.$file->guessExtension();
+            $file->move($this->getParameter('messages_directory'), $newFilename);
+            $message->setPieceJointe($newFilename);
+        }
+
+        // Récupérer tous les utilisateurs et filtrer les admins en PHP
+$allUsers = $utilisateurRepository->findAll();
+$admins = [];
+foreach ($allUsers as $admin) {
+    if (in_array('ROLE_ADMIN', $admin->getRoles(), true)) {
+        $admins[] = $admin;
+    }
+}
+
+if (empty($admins)) {
+    $this->addFlash('error', 'Aucun administrateur trouvé.');
+    return $this->redirectToRoute('CompteUtilisateur_FormRetractation');
+}
+
+// Cloner et persister...
+foreach ($admins as $admin) {
+    $msgClone = clone $message;
+    $msgClone->setDestinataire($admin);
+    $em->persist($msgClone);
+}
+
+
+        // Cloner le message pour chaque admin
+        // foreach ($admins as $admin) {
+        //     $msgClone = clone $message;
+        //     $msgClone->setDestinataire($admin);
+        //     $em->persist($msgClone);
+        // }
+
+        $em->flush();
+
+        $this->addFlash('success', 'Votre message a été envoyé aux administrateurs.');
+        return $this->redirectToRoute('CompteUtilisateur_FormRetractation');
     }
 
+    return $this->render('compte_utilisateur/formRetractation.html.twig', [
+        'f' => $form->createView()
+    ]);
+}
 
-    #[Route('/BoiteReception', name: 'CompteUtilisateur_BoiteReception')]
+
+    // Boite de reception
+// Affichage boite de reception
+#[Route('/BoiteReception', name: 'CompteUtilisateur_BoiteReception')]
     public function BoiteReception(): Response
     {
-        return $this->render('compte_utilisateur/BoiteReception.html.twig', [
-            'controller_name' => 'CompteUtilisateurController',
+        return $this->render('compte_utilisateur/BoiteReception/BoiteReception.html.twig');
+    }
+// Messages recus
+#[Route('/messagerecus', name: 'CompteUtilisateur_BoiteReceptionMesssageRecus')]
+    public function received(MessagesRepository $messagesRepository): Response
+    {
+        $user = $this->getUser();
+        $messages = $messagesRepository->findBy(['destinataire' => $user]);
+
+        return $this->render('compte_utilisateur/BoiteReception/MessageRecus.html.twig', [
+            'messages' => $messages,
         ]);
     }
+// Message Envoyer
+  #[Route('/messageEnvoyer', name: 'messages_sent')]
+    public function sent(MessagesRepository $messagesRepository): Response
+    {
+        $user = $this->getUser();
+        $messages = $messagesRepository->findBy(['utilisateur' => $user]);
+
+        return $this->render('compte_utilisateur/BoiteReception/MessageEnvoyer.html.twig', [
+            'messages' => $messages,
+        ]);
+    }
+// Detail d'un message reçu spécifique
+    #[Route('/DetailMessage/{id}', name: 'messages_detail', requirements: ['id' => '\d+'])]
+    public function detail(Messages $message): Response
+    {
+        // Sécurité : seul destinataire ou expéditeur peut voir le message
+        $user = $this->getUser();
+        if ($message->getDestinataire() !== $user && $message->getUtilisateur() !== $user) {
+            throw $this->createAccessDeniedException("Vous n'avez pas accès à ce message.");
+        }
+
+        return $this->render('compte_utilisateur/BoiteReception/DetailMessage.html.twig', [
+            'message' => $message,
+        ]);
+    }
+// Envoyer un nouveau message
+#[Route('/NouveauMessage', name: 'messages_new')]
+public function new(
+    Request $request,
+    EntityManagerInterface $em,
+    UtilisateurRepository $utilisateurRepository
+): Response {
+    $message = new Messages();
+    $form = $this->createForm(MessageFormType::class, $message);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $expediteur = $this->getUser();
+        $message->setUtilisateur($expediteur);
+
+        // Gestion de la pièce jointe
+        $file = $form->get('pieceJointe')->getData();
+        if ($file) {
+            $filename = uniqid() . '.' . $file->guessExtension();
+            $file->move($this->getParameter('messages_directory'), $filename);
+            $message->setPieceJointe($filename);
+        }
+
+        // Trouve tous les admins
+        $admins = $utilisateurRepository->findAll();
+        foreach ($admins as $admin) {
+            if (in_array('ROLE_ADMIN', $admin->getRoles())) {
+                $msgClone = clone $message;
+                $msgClone->setDestinataire($admin);
+                $em->persist($msgClone);
+            }
+        }
+
+        $em->flush();
+        $this->addFlash('success', 'Votre message a été envoyé aux administrateurs.');
+        return $this->redirectToRoute('CompteUtilisateur_BoiteReception');
+    }
+
+    return $this->render('compte_utilisateur/BoiteReception/NouveauMessage.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
+
+
+
+// Réponse à un message
+#[Route('Message/{id}/reponse', name: 'messages_reply', requirements: ['id' => '\d+'])]
+public function reply(
+    Messages $original,
+    Request $request,
+    EntityManagerInterface $em
+): Response {
+    $reply = new Messages();
+    $reply->setUtilisateur($this->getUser());
+    $reply->setDestinataire($original->getUtilisateur());
+    $reply->setObjet("Re: " . $original->getObjet());
+
+    $form = $this->createForm(MessageFormType::class, $reply);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Gestion de la pièce jointe
+        $file = $form->get('pieceJointe')->getData();
+        if ($file) {
+            $filename = uniqid() . '.' . $file->guessExtension();
+            $file->move($this->getParameter('messages_directory'), $filename);
+            $reply->setPieceJointe($filename);
+        }
+
+        $em->persist($reply);
+        $em->flush();
+
+        $this->addFlash('success', 'Votre réponse a été envoyée.');
+        return $this->redirectToRoute('CompteUtilisateur_BoiteReceptionMesssageRecus');
+    }
+
+    return $this->render('compte_utilisateur/BoiteReception/NouveauMessage.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
+
+
+
+
 
     // Panier
     // Affichage Panier
@@ -217,9 +353,10 @@ public function ModifInfosPersos(Request $req, ManagerRegistry $doctrine, Entity
         
       return $this->redirectToRoute('CompteUtilisateur_Panier');
     }
+
     // Commande utilisateur
     #[Route('/commande', name: 'CompteUtilisateur_Commande')]
-        public function Commande(SessionInterface $session, ProduitRepository $produitRepository, CommandeRepository $commandeReposiory, EntityManagerInterface $em):Response
+        public function Commande(SessionInterface $session, ProduitRepository $produitRepository, EntityManagerInterface $em):Response
         {
              $this->denyAccessUnlessGranted('ROLE_USER');
 
@@ -256,15 +393,52 @@ public function ModifInfosPersos(Request $req, ManagerRegistry $doctrine, Entity
         }
 
         // On persiste et on flush
-        $em->persist($commande); // persist => prépare les données lors de la création de la requete
-        // $em->persist($LigneDeCommande); // persist => prépare les données lors de la création de la requete
+        $em->persist($commande); // persist => prépare les données lors de la création de la requete. Pas besoin de persist sur la ligne de commande, car on met un cascade ['persist'] dans l'entité LigneDeCommande
         $em->flush(); // flush => sauvegarde les infos dans la base de données
 
         $session->remove('panier');
 
-       // $this->addFlash('message', 'Commande validée'); // sencé afficher un message apres avoir valider la commande dans le panier
-        // return $this->redirectToRoute('CompteUtilisateur_Commande');
-        return $this->render('compte_utilisateur/commande/commande.html.twig');
+       // ➡️ Redirection vers la route "commande_show"
+    return $this->redirectToRoute('commande_show', [
+        'id' => $commande->getId()
+    ]);
 
     }
+    
+    // Affiche le details de la commande
+    #[Route('/commande/{id}', name: 'commande_show', requirements: ['id' => '\d+'])] // Permet de dire a symfony que la route n'accepte que des numero
+    public function DetailsCommandes(Commande $commande): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        // Vérification que l'utilisateur connecté est bien le propriétaire de la commande
+        if ($commande->getUtilisateur() !== $this->getUser()) {
+            throw $this->createAccessDeniedException("Vous n'avez pas accès à cette commande.");
+        }
+        if (!$commande) {
+                throw $this->createNotFoundException("Commande introuvable");
+        }
+        //  dd($commande);
+        return $this->render('compte_utilisateur/commande/detailsCommande.html.twig', [
+            'commande' => $commande,
+        ]);
+    }
+
+    // afficcher l'historique
+    #[Route('/commande/historique', name: 'CompteUtilisateur_HistoriqueCommande')]
+    public function historiqueCommande(EntityManagerInterface $em): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+
+        // Récupère toutes les commandes de l'utilisateur connecté
+        $commandes = $em->getRepository(Commande::class)->findBy(
+            ['utilisateur' => $this->getUser()],
+            // ['dateCommande' => 'DESC'] // trie par date décroissante => a rajouter plus tard
+        );
+
+        return $this->render('compte_utilisateur/commande/historique.html.twig', [
+            'commandes' => $commandes,
+        ]);
+    }
+
 }

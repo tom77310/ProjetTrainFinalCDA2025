@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messages envoyés{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2 class="mb-4">📤 Messages envoyés</h2>
+
+    {% if messages is not empty %}
+        <div class="list-group">
+            {% for message in messages %}
+                <div class="list-group-item list-group-item-action mb-2 shadow-sm rounded">
+                    <h5 class="mb-2">{{ message.objet }}</h5>
+                    <p class="mb-2">{{ message.description|u.truncate(150, '...') }}</p>
+
+                    {% if message.pieceJointe %}
+                        <p>
+                            <strong>📎 Pièce jointe :</strong>
+                            <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="btn btn-sm btn-outline-secondary" download>
+                                Télécharger
+                            </a>
+                        </p>
+                    {% endif %}
+
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ path('messages_detail', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="alert alert-info">Aucun message envoyé.</p>
+    {% endif %}
+
+    <div class="mt-3">
+        <a href="{{ path('CompteUtilisateur_BoiteReception') }}" class="btn btn-secondary">⬅ Retour</a>
+    </div>
+</div>
+{% endblock %}

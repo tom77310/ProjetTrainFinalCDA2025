@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail du message{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2 class="mb-4">📩 Détail du message</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            {{ message.objet }}
+        </div>
+        <div class="card-body">
+            <p><strong>Description :</strong></p>
+            <div class="border rounded p-3 bg-light">
+                {{ message.description|nl2br }}
+            </div>
+
+            {% if message.pieceJointe %}
+                <div class="mt-3">
+                    <strong>📎 Pièce jointe :</strong>
+                    <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="btn btn-sm btn-outline-secondary" download>
+                        Télécharger
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+        <div class="card-footer text-end">
+            <a href="{{ path('messages_reply', {id: message.id}) }}" class="btn btn-success">
+                Répondre
+            </a>
+            <a href="{{ path('CompteUtilisateur_BoiteReceptionMesssageRecus') }}" class="btn btn-secondary">
+                Retour à la boîte de réception
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

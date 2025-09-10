@@ -6,6 +6,7 @@ use App\Entity\Messages;
 use App\Entity\Utilisateur;
 use App\Form\ContactFormType;
 use App\Form\InscriptionFormType;
+use App\Repository\UtilisateurRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -86,52 +87,48 @@ final class UtilisateursController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-    #[Route('/contact', name: 'Utilisateur_contact')]
-    public function FormContact(Request $request, ManagerRegistry $doctrine): Response
-    {
-        $message = new Messages();
-        $form = $this->createForm(ContactFormType::class, $message);
+   #[Route('/contact', name: 'Utilisateur_contact')]
+public function FormContact(Request $request, ManagerRegistry $doctrine, UtilisateurRepository $utilisateurRepository): Response
+{
+    $message = new Messages();
+    $form = $this->createForm(ContactFormType::class, $message);
+    $form->handleRequest($request);
 
-        $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Récupérer l'email saisi
+        $email = $form->get('email')->getData();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Récupérer email et login du formulaire
-            $email = $form->get('email')->getData();
-            $login = $form->get('login')->getData();
+        // Ajouter l'email de l'expéditeur dans la description
+        $message->setDescription($message->getDescription() . "\n\nEmail de l'expéditeur : " . $email);
 
-            // Chercher l'utilisateur correspondant
-            $utilisateur = $doctrine->getRepository(Utilisateur::class)->findOneBy([
-                'email' => $email,
-                'login' => $login
-            ]);
-
-            if (!$utilisateur) {
-                $this->addFlash('error', 'Utilisateur non trouvé');
-                return $this->redirectToRoute('contact');
-            }
-
-            // Associer l'utilisateur au message
-            $message->setUtilisateur($utilisateur);
-
-            // Gérer la pièce jointe
-            $file = $form->get('pieceJointe')->getData();
-            if ($file) {
-                $newFilename = uniqid().'.'.$file->guessExtension();
-                $file->move($this->getParameter('messages_directory'), $newFilename);
-                $message->setPieceJointe($newFilename);
-            }
-
-            // Sauvegarder
-            $em = $doctrine->getManager();
-            $em->persist($message);
-            $em->flush();
-
-            $this->addFlash('success', 'Message envoyé avec succès !');
-            return $this->redirectToRoute('Utilisateur_contact');
+        // Gérer la pièce jointe
+        $file = $form->get('pieceJointe')->getData();
+        if ($file) {
+            $filename = uniqid() . '.' . $file->guessExtension();
+            $file->move($this->getParameter('messages_directory'), $filename);
+            $message->setPieceJointe($filename);
         }
 
-        return $this->render('utilisateurs/FormContact.html.twig', [
-            'form' => $form->createView()
-        ]);
+        // Trouver tous les administrateurs et créer un message pour chacun
+        $admins = $utilisateurRepository->findAll();
+        $em = $doctrine->getManager();
+        foreach ($admins as $admin) {
+            if (in_array('ROLE_ADMIN', $admin->getRoles())) {
+                $msgClone = clone $message;
+                $msgClone->setDestinataire($admin);
+                $em->persist($msgClone);
+            }
+        }
+
+        $em->flush();
+
+        $this->addFlash('success', 'Votre message a été envoyé aux administrateurs.');
+        return $this->redirectToRoute('Utilisateur_contact');
     }
+
+    return $this->render('utilisateurs/FormContact.html.twig', [
+        'form' => $form->createView()
+    ]);
+}
+
 }

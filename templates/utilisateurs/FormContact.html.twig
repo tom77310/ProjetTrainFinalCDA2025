@@ -12,11 +12,10 @@
     {% endfor %}
 
     {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+        {{ form_row(form.email) }}
         {{ form_row(form.objet) }}
         {{ form_row(form.description) }}
         {{ form_row(form.pieceJointe) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.login) }}
         <button type="submit" class="btn-submit">Envoyer</button>
     {{ form_end(form) }}
 </div>

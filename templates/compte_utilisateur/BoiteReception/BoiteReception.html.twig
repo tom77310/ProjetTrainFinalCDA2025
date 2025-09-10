@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boîte de réception{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2 class="mb-4">📩 Boîte de réception</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="{{ path('CompteUtilisateur_BoiteReceptionMesssageRecus') }}">Messages reçus</a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ path('messages_sent') }}">Messages envoyés</a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ path('messages_new') }}">Nouveau message</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

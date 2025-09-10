@@ -25,6 +25,11 @@ class Messages
     #[ORM\ManyToOne(inversedBy: 'messages')]
     private ?Utilisateur $utilisateur;
 
+    #[ORM\ManyToOne(inversedBy: 'messagesEnvoyes')]
+    private ?Utilisateur $expediteur;
+
+    #[ORM\ManyToOne(inversedBy: 'messagesRecus')]
+    private ?Utilisateur $destinataire;
 
 
       public function getId(): ?int
@@ -77,6 +82,30 @@ class Messages
     {
         $this->utilisateur = $utilisateur;
 
+        return $this;
+    }
+
+        // Expéditeur
+    public function getExpediteur(): ?Utilisateur
+    {
+        return $this->expediteur;
+    }
+
+    public function setExpediteur(?Utilisateur $expediteur): static
+    {
+        $this->expediteur = $expediteur;
+        return $this;
+    }
+
+    // Destinataire
+    public function getDestinataire(): ?Utilisateur
+    {
+        return $this->destinataire;
+    }
+
+    public function setDestinataire(?Utilisateur $destinataire): static
+    {
+        $this->destinataire = $destinataire;
         return $this;
     }
 

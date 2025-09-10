@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
+ <title>{% block title %}Mes commandes{% endblock %}</title>
+    <h1>Historique de mes commandes</h1>
+<div class='Droite'>
+            <div class="infosPersos">
+                <a href="#">Mes Informations Personnelles</a>
+            </div>
+            <div class="Retour">
+                <a href={{ path('CompteUtilisateur_FormRetractation') }}>Formulaire de retour</a>
+            </div>
+            <div class="Livraison">
+                <a href={{ path('CompteUtilisateur_HistoriqueCommande') }}>Historique de vos Commandes</a>
+            </div>
+            <div class="remboursement">
+                <a href="#">Boite de Reception</a>
+            </div>
+        </div> {# Fin div Droite #}
+    {% if commandes is empty %}
+        <p>Vous n'avez encore passé aucune commande.</p>
+    {% else %}
+     <div class="container my-4">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-auto align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="px-2">Référence</th>
+                    {# <th scope="col" class="px-2">Date</th> #}
+                    <th scope="col" class="px-2">Total</th>
+                    <th scope="col" class="px-2">Détails</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for commande in commandes %}
+                    <tr>
+                        <td class="px-2">{{ commande.reference }}</td>
+                        {# <td class="px-2">{{ commande.dateCommande|date('d/m/Y H:i') }}</td> #}
+                        <td class="px-2">
+                            {% set total = commande.ligneDeCommandes
+                                |map(l => l.prixUnitaireProduit * l.quantiteCommande)
+                                |reduce((carry, v) => carry + v, 0)
+                            %}
+                            <span class="badge bg-success fs-6">{{ total }} €</span>
+                        </td>
+                        <td class="px-2">
+                            <a href="{{ path('commande_show', {id: commande.id}) }}" class="btn btn-sm btn-primary">
+                                <i class="bi bi-eye-fill me-1"></i> Voir
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+    {% endif %}
+{% endblock %}

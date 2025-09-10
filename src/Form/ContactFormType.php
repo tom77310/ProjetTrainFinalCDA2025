@@ -18,6 +18,11 @@ class ContactFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+         ->add('email', EmailType::class, [
+                'label' => 'Votre email',
+                'mapped' => false,
+                'attr' => ['placeholder' => 'exemple@domaine.com']
+            ])
             ->add('objet', TextType::class, [
                 'label' => 'Objet',
                 'attr' => ['placeholder' => 'Entrez l\'objet du message']
@@ -30,16 +35,6 @@ class ContactFormType extends AbstractType
                 'label' => 'Pièce jointe (optionnel)',
                 'required' => false,
                 'mapped' => false
-            ])
-            ->add('email', EmailType::class, [
-                'label' => 'Votre email',
-                'mapped' => false,
-                'attr' => ['placeholder' => 'exemple@domaine.com']
-            ])
-            ->add('login', TextType::class, [
-                'label' => 'Votre login',
-                'mapped' => false,
-                'attr' => ['placeholder' => 'Votre identifiant']
             ]);
     }
 
