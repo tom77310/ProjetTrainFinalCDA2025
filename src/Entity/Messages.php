@@ -22,9 +22,6 @@ class Messages
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $piece_jointe;
 
-    #[ORM\ManyToOne(inversedBy: 'messages')]
-    private ?Utilisateur $utilisateur;
-
     #[ORM\ManyToOne(inversedBy: 'messagesEnvoyes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Utilisateur $expediteur = null;
@@ -74,19 +71,9 @@ class Messages
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
-    {
-        return $this->utilisateur;
-    }
 
-    public function setUtilisateur(?Utilisateur $utilisateur): static
-    {
-        $this->utilisateur = $utilisateur;
 
-        return $this;
-    }
-
-        // Expéditeur
+        // Expéditeur (utilisateur_id)
     public function getExpediteur(): ?Utilisateur
     {
         return $this->expediteur;

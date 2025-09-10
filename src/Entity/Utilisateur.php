@@ -61,11 +61,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $login;
 
-    /**
-     * @var Collection<int, Messages>
-     */
-    #[ORM\OneToMany(mappedBy: "expediteur", targetEntity: Messages::class, cascade: ["remove"], orphanRemoval: true)]
-    private Collection $messages;
+
 
     /**
      * @var Collection<int, Messages>
@@ -79,7 +75,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'utilisateur', cascade: ['persist', 'remove'])]
     private Collection $commandes;
 
-    #[ORM\OneToMany(targetEntity: Messages::class, mappedBy: 'expediteur')]
+    #[ORM\OneToMany(mappedBy: "expediteur", targetEntity: Messages::class, cascade: ["remove"], orphanRemoval: true)]
     private Collection $messagesEnvoyes;
 
     #[ORM\OneToMany(targetEntity: Messages::class, mappedBy: 'destinataire')]
@@ -87,8 +83,6 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->messages = new ArrayCollection();
-        $this->message_utilisateur = new ArrayCollection();
         $this->commandes = new ArrayCollection();
         $this->messagesEnvoyes = new ArrayCollection();
         $this->messagesRecus = new ArrayCollection();
@@ -202,29 +196,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         return $this; 
     }
 
-    /**
-     * @return Collection<int, Messages>
-     */
-    public function getMessages(): Collection { return $this->messages; }
-
-    public function addMessage(Messages $message): static
-    {
-        if (!$this->messages->contains($message)) {
-            $this->messages->add($message);
-            $message->setUtilisateur($this);
-        }
-        return $this;
-    }
-
-    public function removeMessage(Messages $message): static
-    {
-        if ($this->messages->removeElement($message)) {
-            if ($message->getUtilisateur() === $this) {
-                $message->setUtilisateur(null);
-            }
-        }
-        return $this;
-    }
+    
 
     /**
      * @return Collection<int, Messages>

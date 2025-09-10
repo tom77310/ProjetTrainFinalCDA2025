@@ -34,7 +34,7 @@ final class AdministrateurController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $expediteur = $this->getUser(); // Admin connecté
-            $message->setUtilisateur($expediteur);
+            $message->setExpediteur($expediteur);
 
             $em->persist($message);
             $em->flush();

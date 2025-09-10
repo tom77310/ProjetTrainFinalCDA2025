@@ -166,7 +166,7 @@ foreach ($admins as $admin) {
     {
         // Sécurité : seul destinataire ou expéditeur peut voir le message
         $user = $this->getUser();
-        if ($message->getDestinataire() !== $user && $message->getUtilisateur() !== $user) {
+        if ($message->getDestinataire() !== $user && $message->getExpediteur() !== $user) {
             throw $this->createAccessDeniedException("Vous n'avez pas accès à ce message.");
         }
 
@@ -231,8 +231,8 @@ public function reply(
     EntityManagerInterface $em
 ): Response {
     $reply = new Messages();
-    $reply->setUtilisateur($this->getUser());
-    $reply->setDestinataire($original->getUtilisateur());
+    $reply->setExpediteur($this->getUser());
+    $reply->setDestinataire($original->getExpediteur());
     $reply->setObjet("Re: " . $original->getObjet());
 
     $form = $this->createForm(MessageFormType::class, $reply);
