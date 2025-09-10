@@ -119,14 +119,6 @@ foreach ($admins as $admin) {
     $em->persist($msgClone);
 }
 
-
-        // Cloner le message pour chaque admin
-        // foreach ($admins as $admin) {
-        //     $msgClone = clone $message;
-        //     $msgClone->setDestinataire($admin);
-        //     $em->persist($msgClone);
-        // }
-
         $em->flush();
 
         $this->addFlash('success', 'Votre message a été envoyé aux administrateurs.');
@@ -162,7 +154,7 @@ foreach ($admins as $admin) {
     public function sent(MessagesRepository $messagesRepository): Response
     {
         $user = $this->getUser();
-        $messages = $messagesRepository->findBy(['utilisateur' => $user]);
+        $messages = $messagesRepository->findBy(['expediteur' => $user]);
 
         return $this->render('compte_utilisateur/BoiteReception/MessageEnvoyer.html.twig', [
             'messages' => $messages,
@@ -183,6 +175,7 @@ foreach ($admins as $admin) {
         ]);
     }
 // Envoyer un nouveau message
+// Envoyer un nouveau message
 #[Route('/NouveauMessage', name: 'messages_new')]
 public function new(
     Request $request,
@@ -194,8 +187,9 @@ public function new(
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
+        // l’expéditeur est toujours l’utilisateur connecté
         $expediteur = $this->getUser();
-        $message->setUtilisateur($expediteur);
+        $message->setExpediteur($expediteur);
 
         // Gestion de la pièce jointe
         $file = $form->get('pieceJointe')->getData();
@@ -205,7 +199,7 @@ public function new(
             $message->setPieceJointe($filename);
         }
 
-        // Trouve tous les admins
+        // Envoi automatique à tous les administrateurs
         $admins = $utilisateurRepository->findAll();
         foreach ($admins as $admin) {
             if (in_array('ROLE_ADMIN', $admin->getRoles())) {
@@ -216,6 +210,7 @@ public function new(
         }
 
         $em->flush();
+
         $this->addFlash('success', 'Votre message a été envoyé aux administrateurs.');
         return $this->redirectToRoute('CompteUtilisateur_BoiteReception');
     }
@@ -224,6 +219,7 @@ public function new(
         'form' => $form->createView(),
     ]);
 }
+
 
 
 

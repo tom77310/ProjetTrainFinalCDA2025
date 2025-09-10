@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modif utilisateur{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('CSS/ModifUserAdmin.css') }}">
+    <h1>Modifier l'utilisateur séléctionné</h1>
+    {{ include('administrateur/GestionUtilisateurs/formModif.html.twig', {'button_label': 'Modifier'}) }}
+<div class="Retour">
+    <a href="{{ path('Administrateur_ListeUtilisateurs') }}">Revenir a la liste des Utilisateurs</a>
+</div>
+<div class="Supprimer">
+    {{ include('administrateur/GestionUtilisateurs/FormSupprimer.html.twig') }}
+</div>
+{% endblock %}

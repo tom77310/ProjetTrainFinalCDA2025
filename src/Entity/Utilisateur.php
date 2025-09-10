@@ -64,7 +64,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, Messages>
      */
-    #[ORM\OneToMany(targetEntity: Messages::class, mappedBy: 'utilisateur')]
+    #[ORM\OneToMany(mappedBy: "expediteur", targetEntity: Messages::class, cascade: ["remove"], orphanRemoval: true)]
     private Collection $messages;
 
     /**

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# <link rel="stylesheet" href={{ asset('CSS/Utilisateurs.css') }}> #}
+    <title>Espace Administrateur</title>
+</head>
+
+<body>
+    <h1>Espace Administrateur</h1>
+    <div class="AdminHaut">
+        <div class="ListeUtilisateurs"> {# Liste des utilisateurs #}
+            <a href={{ path('Administrateur_ListeUtilisateurs') }}><img src={{ asset('Images/MonCompte/IconeInfosPersos.png') }} alt="InformationsPersonnelles" id="InfosPersos"></a>
+            <p>Liste des utilisateurs</p>
+        </div>
+        
+        <div class="Liste des Produits"> {# Liste des produits, mettre une gestion de stock dedans #}
+            {# <a href={{ path('Administrateur_ListeProduits') }}><img src={{ asset('Images/MonCompte/Retractation.png') }} alt="Formulaire de Retractation" id="Retractation"></a> #}
+            {# <p>Liste des produits</p> #}
+        </div>
+
+    </div>
+
+        <div class="AdminBas">
+            {# <div class="HistoriqueCommandeUtilisateurs"> Historique de commandes Utilisateurs #}
+            {# <a href={{ path('Administrateur_HistoriqueCommandeUtilisateur') }}><img src={{ asset('Images/MonCompte/HistoriqueCommande.png') }} alt="Historique des commandes" id="Historique"></a> #}
+                <p>Historique des commandes des utilisateurs</p>
+            </div>
+            <div class="BoiteReceptionAdmin"> {# Boite de reception #}
+            {# <a href={{ path('CompteUtilisateur_BoiteReception') }}><img src={{ asset('Images/MonCompte/BoiteReception.png') }} alt="Boite de Reception" id="Reception"></a> #}
+            <p>Boite de reception</p>
+            </div>
+        </div>
+</body>
+
+</html>
+{% endblock %}

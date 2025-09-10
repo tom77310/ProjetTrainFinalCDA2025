@@ -1,0 +1,49 @@
+
+{% extends 'base.html.twig' %}
+{% block title %}Liste des Utilisateurs{% endblock %}
+{% block body %}
+    <link rel="stylesheet" href={{ asset('/CSS/ListeUser.css') }}>
+    <h1>Liste des Utilisateurs</h1>
+
+    <table class="liste_utilisateurs">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>Code Postale</th>
+                <th>Ville</th>
+                <th>Telephone</th>
+                <th>Role</th>
+                <th>Modifier</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in Utilisateurs %}
+            <tr>
+                <td>{{ utilisateur.id }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.adresse }}</td>
+                <td>{{ utilisateur.cp }}</td>
+                <td>{{ utilisateur.ville }}</td>
+                <td>{{ utilisateur.telephone }}</td>
+                <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
+                <td> <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}">Modifier</a></td>
+                <td><a href="{{ path('Administrateur_DetailUtilisateur', {'id': utilisateur.id}) }}">Details</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="NouveauUtilisateur">
+    <a href="{{ path('Administrateur_AjoutUtilisateur') }}">Ajouter un Utilisateur</a>
+</div>
+{% endblock %}

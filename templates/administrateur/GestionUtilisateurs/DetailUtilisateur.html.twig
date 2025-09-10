@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails Utilisateurs{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('CSS/DetailsUtilisateurs.css') }}">
+    <h1>Detail de l'utilisateur séléctionné</h1>
+
+    <div class="details_utilisateurs">
+        
+
+                <p>Id : {{ utilisateur.id }}</p>
+                
+                <p>Nom : {{ utilisateur.nom }}</p>
+
+                <p>Prenom : {{ utilisateur.prenom }}</p>
+
+                <p>Adresse : {{ utilisateur.adresse }}</p>
+
+                <p>Code Postale : {{ utilisateur.cp }}</p>
+
+                <p>Ville : {{ utilisateur.ville }}</p>
+
+                <p>Numero de Telephone : {{ utilisateur.telephone }}</p>
+
+                <p>Email: {{ utilisateur.email }}</p>
+
+                <p>Role : {{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</p>
+            
+        
+    </div>
+<div class="Retour">
+    <a href="{{ path('Administrateur_ListeUtilisateurs') }}">Retour sur la liste des utilisateurs</a>
+</div>
+<div class="Modifier">
+    <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}">Modifier</a>
+</div>
+<div class="Supprimer">
+    {{ include('administrateur/GestionUtilisateurs/FormSupprimer.html.twig') }}
+</div>
+{% endblock %}

@@ -26,7 +26,8 @@ class Messages
     private ?Utilisateur $utilisateur;
 
     #[ORM\ManyToOne(inversedBy: 'messagesEnvoyes')]
-    private ?Utilisateur $expediteur;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Utilisateur $expediteur = null;
 
     #[ORM\ManyToOne(inversedBy: 'messagesRecus')]
     private ?Utilisateur $destinataire;
