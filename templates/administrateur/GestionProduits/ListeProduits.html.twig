@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Produits{% endblock %}
+
+{% block body %}
+<h1>Liste des Produits</h1>
+
+<a href="{{ path('Administrateur_AjoutProduit') }}" class="btn btn-success">Ajouter un produit</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for produit in produits %}
+        <tr>
+            <td>{{ produit.id }}</td>
+            <td>{{ produit.nomProduit }}</td>
+            <td>{{ produit.prix }} €</td>
+            <td>{{ produit.stock }}</td>
+            <td>
+                <a href="{{ path('Administrateur_Detailproduit', {id: produit.id}) }}" class="btn btn-info btn-sm">Voir</a>
+                <a href="{{ path('Administrateur_ModifierProduit', {id: produit.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                <form method="post" action="{{ path('Administrateur_SupprimerProduit', {id: produit.id}) }}" style="display:inline-block" onsubmit="return confirm('Supprimer ce produit ?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
+                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

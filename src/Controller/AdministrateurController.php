@@ -3,10 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Messages;
+use App\Entity\Produit;
 use App\Entity\Utilisateur;
 use App\Form\AdminMessageFormType;
 use App\Form\AjoutUtilisateurFormType;
 use App\Form\ModifUtilisateurFormType;
+use App\Form\ProduitFormType;
+use App\Repository\ProduitRepository;
 use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -116,5 +119,74 @@ final class AdministrateurController extends AbstractController
         }
 
         return $this->redirectToRoute('Administrateur_ListeUtilisateurs', [], Response::HTTP_SEE_OTHER);
+    }
+
+    // Gestion de stock de produits
+    // Liste des produits
+    #[Route('/ListeProduits', name: 'Administrateur_ListeProduits')]
+    public function index(ProduitRepository $produitRepository): Response
+    {
+        return $this->render('administrateur/GestionProduits/ListeProduits.html.twig', [
+            'produits' => $produitRepository->findAll(),
+        ]);
+    }
+    // Ajout d'un produit (a modifié)
+    #[Route('/AjoutProduit', name: 'Administrateur_AjoutProduit')]
+    public function AjoutProduit(Request $request, EntityManagerInterface $em): Response
+    {
+        $produit = new Produit();
+        $form = $this->createForm(ProduitFormType::class, $produit);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($produit);
+            $em->flush();
+
+            $this->addFlash('success', 'Produit ajouté avec succès !');
+            return $this->redirectToRoute('Administrateur_ListeProduits');
+        }
+
+        return $this->render('administrateur/GestionProduits/AjoutProduit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    // Voir le detail d'un produit spécifique
+    #[Route('/DetailProduit/{id}', name: 'Administrateur_Detailproduit')]
+    public function DetailProduit(Produit $produit): Response
+    {
+        return $this->render('administrateur/GestionProduits/DetailProduit.html.twig', [
+            'produit' => $produit,
+        ]);
+    }
+    // Modifier un produit spécifique
+     #[Route('/ModifierProduit/{id}', name: 'Administrateur_ModifierProduit')]
+    public function ModifierProduit(Request $request, Produit $produit, EntityManagerInterface $em): Response
+    {
+        $form = $this->createForm(ProduitFormType::class, $produit);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            $this->addFlash('success', 'Produit modifié avec succès !');
+            return $this->redirectToRoute('Administrateur_ListeProduits');
+        }
+
+        return $this->render('administrateur/GestionProduits/ModifierProduit.html.twig', [
+            'form' => $form->createView(),
+            'produit' => $produit,
+        ]);
+    }
+    // Supprimer un produit
+    #[Route('/SupprimerProduit/{id}', name: 'Administrateur_SupprimerProduit', methods: ['POST'])]
+    public function SupprimerProduit(Request $request, Produit $produit, EntityManagerInterface $em): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $produit->getId(), $request->request->get('_token'))) {
+            $em->remove($produit);
+            $em->flush();
+            $this->addFlash('danger', 'Produit supprimé avec succès !');
+        }
+
+        return $this->redirectToRoute('Administrateur_ListeProduits');
     }
 }

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail produit{% endblock %}
+
+{% block body %}
+<h1>{{ produit.nomProduit }}</h1>
+
+<p><strong>Prix :</strong> {{ produit.prix }} €</p>
+<p><strong>Stock :</strong> {{ produit.stock }}</p>
+<p><strong>Description :</strong> {{ produit.description }}</p>
+
+<a href="{{ path('Administrateur_ModifierProduit', {id: produit.id}) }}" class="btn btn-warning">Modifier</a>
+<a href="{{ path('Administrateur_ListeProduits') }}" class="btn btn-secondary">Retour</a>
+{% endblock %}
