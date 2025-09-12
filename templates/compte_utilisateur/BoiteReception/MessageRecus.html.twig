@@ -10,6 +10,7 @@
         <div class="list-group">
             {% for message in messages %}
                 <div class="list-group-item list-group-item-action mb-2 shadow-sm rounded">
+                  <p><strong>De :</strong> {{ message.expediteur.email }}</p> {# Affiche l'email de l'expéditeur #}
                     <h5 class="mb-2">{{ message.objet }}</h5>
                     <p class="mb-2">{{ message.description|u.truncate(150, '...') }}</p>
 

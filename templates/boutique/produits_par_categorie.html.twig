@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ categorie.nom }}{% endblock %}
+
+{% block body %}
+    <h1>Produits dans la catégorie : {{ categorie.nom }}</h1>
+
+    {% if produits is not empty %}
+        <div class="produits-liste">
+            {% for produit in produits %}
+                <div class="produit-card">
+                    {# Image principale si dispo #}
+                    {% if produit.vue1 %}
+                        <img src="{{ asset('Images/Produits/' ~ produit.vue1) }}" alt="{{ produit.nomProduit }}">
+                    {% else %}
+                        <img src="{{ asset('images/no-image.png') }}" alt="Image par défaut">
+                    {% endif %}
+
+                    <h2>{{ produit.nomProduit }}</h2>
+
+                    {# Affichage des tailles liées #}
+                    {% if produit.tailles is not empty %}
+                        <p>Tailles disponibles :
+                            {% for taille in produit.tailles %}
+                                <span>{{ taille.libelesTailles }}</span>{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                    <a href="{{ path('produit_detail', {id: produit.id}) }}">Voir le produit</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Aucun produit trouvé dans cette catégorie.</p>
+    {% endif %}
+{% endblock %}

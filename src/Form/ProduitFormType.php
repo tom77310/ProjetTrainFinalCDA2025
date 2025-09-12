@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Produit;
 use App\Entity\Categorie;
+use App\Entity\Tailles;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,7 +21,7 @@ class ProduitFormType extends AbstractType
     {
         $builder
             ->add('nomproduit', TextType::class, [
-                'label' => 'Nom du produit'
+                'label' => 'Nom du produit',
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
@@ -27,31 +29,32 @@ class ProduitFormType extends AbstractType
             ])
             ->add('prix', MoneyType::class, [
                 'label' => 'Prix',
-                'currency' => 'EUR'
+                'currency' => 'EUR',
             ])
             ->add('stock', IntegerType::class, [
-                'label' => 'Stock'
+                'label' => 'Stock',
             ])
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'nom',
                 'label' => 'Catégorie',
+            ])
+            ->add('vue1', FileType::class, [
+                'label' => 'Image principale',
+                'mapped' => false,
                 'required' => false,
             ])
-            ->add('vue1', TextType::class, [
-                'label' => 'Image 1',
+            ->add('vue2', FileType::class, [
+                'label' => 'Image secondaire',
+                'mapped' => false,
                 'required' => false,
             ])
-            ->add('vue2', TextType::class, [
-                'label' => 'Image 2',
-                'required' => true,
-            ])
-            ->add('vue3', TextType::class, [
-                'label' => 'Image 3',
+            ->add('vue3', FileType::class, [
+                'label' => 'Image optionnelle',
+                'mapped' => false,
                 'required' => false,
             ]);
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

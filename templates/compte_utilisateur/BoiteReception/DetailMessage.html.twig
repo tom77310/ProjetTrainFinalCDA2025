@@ -11,6 +11,8 @@
             {{ message.objet }}
         </div>
         <div class="card-body">
+            <p><strong>De :</strong> {{ message.expediteur.email }}</p> {# Affiche l'email de l'expéditeur #}
+            
             <p><strong>Description :</strong></p>
             <div class="border rounded p-3 bg-light">
                 {{ message.description|nl2br }}

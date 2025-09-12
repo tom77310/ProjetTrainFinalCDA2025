@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Les {{ categorie.nom }}</h1>
+
+<div class="produits">
+    {% for produit in produits %}
+        <div class="produit">
+            <a href="{{ path('produit_show', {'id': produit.id}) }}">
+                <img src="{{ asset('Images/Produits/' ~ categorie.nom ~ '/') ~ produit.vue1 }}" alt="{{ produit.nomproduit }}">
+                <p>{{ produit.nomproduit }}</p>
+            </a>
+            <p>{{ produit.prix }} €</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -352,54 +352,75 @@ public function reply(
 
     // Commande utilisateur
     #[Route('/commande', name: 'CompteUtilisateur_Commande')]
-        public function Commande(SessionInterface $session, ProduitRepository $produitRepository, EntityManagerInterface $em):Response
-        {
-             $this->denyAccessUnlessGranted('ROLE_USER');
+    public function Commande(SessionInterface $session,ProduitRepository $produitRepository,EntityManagerInterface $em): Response {
+        $this->denyAccessUnlessGranted('ROLE_USER');
 
         $panier = $session->get('panier', []);
 
-        if($panier === []){
-            $this->addFlash('message', 'Votre panier est vide');
+        if ($panier === []) {
+            $this->addFlash('warning', 'Votre panier est vide.');
             return $this->redirectToRoute('acceuil_index');
         }
 
-        //Le panier n'est pas vide, on crée la commande
-        $commande = new Commande();
+        // On démarre une transaction
+        $conn = $em->getConnection();
+        $conn->beginTransaction();
 
-        // On remplit la commande
-        $commande->setUtilisateur($this->getUser());
-        $commande->setReference(uniqid());
+        try {
+            // Créer la commande
+            $commande = new Commande();
+            $commande->setUtilisateur($this->getUser());
+            $commande->setReference(uniqid());
 
-        // On parcourt le panier pour créer les détails de commande
-        foreach($panier as $item => $quantite){
-            $LigneDeCommande = new LigneDeCommande();
+            foreach ($panier as $idProduit => $quantite) {
+                $produit = $produitRepository->find($idProduit);
 
-            // On va chercher le produit
-            $produit = $produitRepository->find($item);
-            
-            $prix = $produit->getPrix();
+                if (!$produit) {
+                    throw new \Exception("Le produit ID $idProduit n'existe pas.");
+                }
 
-            // On crée le détail de commande
-            $LigneDeCommande->setProduit($produit);
-            $LigneDeCommande->setPrixunitaireproduit($prix);
-            $LigneDeCommande->setQuantitecommande($quantite);
-            $LigneDeCommande->setCommande($commande);
+                // Vérifier le stock disponible
+                if ($produit->getStock() < $quantite) {
+                    throw new \Exception("Stock insuffisant pour le produit " . $produit->getNomProduit());
+                }
 
-            $commande->addLigneDeCommande($LigneDeCommande);
+                // Décrémenter le stock
+                $produit->setStock($produit->getStock() - $quantite);
+
+                // Créer la ligne de commande
+                $ligne = new LigneDeCommande();
+                $ligne->setProduit($produit);
+                $ligne->setPrixUnitaireProduit((int)$produit->getPrix()); // ⚠️ si ton prix est decimal/string, adapte le cast
+                $ligne->setQuantiteCommande($quantite);
+                $ligne->setCommande($commande);
+
+                $commande->addLigneDeCommande($ligne);
+
+                $em->persist($ligne);
+            }
+
+            // Sauvegarde commande + produits (stock mis à jour)
+            $em->persist($commande);
+            $em->flush();
+
+            // Commit transaction
+            $conn->commit();
+
+            // Vider le panier
+            $session->remove('panier');
+
+            $this->addFlash('success', 'Votre commande a été validée avec succès !');
+
+            return $this->redirectToRoute('commande_show', [
+                'id' => $commande->getId(),
+            ]);
+        } catch (\Exception $e) {
+            $conn->rollBack();
+            $this->addFlash('danger', "Erreur lors de la validation : " . $e->getMessage());
+            return $this->redirectToRoute('CompteUtilisateur_Panier');
         }
-
-        // On persiste et on flush
-        $em->persist($commande); // persist => prépare les données lors de la création de la requete. Pas besoin de persist sur la ligne de commande, car on met un cascade ['persist'] dans l'entité LigneDeCommande
-        $em->flush(); // flush => sauvegarde les infos dans la base de données
-
-        $session->remove('panier');
-
-       // ➡️ Redirection vers la route "commande_show"
-    return $this->redirectToRoute('commande_show', [
-        'id' => $commande->getId()
-    ]);
-
     }
+
     
     // Affiche le details de la commande
     #[Route('/commande/{id}', name: 'commande_show', requirements: ['id' => '\d+'])] // Permet de dire a symfony que la route n'accepte que des numero

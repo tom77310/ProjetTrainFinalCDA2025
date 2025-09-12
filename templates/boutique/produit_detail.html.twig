@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ produit.nomProduit }}{% endblock %}
+
+{% block body %}
+    <h1>{{ produit.nomProduit }}</h1>
+
+    {# Carrousel si plusieurs images #}
+    {% set images = [produit.vue1, produit.vue2, produit.vue3]|filter(v => v is not empty) %}
+
+    {% if images|length > 1 %}
+        <div id="" class="" >
+            <div class="">
+                {% for image in images %}
+                    <div class="{% if loop.first %}active{% endif %}">
+                        <img src="{{ asset('Images/Produits/' ~ image ) }}" class="" alt="{{ produit.nomProduit }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% elseif images|length == 1 %}
+        <img src="{{ asset('uploads/produits/' ~ images[0]) }}" alt="{{ produit.nomProduit }}">
+    {% else %}
+        <img src="{{ asset('images/no-image.png') }}" alt="Pas d'image disponible">
+    {% endif %}
+
+    <p><strong>Prix :</strong> {{ produit.prix }} €</p>
+    <p><strong>Description :</strong> {{ produit.description }}</p>
+    <p><strong>Stock :</strong> {{ produit.stock }}</p>
+
+    
+    {% if app.user %}
+    <a href="{{ path('CompteUtilisateur_AjoutPanier', {id: produit.id}) }}">Ajouter au panier</a>
+{% else %}
+    <a href="{{ path('app_login') }}">Connectez-vous pour ajouter cet article à votre panier</a>
+{% endif %}
+
+    <a href="{{ path('categorie_produits', {id: produit.categorie.id}) }}">⬅ Retour à la catégorie</a>
+{% endblock %}

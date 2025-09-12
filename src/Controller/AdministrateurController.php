@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Entity\Messages;
 use App\Entity\Produit;
 use App\Entity\Utilisateur;
@@ -9,13 +10,16 @@ use App\Form\AdminMessageFormType;
 use App\Form\AjoutUtilisateurFormType;
 use App\Form\ModifUtilisateurFormType;
 use App\Form\ProduitFormType;
+use App\Repository\CommandeRepository;
 use App\Repository\ProduitRepository;
 use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/administrateur')]
 final class AdministrateurController extends AbstractController
@@ -29,21 +33,44 @@ final class AdministrateurController extends AbstractController
     }
     // Boite de reception
     // Envoie d'un nouveau message
-    #[Route('/boiteReception/NouveauMessage', name: 'Administrateur_EnvoyerMessage')]
-    public function envoyerMessageAdmin(Request $request,EntityManagerInterface $em): Response {
+   #[Route('/boiteReception/NouveauMessage', name: 'Administrateur_EnvoyerMessage')]
+    public function envoyerMessageAdmin(Request $request,EntityManagerInterface $em,SluggerInterface $slugger): Response
+    {
         $message = new Messages();
         $form = $this->createForm(AdminMessageFormType::class, $message);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $expediteur = $this->getUser(); // Admin connecté
-            $message->setExpediteur($expediteur);
+            // Définir l'expéditeur (admin connecté)
+            $message->setExpediteur($this->getUser());
+
+            // Gestion de la pièce jointe si fournie
+            $pieceJointe = $form->get('pieceJointe')->getData();
+            if ($pieceJointe) {
+                $originalFilename = pathinfo($pieceJointe->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$pieceJointe->guessExtension();
+
+                // Déplacer le fichier dans le dossier uploads/messages
+                try {
+                    $pieceJointe->move(
+                        $this->getParameter('messages_directory'), // paramètre à configurer
+                        $newFilename
+                    );
+                } catch (\Exception $e) {
+                    $this->addFlash('error', 'Erreur lors de l\'upload de la pièce jointe.');
+                    return $this->redirectToRoute('Administrateur_EnvoyerMessage');
+                }
+
+                // Stocker le nom du fichier dans l'entité (il faut ajouter un champ $pieceJointe dans Messages)
+                $message->setPieceJointe($newFilename);
+            }
 
             $em->persist($message);
             $em->flush();
 
             $this->addFlash('success', 'Message envoyé à l\'utilisateur.');
-            return $this->redirectToRoute('Administrateur_BoiteReception');
+            return $this->redirectToRoute('CompteUtilisateur_BoiteReception');
         }
 
         return $this->render('administrateur/BoiteReception/NouveauMessage.html.twig', [
@@ -130,26 +157,46 @@ final class AdministrateurController extends AbstractController
             'produits' => $produitRepository->findAll(),
         ]);
     }
-    // Ajout d'un produit (a modifié)
-    #[Route('/AjoutProduit', name: 'Administrateur_AjoutProduit')]
-    public function AjoutProduit(Request $request, EntityManagerInterface $em): Response
+    
+
+
+    #[Route('/admin/produit/ajouter', name: 'Administrateur_AjoutProduit')]
+    public function ajouterProduit(Request $request, EntityManagerInterface $em): Response
     {
         $produit = new Produit();
         $form = $this->createForm(ProduitFormType::class, $produit);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+            // Gestion upload des images
+            foreach (['vue1', 'vue2', 'vue3'] as $field) {
+                $file = $form->get($field)->getData();
+                if ($file) {
+                    $fileName = uniqid().'.'.$file->guessExtension();
+                    try {
+                        $file->move($this->getParameter('messages_directory'), $fileName);
+                    } catch (FileException $e) {
+                        throw new \Exception("Erreur upload image : " . $e->getMessage());
+                    }
+                    $setter = 'set' . ucfirst($field);
+                    $produit->$setter($fileName);
+                }
+            }
+
             $em->persist($produit);
             $em->flush();
 
             $this->addFlash('success', 'Produit ajouté avec succès !');
-            return $this->redirectToRoute('Administrateur_ListeProduits');
+            return $this->redirectToRoute('Administrateur_AjoutProduit');
         }
 
         return $this->render('administrateur/GestionProduits/AjoutProduit.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+
 
     // Voir le detail d'un produit spécifique
     #[Route('/DetailProduit/{id}', name: 'Administrateur_Detailproduit')]
@@ -189,4 +236,26 @@ final class AdministrateurController extends AbstractController
 
         return $this->redirectToRoute('Administrateur_ListeProduits');
     }
+
+    // Historique de commande des utilisateurs 
+    #[Route('/historiquecommandeUtilisateurs', name: 'admin_commandes')]
+    public function HistoriqueCommandeUtilisateurs(CommandeRepository $commandeRepository): Response
+    {
+        // On récupère toutes les commandes
+        $commandes = $commandeRepository->findAll();
+
+        return $this->render('administrateur/GestionUtilisateurs/HistoriqueCommandesUtilisateurs.html.twig', [
+            'commandes' => $commandes,
+        ]);
+    }
+
+    #[Route('/detailscommande/{id}', name: 'admin_commande_detail')]
+    public function detail(Commande $commande): Response
+    {
+        return $this->render('administrateur/GestionUtilisateurs/DetailCommande.html.twig', [
+            'commande' => $commande,
+        ]);
+    }
+
+
 }

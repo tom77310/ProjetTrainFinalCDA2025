@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
+use App\Entity\Produit;
 use App\Repository\CategorieRepository;
 use App\Repository\PageProduitRepository;
 use App\Repository\TaillesRepository;
@@ -123,5 +125,46 @@ final class TypeProduitController extends AbstractController
             'controller_name' => 'TypeProduitController', // Je n'ai pas besoin de récuperer des données de la BDD, juste la page qui correspond
         ]); 
     }
+
+
+
+
+
+    
+
+    // Test de génération de page auto
+    // Pages categories
+//    #[Route('/categorie/{id}', name: 'categorie_produits')]
+// public function produitsParCategorie(Categorie $categorie): Response
+// {
+//     return $this->render('boutique/produits_par_categorie.html.twig', [
+//         'categorie' => $categorie,
+//         'produits' => $categorie->getProduits()
+//     ]);
+// }
+
+
+    // Géneration auto pour les pages produits
+//     #[Route('/produit/{id}', name: 'produit_detail', requirements: ['id' => '\d+'])]
+// public function detail(Produit $produit): Response
+// {
+//     return $this->render('boutique/produit_detail.html.twig', [
+//         'produit' => $produit,
+//     ]);
+// }
+
+
+// #[Route('/materiel-roulants', name: 'MaterielRoulants')]
+// public function MaterielRoulants(CategorieRepository $categorieRepository): Response
+// {
+//     $categories = $categorieRepository->findAll();
+
+//     return $this->render('materiel_roulant/matRoulants.html.twig', [
+//         'categories' => $categories,
+//     ]);
+// }
+
+
+
 
 }
