@@ -133,11 +133,13 @@ foreach ($admins as $admin) {
 
     // Boite de reception
 // Affichage boite de reception
-#[Route('/BoiteReception', name: 'CompteUtilisateur_BoiteReception')]
-    public function BoiteReception(): Response
-    {
-        return $this->render('compte_utilisateur/BoiteReception/BoiteReception.html.twig');
-    }
+#[Route('/utilisateur/BoiteReception', name: 'CompteUtilisateur_BoiteReception')]
+#[Route('/admin/BoiteReception', name: 'Administrateur_BoiteReception')]
+public function BoiteReception(): Response
+{
+    return $this->render('compte_utilisateur/BoiteReception/BoiteReception.html.twig');
+}
+
 // Messages recus
 #[Route('/messagerecus', name: 'CompteUtilisateur_BoiteReceptionMesssageRecus')]
     public function received(MessagesRepository $messagesRepository): Response

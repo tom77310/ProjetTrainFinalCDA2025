@@ -3,9 +3,29 @@
 {% block title %}Gestion des Produits{% endblock %}
 
 {% block body %}
+ <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
 <h1>Liste des Produits</h1>
 
+<div class='Droite'>
+            <div class="ListeUtilisateurs">
+                <a href={{ path('Administrateur_ListeUtilisateurs') }}>Liste des Utilisateurs</a>
+            </div>
+            <div class="ListeProduits">
+                <a href="#">Liste des produits</a>
+            </div>
+            <div class="HistoriqueCommandes">
+                <a href={{ path('Administrateur_HistoriquesCommandesUtilisateurs') }}>Historique des Commandes des utilisateurs</a>
+            </div>
+            <div class="BoiteReception">
+                <a href={{ path('Administrateur_BoiteReception') }}>Boite de Reception</a>
+            </div>
+        </div> {# Fin div Droite #}
+
+
+
+
 <a href="{{ path('Administrateur_AjoutProduit') }}" class="btn btn-success">Ajouter un produit</a>
+
 
 <table class="table mt-3">
     <thead>

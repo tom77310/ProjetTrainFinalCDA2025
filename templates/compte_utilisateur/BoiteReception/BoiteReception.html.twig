@@ -3,22 +3,23 @@
 {% block title %}Boîte de réception{% endblock %}
 
 {% block body %}
+ <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
 <div class="">
     <h2 class=""> Boîte de réception</h2>
 
 {% if is_granted('ROLE_ADMIN') %}
-        <div class='Droite'>
+<div class='Droite'>
             <div class="ListeUtilisateurs">
-                <a href={{ path('CompteUtilisateur_infosPersos') }}>Liste des Utilisateurs</a>
+                <a href={{ path('Administrateur_ListeUtilisateurs') }}>Liste des Utilisateurs</a>
             </div>
             <div class="ListeProduits">
-                <a href="#">Liste des produits</a>
+                <a href={{ path('Administrateur_ListeProduits') }}>Liste des produits</a>
             </div>
             <div class="HistoriqueCommandes">
-                <a href={{ path('CompteUtilisateur_HistoriqueCommande') }}>Historique des Commandes des utilisateurs</a>
+                <a href={{ path('Administrateur_HistoriquesCommandesUtilisateurs') }}>Historique des Commandes des utilisateurs</a>
             </div>
             <div class="BoiteReception">
-                <a href={{ path('CompteUtilisateur_BoiteReception') }}>Boite de Reception</a>
+                <a href="#">Boite de Reception</a>
             </div>
         </div> {# Fin div Droite #}
         {% elseif is_granted('ROLE_USER') %}

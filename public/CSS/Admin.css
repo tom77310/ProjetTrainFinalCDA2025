@@ -1,0 +1,123 @@
+/* Style Commun */
+h1{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+/* Fin Style Commun */
+
+/* Espace Administrateur */
+.AdminHaut{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+.AdminHaut img{
+    width: 50%;
+    height: auto;
+}
+
+.ListeUtilisateurs img {
+    margin-top: 20px;
+}
+
+.AdminBas{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+.AdminBas img{
+    width: 50%;
+    height: auto;
+}
+/* Fin Espace Administrateur */
+/* Liste des Utilisateurs */
+        /* lien du tableau */
+            table a{
+                color: black;
+                text-decoration: none;
+            }
+        /* Fin lien du tableau */
+        
+        .liste_utilisateurs{
+            width: 75%;
+            border-collapse: collapse;
+            margin: 5% auto;
+        }
+        .liste_utilisateurs th, .liste_utilisateurs td{
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .liste_utilisateurs th{
+            background-color:#f2f2f2;
+            color: #333333;
+        }
+        /* Boutton d'ajout */
+            .NouveauUtilisateur a{
+                color: black;
+                text-decoration: none;
+            }
+            .NouveauUtilisateur{
+                border: 2px solid black;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 10%;
+                height: auto;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                margin: 40px auto;
+            }
+        /* Fin boutton d'ajout */
+    /* Fin Tableau */
+/* Fin Liste des utilisateurs */
+
+/* Cadre de navigation de gauche */
+        .Droite{
+            float: left;
+            width: 13%;
+            border: 5px solid black;
+            margin-left: 2%;
+        }
+        /* Lien du cadre de navigation de gauche */
+        .Droite a{
+            color: black;
+            margin-bottom: 10%;
+            margin-top: 10%;
+            text-decoration: none;
+        }
+        /* Liste des Utilisateurs */
+        .ListeUtilisateurs{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        /* Liste des Produits */
+        .ListeProduits{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        /* HistoriqueCommandes */
+        .HistoriqueCommandes{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+        /* Boite de Reception */
+        .BoiteReception{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            text-align: center;
+        }
+    /* Fin cadre de navigation gauche */

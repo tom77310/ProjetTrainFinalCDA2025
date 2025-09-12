@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# <link rel="stylesheet" href={{ asset('CSS/Utilisateurs.css') }}> #}
+    <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
     <title>Espace Administrateur</title>
 </head>
 
@@ -16,12 +16,12 @@
     <h1>Espace Administrateur</h1>
     <div class="AdminHaut">
         <div class="ListeUtilisateurs"> {# Liste des utilisateurs #}
-            <a href={{ path('Administrateur_ListeUtilisateurs') }}><img src={{ asset('Images/MonCompte/IconeInfosPersos.png') }} alt="InformationsPersonnelles" id="InfosPersos"></a>
+            <a href={{ path('Administrateur_ListeUtilisateurs') }}><img src={{ asset('Images/Admin/SymboleListeUtilisateurs.png') }} alt="ListeUtilisateurs" id="ListeUtilisateurs"></a>
             <p>Liste des utilisateurs</p>
         </div>
         
-        <div class="Liste des Produits"> {# Liste des produits, mettre une gestion de stock dedans #}
-            <a href={{ path('Administrateur_ListeProduits') }}><img src={{ asset('Images/MonCompte/Retractation.png') }} alt="Formulaire de Retractation" id="Retractation"></a>
+        <div class="ListeProduits"> {# Liste des produits, mettre une gestion de stock dedans #}
+            <a href={{ path('Administrateur_ListeProduits') }}><img src={{ asset('Images/Admin/SymboleListeProduits.png') }} alt="ListeProduits" id="ListeProduits"></a>
             <p>Liste des produits</p>
         </div>
 
@@ -29,7 +29,7 @@
 
         <div class="AdminBas">
             <div class="HistoriqueCommandeUtilisateurs"> {# Historique de commandes Utilisateurs #}
-            <a href={{ path('admin_commandes') }}><img src={{ asset('Images/MonCompte/HistoriqueCommande.png') }} alt="Historique des commandes" id="Historique"></a>
+            <a href={{ path('Administrateur_HistoriquesCommandesUtilisateurs') }}><img src={{ asset('Images/MonCompte/HistoriqueCommande.png') }} alt="Historique des commandes" id="Historique"></a>
                 <p>Historique des commandes des utilisateurs</p>
             </div>
             <div class="BoiteReceptionAdmin"> {# Boite de reception #}

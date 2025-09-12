@@ -238,7 +238,7 @@ final class AdministrateurController extends AbstractController
     }
 
     // Historique de commande des utilisateurs 
-    #[Route('/historiquecommandeUtilisateurs', name: 'admin_commandes')]
+    #[Route('/historiquecommandeUtilisateurs', name: 'Administrateur_HistoriquesCommandesUtilisateurs')]
     public function HistoriqueCommandeUtilisateurs(CommandeRepository $commandeRepository): Response
     {
         // On récupère toutes les commandes
