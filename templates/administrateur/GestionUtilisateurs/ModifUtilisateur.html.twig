@@ -3,7 +3,7 @@
 {% block title %}Modif utilisateur{% endblock %}
 
 {% block body %}
-<link rel="stylesheet" href="{{ asset('CSS/ModifUserAdmin.css') }}">
+ <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
     <h1>Modifier l'utilisateur séléctionné</h1>
     {{ include('administrateur/GestionUtilisateurs/formModif.html.twig', {'button_label': 'Modifier'}) }}
 <div class="Retour">

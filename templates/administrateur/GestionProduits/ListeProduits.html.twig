@@ -21,20 +21,16 @@
             </div>
         </div> {# Fin div Droite #}
 
-
-
-
-<a href="{{ path('Administrateur_AjoutProduit') }}" class="btn btn-success">Ajouter un produit</a>
-
-
-<table class="table mt-3">
+<table class="liste_produits">
     <thead>
         <tr>
             <th>ID</th>
             <th>Nom</th>
             <th>Prix</th>
             <th>Stock</th>
-            <th>Actions</th>
+            <th>Details</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
         </tr>
     </thead>
     <tbody>
@@ -45,15 +41,23 @@
             <td>{{ produit.prix }} €</td>
             <td>{{ produit.stock }}</td>
             <td>
-                <a href="{{ path('Administrateur_Detailproduit', {id: produit.id}) }}" class="btn btn-info btn-sm">Voir</a>
-                <a href="{{ path('Administrateur_ModifierProduit', {id: produit.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
-                <form method="post" action="{{ path('Administrateur_SupprimerProduit', {id: produit.id}) }}" style="display:inline-block" onsubmit="return confirm('Supprimer ce produit ?');">
+                <a href="{{ path('Administrateur_Detailproduit', {id: produit.id}) }}" class="">Voir</a>
+            </td>
+            <td>
+                <a href="{{ path('Administrateur_ModifierProduit', {id: produit.id}) }}" class="">Modifier</a>
+            </td>
+            <td>
+                <form method="post" action="{{ path('Administrateur_SupprimerProduit', {id: produit.id}) }}" style="display:inline-block" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer ce produit ? Cette action est définitive');">
                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
-                    <button class="btn btn-danger btn-sm">Supprimer</button>
+                    <button class="">Supprimer</button>
                 </form>
             </td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
+<div class="NouveauProduit">
+    <a href="{{ path('Administrateur_AjoutProduit') }}" class="">Ajouter un produit</a>
+</div>
 {% endblock %}
+

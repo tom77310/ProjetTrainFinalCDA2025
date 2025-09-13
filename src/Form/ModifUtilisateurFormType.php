@@ -40,7 +40,8 @@ class ModifUtilisateurFormType extends AbstractType
         ->add('cp', NumberType::class, [
             'attr' => [
                 'class' => 'CodePostal',
-            ]
+            ],
+                'label' => 'Code Postal',
         ])
         ->add('Ville', TextType::class, [
             'attr' => [

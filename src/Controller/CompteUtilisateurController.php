@@ -134,11 +134,31 @@ foreach ($admins as $admin) {
     // Boite de reception
 // Affichage boite de reception
 #[Route('/utilisateur/BoiteReception', name: 'CompteUtilisateur_BoiteReception')]
-#[Route('/admin/BoiteReception', name: 'Administrateur_BoiteReception')]
-public function BoiteReception(): Response
-{
-    return $this->render('compte_utilisateur/BoiteReception/BoiteReception.html.twig');
-}
+    #[Route('/admin/BoiteReception', name: 'Administrateur_BoiteReception')]
+    public function BoiteReception(MessagesRepository $messageRepository, Security $security): Response
+    {
+        // Récupérer l'utilisateur connecté
+        $user = $security->getUser();
+
+        // Messages reçus
+$messagesRecus = $messageRepository->findBy(
+    ['destinataire' => $user],
+        ['id' => 'DESC'],
+        3
+);
+
+        // Messages envoyés
+        $messagesEnvoyes = $messageRepository->findBy(
+        ['expediteur' => $user],
+        ['id' => 'DESC'],
+        3
+    );
+
+        return $this->render('compte_utilisateur/BoiteReception/BoiteReception.html.twig', [
+            'messagesRecus' => $messagesRecus,
+            'messagesEnvoyes' => $messagesEnvoyes,
+        ]);
+    }
 
 // Messages recus
 #[Route('/messagerecus', name: 'CompteUtilisateur_BoiteReceptionMesssageRecus')]

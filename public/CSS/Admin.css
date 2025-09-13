@@ -121,3 +121,422 @@ h1{
             text-align: center;
         }
     /* Fin cadre de navigation gauche */
+
+    /* Liste des produits */
+     .liste_produits{
+            width: 75%;
+            border-collapse: collapse;
+            margin: 5% auto;
+        }
+        .liste_produits th, .liste_produits td{
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .liste_produits th{
+            background-color:#f2f2f2;
+            color: #333333;
+        }
+        /* Boutton d'ajout */
+            .NouveauProduit a{
+                color: black;
+                text-decoration: none;
+            }
+            .NouveauProduit{
+                border: 2px solid black;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 10%;
+                height: auto;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                margin: 40px auto;
+            }
+        /* Fin boutton d'ajout */
+    /* Fin liste produits */
+    /* Liste des commandes utilisateurs */
+     .liste_commandes{
+            width: 75%;
+            border-collapse: collapse;
+            margin: 5% auto;
+        }
+        .liste_commandes th, .liste_commandes td{
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .liste_commandes th{
+            background-color:#f2f2f2;
+            color: #333333;
+        }
+    /* Fin liste des commandes des utilisateurs */
+
+    /* Boite de reception admin */
+    /* --------------------- */
+/* Zone principale       */
+/* --------------------- */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+} */
+
+/* Titre */
+h1 {
+    text-align: center;
+    background-color: #2f4f4f; /* vert foncé ferroviaire */
+    color: white;
+    padding: 20px;
+    margin: 0 0 20px 0;
+    border-bottom: 4px solid #1c3131;
+}
+
+/* --------------------- */
+/* Onglets navigation    */
+/* --------------------- */
+.onglets-messages {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.onglets-messages li a {
+    background-color: #e0e0e0;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.onglets-messages li a:hover {
+    background-color: #2f4f4f;
+    color: white;
+}
+
+.onglets-messages li a.active {
+    background-color: #2f4f4f;
+    color: white;
+}
+
+/* --------------------- */
+/* Section centrale      */
+/* --------------------- */
+.container-messages {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    gap: 20px;
+}
+
+/* Liste des messages */
+.section-messages {
+    flex: 2;
+}
+
+.section-messages h2 {
+    margin-bottom: 10px;
+    color: #2f4f4f;
+}
+
+/* Carte message */
+.message-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.message-card:hover {
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+}
+
+.message-card strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.message-card a {
+    text-decoration: none;
+    color: #1a73e8;
+    font-weight: bold;
+}
+
+.message-card a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------- */
+/* Sidebar actions       */
+/* --------------------- */
+.sidebar-actions {
+    flex: 1;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    height: fit-content;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+}
+
+.sidebar-actions h3 {
+    margin-bottom: 10px;
+    color: #2f4f4f;
+}
+
+.sidebar-actions ul {
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-actions li {
+    margin-bottom: 10px;
+}
+
+.sidebar-actions a {
+    text-decoration: none;
+    color: #333;
+    transition: 0.2s;
+}
+
+.sidebar-actions a:hover {
+    color: #1a73e8;
+}
+/* Fin Page acceuil boite reception admin et utilisateurs */
+
+/* Formulaire modif utilisateur par admin */
+
+/* ---- Formulaire principal ---- */
+form {
+    width: 50%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ---- Champs du formulaire ---- */
+form div {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #2c3e50;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Effet focus sur les champs */
+input:focus, select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+    outline: none;
+}
+
+/* ---- Boutons ---- */
+button {
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Bouton Modifier */
+button[type="submit"], .btn-modifier {
+    background: #27ae60;
+    color: white;
+}
+button[type="submit"]:hover, .btn-modifier:hover {
+    background: #219150;
+}
+
+/* Bouton Supprimer */
+.Supprimer button, .btn-supprimer {
+    background: #e74c3c;
+    color: white;
+}
+.Supprimer button:hover, .btn-supprimer:hover {
+    background: #c0392b;
+}
+
+/* ---- Liens ---- */
+.Retour {
+    text-align: center;
+    margin-top: 20px;
+}
+.Retour a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+.Retour a:hover {
+    background: #2980b9;
+}
+/* Fin formulaire modif utilisateiur par admin */
+
+/* Affichage detail utilisateur */
+/* Conteneur des détails */
+.details_utilisateurs {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Chaque paragraphe */
+.details_utilisateurs p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* Boutons / liens */
+.Retour,
+.Modifier,
+.Supprimer {
+    max-width: 600px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.Retour a,
+.Modifier a,
+.Supprimer a,
+.Supprimer button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.Retour a:hover,
+.Modifier a:hover,
+.Supprimer a:hover,
+.Supprimer button:hover {
+    background-color: #0056b3;
+}
+
+/* Bouton supprimer spécifique */
+.Supprimer button {
+    background-color: #dc3545;
+}
+
+.Supprimer button:hover {
+    background-color: #a71d2a;
+}
+
+/* fin affcihage detail utilisateur selectionner */
+
+/* formulaire ajout utilisateur */
+
+/* Conteneur du formulaire */
+.form-ajout-utilisateur {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Titre */
+.form-ajout-utilisateur h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+/* Chaque champ du formulaire */
+.form-ajout-utilisateur label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-ajout-utilisateur input,
+.form-ajout-utilisateur select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+/* Changement de couleur au focus */
+.form-ajout-utilisateur input:focus,
+.form-ajout-utilisateur select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Bouton */
+.form-ajout-utilisateur button,
+.form-ajout-utilisateur input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-ajout-utilisateur button:hover,
+.form-ajout-utilisateur input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Petits détails */
+.required {
+    color: #dc3545;
+}
+
+
+
+
+
+/* fin formulaire ajout utilisateurs */
