@@ -23,11 +23,12 @@ class Messages
     private ?string $piece_jointe;
 
     #[ORM\ManyToOne(inversedBy: 'messagesEnvoyes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private ?Utilisateur $expediteur = null;
 
     #[ORM\ManyToOne(inversedBy: 'messagesRecus')]
-    private ?Utilisateur $destinataire;
+    #[ORM\JoinColumn(nullable: true, onDelete: "CASCADE")]
+    private ?Utilisateur $destinataire = null;
 
 
       public function getId(): ?int
