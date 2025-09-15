@@ -174,14 +174,7 @@ h1{
 
     /* Boite de reception admin */
     /* --------------------- */
-/* Zone principale       */
-/* --------------------- */
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
-} */
+
 
 /* Titre */
 h1 {
@@ -535,8 +528,48 @@ button[type="submit"]:hover, .btn-modifier:hover {
     color: #dc3545;
 }
 
-
-
-
-
 /* fin formulaire ajout utilisateurs */
+
+/* Page detail produit */
+
+/* ===== Détails produit ===== */
+.prixProduit,
+.stockProduit,
+.descriptionProduit {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Label (ex: Prix, Stock, Description) */
+.prixProduit strong,
+.stockProduit strong,
+.descriptionProduit strong {
+    color: #555;
+    margin-right: 5px;
+}
+
+/* Conteneur des détails */
+.detailProduit {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Chaque paragraphe */
+.detailProduit p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* css globale */
+textarea {
+    width: 100%;          /* prend toute la largeur du formulaire */
+    min-height: 120px;    /* hauteur minimum */
+    resize: vertical;     /* autorise seulement le redimensionnement vertical */
+    box-sizing: border-box; /* évite que le padding dépasse la largeur */
+}

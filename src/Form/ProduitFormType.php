@@ -26,6 +26,9 @@ class ProduitFormType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
                 'required' => false,
+               'attr' => [
+                    'class' => 'descriptionProduit'
+               ]
             ])
             ->add('prix', MoneyType::class, [
                 'label' => 'Prix',

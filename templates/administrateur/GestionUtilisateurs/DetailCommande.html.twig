@@ -3,7 +3,8 @@
 {% block title %}Détail commande {{ commande.reference }}{% endblock %}
 
 {% block body %}
-    <h1>📋 Détail de la commande {{ commande.reference }}</h1>
+ <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
+    <h1>Détail de la commande n°{{ commande.reference }}</h1>
 
     <p><strong>Utilisateur :</strong> 
         {{ commande.utilisateur ? commande.utilisateur.prenom ~ ' ' ~ commande.utilisateur.nom : 'Inconnu' }}
@@ -53,6 +54,7 @@
             </tr>
         </tfoot>
     </table>
-
-    <a href="{{ path('admin_commandes') }}" class="btn btn-secondary">⬅ Retour à la liste</a>
+<div class="Retour">
+    <a href="{{ path('Administrateur_HistoriquesCommandesUtilisateurs') }}" class="btn btn-secondary"> Retour à la liste</a>
+</div>
 {% endblock %}

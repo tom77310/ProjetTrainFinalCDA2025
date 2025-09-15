@@ -3,6 +3,7 @@
 {% block title %}Modifier Produit{% endblock %}
 
 {% block body %}
+ <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
 <h1>Modifier le produit</h1>
 
 {{ form_start(form) }}
@@ -10,5 +11,7 @@
     <button class="btn btn-success">Mettre à jour</button>
 {{ form_end(form) }}
 
+<div class="Retour">
 <a href="{{ path('Administrateur_ListeProduits') }}" class="btn btn-secondary mt-2">Retour à la liste</a>
+</div>
 {% endblock %}
