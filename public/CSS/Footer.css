@@ -22,3 +22,16 @@
   text-decoration: none; /* pas de soulignage */
   font-size: 14px; /* taille du texte */
 }
+
+html, body {
+  height: 100%;
+  margin: 0; /* important pour éviter les marges par défaut */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* prend toute la hauteur dispo */
+}
+
+
