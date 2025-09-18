@@ -42,7 +42,7 @@
 								€
 							</p>
 							{% if app.user %}
-							<a href={{ path('CompteUtilisateur_AjoutPanier', {id: Produits.id} ) }}>Ajouter au panier</a>
+							<a href={{ path('Compte_UtilisateurAjoutPanier', {id: Produits.id} ) }}>Ajouter au panier</a>
 						{% else %}
 							<a href={{ path('app_login') }}>Connectez-vous pour ajouter cet article a votre panier</a>
 						{% endif %}

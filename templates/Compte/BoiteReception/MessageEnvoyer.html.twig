@@ -24,7 +24,11 @@
                     {% endif %}
 
                     <div class="d-flex justify-content-end">
-                        <a href="{{ path('messages_detail', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('Compte_AdministrateurDetailMessage', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail ADMIN</a>
+                    {% elseif is_granted('ROLE_USER') %}
+                    <a href="{{ path('Compte_UtilisateurDetailMessage', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail USER</a>
+                    {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -34,7 +38,7 @@
     {% endif %}
 
     <div class="mt-3">
-        <a href="{{ path('CompteUtilisateur_BoiteReception') }}" class="btn btn-secondary">⬅ Retour</a>
+        <a href="{{ path('Compte_BoiteReception') }}" class="btn btn-secondary">⬅ Retour</a>
     </div>
 </div>
 {% endblock %}

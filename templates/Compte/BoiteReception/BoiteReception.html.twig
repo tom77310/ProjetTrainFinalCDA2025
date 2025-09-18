@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boîte de réception{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
+<link rel="stylesheet" href={{ asset('CSS/Utilisateurs.css') }}>
+
+{% if is_granted('ROLE_ADMIN') %}
+    <h1>Boîte de réception Administrateur</h1>
+{% elseif is_granted('ROLE_USER') %}
+    <h1>Votre Boîte de réception</h1>
+{% endif %}
+
+{# Menu gauche existant #}
+{% if is_granted('ROLE_ADMIN') %}
+<div class="Droite">
+    <div class="ListeUtilisateurs">
+        <a href={{ path('Administrateur_ListeUtilisateurs') }}>Liste des Utilisateurs</a>
+    </div>
+    <div class="ListeProduits">
+        <a href={{ path('Administrateur_ListeProduits') }}>Liste des produits</a>
+    </div>
+    <div class="HistoriqueCommandes">
+        <a href={{ path('Compte_AdministrateurHistoriquesCommandesUtilisateurs') }}>Historique des Commandes des utilisateurs</a>
+    </div>
+    <div class="BoiteReception">
+        <a href="#">Boite de Réception</a>
+    </div>
+</div>
+{% elseif is_granted('ROLE_USER') %}
+<div class="Droite">
+    <div class="InfosPersos">
+        <a href={{ path('Compte_infosPersos') }}>Mes Informations Personnelles</a>
+    </div>
+    <div class="Retractation">
+        <a href={{ path('Compte_FormRetractation') }}>Formulaire de retour</a>
+    </div>
+    <div class="HistoriqueDeCommandes">
+        <a href={{ path('Compte_UtilisateurHistoriqueCommande') }}>Historique de vos Commandes</a>
+    </div>
+    <div class="BoiteReception">
+        <a href="#">Boite de Réception</a>
+    </div>
+</div>
+{% endif %}
+
+{# Onglets navigation #}
+<ul class="onglets-messages">
+    <li>
+     {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('Compte_AdministrateurBoiteReceptionMesssageRecus') }}">Messages reçus ADMIN</a>
+    {% elseif is_granted('ROLE_USER') %}
+        <a href="{{ path('Compte_UtilisateurBoiteReceptionMesssageRecus') }}">Messages reçus</a>
+    {% endif %}
+    </li>
+    <li>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('Compte_AdministrateurMessageEnvoyer') }}">Messages Envoyer ADMIN</a>
+    {% elseif is_granted('ROLE_USER') %}
+        <a href="{{ path('Compte_UtilisateurMessageEnvoyer') }}">Messages Envoyer</a>
+    {% endif %}
+    </li>
+    <li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('Compte_AdministrateurEnvoieMessage') }}">Nouveau message ADMIN</a>
+        {% elseif is_granted('ROLE_USER') %}
+            <a href="{{ path('Compte_UtilisateurEnvoieMessage') }}">Nouveau message</a>
+        {% endif %}
+    </li>
+</ul>
+
+{# Contenu principal #}
+<div class="container-messages">
+    <div class="section-messages">
+        <h2>Derniers messages reçus</h2>
+        {% if messagesRecus is not empty %}
+            {% for message in messagesRecus %}
+                <div class="message-card">
+                    <strong>{{ message.objet }}</strong>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <span>De : {{ message.expediteur.email }} </span><br>
+                    <a href="{{ path('Compte_AdministrateurDetailMessage', {id: message.id}) }}">Lire ADMIN</a>
+                      {% elseif is_granted('ROLE_USER') %}
+                    <span>  De : Administration </span>
+                    <a href="{{ path('Compte_UtilisateurDetailMessage', {id: message.id}) }}">Lire</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun message reçu pour le moment.</p>
+        {% endif %}
+
+        <h2>Derniers messages envoyés</h2>
+        {% if messagesEnvoyes is not empty %}
+            {% for message in messagesEnvoyes %}
+                <div class="message-card">
+                    <strong>{{ message.objet }}</strong>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <span>À : {{ message.destinataire.email }}</span><br>
+                    <a href="{{ path('Compte_AdministrateurDetailMessage', {id: message.id}) }}">Lire ADMIN</a>
+                    {% elseif is_granted('ROLE_USER') %}
+                      <span>  À : Administration </span>
+                    <a href="{{ path('Compte_UtilisateurDetailMessage', {id: message.id}) }}">Lire</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun message envoyé pour le moment.</p>
+        {% endif %}
+    </div>
+
+    <div class="sidebar-actions">
+        <h3>Actions rapides</h3>
+        <ul>
+            <li>
+     {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('Compte_AdministrateurBoiteReceptionMesssageRecus') }}">Messages reçus ADMIN</a>
+    {% elseif is_granted('ROLE_USER') %}
+        <a href="{{ path('Compte_UtilisateurBoiteReceptionMesssageRecus') }}">Messages reçus</a>
+    {% endif %}            
+    </li>
+    <li>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('Compte_AdministrateurMessageEnvoyer') }}">Messages Envoyer ADMIN</a>
+    {% elseif is_granted('ROLE_USER') %}
+        <a href="{{ path('Compte_UtilisateurMessageEnvoyer') }}">Messages Envoyer</a>
+    {% endif %}
+    </li>
+            <li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('Compte_AdministrateurEnvoieMessage') }}">Ecrire un message ADMIN</a>
+        {% elseif is_granted('ROLE_USER') %}
+            <a href="{{ path('Compte_UtilisateurEnvoieMessage') }}">Ecrire un message</a>
+        {% endif %}
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

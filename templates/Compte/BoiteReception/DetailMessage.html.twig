@@ -28,10 +28,17 @@
             {% endif %}
         </div>
         <div class="card-footer text-end">
-            <a href="{{ path('messages_reply', {id: message.id}) }}" class="btn btn-success">
+         {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('Compte_AdministarteurReponseMessage', {id: message.id}) }}" class="btn btn-success">
+                Répondre (ADMIN)
+            </a>
+            {% elseif is_granted('ROLE_USER') %}
+            <a href="{{ path('Compte_UtilisateurReponseMessage', {id: message.id}) }}" class="btn btn-success">
                 Répondre
             </a>
-            <a href="{{ path('Administrateur_BoiteReception') }}" class="btn btn-secondary">
+            {% endif %}
+
+            <a href="{{ path('Compte_BoiteReception') }}" class="btn btn-secondary">
                 Retour à la boîte de réception
             </a>
         </div>

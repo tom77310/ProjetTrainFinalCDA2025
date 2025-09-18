@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     {% if is_granted('ROLE_ADMIN') %}
+        <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
+        <title>Envoie Message Administrateur</title>
+    {% else %}
+        <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
+        <title>Envoie Message Utilisateur</title>
+    {% endif %}
+
+    {% if is_granted('ROLE_USER') %}
+        <h1>Envoyer un message à un utilisateur</h1>
+    {% else %}
+        <h1>Envoyer un message aux administrateurs</h1>
+    {% endif %}
+
+    <div class="form-container">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit">
+               {% if is_granted('ROLE_USER') %}
+                    Envoyer à l'utilisateur
+                {% else %}
+                    Envoyer aux administrateurs
+                {% endif %}
+            </button>
+        <a href="{{ path('Compte_BoiteReception') }}" class="btn btn-outline-secondary">Retour</a>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

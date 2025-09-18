@@ -1,23 +1,38 @@
-/* Style Commun */
-h1{
+/* =========================
+   Styles Commun
+========================= */
+h1 {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     text-decoration: underline;
 }
-/* Fin Style Commun */
 
-/* Espace Administrateur */
-.AdminHaut{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    padding-bottom: 50px;
-    padding-top: 10px;
+h1.form-ajout-utilisateur {
+    margin-bottom: 25px;
+    color: #1a1a1a;
 }
 
-.AdminHaut img{
+h1 {
+    background-color: #2f4f4f;
+    color: white;
+    padding: 20px;
+    border-bottom: 4px solid #1c3131;
+}
+
+/* =========================
+   Containers flex (Admin Haut/Bas)
+========================= */
+.AdminHaut,
+.AdminBas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 0 50px 0;
+}
+
+.AdminHaut img,
+.AdminBas img {
     width: 50%;
     height: auto;
 }
@@ -26,169 +41,171 @@ h1{
     margin-top: 20px;
 }
 
-.AdminBas{
-    display: flex;
-    flex-direction: row;
+/* =========================
+   Tableaux (Utilisateurs, Produits, Commandes)
+========================= */
+.liste_utilisateurs,
+.liste_produits,
+.liste_commandes {
+    width: 75%;
+    border-collapse: collapse;
+    margin: 5% auto;
+}
+
+.liste_utilisateurs th,
+.liste_utilisateurs td,
+.liste_produits th,
+.liste_produits td,
+.liste_commandes th,
+.liste_commandes td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.liste_utilisateurs th,
+.liste_produits th,
+.liste_commandes th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Lien tableau */
+table a,
+.NouveauUtilisateur a,
+.NouveauProduit a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Boutons ajout */
+.NouveauUtilisateur,
+.NouveauProduit {
+    border: 2px solid black;
+    width: 10%;
+    margin: 40px auto;
     text-align: center;
     justify-content: center;
-    padding-bottom: 50px;
-    padding-top: 10px;
-}
-
-.AdminBas img{
-    width: 50%;
+    align-items: center;
     height: auto;
 }
-/* Fin Espace Administrateur */
-/* Liste des Utilisateurs */
-        /* lien du tableau */
-            table a{
-                color: black;
-                text-decoration: none;
-            }
-        /* Fin lien du tableau */
-        
-        .liste_utilisateurs{
-            width: 75%;
-            border-collapse: collapse;
-            margin: 5% auto;
-        }
-        .liste_utilisateurs th, .liste_utilisateurs td{
-            border: 2px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        .liste_utilisateurs th{
-            background-color:#f2f2f2;
-            color: #333333;
-        }
-        /* Boutton d'ajout */
-            .NouveauUtilisateur a{
-                color: black;
-                text-decoration: none;
-            }
-            .NouveauUtilisateur{
-                border: 2px solid black;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                width: 10%;
-                height: auto;
-                justify-content: center;
-                text-align: center;
-                align-items: center;
-                margin: 40px auto;
-            }
-        /* Fin boutton d'ajout */
-    /* Fin Tableau */
-/* Fin Liste des utilisateurs */
-
-/* Cadre de navigation de gauche */
-        .Droite{
-            float: left;
-            width: 13%;
-            border: 5px solid black;
-            margin-left: 2%;
-        }
-        /* Lien du cadre de navigation de gauche */
-        .Droite a{
-            color: black;
-            margin-bottom: 10%;
-            margin-top: 10%;
-            text-decoration: none;
-        }
-        /* Liste des Utilisateurs */
-        .ListeUtilisateurs{
-            margin-bottom: 10%;
-            margin-top: 5%;
-            text-align: center;
-        }
-        /* Liste des Produits */
-        .ListeProduits{
-            margin-bottom: 10%;
-            margin-top: 5%;
-            text-align: center;
-        }
-        /* HistoriqueCommandes */
-        .HistoriqueCommandes{
-            margin-bottom: 10%;
-            margin-top: 5%;
-            text-align: center;
-        }
-        /* Boite de Reception */
-        .BoiteReception{
-            margin-bottom: 10%;
-            margin-top: 5%;
-            text-align: center;
-        }
-    /* Fin cadre de navigation gauche */
-
-    /* Liste des produits */
-     .liste_produits{
-            width: 75%;
-            border-collapse: collapse;
-            margin: 5% auto;
-        }
-        .liste_produits th, .liste_produits td{
-            border: 2px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        .liste_produits th{
-            background-color:#f2f2f2;
-            color: #333333;
-        }
-        /* Boutton d'ajout */
-            .NouveauProduit a{
-                color: black;
-                text-decoration: none;
-            }
-            .NouveauProduit{
-                border: 2px solid black;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                width: 10%;
-                height: auto;
-                justify-content: center;
-                text-align: center;
-                align-items: center;
-                margin: 40px auto;
-            }
-        /* Fin boutton d'ajout */
-    /* Fin liste produits */
-    /* Liste des commandes utilisateurs */
-     .liste_commandes{
-            width: 75%;
-            border-collapse: collapse;
-            margin: 5% auto;
-        }
-        .liste_commandes th, .liste_commandes td{
-            border: 2px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        .liste_commandes th{
-            background-color:#f2f2f2;
-            color: #333333;
-        }
-    /* Fin liste des commandes des utilisateurs */
-
-    /* Boite de reception admin */
-    /* --------------------- */
-
-
-/* Titre */
-h1 {
-    text-align: center;
-    background-color: #2f4f4f; /* vert foncé ferroviaire */
-    color: white;
-    padding: 20px;
-    margin: 0 0 20px 0;
-    border-bottom: 4px solid #1c3131;
+/* Historique des commandes - Conteneur */
+.HistoriqueDeCommandes {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 10px;
+    font-family: Arial, sans-serif;
 }
 
-/* --------------------- */
-/* Onglets navigation    */
-/* --------------------- */
+/* Tableau commun */
+.ListeCommandes {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+    font-size: 14px;
+}
+
+/* En-têtes */
+.ListeCommandes th {
+    background-color: #333;
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* Cellules */
+.ListeCommandes td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+/* Ligne vide */
+.CommandesVide td {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    padding: 20px;
+}
+
+/* Référence et totaux */
+.RefCommande, .Total {
+    font-weight: bold;
+}
+
+/* Total en vert */
+.Total {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Bouton Voir */
+.BouttonVoir a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.BouttonVoir a:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive : tableau scrollable sur petits écrans */
+@media (max-width: 700px) {
+    .HistoriqueDeCommandes {
+        padding: 0 5px;
+    }
+    .ListeCommandes th, .ListeCommandes td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+
+
+/* =========================
+   Navigation gauche
+========================= */
+.Droite {
+    float: left;
+    width: 13%;
+    border: 5px solid black;
+    margin-left: 2%;
+}
+
+.Droite a {
+    color: black;
+    text-decoration: none;
+    margin: 10% 0;
+}
+
+/* Liens cadres */
+.ListeUtilisateurs,
+.ListeProduits,
+.HistoriqueCommandes,
+.BoiteReception {
+    text-align: center;
+    margin: 5% 0 10% 0;
+}
+
+/* =========================
+   Boite de réception / messages
+========================= */
 .onglets-messages {
     display: flex;
     justify-content: center;
@@ -204,23 +221,16 @@ h1 {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 6px;
-    transition: 0.3s;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-.onglets-messages li a:hover {
-    background-color: #2f4f4f;
-    color: white;
-}
-
+.onglets-messages li a:hover,
 .onglets-messages li a.active {
     background-color: #2f4f4f;
     color: white;
 }
 
-/* --------------------- */
-/* Section centrale      */
-/* --------------------- */
 .container-messages {
     display: flex;
     justify-content: space-between;
@@ -229,18 +239,18 @@ h1 {
     gap: 20px;
 }
 
-/* Liste des messages */
 .section-messages {
     flex: 2;
 }
 
-.section-messages h2 {
-    margin-bottom: 10px;
+.section-messages h2,
+.sidebar-actions h3 {
     color: #2f4f4f;
+    margin-bottom: 10px;
 }
 
-/* Carte message */
-.message-card {
+.message-card,
+.sidebar-actions {
     background: white;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -260,69 +270,34 @@ h1 {
     color: #333;
 }
 
-.message-card a {
+.message-card a,
+.sidebar-actions a {
     text-decoration: none;
     color: #1a73e8;
     font-weight: bold;
-}
-
-.message-card a:hover {
-    text-decoration: underline;
-}
-
-/* --------------------- */
-/* Sidebar actions       */
-/* --------------------- */
-.sidebar-actions {
-    flex: 1;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    height: fit-content;
-    box-shadow: 1px 1px 6px rgba(0,0,0,0.1);
-}
-
-.sidebar-actions h3 {
-    margin-bottom: 10px;
-    color: #2f4f4f;
-}
-
-.sidebar-actions ul {
-    display: block;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.sidebar-actions li {
-    margin-bottom: 10px;
-}
-
-.sidebar-actions a {
-    text-decoration: none;
-    color: #333;
     transition: 0.2s;
 }
 
+.message-card a:hover,
 .sidebar-actions a:hover {
+    text-decoration: underline;
     color: #1a73e8;
 }
-/* Fin Page acceuil boite reception admin et utilisateurs */
 
-/* Formulaire modif utilisateur par admin */
-
-/* ---- Formulaire principal ---- */
-form {
+/* =========================
+   Formulaires
+========================= */
+form,
+.form-ajout-utilisateur {
     width: 50%;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 40px auto;
     background: #fff;
     padding: 25px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* ---- Champs du formulaire ---- */
 form div {
     margin-bottom: 18px;
 }
@@ -334,222 +309,83 @@ label {
     color: #2c3e50;
 }
 
-input, select {
+input,
+select,
+textarea {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 15px;
+    box-sizing: border-box;
     transition: border 0.2s, box-shadow 0.2s;
 }
 
-/* Effet focus sur les champs */
-input:focus, select:focus {
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
     border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 0 5px rgba(52,152,219,0.4);
     outline: none;
 }
 
-/* ---- Boutons ---- */
-button {
-    padding: 10px 18px;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-/* Bouton Modifier */
-button[type="submit"], .btn-modifier {
-    background: #27ae60;
-    color: white;
-}
-button[type="submit"]:hover, .btn-modifier:hover {
-    background: #219150;
-}
-
-/* Bouton Supprimer */
-.Supprimer button, .btn-supprimer {
-    background: #e74c3c;
-    color: white;
-}
-.Supprimer button:hover, .btn-supprimer:hover {
-    background: #c0392b;
-}
-
-/* ---- Liens ---- */
-.Retour {
-    text-align: center;
-    margin-top: 20px;
-}
-.Retour a {
-    display: inline-block;
-    padding: 8px 15px;
-    background: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-}
-.Retour a:hover {
-    background: #2980b9;
-}
-/* Fin formulaire modif utilisateiur par admin */
-
-/* Affichage detail utilisateur */
-/* Conteneur des détails */
-.details_utilisateurs {
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Chaque paragraphe */
-.details_utilisateurs p {
-    margin: 10px 0;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-
-/* Boutons / liens */
-.Retour,
-.Modifier,
-.Supprimer {
-    max-width: 600px;
-    margin: 10px auto;
-    text-align: center;
-}
-
+/* Boutons */
+button,
+.form-ajout-utilisateur button,
+.form-ajout-utilisateur input[type="submit"],
 .Retour a,
 .Modifier a,
 .Supprimer a,
 .Supprimer button {
-    display: inline-block;
     padding: 10px 20px;
-    margin: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
     text-decoration: none;
     color: #fff;
-    background-color: #007BFF;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
+    transition: 0.3s;
 }
 
-.Retour a:hover,
-.Modifier a:hover,
-.Supprimer a:hover,
-.Supprimer button:hover {
-    background-color: #0056b3;
+/* Couleurs des boutons */
+button[type="submit"],
+.btn-modifier {
+    background: #27ae60;
+}
+button[type="submit"]:hover,
+.btn-modifier:hover {
+    background: #219150;
 }
 
-/* Bouton supprimer spécifique */
-.Supprimer button {
-    background-color: #dc3545;
+.Supprimer button,
+.btn-supprimer {
+    background: #dc3545;
+}
+.Supprimer button:hover,
+.btn-supprimer:hover {
+    background: #a71d2a;
 }
 
-.Supprimer button:hover {
-    background-color: #a71d2a;
-}
-
-/* fin affcihage detail utilisateur selectionner */
-
-/* formulaire ajout utilisateur */
-
-/* Conteneur du formulaire */
-.form-ajout-utilisateur {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 25px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Titre */
-.form-ajout-utilisateur h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #1a1a1a;
-}
-
-/* Chaque champ du formulaire */
-.form-ajout-utilisateur label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-ajout-utilisateur input,
-.form-ajout-utilisateur select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-    transition: border-color 0.3s;
-}
-
-/* Changement de couleur au focus */
-.form-ajout-utilisateur input:focus,
-.form-ajout-utilisateur select:focus {
-    border-color: #007BFF;
-    outline: none;
-}
-
-/* Bouton */
 .form-ajout-utilisateur button,
-.form-ajout-utilisateur input[type="submit"] {
+.form-ajout-utilisateur input[type="submit"],
+.Retour a,
+.Modifier a {
     background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
-
 .form-ajout-utilisateur button:hover,
-.form-ajout-utilisateur input[type="submit"]:hover {
+.form-ajout-utilisateur input[type="submit"]:hover,
+.Retour a:hover,
+.Modifier a:hover {
     background-color: #0056b3;
 }
 
-/* Petits détails */
-.required {
-    color: #dc3545;
-}
-
-/* fin formulaire ajout utilisateurs */
-
-/* Page detail produit */
-
-/* ===== Détails produit ===== */
-.prixProduit,
-.stockProduit,
-.descriptionProduit {
-    font-size: 1rem;
-    margin: 10px 0;
-    line-height: 1.5;
-}
-
-/* Label (ex: Prix, Stock, Description) */
-.prixProduit strong,
-.stockProduit strong,
-.descriptionProduit strong {
-    color: #555;
-    margin-right: 5px;
-}
-
-/* Conteneur des détails */
+/* Conteneurs détails */
+.details_utilisateurs,
 .detailProduit {
     max-width: 600px;
     margin: 0 auto 30px auto;
@@ -559,17 +395,32 @@ button[type="submit"]:hover, .btn-modifier:hover {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Chaque paragraphe */
-.detailProduit p {
+.details_utilisateurs p,
+.detailProduit p,
+.prixProduit,
+.stockProduit,
+.descriptionProduit {
     margin: 10px 0;
     font-size: 16px;
     line-height: 1.5;
 }
 
-/* css globale */
-textarea {
-    width: 100%;          /* prend toute la largeur du formulaire */
-    min-height: 120px;    /* hauteur minimum */
-    resize: vertical;     /* autorise seulement le redimensionnement vertical */
-    box-sizing: border-box; /* évite que le padding dépasse la largeur */
+.prixProduit strong,
+.stockProduit strong,
+.descriptionProduit strong {
+    color: #555;
+    margin-right: 5px;
+}
+
+/* Alignement boutons retour/modifier/supprimer */
+.Retour,
+.Modifier,
+.Supprimer {
+    max-width: 600px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.required {
+    color: #dc3545;
 }

@@ -14,22 +14,22 @@
 
     <h1>Mes Informations Personnelles</h1> 
         <div class='Droite'>
-            <div class="infosPersos">
+            <div class="InfosPersos">
                 <a href="#">Mes Informations Personnelles</a>
             </div>
-            <div class="Retour">
-                <a href={{ path('CompteUtilisateur_FormRetractation') }}>Formulaire de retour</a>
+            <div class="Retractation">
+                <a href={{ path('Compte_FormRetractation') }}>Formulaire de retour</a>
             </div>
-            <div class="Livraison">
-                <a href={{ path('CompteUtilisateur_HistoriqueCommande') }}>Historique de vos Commandes</a>
+            <div class="HistoriqueDeCommandes">
+                <a href={{ path('Compte_UtilisateurHistoriqueCommande') }}>Historique de vos Commandes</a>
             </div>
-            <div class="remboursement">
-                <a href={{ path('CompteUtilisateur_BoiteReception') }}>Boite de Reception</a>
+            <div class="BoiteReception">
+                <a href={{ path('Compte_BoiteReception') }}>Boite de Reception</a>
             </div>
         </div> {# Fin div Droite #}
 
         {# recupere les infos de l'utilisateur connecter#}
-        <div class="InfosPersos"> <br>
+        <div class="CadreInfosPersos"> <br>
             <p> Nom : {{app.User.Nom}} </p> <br>  
             <p> Prenom : {{app.User.Prenom}} </p> <br>
             <p> Email : {{app.User.Email}} </p> <br>
@@ -38,7 +38,7 @@
             <p> Ville : {{app.User.ville}} </p> <br>
             <p> Numero de Telephone : {{app.User.Telephone}} </p> <br>
    
-            <button type="button" class='button'><a href={{ path('CompteUtilisateur_modifInfos', {id: app.User.id}) }}>Modifier vos informations<a></button>
+            <button type="button" class='button'><a href={{ path('Compte_modifInfos', {id: app.User.id}) }}>Modifier vos informations<a></button>
                 
         </div> {# Fin div infosPersos #}
             

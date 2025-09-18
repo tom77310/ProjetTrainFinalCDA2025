@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if role == 'admin' %}
+        <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
+        <title>Espace Administrateur</title>
+    {% else %}
+        <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
+        <title>Mon Compte</title>
+    {% endif %}
+</head>
+
+<body>
+    {% if role == 'admin' %}
+        <h1>Espace Administrateur</h1>
+        <div class="AdminHaut">
+            <div class="ListeUtilisateurs">
+                <a href="{{ path('Administrateur_ListeUtilisateurs') }}">
+                    <img src="{{ asset('Images/Admin/SymboleListeUtilisateurs.png') }}" alt="ListeUtilisateurs" id="ListeUtilisateurs">
+                </a>
+                <p>Liste des utilisateurs</p>
+            </div>
+            <div class="ListeProduits">
+                <a href="{{ path('Administrateur_ListeProduits') }}">
+                    <img src="{{ asset('Images/Admin/SymboleListeProduits.png') }}" alt="ListeProduits" id="ListeProduits">
+                </a>
+                <p>Liste des produits</p>
+            </div>
+        </div>
+
+        <div class="AdminBas">
+            <div class="HistoriqueCommandeUtilisateurs">
+                <a href="{{ path('Compte_AdministrateurHistoriquesCommandesUtilisateurs') }}">
+                    <img src="{{ asset('Images/MonCompte/HistoriqueCommande.png') }}" alt="Historique des commandes" id="Historique">
+                </a>
+                <p>Historique des commandes des utilisateurs</p>
+            </div>
+            <div class="BoiteReceptionAdmin">
+                <a href="{{ path('Compte_BoiteReception') }}">
+                    <img src="{{ asset('Images/MonCompte/BoiteReception.png') }}" alt="Boite de Reception" id="Reception">
+                </a>
+                <p>Boite de reception</p>
+            </div>
+        </div>
+
+    {% else %}
+        <h1>Mon Compte</h1>
+        <div class="CompteHaut">
+            <div class="InfosPerso">
+                <a href="{{ path('Compte_infosPersos') }}">
+                    <img src="{{ asset('Images/MonCompte/IconeInfosPersos.png') }}" alt="InformationsPersonnelles" id="InfosPerso">
+                </a>
+                <p>Mes Informations Personnelles</p>
+            </div>
+            <div class="Retractation">
+                <a href="{{ path('Compte_FormRetractation') }}">
+                    <img src="{{ asset('Images/MonCompte/Retractation.png') }}" alt="Formulaire de Retractation" id="Retractation">
+                </a>
+                <p>Formulaire de Retractation</p>
+            </div>
+        </div>
+
+        <div class="CompteBas">
+            <div class="HistoriqueCommandes">
+                <a href="{{ path('Compte_UtilisateurHistoriqueCommande') }}">
+                    <img src="{{ asset('Images/MonCompte/HistoriqueCommande.png') }}" alt="Historique des commandes" id="Historique">
+                </a>
+                <p>Historique des commandes</p>
+            </div>
+            <div class="BoiteReception">
+                <a href="{{ path('Compte_BoiteReception') }}">
+                    <img src="{{ asset('Images/MonCompte/BoiteReception.png') }}" alt="Boite de Reception" id="Reception">
+                </a>
+                <p>Boite de reception</p>
+            </div>
+        </div>
+    {% endif %}
+</body>
+
+</html>
+{% endblock %}
