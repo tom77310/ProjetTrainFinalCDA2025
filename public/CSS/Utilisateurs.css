@@ -1,303 +1,508 @@
-/* =========================
-   TITRES
-========================= */
-h1 {
-    text-align: center;
-    text-decoration: underline;
-    margin-top: 2%;
-}
+/* Formulaire de connexion */ 
+/* Titre de la page */ 
+h1{ 
+    margin-top: 10%; 
+    text-decoration: underline; 
+} 
+/* Fin du titre de la page */ 
+/* Formulaire de connexion */ 
+/* Classe pour tous le formulaire */ 
+.formulaireconnexion{ 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+} 
+    /* Fin Classe pour tous le formulaire */ 
+    /* classe pour les 2 input */ 
+    .formulaire{ 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
+        padding: 40px; 
+    } 
+        /* Fin des 2 input */ 
+        /* Input + label Email */ 
+        .Email{ 
+            padding-bottom: 35px; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 40px; 
+        } 
+        #inputEmail{ 
+            width: 100%; 
+            height: 100%; 
+        } 
+        /* Fin Input + label Email */ 
+        /* Classe Input + label MotDePasse */ 
+        .Mdp{ display: flex; 
+            flex-direction: column; 
+            margin-bottom: 40px; 
+            width: 100%; 
+            height: auto; 
+        } 
+        .Mdp p{ 
+            margin-top: 10%; 
+        } 
+        /* Fin Input + label Mot de Passe */ 
+        /* Boutton de connexion */ 
+        .connexion{ 
+            margin-bottom: 10%; 
+        } 
+        /* Fin Boutton conexion */ 
+        /* Fin Formulaire connexion */ 
+        /* Fin Page Connexion */ 
 
-/* Connexion spécifique */
-h1.connexion {
-    margin-top: 10%;
-}
-
-/* Inscription spécifique */
-h1.inscription {
-    margin: 20px 0;
-}
-
-/* =========================
-   FORMULAIRES GÉNÉRIQUES
-========================= */
-form,
-.FormRetour,
-.FormulaireInscription {
-    /* width: 50%; */
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px 30px;
-    /* background: #fff; */
-    /* border-radius: 10px; */
-    /* box-sizing: border-box; */
-    /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
-}
-
-/* Champs du formulaire */
-form div,
-#inscription_utilisateur_form div,
-.FormRetour label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #2c3e50;
-}
-
-/* Inputs et selects */
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
-    transition: border 0.2s, box-shadow 0.2s;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52,152,219,0.4);
-    outline: none;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* =========================
-   BOUTONS
-========================= */
-button,
-input[type="submit"],
-.btn-submit,
-#inscription_utilisateur_form .inscription,
-.FormRetour button {
-    padding: 10px 15px;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-/* Boutons spécifiques */
-button[type="submit"],
-.btn-modifier {
-    background-color: #27ae60;
-}
-button[type="submit"]:hover,
-.btn-modifier:hover {
-    background-color: #219150;
-}
-
-.btn-submit {
-    background-color: #007bff;
-}
-.btn-submit:hover {
-    background-color: #0056b3;
-}
-
-#inscription_utilisateur_form .inscription {
-    grid-column: span 2;
-    background-color: #4CAF50;
-    width: 200px;
-    margin: 10px auto 0 auto;
-    text-align: center;
-}
-#inscription_utilisateur_form .inscription:hover {
-    background-color: #45a049;
-}
-
-.FormRetour button:disabled,
-.FormRetour input[type="submit"]:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-/* =========================
-   FORMULAIRE INSCRIPTION
-========================= */
-#inscription_utilisateur_form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.password-hint {
-    grid-column: span 2;
-    font-size: 12px;
-    margin: -10px 0 15px;
-}
-
-@media (max-width: 700px) {
-    #inscription_utilisateur_form {
-        grid-template-columns: 1fr;
-    }
-    #inscription_utilisateur_form .inscription,
-    .password-hint {
-        grid-column: span 1;
-    }
-}
-
-/* =========================
-   CONTACT
-========================= */
-.contact-container {
-    width: 50%;
-    margin: 80px auto;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-}
-
-.contact-container h1 {
-    margin-bottom: 20px;
-}
-
-.btn-submit {
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.flash-success,
-.flash-error {
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.flash-success { background-color: #d4edda; color: #155724; }
-.flash-error   { background-color: #f8d7da; color: #721c24; }
-
-/* =========================
-   COMPTE UTILISATEUR
-========================= */
-.CompteHaut,
-.CompteBas,
-.CadreInfosPersos,
-.formulaireconnexion {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.CompteHaut,
-.CompteBas {
-    flex-direction: row;
-    padding: 10px 0 50px 0;
-}
-
-.CompteHaut img,
-.CompteBas img {
-    width: 50%;
-    height: auto;
-}
-
-.CadreInfosPersos,
-.formulaireconnexion {
-    border: 5px solid black;
-    border-radius: 10px;
-    width: 25%;
-    margin: 2% auto 10% auto;
-    height: auto;
-}
-
-/* =========================
-   NAVIGATION GAUCHE
-========================= */
-.Droite {
-    float: left;
-    width: 13%;
-    border: 5px solid black;
-    margin-left: 2%;
-}
-
-.Droite a,
-.button a {
-    color: black;
-    text-decoration: none;
-    margin: 10% 0;
-}
-
-.Droite p,
-.InfosPersos,
-.Retractation,
-.HistoriqueDeCommandes,
-.BoiteReception {
-    text-align: center;
-    margin: 5% 0 10% 0;
-}
-
-/* =========================
-   TABLE DES COMMANDES
-========================= */
-.HistoriqueDeCommandes {
-    max-width: 900px;
-    margin: auto;
-}
-
-.ListeCommandes {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.ListeCommandes th, 
-.ListeCommandes td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-    font-size: 14px;
-}
-
-.ListeCommandes thead {
-    background-color: #333;
-    color: #fff;
-    font-size: 15px;
-}
-
-.CommandesVide td {
-    text-align: center;
-    font-style: italic;
-    color: #777;
-    padding: 20px;
-}
-
-.RefCommande {
-    font-weight: bold;
-}
-
-.Total {
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 4px;
-    background-color: #28a745;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.BouttonVoir a {
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 13px;
-}
+        /* Page Inscription */ 
+        /* ===== Titre ===== */ 
+        h1 { 
+            text-decoration: underline; 
+            margin: 20px 0; 
+            text-align: center; 
+        } 
+        /* ===== Conteneur principal ===== */ 
+        .FormulaireInscription { 
+            border: 3px solid black; 
+            border-radius: 10px; 
+            max-width: 800px; 
+            margin: 20px auto 50px auto;
+            padding: 20px; 
+            background-color: #f8f8f8; 
+        } 
+        /* Formulaire en 2 colonnes */ 
+        #inscription_utilisateur_form 
+        { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; /* espace entre colonnes et lignes */ 
+        } 
+        /* Chaque champ (label + input) */ 
+        #inscription_utilisateur_form div { 
+            display: flex; flex-direction: column; 
+        } 
+        /* Labels */ 
+        #inscription_utilisateur_form label 
+        { 
+            margin-bottom: 5px; 
+            font-weight: bold; 
+        } 
+        /* Inputs et selects */ 
+        #inscription_utilisateur_form input, 
+        #inscription_utilisateur_form select { 
+            padding: 8px; 
+            font-size: 14px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            width: 100%; 
+            box-sizing: border-box; 
+        } 
+        /* Pour que le bouton prenne toute la largeur */ 
+        #inscription_utilisateur_form .inscription { 
+            grid-column: span 2; /* reste sur 2 colonnes */ 
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 10px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin-top: 10px; 
+            width: 200px; /* largeur fixe */ 
+            margin-left: auto; /* centrage horizontal */ 
+            margin-right: auto; /* centrage horizontal */ 
+        } 
+        /* Effet hover bouton */ 
+        #inscription_utilisateur_form .inscription:hover { 
+            background-color: #45a049; 
+        } 
+        /* Texte sous mot de passe */ 
+        .password-hint { 
+            grid-column: span 2; 
+            font-size: 12px; 
+            margin-top: -10px; 
+            margin-bottom: 15px; 
+        } 
+        /* Responsive : une colonne en mobile */ 
+        @media (max-width: 700px) { 
+            #inscription_utilisateur_form { 
+                grid-template-columns: 1fr; 
+            } 
+            #inscription_utilisateur_form .inscription { 
+                grid-column: span 1; 
+            } 
+            .password-hint { 
+                grid-column: span 1; 
+            } 
+        } 
+        /* Fin Page Inscription */ 
+        /* Page de contact */ 
+        .contact-container { 
+            width: 50%; 
+            margin: 80px auto; 
+            padding: 20px; 
+            background: #f8f9fa; 
+            border-radius: 10px; 
+        } 
+        .contact-container h1 { 
+            text-align: center; 
+            margin-bottom: 20px; 
+        } 
+        form div { 
+            margin-bottom: 15px; 
+        } 
+        label { 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+            display: block; 
+        } 
+        input[type="text"], 
+        input[type="email"], 
+        textarea { 
+            width: 100%; 
+            padding: 8px; 
+            border: 1px solid #ced4da; 
+            border-radius: 5px; 
+        } 
+        textarea { 
+            resize: vertical; 
+        } 
+        .btn-submit { 
+            background: #007bff; 
+            color: white;
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        } 
+        .btn-submit:hover { 
+            background: #0056b3; 
+        } 
+        .flash-success { 
+            background-color: #d4edda; 
+            padding: 10px; border-radius: 5px; 
+            color: #155724; 
+        } 
+        .flash-error { 
+            background-color: #f8d7da; 
+            padding: 10px; 
+            border-radius: 5px; 
+            color: #721c24; 
+        } 
+        /* Fin Page Contact */ 
+        /* Page Mon Compte */ 
+        .CompteHaut{ 
+            display: flex; 
+            flex-direction: row; 
+            text-align: center; 
+            justify-content: center; 
+            padding-bottom: 50px; 
+            padding-top: 10px; 
+        } 
+        .CompteHaut img{ 
+            width: 50%; 
+            height: auto; 
+        } 
+        .CompteBas{ 
+            display: flex; 
+            flex-direction: row; 
+            text-align: center; 
+            justify-content: center; 
+            padding-bottom: 50px; 
+            padding-top: 10px; 
+        } 
+        .CompteBas img{ 
+            width: 50%;
+            height: auto; 
+        } 
+        /* Fin Compte Utilisateur */ 
+        /* Fin Page Mon Compte Utilisateurs */ 
+        /* Informations Personnelles de l'utilisateurs connecter */ 
+        /* Titre de la page */ 
+        h1{ 
+            text-align: center; 
+            text-decoration: underline; 
+            margin-top: 2%; 
+        } 
+        /* Fin titre de la page */ 
+        /* Cadre informations personnelles */ 
+        .CadreInfosPersos{ 
+            border: 5px solid black;
+            border-radius: 10px; 
+            width: 25%; 
+            height: auto; 
+            margin-left: 37% ; 
+            margin-top: 2%; 
+            margin-bottom: 10%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+        } 
+        /* Fin cadre informations personnelles */ 
+        /* Cadre de navigation de gauche */ 
+        .Droite{ 
+            float: left; 
+            width: 13%; 
+            border: 5px solid black; 
+            margin-left: 2%; 
+        } 
+        /* Lien du cadre de navigation de gauche */ 
+        .Droite a{ 
+            color: black; 
+            margin-bottom: 10%; 
+            margin-top: 10%; 
+            text-decoration: none; 
+        } 
+        /* Lien du boutton modifier les infos */ 
+        .button a{ 
+            color: black; 
+            text-decoration: none; 
+        } 
+        /* Lien info persos */ 
+        .infosPersos{ 
+            margin-bottom: 10%;
+            margin-top: 5%; 
+            text-align: center; 
+        } 
+        /* lien formulaire de retour */ 
+        .Retour{ 
+            margin-bottom: 10%; 
+            margin-top: 5%; 
+            text-align: center; 
+        } 
+        /* lien Mode et délais de livraison */ 
+        .Livraison{ 
+            margin-bottom: 10%; 
+            margin-top: 5%; 
+            text-align: center; 
+        } 
+        /* Lien conditions de remboursement */ 
+        .remboursement{ 
+            margin-bottom: 10%; 
+            margin-top: 5%; 
+            text-align: center; 
+        } 
+        /* Fin cadre de navigation gauche */ 
+        /* Fin infos perso utilisateurs */ 
+        /* Modifier Infos persos utilisateur */ 
+        form { 
+            width: 50%; 
+            margin: 0 auto;
+            background: #fff; 
+            padding: 25px 30px; 
+            border-radius: 10px; 
+        } 
+        /* ---- Champs du formulaire ---- */ 
+        form div { 
+            margin-bottom: 18px; 
+        } 
+        label { 
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 6px; 
+            color: #2c3e50; 
+        } 
+        input, select { 
+            width: 100%; 
+            padding: 10px 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 6px; 
+            font-size: 15px;
+            transition: border 0.2s, box-shadow 0.2s; 
+        } 
+        /* Effet focus sur les champs */ 
+        input:focus, select:focus { 
+            border-color: #3498db; 
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.4); 
+            outline: none; 
+        } 
+        /* ---- Boutons ---- */
+        button { 
+            padding: 10px 18px; 
+            font-size: 15px; 
+            font-weight: bold; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            margin-right: 10px; 
+        } 
+        /* Bouton Modifier */ 
+        button[type="submit"], 
+        .btn-modifier { 
+            background: #27ae60; 
+            color: white; 
+        } 
+        button[type="submit"]:hover, 
+        .btn-modifier:hover { 
+            background: #219150; 
+        } 
+        /* Page formulaire de retour */ 
+        /* Titre de la page */ 
+        h1{ 
+            text-align: center;
+            text-decoration: underline; 
+            margin-top: 2%; 
+        } 
+        /* Fin Titre de la page */ 
+        /* Formulaire de retour */ 
+        /* --------- Bloc formulaire --------- */ 
+        .FormRetour { 
+            /* max-width: 600px; */ 
+            /* margin: 0 auto; */ 
+            padding: 20px; 
+            background: white; 
+            /* border: 1px solid #ddd; */ 
+            border-radius: 6px; 
+        } 
+        /* Labels */ 
+        .FormRetour label { 
+            display: block; 
+            margin-bottom: 6px; 
+            font-weight: bold; 
+        } 
+        /* Champs texte, textarea et fichier */ 
+        .FormRetour input[type="text"], 
+        .FormRetour input[type="email"], 
+        .FormRetour input[type="file"], 
+        .FormRetour textarea { 
+            width: 100%; 
+            padding: 8px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            font-size: 14px; 
+            margin-bottom: 15px; 
+            box-sizing: border-box; 
+        } 
+        /* Textarea ajustable */ 
+        .FormRetour textarea { 
+            resize: vertical; 
+            min-height: 100px; 
+        } 
+        /* Bouton */ 
+        .FormRetour button, 
+        .FormRetour input[type="submit"] { 
+            display: block; 
+            width: 100%; 
+            padding: 10px; 
+            background-color: #0077cc; 
+            border: none; 
+            border-radius: 4px; 
+            color: white; 
+            font-size: 15px; 
+            cursor: pointer; 
+        } 
+        /* Bouton désactivé */ 
+        .FormRetour button:disabled, 
+        .FormRetour input[type="submit"]:disabled { 
+            background-color: #ccc; 
+            cursor: not-allowed; 
+        } 
+        /* Fin Formulaire de retour */ 
+        /* Menu de navigation du compte */ 
+        .Droite{ 
+            float: left; 
+            width: 13%; 
+            border: 5px solid black; 
+            margin-left: 2%; 
+            margin-right: 3%; 
+        } 
+        .Droite p{ 
+            margin-bottom: 10%; 
+            margin-top: 10%; 
+        } 
+        .Droite a{ 
+            color: black; 
+            margin-bottom: 10%; 
+            margin-top: 10%; 
+            text-decoration: none; 
+        } 
+        /* class du menu de navigation */ 
+        /* Lien info persos */ 
+        .InfosPersos{ 
+            margin-bottom: 10%; 
+            margin-top: 5%; 
+            text-align: center; 
+        } 
+        /* lien formulaire de Retracation */ 
+        .Retractation{ 
+            margin-bottom: 10%; 
+            margin-top: 5%; 
+            text-align: center; 
+        } 
+        /* lien Historique de Commandes */ 
+        .HistoriqueDeCommandes{ 
+            margin-bottom: 10%; 
+            margin-top: 5%; 
+            text-align: center;
+         } 
+         /* Lien Boite de Reception */ 
+         .BoiteReception{ 
+            margin-bottom: 10%; 
+            margin-top: 5%; 
+            text-align: center; 
+        } 
+        /* Class Menu nav compte */ 
+        /* Fin Menu Nav Compte */ 
+        /* Fin Page formulaire de retour */ 
+        /* Commandes */ 
+        /* Table des commandes */ 
+        /* Conteneur principal */ 
+        .HistoriqueDeCommandes { 
+            max-width: 900px; 
+            margin: auto; 
+        } 
+        /* Tableau */ 
+        .ListeCommandes { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background-color: #fff; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        } 
+        .ListeCommandes th, 
+        .ListeCommandes td { 
+            border: 1px solid #ddd; 
+            padding: 12px; 
+            text-align: left; 
+            font-size: 14px; 
+        } 
+        /* En-tête */ 
+        .ListeCommandes thead { 
+            background-color: #333; 
+            color: #fff; 
+            font-size: 15px; 
+        } 
+        /* Ligne vide (pas de commandes) */ 
+        .CommandesVide td { 
+            text-align: center; 
+            font-style: italic; 
+            color: #777; 
+            padding: 20px; 
+        } 
+        /* Colonne Référence */ 
+        .RefCommande { 
+            font-weight: bold; 
+        } 
+        /* Total */ 
+        .Total { 
+            display: inline-block; 
+            padding: 6px 10px; 
+            border-radius: 4px; 
+            background-color: #28a745; 
+            color: #fff; 
+            font-weight: bold; 
+            font-size: 14px; 
+        } 
+        /* Bouton Voir */ 
+        .BouttonVoir a { 
+            display: inline-block; 
+            padding: 6px 12px; 
+            background-color: #007bff; 
+            color: #fff; 
+            border-radius: 4px; 
+            text-decoration: none; 
+            font-size: 13px; 
+        }

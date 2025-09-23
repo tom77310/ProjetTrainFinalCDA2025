@@ -128,7 +128,7 @@ final class AdministrateurController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Produit ajouté avec succès !');
-            return $this->redirectToRoute('Administrateur_AjoutProduit');
+            return $this->redirectToRoute('Administrateur_ListeProduits');
         }
 
         return $this->render('Compte/administrateur/GestionProduits/AjoutProduit.html.twig', [

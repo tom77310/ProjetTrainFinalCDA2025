@@ -509,20 +509,32 @@ public function Commande(
 
     // afficher l'historique des commandes des utilisateurs
     #[Route('/utilisateur/commande/historique', name: 'Compte_UtilisateurHistoriqueCommande')]
-    #[Route('/administrateur/historiquecommandeUtilisateurs', name: 'Compte_AdministrateurHistoriquesCommandesUtilisateurs')]
-    public function historiqueCommande(EntityManagerInterface $em): Response
-    {
+#[Route('/administrateur/historiquecommandeUtilisateurs', name: 'Compte_AdministrateurHistoriquesCommandesUtilisateurs')]
+public function historiqueCommande(EntityManagerInterface $em, Request $request): Response
+{
+    $route = $request->attributes->get('_route');
+
+    // Si l'utilisateur consulte son propre historique
+    if ($route === 'Compte_UtilisateurHistoriqueCommande') {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
-        // Récupère toutes les commandes de l'utilisateur connecté
         $commandes = $em->getRepository(Commande::class)->findBy(
             ['utilisateur' => $this->getUser()],
-            ['id' => 'DESC'] // trie par id décroissant 
+            ['id' => 'DESC']
         );
+    } 
+    // Si l'admin consulte l'historique global
+    else {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-        return $this->render('Compte/commande/historique.html.twig', [
-            'commandes' => $commandes,
-        ]);
+        $commandes = $em->getRepository(Commande::class)->findBy([], ['id' => 'DESC']);
     }
+
+    return $this->render('Compte/commande/historique.html.twig', [
+        'commandes' => $commandes,
+        'isAdmin'   => $route === 'Compte_AdministrateurHistoriquesCommandesUtilisateurs'
+    ]);
+}
+
 
 }
