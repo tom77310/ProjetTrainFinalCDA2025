@@ -1,48 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-   <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
-   <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
+   <link rel="stylesheet" href="{{ asset('CSS/Commandes.css') }}">
  <title>{% block title %}Mes commandes{% endblock %}</title>
    
+{% include 'partials/_navCompte.html.twig' %}
    
    {% if is_granted('ROLE_ADMIN') %}
-    <h1>Historique des commandes des Utilisateurs</h1>
+    <h1 class="HistoriqueCommandeTitre">Historique des commandes des Utilisateurs</h1>
 {% elseif is_granted('ROLE_USER') %}
-    <h1>Mon Historique de Commandes</h1>
+    <h1 class="HistoriqueCommandeTitre">Mon Historique de Commandes</h1>
 {% endif %}
 
-{% if is_granted('ROLE_ADMIN') %}
-<div class="Droite">
-    <div class="ListeUtilisateurs">
-        <a href={{ path('Administrateur_ListeUtilisateurs') }}>Liste des Utilisateurs</a>
-    </div>
-    <div class="ListeProduits">
-        <a href={{ path('Administrateur_ListeProduits') }}>Liste des produits</a>
-    </div>
-    <div class="HistoriqueCommandes">
-        <a href="#">Historique des Commandes des utilisateurs</a>
-    </div>
-    <div class="BoiteReception">
-        <a href={{ path('Compte_BoiteReception') }}>Boite de Réception</a>
-    </div>
-</div>
-{% elseif is_granted('ROLE_USER') %}
-<div class="Droite">
-    <div class="InfosPersos">
-        <a href={{ path('Compte_infosPersos') }}>Mes Informations Personnelles</a>
-    </div>
-    <div class="Retractation">
-        <a href={{ path('Compte_FormRetractation') }}>Formulaire de retour</a>
-    </div>
-    <div class="HistoriqueDeCommandes">
-        <a href="#">Historique de vos Commandes</a>
-    </div>
-    <div class="BoiteReception">
-        <a href={{ path('Compte_BoiteReception') }}>Boite de Réception</a>
-    </div>
-</div>
-{% endif %}
 
   <div class="HistoriqueDeCommandes">
     <table class="ListeCommandes">
@@ -99,9 +68,9 @@
                         <td>{{ total }}</td>
                         <td class="BouttonVoir">
                          {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('Compte_AdministrateurDetailCommande', {id: commande.id}) }}">Voir (ADMIN)</a>
+                            <a href="{{ path('Compte_AdministrateurDetailCommande', {id: commande.id}) }}">Voir</a>
                             {% elseif is_granted('ROLE_USER') %}
-                            <a href="{{ path('Compte_UtilisateurDetailCommande', {id: commande.id}) }}">Voir (USER)</a>
+                            <a href="{{ path('Compte_UtilisateurDetailCommande', {id: commande.id}) }}">Voir</a>
                              {% endif %}
                         </td>
                     </tr>

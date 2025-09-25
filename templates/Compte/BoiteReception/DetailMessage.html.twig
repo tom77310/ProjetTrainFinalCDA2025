@@ -3,42 +3,45 @@
 {% block title %}Détail du message{% endblock %}
 
 {% block body %}
-<div class="container mt-4">
-    <h2 class="mb-4"> Détail du message</h2>
+<link rel="stylesheet" href={{ asset('CSS/BoiteReception.css') }}>
+<div class="conteneur-message">
+    <h2 class="titre-detail-message">Détail du message</h2>
 
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
+    <div class="carte-message">
+        <div class="entete-carte">
             {{ message.objet }}
         </div>
-        <div class="card-body">
-            <p><strong>De :</strong> {{ message.expediteur.email }}</p> {# Affiche l'email de l'expéditeur #}
-            
-            <p><strong>Description :</strong></p>
-            <div class="border rounded p-3 bg-light">
+
+        <div class="corps-carte">
+            <p class="info-expediteur"><strong>De :</strong> {{ message.expediteur.email }}</p>
+
+            <p class="label-description"><strong>Description :</strong></p>
+            <div class="zone-description">
                 {{ message.description|nl2br }}
             </div>
 
             {% if message.pieceJointe %}
-                <div class="mt-3">
+                <div class="piece-jointe">
                     <strong>📎 Pièce jointe :</strong>
-                    <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="btn btn-sm btn-outline-secondary" download>
+                    <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="lien-piece-jointe" download>
                         Télécharger
                     </a>
                 </div>
             {% endif %}
         </div>
-        <div class="card-footer text-end">
-         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('Compte_AdministarteurReponseMessage', {id: message.id}) }}" class="btn btn-success">
-                Répondre (ADMIN)
-            </a>
+
+        <div class="pied-carte">
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('Compte_AdministarteurReponseMessage', {id: message.id}) }}" class="btn-repondre">
+                    Répondre
+                </a>
             {% elseif is_granted('ROLE_USER') %}
-            <a href="{{ path('Compte_UtilisateurReponseMessage', {id: message.id}) }}" class="btn btn-success">
-                Répondre
-            </a>
+                <a href="{{ path('Compte_UtilisateurReponseMessage', {id: message.id}) }}" class="btn-repondre">
+                    Répondre
+                </a>
             {% endif %}
 
-            <a href="{{ path('Compte_BoiteReception') }}" class="btn btn-secondary">
+            <a href="{{ path('Compte_BoiteReception') }}" class="btn-retour-detail-message">
                 Retour à la boîte de réception
             </a>
         </div>

@@ -10,21 +10,11 @@
     <title>Formulaire de retractation</title>
 </head>
 <body>
-    <h1>Formulaire de retour</h1> 
-        <div class='Droite'>
-            <div class="InfosPersos">
-                <a href={{ path('Compte_infosPersos') }}>Mes Informations Personnelles</a>
-            </div>
-            <div class="Retractation">
-                <a href="#">Formulaire de retour</a>
-            </div>
-            <div class="HistoriqueDeCommandes">
-                <a href={{ path('Compte_UtilisateurHistoriqueCommande') }}>Historique de vos Commandes</a>
-            </div>
-            <div class="BoiteReception">
-                <a href={{ path('Compte_BoiteReception') }}>Boite de Reception</a>
-            </div>
-        </div> {# Fin div Droite #}
+
+{% include 'partials/_navCompte.html.twig' %}
+    
+    <h1 class="TitreFormRetractation">Formulaire de retour</h1> 
+       
         <div class="FormRetour"> <br>
                 {{form(f)}}
         </div> {# Fin div FormRetour #}

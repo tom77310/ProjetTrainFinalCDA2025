@@ -1,31 +1,80 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-     {% if is_granted('ROLE_ADMIN') %}
-        <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
-        <title>Envoie Message Administrateur</title>
-    {% else %}
-        <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
-        <title>Envoie Message Utilisateur</title>
+<link rel="stylesheet" href="{{ asset('CSS/BoiteReception.css') }}">
+
+{% if is_granted('ROLE_ADMIN') %}
+    <title>Envoi Message Administrateur</title>
+    <h1>
+        {% if form.vars.value.id is defined %}
+            Répondre au message
+        {% else %}
+            Envoyer un message à un utilisateur
+        {% endif %}
+    </h1>
+{% else %}
+    <title>Envoi Message Utilisateur</title>
+    <h1>
+        {% if form.vars.value.id is defined %}
+            Répondre au message
+        {% else %}
+            Envoyer un message aux administrateurs
+        {% endif %}
+    </h1>
+{% endif %}
+
+<div class="form-container">
+
+    {{ form_start(form) }}
+
+    {# Destinataire - seulement si présent dans le formulaire #}
+    {% if form.destinataire is defined %}
+        <div class="form-group">
+            {{ form_label(form.destinataire) }}
+            {{ form_widget(form.destinataire, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.destinataire) }}
+        </div>
     {% endif %}
 
-    {% if is_granted('ROLE_USER') %}
-        <h1>Envoyer un message à un utilisateur</h1>
-    {% else %}
-        <h1>Envoyer un message aux administrateurs</h1>
-    {% endif %}
-
-    <div class="form-container">
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <button type="submit">
-               {% if is_granted('ROLE_USER') %}
-                    Envoyer à l'utilisateur
-                {% else %}
-                    Envoyer aux administrateurs
-                {% endif %}
-            </button>
-        <a href="{{ path('Compte_BoiteReception') }}" class="btn btn-outline-secondary">Retour</a>
-        {{ form_end(form) }}
+    {# Objet #}
+    <div class="form-group">
+        {{ form_label(form.objet) }}
+        {{ form_widget(form.objet, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.objet) }}
     </div>
+
+    {# Description #}
+    <div class="form-group">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    {# Pièce jointe #}
+    <div class="form-group">
+        {{ form_label(form.pieceJointe) }}
+        {{ form_widget(form.pieceJointe, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.pieceJointe) }}
+    </div>
+
+    <button type="submit">
+        {% if is_granted('ROLE_ADMIN') %}
+            {% if form.vars.value.id is defined %}
+                Envoyer la réponse
+            {% else %}
+                Envoyer à l'utilisateur
+            {% endif %}
+        {% else %}
+            {% if form.vars.value.id is defined %}
+                Envoyer la réponse
+            {% else %}
+                Envoyer aux administrateurs
+            {% endif %}
+        {% endif %}
+    </button>
+
+    <a href="{{ path('Compte_BoiteReception') }}" class="btn-retour-nouveaumessage">Retour</a>
+
+    {{ form_end(form) }}
+</div>
 {% endblock %}

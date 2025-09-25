@@ -269,6 +269,13 @@ final class CompteController extends AbstractController
                         }
                         $this->addFlash('success', 'Votre message a été envoyé aux administrateurs.');
                     }
+                    if ($this->isGranted('ROLE_ADMIN')) {
+                        $form = $this->createForm(AdminMessageFormType::class, $message, ['show_destinataire' => true]);
+                        $role = 'admin';
+                    } else {
+                        $form = $this->createForm(MessageFormType::class, $message);
+                        $role = 'user';
+                    }
 
                     $em->flush();
                     
@@ -282,39 +289,48 @@ final class CompteController extends AbstractController
                     'role' => $role,
                 ]);
             }
+// Reponse a un message
+#[Route('/utilisateur/Message/{id}/reponse', name: 'Compte_UtilisateurReponseMessage', requirements: ['id' => '\d+'])]
+#[Route('/administrateur/Message/{id}/reponse', name: 'Compte_AdministarteurReponseMessage', requirements: ['id' => '\d+'])]
+public function ReponseMessage(Messages $original, Request $request, EntityManagerInterface $em): Response {
+    $reply = new Messages();
+    $reply->setExpediteur($this->getUser());
+    $reply->setDestinataire($original->getExpediteur()); // destinataire fixe
+    $reply->setObjet("Re: " . $original->getObjet());
 
-            // Réponse à un message
-            #[Route('/utilisateur/Message/{id}/reponse', name: 'Compte_UtilisateurReponseMessage', requirements: ['id' => '\d+'])]
-            #[Route('/administrateur/Message/{id}/reponse', name: 'Compte_AdministarteurReponseMessage', requirements: ['id' => '\d+'])]
-            public function ReponseMessage(Messages $original,Request $request,EntityManagerInterface $em): Response {
-                $reply = new Messages();
-                $reply->setExpediteur($this->getUser());
-                $reply->setDestinataire($original->getExpediteur());
-                $reply->setObjet("Re: " . $original->getObjet());
+    // Choisir le formulaire selon le rôle
+    if ($this->isGranted('ROLE_ADMIN')) {
+        $form = $this->createForm(AdminMessageFormType::class, $reply, [
+            'show_destinataire' => true,  // afficher le destinataire comme rappel
+            'readonly' => true,           // lecture seule
+        ]);
+    } else {
+        $form = $this->createForm(MessageFormType::class, $reply);
+    }
 
-                $form = $this->createForm(MessageFormType::class, $reply);
-                $form->handleRequest($request);
+    $form->handleRequest($request);
 
-                if ($form->isSubmitted() && $form->isValid()) {
-                    // Gestion de la pièce jointe
-                    $file = $form->get('pieceJointe')->getData();
-                    if ($file) {
-                        $filename = uniqid() . '.' . $file->guessExtension();
-                        $file->move($this->getParameter('messages_directory'), $filename);
-                        $reply->setPieceJointe($filename);
-                    }
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Gestion de la pièce jointe
+        $file = $form->get('pieceJointe')->getData();
+        if ($file) {
+            $filename = uniqid() . '.' . $file->guessExtension();
+            $file->move($this->getParameter('messages_directory'), $filename);
+            $reply->setPieceJointe($filename);
+        }
 
-                    $em->persist($reply);
-                    $em->flush();
+        $em->persist($reply);
+        $em->flush();
 
-                    $this->addFlash('success', 'Votre réponse a été envoyée.');
-                    return $this->redirectToRoute('Compte_BoiteReception');
-                }
+        $this->addFlash('success', 'Votre réponse a été envoyée.');
+        return $this->redirectToRoute('Compte_BoiteReception');
+    }
 
-                return $this->render('Compte/BoiteReception/NouveauMessage.html.twig', [
-                    'form' => $form->createView(),
-                ]);
-            }
+    return $this->render('Compte/BoiteReception/NouveauMessage.html.twig', [
+        'form' => $form->createView(),
+    ]);
+}
+
         // Fin Boite de Reception
         // Panier
             // Affichage Panier

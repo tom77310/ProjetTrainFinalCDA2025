@@ -69,7 +69,10 @@ class ModifInfosPersosFormType extends AbstractType
                     'required' =>'false',
                 ]
             ])
-            ->add('save', SubmitType::class, ['label' => 'Sauvegarder les modifications']);
+            ->add('save', SubmitType::class, [
+                'label' => 'Sauvegarder les modifications',
+                'attr' => ['class' => 'Modifier']
+            ]);
         ;
     }
 

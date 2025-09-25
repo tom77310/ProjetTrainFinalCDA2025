@@ -32,7 +32,12 @@ class RetractationFormType extends AbstractType
                 'required' => false,
                 'mapped' => false
             ])
-            ->add('save', SubmitType::class, ['label' => 'Envoyer']);
+            ->add('save', SubmitType::class, [
+                'label' => 'Envoyer',
+                'attr' => [
+                    'class' => 'Envoyer'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

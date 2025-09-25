@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
- {% block title %}Inscription{% endblock %}
+{% block title %}Inscription{% endblock %}
 {% block body %}
     <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
     <title>Inscription</title>
@@ -8,17 +8,18 @@
         <h1>Formulaire d'inscription</h1>
 
         {{ form_start(f, { attr: { id: 'inscription_utilisateur_form' } }) }}
-            {{ form_row(f.civilite) }}
-            {{ form_row(f.nom) }}
-            {{ form_row(f.prenom) }}
-            {{ form_row(f.date_naissance) }}
-            {{ form_row(f.adresse) }}
-            {{ form_row(f.cp) }}
-            {{ form_row(f.ville) }}
-            {{ form_row(f.telephone) }}
-            {{ form_row(f.email) }}
-            {{ form_row(f.login) }}
-            {{ form_row(f.password) }}
+
+            {{ form_row(f.civilite,       {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.nom,            {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.prenom,         {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.date_naissance, {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.adresse,        {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.cp,             {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.ville,          {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.telephone,      {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.email,          {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.login,          {'row_attr': {'class': 'form-group'}}) }}
+            {{ form_row(f.password,       {'row_attr': {'class': 'form-group'}}) }}
 
             <p class="password-hint">
                 Votre mot de passe doit contenir au moins une majuscule, une minuscule et un chiffre.<br>
@@ -26,6 +27,7 @@
             </p>
 
             {{ form_row(f.save) }}
+
         {{ form_end(f) }}
     </div>
 {% endblock %}

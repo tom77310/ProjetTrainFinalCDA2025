@@ -4,10 +4,17 @@
 
 {% block body %}
 <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
-    <h1>Ajouter un nouvel Utilisateur</h1>
+<h1 class="titreAjoutUtilisateurs">Ajouter un nouvel Utilisateur</h1>
 
+<div class="formulaireAjoutUtilisateurs">
     {{ include('Compte/administrateur/GestionUtilisateurs/FormAjoutUtilisateur.html.twig') }}
-<div class="RetourUtilisateur">
-    <a href="{{ path('Administrateur_ListeUtilisateurs') }}">Revenir a la liste des Utilisateurs</a>
+</div>
+
+<div class="actionsAjoutUtilisateurs">
+    <div class="RetourUtilisateur">
+        <a href="{{ path('Administrateur_ListeUtilisateurs') }}" class="lienretourListeUtilisateur">
+            Revenir à la liste des Utilisateurs
+        </a>
+    </div>
 </div>
 {% endblock %}

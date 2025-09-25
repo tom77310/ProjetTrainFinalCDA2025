@@ -1,0 +1,130 @@
+/* Style pour tous ce qui concerne les commandes */
+    /* Historique de commandes */
+     .HistoriqueCommandeTitre{
+            text-align: center;
+            text-decoration: underline;
+            margin-bottom: 15px;
+            background-color: #2f4f4f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #1c3131;
+        }    
+        .HistoriqueDeCommandes {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .ListeCommandes {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        .ListeCommandes th,
+        .ListeCommandes td {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+        }
+
+        .ListeCommandes thead th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .CommandesVide td {
+            text-align: center;
+            padding: 20px;
+            color: #555;
+        }
+
+        .BouttonVoir a {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    /* Fin Historique de Commandes */
+    /* Detail Commandes */
+    
+        .DetailCommandeTitre{
+            text-align: center;
+            text-decoration: underline;
+            margin-bottom: 15px;
+            background-color: #2f4f4f;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #1c3131;
+        }    
+
+        .DetailCommandeContainer {
+        width: 90%;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 10px;
+        }
+
+        .DetailCommandeSousTitre {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .DetailInfo {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+
+        .DetailCommandeTable {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .DetailCommandeTable th,
+        .DetailCommandeTable td {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+        }
+
+        .DetailCommandeTable thead th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .AucunProduit {
+            text-align: center;
+            padding: 20px;
+            color: #555;
+        }
+
+        .TotalLabel {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .TotalValeur {
+            font-weight: bold;
+        }
+
+        .Retour {
+            margin-top: 20px;
+        }
+
+        .BoutonRetour {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+        }
+    /* Fin Detail Commandes */
+/* Fin Style Commandes */

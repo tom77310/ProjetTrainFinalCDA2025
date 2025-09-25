@@ -3,13 +3,22 @@
 {% block title %}Modif utilisateur{% endblock %}
 
 {% block body %}
- <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
-    <h1>Modifier l'utilisateur séléctionné</h1>
-    {{ include('Compte/administrateur/GestionUtilisateurs/formModif.html.twig', {'button_label': 'Modifier'}) }}
-<div class="Retour">
-    <a href="{{ path('Administrateur_ListeUtilisateurs') }}">Revenir a la liste des Utilisateurs</a>
-</div>
-<div class="Supprimer">
-    {{ include('Compte/administrateur/GestionUtilisateurs/FormSupprimer.html.twig') }}
-</div>
+    <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
+    <h1 class="titrePageModifUtilisateur">Modifier l'utilisateur séléctionné</h1>
+
+    <div class="formulaire-centre">
+        {{ include('Compte/administrateur/GestionUtilisateurs/formModif.html.twig', {'button_label': 'Modifier'}) }}
+    </div>
+
+    <div class="actions-centrees">
+        <div class="Retour">
+            <a href="{{ path('Administrateur_ListeUtilisateurs') }}" class="lienretourListeUtilisateur">
+                Revenir à la liste des Utilisateurs
+            </a>
+        </div>
+
+        <div class="Supprimer">
+            {{ include('Compte/administrateur/GestionUtilisateurs/FormSupprimer.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

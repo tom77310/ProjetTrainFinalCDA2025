@@ -1,504 +1,416 @@
-/* Style Commun */ 
-h1{ 
-    text-align: center; 
-    margin-top: 20px;
-    margin-bottom: 20px; 
-    text-decoration: underline; 
-} 
-/* Fin Style Commun */ 
-/* Espace Administrateur */ 
-.AdminHaut{
-    display: flex; 
-    flex-direction: row; 
-    text-align: center; 
-    justify-content: center; 
-    padding-bottom: 50px; 
-    padding-top: 10px;
- } 
- .AdminHaut img{ 
-    width: 50%; 
-    height: auto; 
-} 
-.ListeUtilisateurs img { 
-    margin-top: 20px; 
-} 
-.AdminBas{ 
-    display: flex; 
-    flex-direction: row; 
-    text-align: center; 
-    justify-content: center; 
-    padding-bottom: 50px; 
-    padding-top: 10px; 
-} 
-.AdminBas img{ 
-    width: 50%; 
-    height: auto; 
-} 
-/* Fin Espace Administrateur */ 
-/* Liste des Utilisateurs */ 
-/* lien du tableau */ 
-table a{ 
-    color: black; 
-    text-decoration: none; 
-} 
-/* Fin lien du tableau */ 
-.liste_utilisateurs{ 
-    width: 75%; border-collapse: collapse; 
-    margin: 5% auto; 
-} 
-.liste_utilisateurs th, 
-.liste_utilisateurs td{ 
-    border: 2px solid black; 
-    padding: 8px; text-align: left; 
-} 
-.liste_utilisateurs th{ 
-    background-color:#f2f2f2; 
-    color: #333333; 
-} 
-/* Boutton d'ajout */ 
-.NouveauUtilisateur a{ 
-    color: black; 
-    text-decoration: none; 
-} 
-.NouveauUtilisateur{ 
-    border: 2px solid black; 
-    margin-top: 10px; 
-    margin-bottom: 10px; 
-    width: 10%; 
-    height: auto; 
-    justify-content: center; 
-    text-align: center; 
-    align-items: center; 
-    margin: 40px auto; 
-} 
-/* Fin boutton d'ajout */ 
-/* Fin Tableau */ 
-/* Fin Liste des utilisateurs */ 
-/* Cadre de navigation de gauche */ 
-.Droite{ 
-    float: left; 
-    width: 13%; 
-    border: 5px solid black; 
-    margin-left: 2%; 
-} 
-/* Lien du cadre de navigation de gauche */ 
-.Droite a{ 
-    color: black; 
-    margin-bottom: 10%; 
-    margin-top: 10%; 
-    text-decoration: none; 
-} 
-/* Liste des Utilisateurs */ 
-.ListeUtilisateurs{ 
-    margin-bottom: 10%; 
-    margin-top: 5%; 
-    text-align: center; 
-} 
-/* Liste des Produits */ 
-.ListeProduits{ 
-    margin-bottom: 10%; 
-    margin-top: 5%; 
-    text-align: center; 
-} 
-/* HistoriqueCommandes */ 
-.HistoriqueCommandes{ 
-    margin-bottom: 10%; 
-    margin-top: 5%; 
-    text-align: center; 
-} 
-/* Boite de Reception */ 
-.BoiteReception{ 
-    margin-bottom: 10%; 
-    margin-top: 5%; 
-    text-align: center; 
-}
-/* Fin cadre de navigation gauche */ 
-/* Liste des produits */ 
-.liste_produits{ 
-    width: 75%; 
-    border-collapse: collapse; 
-    margin: 5% auto; 
-} 
-.liste_produits th, 
-.liste_produits td{ 
-    border: 2px solid black; 
-    padding: 8px; 
-    text-align: left; 
-} 
-.liste_produits th{ 
-    background-color:#f2f2f2; 
-    color: #333333; 
-} 
-/* Boutton d'ajout */ 
-.NouveauProduit a{ 
-    color: black; 
-    text-decoration: none; 
-} 
-.NouveauProduit{ 
-    border: 2px solid black; 
-    margin-top: 10px; 
-    margin-bottom: 10px; 
-    width: 10%; 
-    height: auto; 
-    justify-content: center; 
-    text-align: center; 
-    align-items: center; 
-    margin: 40px auto; } 
-    /* Fin boutton d'ajout */ 
-    /* Fin liste produits */ 
-    /* Liste des commandes utilisateurs */ 
-    .liste_commandes{ 
-        width: 75%; 
-        border-collapse: collapse; 
-        margin: 5% auto; 
-    } 
-    .liste_commandes th, 
-    .liste_commandes td{ 
-        border: 2px solid black; 
-        padding: 8px; 
-        text-align: left; 
-    } 
-    .liste_commandes th{ 
-        background-color:#f2f2f2; 
-        color: #333333; 
-    } 
-    /* Fin liste des commandes des utilisateurs */ 
-    /* Boite de reception admin */ 
-    /* --------------------- */ 
-    /* Titre */ h1 { 
-        text-align: center; 
-        background-color: #2f4f4f;
-        color: white; 
-        padding: 20px; 
-        margin: 0 0 20px 0;
-        border-bottom: 4px solid #1c3131; 
-    } 
-    /* --------------------- */ 
-    /* Onglets navigation */ 
-    /* --------------------- */ 
-    .onglets-messages { 
-        display: flex; 
-        justify-content: center; 
-        gap: 20px; list-style: none; 
-        padding: 0;
-        margin: 0 0 30px 0; 
-    } 
-    .onglets-messages li a { 
-        background-color: #e0e0e0; 
-        color: #333; 
-        text-decoration: none; 
-        padding: 10px 20px; 
-        border-radius: 6px;  
-        font-weight: bold; 
-    } 
-    .onglets-messages li a:hover { 
-        background-color: #2f4f4f; 
-        color: white; 
-    } 
-    .onglets-messages li a.active { 
-        background-color: #2f4f4f; 
-        color: white; 
-    } 
-    /* --------------------- */ 
-    /* Section centrale */ 
-    /* --------------------- */ 
-    .container-messages { 
-        display: flex; 
-        justify-content: space-between; 
-        width: 80%; 
-        margin: auto; 
-        gap: 20px; 
-    } 
-        /* Liste des messages */ 
-        .section-messages { 
-            flex: 2; 
-        } 
-        .section-messages h2 { 
-            margin-bottom: 10px; 
-            color: #2f4f4f; 
-        } 
-        /* Carte message */ 
-        .message-card { 
-            background: white; 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            padding: 12px; 
-            margin-bottom: 12px; 
-            box-shadow: 1px 1px 6px rgba(0,0,0,0.1); 
-        } 
-        .message-card:hover { 
-            box-shadow: 2px 2px 12px rgba(0,0,0,0.2); 
-        } 
-        .message-card strong { 
-            display: block; 
-            margin-bottom: 4px; 
-            color: #333; 
-        } 
-        .message-card a { 
-            text-decoration: none; 
-            color: #1a73e8; 
-            font-weight: bold; 
-        } 
-        .message-card a:hover { 
+/* CSS Admin */
+    /* Style Commun */ 
+        h1{ 
+            text-align: center; 
+            margin-top: 20px;
+            margin-bottom: 20px; 
             text-decoration: underline; 
         } 
-        /* --------------------- */ 
-        /* Sidebar actions */ 
-        /* --------------------- */ 
-        .sidebar-actions { 
-            flex: 1; 
-            background: white; 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            padding: 15px; 
-            height: fit-content; 
-            box-shadow: 1px 1px 6px rgba(0,0,0,0.1); 
-        } 
-        .sidebar-actions h3 { 
-            margin-bottom: 10px; 
-            color: #2f4f4f; 
-        } 
-        .sidebar-actions ul { 
-            display: block; 
-            padding: 0; 
-            margin: 0; 
-            list-style: none; 
-        } 
-        .sidebar-actions li { 
-            margin-bottom: 10px; 
-        } 
-        .sidebar-actions a { 
-            text-decoration: none; 
-            color: #333; 
-        } 
-        .sidebar-actions a:hover { 
-            color: #1a73e8; 
-        } 
-        /* Fin Page acceuil boite reception admin et utilisateurs */ 
-        /* Formulaire modif utilisateur par admin */ 
-        /* ---- Formulaire principal ---- */ 
-        form { 
-            width: 50%; 
-            margin: 0 auto; 
-            background: #fff; 
-            padding: 25px 30px; 
-            border-radius: 10px;
-        } 
-        /* ---- Champs du formulaire ---- */ 
-        form div { 
-            margin-bottom: 18px; 
-        } 
-        label { 
-            display: block; 
-            font-weight: bold; 
-            margin-bottom: 6px; 
-            color: #2c3e50; 
-        } 
-        input, select { 
-            width: 100%; 
-            padding: 10px 12px; 
-            border: 1px solid #ccc; 
-            border-radius: 6px; 
-            font-size: 15px; 
-            transition: border 0.2s, 
-            box-shadow 0.2s; 
-        } 
-        /* Effet focus sur les champs */ 
-        input:focus, select:focus 
-        { 
-            border-color: #3498db; 
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.4); 
-            outline: none; 
-        } 
-        /* ---- Boutons ---- */ 
-        button { 
-            padding: 10px 18px; 
-            font-size: 15px; 
-            font-weight: bold; 
-            border: none; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            margin-right: 10px; 
-        } 
-        /* Bouton Modifier */ 
-        button[type="submit"], 
-        .btn-modifier { 
-            background: #27ae60; 
-            color: white; 
-        } 
-        button[type="submit"]:hover, 
-        .btn-modifier:hover { 
-            background: #219150; 
-        } 
-        /* Bouton Supprimer */ 
-        .Supprimer button, 
-        .btn-supprimer { 
-            background: #e74c3c; 
-            color: white; 
-        } 
-        .Supprimer button:hover, 
-        .btn-supprimer:hover { 
-            background: #c0392b;
-        } 
-        /* ---- Liens ---- */ 
-        .Retour { 
-            text-align: center; 
-            margin-top: 20px; 
-        } 
-        .Retour a { 
-            display: inline-block; 
-            padding: 8px 15px; 
-            background: #3498db; 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 6px; } 
-            .Retour a:hover { 
-                background: #2980b9; 
-            } 
-            /* Fin formulaire modif utilisateiur par admin */ 
-            /* Affichage detail utilisateur */ 
-            /* Conteneur des détails */ 
-            .details_utilisateurs { 
-                max-width: 600px; 
-                margin: 0 auto 30px auto; 
-                padding: 20px; 
-                background-color: #fff; 
-                border-radius: 10px; 
-            } 
-            /* Chaque paragraphe */ 
-            .details_utilisateurs p { 
-                margin: 10px 0; 
-                font-size: 16px; 
-                line-height: 1.5; 
-            } 
-            /* Boutons / liens */ 
-            .Retour, 
-            .Modifier, 
-            .Supprimer { 
-                max-width: 600px; 
-                margin: 10px auto; 
+    /* Fin Style Commun */ 
+    /* Compte Admin */
+        /* Espace Administrateur */ 
+            .AdminHaut{
+                display: flex; 
+                flex-direction: row; 
                 text-align: center; 
+                justify-content: center; 
+                padding-bottom: 50px; 
+                padding-top: 10px;
             } 
-            .Retour a, 
-            .Modifier a, 
-            .Supprimer a, 
-            .Supprimer button { 
-                display: inline-block; 
-                padding: 10px 20px; 
-                margin: 5px; 
-                text-decoration: none; 
-                color: #fff; 
-                background-color: #007BFF; 
-                border-radius: 5px; 
-                font-weight: bold; 
-                border: none; 
-                cursor: pointer; 
+            .AdminHaut img{ 
+                width: 50%; 
+                height: auto; 
             } 
-            .Retour a:hover, 
-            .Modifier a:hover, 
-            .Supprimer a:hover, 
-            .Supprimer button:hover { 
-                background-color: #0056b3; 
+            .ListeUtilisateurs img { 
+                margin-top: 20px; 
             } 
-            /* Bouton supprimer spécifique */ 
-            .Supprimer button { 
-                background-color: #dc3545; 
-            } 
-            .Supprimer button:hover { 
-                background-color: #a71d2a; 
-            }
-             /* fin affcihage detail utilisateur selectionner */
-             /* formulaire ajout utilisateur */
-              /* Conteneur du formulaire */ 
-              .form-ajout-utilisateur { 
-                max-width: 600px; 
-                margin: 40px auto; 
-                padding: 25px; 
-                background-color: #fff; 
-                border-radius: 10px; 
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            } 
-            /* Titre */ 
-            .form-ajout-utilisateur h1 { 
+            .AdminBas{ 
+                display: flex; 
+                flex-direction: row; 
                 text-align: center; 
-                margin-bottom: 25px; 
-                color: #1a1a1a; 
+                justify-content: center; 
+                padding-bottom: 50px; 
+                padding-top: 10px; 
             } 
-            /* Chaque champ du formulaire */ 
-            .form-ajout-utilisateur label { 
-                display: block; 
-                margin-bottom: 5px; 
-                font-weight: bold; 
+            .AdminBas img{ 
+                width: 50%; 
+                height: auto; 
             } 
-            .form-ajout-utilisateur input, 
-            .form-ajout-utilisateur select { 
-                width: 100%; 
-                padding: 10px; 
-                margin-bottom: 20px; 
-                border: 1px solid #ccc; 
-                border-radius: 5px; 
-                box-sizing: border-box; 
-                font-size: 14px; 
-                transition: border-color 0.3s; 
-            } 
-            /* Changement de couleur au focus */ 
-            .form-ajout-utilisateur input:focus, 
-            .form-ajout-utilisateur select:focus { 
-                border-color: #007BFF; 
-                outline: none; 
-            } 
-            /* Bouton */ 
-            .form-ajout-utilisateur button, 
-            .form-ajout-utilisateur 
-            input[type="submit"] 
-            { background-color: #007BFF; 
-                color: #fff; 
-                border: none; 
-                padding: 12px 25px; 
-                border-radius: 5px; 
-                font-size: 16px; 
-                cursor: pointer; 
-            } .form-ajout-utilisateur button:hover, 
-            .form-ajout-utilisateur input[type="submit"]:hover { 
-                background-color: #0056b3; 
-            }  
-                .required { 
-                    color: #dc3545; 
+        /* Fin Espace Administrateur */ 
+        /* Page Liste des Utilisateurs */ 
+            /* Style Commun */
+                 /* Lien "Retour" pour detailUtilisateur et Formulaire d'ajout utilisateur et formulaire modif utilisateur */
+                    .lienretourListeUtilisateur {
+                    display: inline-block;
+                    padding: 6px 12px;
+                    border: 1px solid #0E2E45;
+                    border-radius: 4px;
+                    background-color: #0E2E45;
+                    color: #ffffff;
+                    font-size: 14px;
+                    text-decoration: none;
+                    }
+            /* Fin Style Commun Page liste Utilisateurs */
+            /* Affichage Liste des utilisateurs */
+                /* lien du tableau */ 
+                    table a{ 
+                        color: black; 
+                        text-decoration: none; 
+                    } 
+                /* Fin lien du tableau */ 
+                .liste_utilisateurs{ 
+                    width: 75%; 
+                    border-collapse: collapse; 
+                    margin: 5% auto; 
                 } 
-                /* fin formulaire ajout utilisateurs */ 
-                /* Page detail produit */ 
-                /* ===== Détails produit ===== */ 
-                .prixProduit, 
-                .stockProduit, 
-                .descriptionProduit { 
-                    font-size: 1rem; 
-                    margin: 10px 0; 
-                    line-height: 1.5; 
-                } 
-                /* Label (ex: Prix, Stock, Description) */ 
-                .prixProduit strong, 
-                .stockProduit strong, 
-                .descriptionProduit strong { 
-                    color: #555; 
-                    margin-right: 5px; 
-                } 
-                /* Conteneur des détails */ 
-                .detailProduit { 
-                    max-width: 600px; 
-                    margin: 0 auto 30px auto; 
-                    padding: 20px; background-color: #fff; 
-                    border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-                } 
-                /* Chaque paragraphe */ 
-                .detailProduit p { 
-                    margin: 10px 0; 
-                    font-size: 16px; 
-                    line-height: 1.5; 
-                } 
-                /* css globale */ 
-                textarea { 
-                    width: 100%; /* prend toute la largeur du formulaire */ 
-                    min-height: 120px; /* hauteur minimum */ 
-                    resize: vertical; /* autorise seulement le redimensionnement vertical */ 
-                    box-sizing: border-box; /* évite que le padding dépasse la largeur */ 
+                .liste_utilisateurs th, 
+                .liste_utilisateurs td{ 
+                    border: 2px solid black; 
+                    padding: 8px; 
+                    text-align: left; 
                 }
+                .liste_utilisateurs th{ 
+                    background-color:#f2f2f2; 
+                    color: #333333; 
+                }   
+                /* Boutton d'ajout */ 
+                    .NouveauUtilisateur a{ 
+                        color: black; 
+                        text-decoration: none; 
+                    } 
+                    .NouveauUtilisateur{ 
+                        border: 2px solid black; 
+                        margin-top: 10px; 
+                        margin-bottom: 10px; 
+                        width: 10%; 
+                        height: auto; 
+                        justify-content: center; 
+                        text-align: center; 
+                        align-items: center; 
+                        margin: 40px auto; 
+                    } 
+
+                /* Fin boutton d'ajout */ 
+            /* Fin Affichage Liste des Utilisateurs */ 
+            /* Formulaire modif utilisateur par admin */ 
+                /* Champs du formulaire (inputs, select, textarea auront la classe correspondante via Symfony) */
+                    #modif_utilisateur_form .Nom,
+                    #modif_utilisateur_form .Prenom,
+                    #modif_utilisateur_form .Email,
+                    #modif_utilisateur_form .Adresse,
+                    #modif_utilisateur_form .CodePostal,
+                    #modif_utilisateur_form .Ville,
+                    #modif_utilisateur_form .Telephone,
+                    #modif_utilisateur_form .Role {
+                    display: block;
+                    box-sizing: border-box;
+                    width: 360px;
+                    padding: 8px;
+                    margin-bottom: 12px;
+                    border: 1px solid #cfcfcf;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    line-height: 1.2;
+                    }
+
+                /* Conteneur du bouton de modification */
+                .modifier {
+                margin-top: 16px;
+                margin-bottom: 20px;
+                }
+
+                /* Bouton de modification */
+                .btn-modifier {
+                display: inline-block;
+                padding: 8px 16px;
+                border: 1px solid #0E2E45;
+                border-radius: 4px;
+                background-color: #0E2E45;
+                color: #ffffff;
+                font-size: 14px;
+                text-decoration: none;
+                }
+
+                /* Conteneur "Retour" */
+                .Retour {
+                margin-top: 18px;
+                margin-bottom: 8px;
+                padding: 8px;
+                border: 1px solid transparent;
+                width: fit-content;
+                border-radius: 4px;
+                }
+
+                /* Conteneur "Supprimer" */
+                .Supprimer {
+                margin-top: 8px;
+                margin-bottom: 18px;
+                padding: 8px;
+                width: fit-content;
+                border-radius: 4px;
+                }
+                /* Titre de la page */
+                .titrePageModifUtilisateur {
+                margin-bottom: 16px;
+                font-size: 20px;
+                color: #0E2E45;
+                font-weight: bold;
+                }
+                /* Conteneur pour centrer le formulaire */
+                .formulaire-centre {
+                display: flex;
+                justify-content: center;   /* Centre horizontalement */
+                align-items: flex-start;   /* Garde le formulaire en haut par rapport au viewport */
+                margin-top: 20px;          /* Espace entre le titre et le formulaire */
+                margin-bottom: 20px;
+                }
+
+                /* Conteneur qui centre les actions Retour et Supprimer */
+                .actions-centrees {
+                display: flex;
+                justify-content: center;   /* centre horizontalement */
+                align-items: center;       /* aligne verticalement sur la même ligne */
+                gap: 20px;                 /* espace entre Retour et Supprimer */
+                margin-top: 20px;          /* espace au-dessus des boutons */
+                }
+
+                .Retour,
+                .Supprimer {
+                margin: 0;                 /* on retire les marges précédentes si besoin */
+                }
+            /* Fin Formulaire modif utilisateur par admin */
+            /* Detail Utilisateurs */
+                /* Conteneur des détails */
+                    .details_utilisateurs {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;   /* centre horizontalement */
+                    padding: 20px;
+                    border: 1px solid #cfcfcf;
+                    border-radius: 4px;
+                    max-width: 400px;
+                    margin: 20px auto;     /* centre le bloc sur la page */
+                    background-color: #f9f9f9;
+                    }
+                /* Fin Conteneur Details */
+                /* Chaque ligne de détail */
+                .detail-item {
+                margin-bottom: 8px;
+                font-size: 14px;
+                color: #333333;
+                }
+
+                /* Bloc actions : Retour / Modifier / Supprimer */
+                .actionsDetailsUtilisateurs {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;             /* espace entre les actions */
+                margin-top: 20px;
+                }
+
+               
+
+                /* Lien "Modifier" */
+                .lienmodifierUtilisateur {
+                display: inline-block;
+                padding: 6px 12px;
+                border: 1px solid #0E2E45;
+                border-radius: 4px;
+                background-color: #0E2E45;
+                color: #ffffff;
+                font-size: 14px;
+                text-decoration: none;
+                }
+            /* Fin Page Detail Utilisateurs */
+            /* Page Formulaire d'ajout Utilisateurs */
+                /* === Bloc titre === */
+                .titreAjoutUtilisateurs {
+                margin-bottom: 20px;
+                font-size: 20px;
+                color: #0E2E45;
+                font-weight: bold;
+                text-align: center;
+                }
+
+                /* === Conteneur centré du formulaire === */
+                .formulaireAjoutUtilisateurs {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                }
+
+                /* === Formulaire ajout utilisateur === */
+                .form-ajout-utilisateur {
+                display: flex;
+                flex-direction: column;
+                width: 360px;
+                padding: 20px;
+                border: 1px solid #cfcfcf;
+                border-radius: 4px;
+                background-color: #f9f9f9;
+                box-sizing: border-box;
+                }
+
+                /* Champs du formulaire */
+                .form-ajout-utilisateur input,
+                .form-ajout-utilisateur select {
+                display: block;
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 12px;
+                border: 1px solid #cfcfcf;
+                border-radius: 4px;
+                font-size: 14px;
+                box-sizing: border-box;
+                }
+
+                /* Bouton Ajouter */
+                .ajouter {
+                margin-top: 16px;
+                text-align: center;
+                }
+
+                .btn-ajout {
+                display: inline-block;
+                padding: 8px 16px;
+                border: 1px solid #0E2E45;
+                border-radius: 4px;
+                background-color: #0E2E45;
+                color: #ffffff;
+                font-size: 14px;
+                text-decoration: none;
+                }
+
+                /* Bloc des liens d'action */
+                .actionsAjoutUtilisateurs {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                }
+        /* Fin Page Liste des utilisateurs */ 
+        
+        /* Page Liste des produits */ 
+            /* Style Commun Liste des produits */
+                
+
+            /* Fin Style Commun Liste des produits */               
+            .liste_produits{ 
+                width: 75%; 
+                border-collapse: collapse; 
+                margin: 5% auto; 
+            } 
+            .liste_produits th, 
+            .liste_produits td{ 
+                border: 2px solid black; 
+                padding: 8px; 
+                text-align: left; 
+            } 
+            .liste_produits th{ 
+                background-color:#f2f2f2; 
+                color: #333333; 
+            }
+            /* Boutton d'ajout */ 
+                .NouveauProduit a{ 
+                    color: black; 
+                    text-decoration: none; 
+                } 
+                .NouveauProduit{ 
+                    border: 2px solid black; 
+                    margin-top: 10px; 
+                    margin-bottom: 10px; 
+                    width: 10%; 
+                    height: auto; 
+                    justify-content: center; 
+                    text-align: center; 
+                    align-items: center; 
+                    margin: 40px auto; 
+                } 
+                /* Fin boutton d'ajout */ 
+        /* Fin Page liste produits */ 
+        /* Style communs aux pages Ajout, modifier, et detail produits */
+            /* Titres des pages */
+                .titreDetailProduits,
+                .titreajoutproduit,
+                .titremodifierproduit {
+                    font-size: 24px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                    text-align: center;
+                }
+
+            /* Conteneurs des formulaires et détails produit */
+                .detail-produit,
+                .formnouveauproduit,
+                .formmodifierproduit {
+                    width: 400px;
+                    margin: 0 auto 20px auto; /* centrer horizontalement et espacement bas */
+                    padding: 20px;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                }
+
+            /* Champs de formulaire ajout et modifier produit*/
+                .formnouveauproduit input,
+                .formnouveauproduit textarea,
+                .formnouveauproduit select,
+                .formmodifierproduit input,
+                .formmodifierproduit textarea,
+                .formmodifierproduit select {
+                    width: 100%;
+                    padding: 8px;
+                    margin-bottom: 10px;
+                    box-sizing: border-box;
+                    border: 1px solid #ccc;
+                }
+
+            /* Boutons */
+                .btnajouterproduit,
+                .btn-mettre-a-jour {
+                    padding: 10px 20px;
+                    background-color: #0E2E45;
+                    color: #fff;
+                    border: none;
+                    font-size: 14px;
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+            /* Conteneur actions (Modifier / Retour / Retour à la liste) */
+                .actionsDetailsProduits,
+                .actionAjoutProduit,
+                .actionmodifierproduit {
+                    width: 400px;
+                    margin: 0 auto 20px auto; /* centré et espacement bas */
+                    text-align: center;
+                }
+
+            /* Liens dans les actions */
+                .lienmodifierproduit,
+                .lienretourlisteproduit {
+                    text-decoration: none;
+                    color: #0E2E45;
+                    font-size: 14px;
+                    display: inline-block;
+                    margin: 5px 0;
+                    padding: 6px 12px;
+                    border: 1px solid #0E2E45;
+                    background-color: #e6f0f5; /* fond clair pour les liens */
+                    box-sizing: border-box;
+                }
+        /* Fin Style Communs */
+        /* Page details Produits */
+            /* Informations produit */
+            .prix-produit,
+            .stock-produit,
+            .description-produit {
+                margin-bottom: 10px;
+            }
+        /* Fin Page details Produits */
+    /* Fin Compte Admin */
+/* Fin CSS Admin */
+
+/* Responsivité Compte admin */

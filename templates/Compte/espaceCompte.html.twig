@@ -50,32 +50,32 @@
         </div>
 
     {% else %}
-        <h1>Mon Compte</h1>
+        <h1 class="TitreMonCompteUtilisateur">Mon Compte</h1>
         <div class="CompteHaut">
-            <div class="InfosPerso">
+            <div class="ImgInfosPerso">
                 <a href="{{ path('Compte_infosPersos') }}">
-                    <img src="{{ asset('Images/MonCompte/IconeInfosPersos.png') }}" alt="InformationsPersonnelles" id="InfosPerso">
+                    <img src="{{ asset('Images/MonCompte/IconeInfosPersos.png') }}" alt="InformationsPersonnelles" id="ImgInfosPersos">
                 </a>
                 <p>Mes Informations Personnelles</p>
             </div>
-            <div class="Retractation">
+            <div class="FormRetractation">
                 <a href="{{ path('Compte_FormRetractation') }}">
-                    <img src="{{ asset('Images/MonCompte/Retractation.png') }}" alt="Formulaire de Retractation" id="Retractation">
+                    <img src="{{ asset('Images/MonCompte/Retractation.png') }}" alt="Formulaire de Retractation" id="ImgRetractation">
                 </a>
                 <p>Formulaire de Retractation</p>
             </div>
         </div>
 
         <div class="CompteBas">
-            <div class="HistoriqueCommandes">
+            <div class="ImgHistoriqueCommandes">
                 <a href="{{ path('Compte_UtilisateurHistoriqueCommande') }}">
-                    <img src="{{ asset('Images/MonCompte/HistoriqueCommande.png') }}" alt="Historique des commandes" id="Historique">
+                    <img src="{{ asset('Images/MonCompte/HistoriqueCommande.png') }}" alt="Historique des commandes" id="ImgHistoriqueDeCommandes">
                 </a>
                 <p>Historique des commandes</p>
             </div>
-            <div class="BoiteReception">
+            <div class="ImgBoiteDeReception">
                 <a href="{{ path('Compte_BoiteReception') }}">
-                    <img src="{{ asset('Images/MonCompte/BoiteReception.png') }}" alt="Boite de Reception" id="Reception">
+                    <img src="{{ asset('Images/MonCompte/BoiteReception.png') }}" alt="Boite de Reception" id="ImgBoiteReception">
                 </a>
                 <p>Boite de reception</p>
             </div>

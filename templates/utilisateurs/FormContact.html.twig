@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
- {% block title %}Formulaire Contact{% endblock %}
+{% block title %}Formulaire Contact{% endblock %}
 {% block body %}
     <link rel="stylesheet" href="{{ asset('CSS/Utilisateurs.css') }}">
+
 <div class="contact-container">
     <h1>Formulaire de contact</h1>
 
@@ -11,12 +12,15 @@
         {% endfor %}
     {% endfor %}
 
-    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.objet) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.pieceJointe) }}
+    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data', 'id': 'contact_form'}}) }}
+
+        {{ form_row(form.email,       {'row_attr': {'class': 'form-group'}}) }}
+        {{ form_row(form.objet,       {'row_attr': {'class': 'form-group'}}) }}
+        {{ form_row(form.description, {'row_attr': {'class': 'form-group'}}) }}
+        {{ form_row(form.pieceJointe, {'row_attr': {'class': 'form-group'}}) }}
+
         <button type="submit" class="btn-submit">Envoyer</button>
+
     {{ form_end(form) }}
 </div>
 {% endblock %}

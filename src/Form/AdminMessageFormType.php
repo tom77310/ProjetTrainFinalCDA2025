@@ -16,31 +16,32 @@ class AdminMessageFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add('objet', TextType::class, [
-                'label' => 'Objet',
-            ])
-            ->add('description', TextareaType::class, [
-                'label' => 'Description',
-            ])
-            ->add('destinataire', EntityType::class, [
+        // Champ destinataire si demandé
+        if ($options['show_destinataire']) {
+            $builder->add('destinataire', EntityType::class, [
                 'class' => Utilisateur::class,
-                'choice_label' => 'email', // Affiche l'email de l'utilisateur
+                'choice_label' => 'email',
                 'label' => 'Envoyer à',
                 'query_builder' => function ($repo) {
                     return $repo->createQueryBuilder('u')
-                        ->where('u.roles NOT LIKE :role') // exclut les admins
+                        ->where('u.roles NOT LIKE :role')
                         ->setParameter('role', '%ROLE_ADMIN%')
-                        ->orderBy('u.email', 'ASC'); // tri par email
+                        ->orderBy('u.email', 'ASC');
                 },
-            ])
+                'disabled' => $options['readonly'], // lecture seule si readonly=true
+            ]);
+        }
+
+        $builder
+            ->add('objet', TextType::class, ['label' => 'Objet'])
+            ->add('description', TextareaType::class, ['label' => 'Description'])
             ->add('pieceJointe', FileType::class, [
                 'label' => 'Pièce jointe (facultatif)',
-                'mapped' => false,          // pas directement lié à l'entité Messages
-                'required' => false,        // pas obligatoire
+                'mapped' => false,
+                'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M', // taille max 5Mo
+                        'maxSize' => '5M',
                         'mimeTypes' => [
                             'application/pdf',
                             'image/*',
@@ -57,6 +58,8 @@ class AdminMessageFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Messages::class,
+            'show_destinataire' => true, // par défaut, afficher destinataire
+            'readonly' => false,         // par défaut, modifiable
         ]);
     }
 }

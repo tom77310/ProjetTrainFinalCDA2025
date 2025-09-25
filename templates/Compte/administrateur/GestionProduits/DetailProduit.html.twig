@@ -4,16 +4,25 @@
 
 {% block body %}
 <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
-<h1>{{ produit.nomProduit }}</h1>
-<div class="detailProduit">
-    <p class="prixProduit"><strong>Prix :</strong> {{ produit.prix }} €</p>
-    <p class="stockProduit"><strong>Stock :</strong> {{ produit.stock }}</p>
-    <p class="descriptionProduit"><strong>Description :</strong> {{ produit.description }}</p>
+
+<h1 class="titreDetailProduits">{{ produit.nomProduit }}</h1>
+
+<div class="detail-produit">
+    <p class="prix-produit"><strong>Prix :</strong> {{ produit.prix }} €</p>
+    <p class="stock-produit"><strong>Stock :</strong> {{ produit.stock }}</p>
+    <p class="description-produit"><strong>Description :</strong> {{ produit.description }}</p>
 </div>
-<div class="Modifier">
-<a href="{{ path('Administrateur_ModifierProduit', {id: produit.id}) }}" class="btn btn-warning">Modifier</a>
-</div>
-<div class="Retour">
-<a href="{{ path('Administrateur_ListeProduits') }}" class="btn btn-secondary">Retour</a>
+
+<div class="actionsDetailsProduits">
+    <div class="modifierproduit">
+        <a href="{{ path('Administrateur_ModifierProduit', {id: produit.id}) }}" class="lienmodifierproduit">
+            Modifier
+        </a>
+    </div>
+    <div class="retourproduit">
+        <a href="{{ path('Administrateur_ListeProduits') }}" class="lienretourlisteproduit">
+            Retour
+        </a>
+    </div>
 </div>
 {% endblock %}

@@ -4,15 +4,21 @@
 
 {% block body %}
 <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
-<h1>Ajouter un produit</h1>
 
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success">Ajouter</button>
-{{ form_end(form) }}
+<h1 class="titreajoutproduit">Ajouter un produit</h1>
 
-<div class="Retour">
-<a href="{{ path('Administrateur_ListeProduits') }}" class="btn btn-secondary mt-2">Retour à la liste</a>
+<div class="formnouveauproduit">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btnajouterproduit">Ajouter</button>
+    {{ form_end(form) }}
 </div>
 
+<div class="actionAjoutProduit">
+    <div class="retourproduit">
+        <a href="{{ path('Administrateur_ListeProduits') }}" class="lienretourlisteproduit">
+            Retour à la liste
+        </a>
+    </div>
+</div>
 {% endblock %}

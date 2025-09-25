@@ -3,44 +3,53 @@
 {% block title %}Messages reçus{% endblock %}
 
 {% block body %}
-<div class="container mt-4">
-    <h2 class="mb-4">📥 Messages reçus</h2>
+<link rel="stylesheet" href="{{ asset('CSS/BoiteReception.css') }}">
+<div class="conteneur-messages-recus">
+    <h2 class="titre-messages-recus">Messages reçus</h2>
 
     {% if messages is not empty %}
-        <div class="list-group">
+        <div class="liste-messages-recus">
             {% for message in messages %}
-                <div class="list-group-item list-group-item-action mb-2 shadow-sm rounded">
-                  <p><strong>De :</strong> {{ message.expediteur.email }}</p> {# Affiche l'email de l'expéditeur #}
-                    <h5 class="mb-2">{{ message.objet }}</h5>
-                    <p class="mb-2">{{ message.description|u.truncate(150, '...') }}</p>
+                <div class="item-message-recu">
+                    <p class="info-expediteur"><strong>De :</strong> {{ message.expediteur.email }}</p>
+                    <h5 class="objet-message-recu">{{ message.objet }}</h5>
+                    <p class="extrait-message-recu">{{ message.description|u.truncate(150, '...') }}</p>
 
                     {% if message.pieceJointe %}
-                        <p>
+                        <p class="piece-jointe-recue">
                             <strong>📎 Pièce jointe :</strong>
-                            <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="btn btn-sm btn-outline-secondary" download>
+                            <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="lien-piece-jointe-recue" download>
                                 Télécharger
                             </a>
                         </p>
                     {% endif %}
 
-                    <div class="d-flex justify-content-end gap-2">
+                    <div class="zone-boutons-actions">
                         {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('Compte_AdministrateurDetailMessage', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail ADMIN</a>
-                        <a href="{{ path('Compte_AdministarteurReponseMessage', {id: message.id}) }}" class="btn btn-success btn-sm">Répondre ADMIN</a>
-                         {% elseif is_granted('ROLE_USER') %}
-                        <a href="{{ path('Compte_UtilisateurDetailMessage', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail USER</a>
-                         <a href="{{ path('Compte_UtilisateurReponseMessage', {id: message.id}) }}" class="btn btn-success btn-sm">Répondre USER</a>
-                          {% endif %}
+                            <a href="{{ path('Compte_AdministrateurDetailMessage', {id: message.id}) }}" class="btn-detail-message-recu">
+                                Détail
+                            </a>
+                            <a href="{{ path('Compte_AdministarteurReponseMessage', {id: message.id}) }}" class="btn-repondre-message-recu">
+                                Répondre
+                            </a>
+                        {% elseif is_granted('ROLE_USER') %}
+                            <a href="{{ path('Compte_UtilisateurDetailMessage', {id: message.id}) }}" class="btn-detail-message-recu">
+                                Détail
+                            </a>
+                            <a href="{{ path('Compte_UtilisateurReponseMessage', {id: message.id}) }}" class="btn-repondre-message-recu">
+                                Répondre
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
         </div>
     {% else %}
-        <p class="alert alert-info">Aucun message reçu.</p>
+        <p class="aucun-message-recu">Aucun message reçu.</p>
     {% endif %}
 
-    <div class="mt-3">
-        <a href="{{ path('Compte_BoiteReception') }}" class="btn btn-secondary">⬅ Retour</a>
+    <div class="zone-retour-messages-recus">
+        <a href="{{ path('Compte_BoiteReception') }}" class="btn-retour-messages-recus"> Retour</a>
     </div>
 </div>
 {% endblock %}

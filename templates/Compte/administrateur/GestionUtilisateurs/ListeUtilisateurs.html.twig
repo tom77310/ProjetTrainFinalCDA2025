@@ -3,22 +3,11 @@
 {% block title %}Liste des Utilisateurs{% endblock %}
 {% block body %}
     <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
+
+    {% include 'partials/_navCompte.html.twig' %}
     <h1>Liste des Utilisateurs</h1>
 
-<div class='Droite'>
-            <div class="ListeUtilisateurs">
-                <a href="#">Liste des Utilisateurs</a>
-            </div>
-            <div class="ListeProduits">
-                <a href={{ path('Administrateur_ListeProduits') }}>Liste des produits</a>
-            </div>
-            <div class="HistoriqueCommandes">
-                <a href={{ path('Compte_UtilisateurHistoriqueCommande') }}>Historique des Commandes des utilisateurs</a>
-            </div>
-            <div class="BoiteReception">
-                <a href={{ path('Compte_BoiteReception') }}>Boite de Reception</a>
-            </div>
-        </div> {# Fin div Droite #}
+
     <table class="liste_utilisateurs">
         <thead>
             <tr>

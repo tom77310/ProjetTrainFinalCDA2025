@@ -3,42 +3,47 @@
 {% block title %}Messages envoyés{% endblock %}
 
 {% block body %}
-<div class="container mt-4">
-    <h2 class="mb-4">📤 Messages envoyés</h2>
+<link rel="stylesheet" href={{ asset('CSS/BoiteReception.css') }}>
+<div class="conteneur-messages-envoyes">
+    <h2 class="titre-messages-envoyes"> Messages envoyés</h2>
 
     {% if messages is not empty %}
-        <div class="list-group">
+        <div class="liste-messages">
             {% for message in messages %}
-                <div class="list-group-item list-group-item-action mb-2 shadow-sm rounded">
-                  <p><strong>Pour :</strong> {{ message.destinataire.email }}</p> {# Affiche l'email de l'expéditeur #}
-                    <h5 class="mb-2">{{ message.objet }}</h5>
-                    <p class="mb-2">{{ message.description|u.truncate(150, '...') }}</p>
+                <div class="item-message">
+                    <p class="info-destinataire"><strong>Pour :</strong> {{ message.destinataire.email }}</p>
+                    <h5 class="objet-message">{{ message.objet }}</h5>
+                    <p class="extrait-message">{{ message.description|u.truncate(150, '...') }}</p>
 
                     {% if message.pieceJointe %}
-                        <p>
+                        <p class="piece-jointe-message">
                             <strong>📎 Pièce jointe :</strong>
-                            <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="btn btn-sm btn-outline-secondary" download>
+                            <a href="{{ asset('uploads/ImagePieceJointeContact/' ~ message.pieceJointe) }}" class="lien-piece-jointe-message" download>
                                 Télécharger
                             </a>
                         </p>
                     {% endif %}
 
-                    <div class="d-flex justify-content-end">
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('Compte_AdministrateurDetailMessage', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail ADMIN</a>
-                    {% elseif is_granted('ROLE_USER') %}
-                    <a href="{{ path('Compte_UtilisateurDetailMessage', {id: message.id}) }}" class="btn btn-primary btn-sm">Détail USER</a>
-                    {% endif %}
+                    <div class="zone-bouton-detail">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('Compte_AdministrateurDetailMessage', {id: message.id}) }}" class="btn-detail-message">
+                                Détail
+                            </a>
+                        {% elseif is_granted('ROLE_USER') %}
+                            <a href="{{ path('Compte_UtilisateurDetailMessage', {id: message.id}) }}" class="btn-detail-message">
+                                Détail
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
         </div>
     {% else %}
-        <p class="alert alert-info">Aucun message envoyé.</p>
+        <p class="aucun-message">Aucun message envoyé.</p>
     {% endif %}
 
-    <div class="mt-3">
-        <a href="{{ path('Compte_BoiteReception') }}" class="btn btn-secondary">⬅ Retour</a>
+    <div class="zone-retour">
+        <a href="{{ path('Compte_BoiteReception') }}" class="btn-retour-messages">Retour</a>
     </div>
 </div>
 {% endblock %}

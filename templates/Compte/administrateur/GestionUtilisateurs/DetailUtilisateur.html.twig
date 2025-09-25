@@ -4,38 +4,33 @@
 
 {% block body %}
 <link rel="stylesheet" href="{{ asset('CSS/Admin.css') }}">
-    <h1>Detail de l'utilisateur séléctionné</h1>
+<h1 class="titre-page">Détail de l'utilisateur sélectionné</h1>
 
-    <div class="details_utilisateurs">
-        
+<div class="details_utilisateurs">
+    <p class="detail-item">Id : {{ utilisateur.id }}</p>
+    <p class="detail-item">Nom : {{ utilisateur.nom }}</p>
+    <p class="detail-item">Prénom : {{ utilisateur.prenom }}</p>
+    <p class="detail-item">Adresse : {{ utilisateur.adresse }}</p>
+    <p class="detail-item">Code Postal : {{ utilisateur.cp }}</p>
+    <p class="detail-item">Ville : {{ utilisateur.ville }}</p>
+    <p class="detail-item">Numéro de Téléphone : {{ utilisateur.telephone }}</p>
+    <p class="detail-item">Email : {{ utilisateur.email }}</p>
+    <p class="detail-item">Rôle : {{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</p>
+</div>
 
-                <p>Id : {{ utilisateur.id }}</p>
-                
-                <p>Nom : {{ utilisateur.nom }}</p>
-
-                <p>Prenom : {{ utilisateur.prenom }}</p>
-
-                <p>Adresse : {{ utilisateur.adresse }}</p>
-
-                <p>Code Postale : {{ utilisateur.cp }}</p>
-
-                <p>Ville : {{ utilisateur.ville }}</p>
-
-                <p>Numero de Telephone : {{ utilisateur.telephone }}</p>
-
-                <p>Email: {{ utilisateur.email }}</p>
-
-                <p>Role : {{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</p>
-            
-        
+<div class="actionsDetailsUtilisateurs">
+    <div class="Retour">
+        <a href="{{ path('Administrateur_ListeUtilisateurs') }}" class="lienretourListeUtilisateur">
+            Retour sur la liste des utilisateurs
+        </a>
     </div>
-<div class="Retour">
-    <a href="{{ path('Administrateur_ListeUtilisateurs') }}">Retour sur la liste des utilisateurs</a>
-</div>
-<div class="Modifier">
-    <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}">Modifier</a>
-</div>
-<div class="Supprimer">
-    {{ include('Compte/administrateur/GestionUtilisateurs/FormSupprimer.html.twig') }}
+    <div class="Modifier">
+        <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}" class="lienmodifierUtilisateur">
+            Modifier
+        </a>
+    </div>
+    <div class="Supprimer">
+        {{ include('Compte/administrateur/GestionUtilisateurs/FormSupprimer.html.twig') }}
+    </div>
 </div>
 {% endblock %}
