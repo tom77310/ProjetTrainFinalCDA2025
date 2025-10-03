@@ -7,7 +7,7 @@
 <h1 class="titre-page">Détail de l'utilisateur sélectionné</h1>
 
 <div class="details_utilisateurs">
-    <p class="detail-item">Id : {{ utilisateur.id }}</p>
+    <p class="detail-item">Id : {{ utilisateur.id }}</p> {# Protection Attaque Force Brute #}
     <p class="detail-item">Nom : {{ utilisateur.nom }}</p>
     <p class="detail-item">Prénom : {{ utilisateur.prenom }}</p>
     <p class="detail-item">Adresse : {{ utilisateur.adresse }}</p>

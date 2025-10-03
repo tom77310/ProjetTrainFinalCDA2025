@@ -8,7 +8,7 @@
 <h1 class="titremodifierproduit">Modifier le produit</h1>
 
 <div class="formmodifierproduit">
-    {{ form_start(form) }}
+    {{ form_start(form) }} {# Protection CSRF #}
         {{ form_widget(form) }}
         <button class="btn-mettre-a-jour">Mettre à jour</button>
     {{ form_end(form) }}

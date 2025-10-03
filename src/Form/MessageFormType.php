@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class MessageFormType extends AbstractType
 {
@@ -23,10 +24,22 @@ class MessageFormType extends AbstractType
                 'label' => 'Description',
                 'attr' => ['placeholder' => 'Décrivez votre message']
             ])
-            ->add('pieceJointe', FileType::class, [
-                'label' => 'Pièce jointe (optionnel)',
-                'required' => false,
+             ->add('pieceJointe', FileType::class, [
+                'label' => 'Pièce jointe (facultatif)',
                 'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '50M',
+                        'mimeTypes' => [
+                            'application/pdf',
+                            'image/*',
+                            'application/msword',
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez télécharger un fichier valide (PDF, image, Word).',
+                    ])
+                ],
             ]);
     }
 

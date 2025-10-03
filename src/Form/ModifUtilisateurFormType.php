@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ModifUtilisateurFormType extends AbstractType
 {
@@ -48,11 +49,19 @@ class ModifUtilisateurFormType extends AbstractType
                 'class' => 'Ville',
             ]
         ])
-        ->add('telephone', NumberType::class, [
-            'attr' => [
-                'class' => 'Telephone',
-            ]
-        ])
+        ->add('telephone', TextType::class, [
+                'label' => 'Téléphone',
+                'required' => false,
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'Le numéro de téléphone est obligatoire.',
+                    ]),
+                    new Assert\Regex([
+                        'pattern' => '/^\d{10}$/',
+                        'message' => 'Le numéro de téléphone doit contenir exactement 10 chiffres.',
+                    ]),
+                ],
+            ])
         ->add('roles', ChoiceType::class, [
             'required' => true,
             'multiple' => true,

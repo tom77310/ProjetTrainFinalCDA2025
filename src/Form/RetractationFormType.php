@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class RetractationFormType extends AbstractType
 {
@@ -27,10 +28,22 @@ class RetractationFormType extends AbstractType
                 'label' => 'Description',
                 'attr' => ['placeholder' => 'Décrivez votre demande']
             ])
-            ->add('pieceJointe', FileType::class, [
-                'label' => 'Pièce jointe (optionnel)',
+           ->add('pieceJointe', FileType::class, [
+                'label' => 'Pièce jointe (facultatif)',
+                'mapped' => false,
                 'required' => false,
-                'mapped' => false
+                'constraints' => [
+                    new File([
+                        'maxSize' => '50M',
+                        'mimeTypes' => [
+                            'application/pdf',
+                            'image/*',
+                            'application/msword',
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez télécharger un fichier valide (PDF, image, Word).',
+                    ])
+                ],
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Envoyer',

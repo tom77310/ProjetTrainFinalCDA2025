@@ -422,38 +422,34 @@ public function ReponseMessage(Messages $original, Request $request, EntityManag
         
         // Commande 
       #[Route('/utilisateur/commande', name: 'Compte_UtilisateurCommande')]
-public function Commande(
-    SessionInterface $session,
-    ProduitRepository $produitRepository,
-    EntityManagerInterface $em
-): Response {
-    $this->denyAccessUnlessGranted('ROLE_USER');
+    public function Commande(SessionInterface $session,ProduitRepository $produitRepository,EntityManagerInterface $em): Response {
+        $this->denyAccessUnlessGranted('ROLE_USER');
 
-    $panier = $session->get('panier', []);
+        $panier = $session->get('panier', []);
 
-    if ($panier === []) {
-        $this->addFlash('warning', 'Votre panier est vide.');
-        return $this->redirectToRoute('acceuil_index');
-    }
+        if ($panier === []) {
+            $this->addFlash('warning', 'Votre panier est vide.');
+            return $this->redirectToRoute('acceuil_index');
+        }
 
-    try {
-        // Créer la commande
-        $commande = new Commande();
-        $commande->setUtilisateur($this->getUser());
-        $commande->setReference(uniqid());
+            try {
+                // Créer la commande
+                $commande = new Commande();
+                $commande->setUtilisateur($this->getUser());
+                $commande->setReference(uniqid());
 
-        foreach ($panier as $idProduit => $quantite) {
-            $produit = $produitRepository->find($idProduit);
+                foreach ($panier as $idProduit => $quantite) {
+                    $produit = $produitRepository->find($idProduit);
 
-            if (!$produit) {
-                throw new \Exception("Le produit ID $idProduit n'existe pas.");
-            }
+                    if (!$produit) {
+                        throw new \Exception("Le produit ID $idProduit n'existe pas.");
+                    }
 
-            // Vérifier le stock disponible
-           if ($produit->getStock() < $quantite) {
-            $this->addFlash('warning', "Stock insuffisant pour le produit " . $produit->getNomProduit());
-            return $this->redirectToRoute('Compte_UtilisateurPanier');
-}
+                    // Vérifier le stock disponible
+                if ($produit->getStock() < $quantite) {
+                    $this->addFlash('warning', "Stock insuffisant pour le produit " . $produit->getNomProduit());
+                    return $this->redirectToRoute('Compte_UtilisateurPanier');
+        }
 
 
             // Décrémenter le stock
@@ -470,24 +466,24 @@ public function Commande(
 
             // Pas besoin de persist($ligne) séparé : cascade peut suffire
             $em->persist($ligne);
-        }
+            }
 
-        $em->persist($commande);
-        $em->flush();
+            $em->persist($commande);
+            $em->flush();
 
-        // Vider le panier
-        $session->remove('panier');
+            // Vider le panier
+            $session->remove('panier');
 
-        $this->addFlash('success', 'Votre commande a été validée avec succès !');
+            $this->addFlash('success', 'Votre commande a été validée avec succès !');
 
-        return $this->redirectToRoute('Compte_UtilisateurDetailCommande', [
-            'id' => $commande->getId(),
-        ]);
-    } catch (\Exception $e) {
-        $this->addFlash('danger', "Erreur lors de la validation : " . $e->getMessage());
-        return $this->redirectToRoute('Compte_UtilisateurPanier');
+            return $this->redirectToRoute('Compte_UtilisateurDetailCommande', [
+                'id' => $commande->getId(),
+            ]);
+            } catch (\Exception $e) {
+            $this->addFlash('danger', "Erreur lors de la validation : " . $e->getMessage());
+            return $this->redirectToRoute('Compte_UtilisateurPanier');
+            }
     }
-}
 
 
     

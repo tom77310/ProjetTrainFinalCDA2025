@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -38,6 +39,7 @@ final class UtilisateursController extends AbstractController
             $user->setTelephone($form->get('telephone')->getData());
             $user->setEmail($form->get('email')->getData());
             $user->setLogin($form->get('login')->getData());
+            
             $user->setPassword(
                 $hashpwd->hashPassword($user, $form->get('password')->getData())
             );
@@ -66,21 +68,34 @@ final class UtilisateursController extends AbstractController
         ]);
     }
 
+    
     #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, Request $request, RateLimiterFactory $loginLimiter): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        // On crée un "limiter" basé sur l'adresse IP du client
+        $limiter = $loginLimiter->create($request->getClientIp());
 
-        // get the login error if there is one
+        // On consomme 1 jeton pour chaque tentative
+        $limit = $limiter->consume(1);
+
+        // Si plus de jetons disponibles = tentative brute force → on bloque
+        if (!$limit->isAccepted()) {
+            throw $this->createAccessDeniedException('Trop de tentatives de connexion. Réessayez plus tard.');
+        }
+
+        // Récupère une éventuelle erreur de login
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
+
+        // Dernier identifiant saisi
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ]);
     }
-
+    
+    
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
     {

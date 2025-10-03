@@ -9,6 +9,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -19,7 +21,10 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id;
 
+    // Email : format valide obligatoire
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank(message: "L'email est obligatoire.")]
+    #[Assert\Email(message: "L'email '{{ value }}' n'est pas valide.")]
     private ?string $email;
 
     /**
@@ -31,13 +36,31 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      */
+    // Mot de passe : au moins 12 caractères, 1 maj, 1 min, 1 chiffre
     #[ORM\Column]
+    #[Assert\NotBlank(message: "Le mot de passe est obligatoire.")]
+    #[Assert\Regex(
+    pattern: "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{12,}$/",
+    message: "Le mot de passe doit contenir au moins 12 caractères, dont une majuscule, une minuscule et un chiffre."
+    )]
     private ?string $password;
 
+    // Nom : uniquement lettres (accents autorisés), min 2 caractères
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Le nom est obligatoire.")]
+    #[Assert\Regex(
+    pattern: "/^[a-zA-ZÀ-ÿ\s-]{2,}$/u",
+    message: "Le nom ne doit contenir que des lettres et au moins 2 caractères."
+    )]
     private ?string $nom;
 
+    // Prénom : idem que nom
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Le prénom est obligatoire.")]
+    #[Assert\Regex(
+    pattern: "/^[a-zA-ZÀ-ÿ\s-]{2,}$/u",
+    message: "Le prénom ne doit contenir que des lettres et au moins 2 caractères."
+    )]
     private ?string $prenom;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -47,18 +70,46 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $civilite;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "L'adresse est obligatoire.")]
+    #[Assert\Regex(
+    pattern: "/^[a-zA-Z0-9À-ÿ\s,.\-\/]{5,}$/u",
+    message: "L'adresse ne doit contenir que lettres, chiffres, espaces et les caractères , . - /, et au moins 5 caractères."
+    )]
     private ?string $adresse;
 
+    // Code postal : 5 chiffres
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Le code postal est obligatoire.")]
+    #[Assert\Regex(
+        pattern: "/^[0-9]{5}$/",
+        message: "Le code postal doit contenir exactement 5 chiffres."
+    )]
     private ?string $cp;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "La ville est obligatoire.")]
+    #[Assert\Regex(
+    pattern: "/^[a-zA-ZÀ-ÿ\s-]{2,}$/u",
+    message: "La ville ne doit contenir que des lettres, espaces ou tirets et au moins 2 caractères."
+    )]
     private ?string $ville;
 
-    #[ORM\Column]
-    private ?int $telephone;
+    // Téléphone : 10 chiffres
+     #[ORM\Column(type: "string", length: 10)]
+    #[Assert\NotBlank(message: "Le numéro de téléphone est obligatoire.")]
+    #[Assert\Regex(
+        pattern: "/^\d{10}$/",
+        message: "Le numéro de téléphone doit contenir exactement 10 chiffres."
+    )]
+    private ?string $telephone = null;
 
+    // Login : lettres, chiffres, underscores, min 4 caractères
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Le login est obligatoire.")]
+    #[Assert\Regex(
+    pattern: "/^[a-zA-Z0-9_]{4,}$/",
+    message: "Le login doit contenir au moins 4 caractères et uniquement lettres, chiffres ou underscores."
+    )]
     private ?string $login;
 
 
@@ -180,13 +231,17 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         return $this; 
     }
 
-    public function getTelephone(): ?int { 
-        return $this->telephone; 
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
     }
-    public function setTelephone(int $telephone): static { 
-        $this->telephone = $telephone; 
-        return $this; 
+
+    public function setTelephone(string $telephone): self
+    {
+        $this->telephone = $telephone;
+        return $this;
     }
+
 
     public function getLogin(): ?string { 
         return $this->login; 

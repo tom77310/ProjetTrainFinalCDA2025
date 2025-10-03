@@ -37,6 +37,7 @@ final class AdministrateurController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager->persist($Utilisateur);
             $entityManager->flush();
 
@@ -80,7 +81,7 @@ final class AdministrateurController extends AbstractController
     #[Route('/administrateur/supprimerUtilisateur/{id}', name: 'Administrateur_SupprimerUtilisateur', methods: ['POST', 'GET'])]
     public function SupprimerUtilisateur(Request $request, Utilisateur $utilisateur, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$utilisateur->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$utilisateur->getId(), $request->request->get('_token'))) { // securisation failles csrf
             $entityManager->remove($utilisateur);
             $entityManager->flush();
         }

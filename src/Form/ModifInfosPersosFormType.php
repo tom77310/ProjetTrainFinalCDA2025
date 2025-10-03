@@ -61,7 +61,7 @@ class ModifInfosPersosFormType extends AbstractType
                     'required' =>'false',
                 ]
             ] )
-            ->add('Telephone', NumberType::class,  [
+            ->add('Telephone', TextType::class,  [
                 'attr' => [
                     'minlength' => '1',
                     'maxlength' => '10',

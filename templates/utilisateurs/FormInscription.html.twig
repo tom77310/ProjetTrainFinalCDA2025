@@ -15,8 +15,20 @@
             {{ form_row(f.date_naissance, {'row_attr': {'class': 'form-group'}}) }}
             {{ form_row(f.adresse,        {'row_attr': {'class': 'form-group'}}) }}
             {{ form_row(f.cp,             {'row_attr': {'class': 'form-group'}}) }}
+            
             {{ form_row(f.ville,          {'row_attr': {'class': 'form-group'}}) }}
-            {{ form_row(f.telephone,      {'row_attr': {'class': 'form-group'}}) }}
+            
+            {# Champ téléphone avec validation côté front #}
+
+            {{ form_row(f.telephone, {
+                'row_attr': {'class': 'form-group'},
+                'attr': {
+                    'maxlength': 10,
+                    'pattern': '\\d{10}',
+                    'inputmode': 'numeric',
+                    'title': 'Entrez exactement 10 chiffres'
+                }
+            }) }}
             {{ form_row(f.email,          {'row_attr': {'class': 'form-group'}}) }}
             {{ form_row(f.login,          {'row_attr': {'class': 'form-group'}}) }}
             {{ form_row(f.password,       {'row_attr': {'class': 'form-group'}}) }}

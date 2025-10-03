@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class AdminMessageFormType extends AbstractType
 {
@@ -33,15 +34,33 @@ class AdminMessageFormType extends AbstractType
         }
 
         $builder
-            ->add('objet', TextType::class, ['label' => 'Objet'])
-            ->add('description', TextareaType::class, ['label' => 'Description'])
+            ->add('objet', TextType::class, [
+                'label' => 'Objet',
+                'constraints' => [
+                    new Assert\NotBlank(), // Le champs "objet" ne peut pas être vide
+                    new Assert\Length(['max' => 255]), // Le champs ne peut pas exceder 255 caractères
+                    new Assert\Regex([
+                        'pattern' => '/^[\w\s\.\,\-\!\?]+$/',
+                        'message' => 'Caractères spéciaux non autorisés.'
+                    ])
+                ]
+                ])
+
+            ->add('description', TextareaType::class, [
+                'label' => 'Description',
+                'constraintes' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['max' => 2000])
+                ]
+            ])
+
             ->add('pieceJointe', FileType::class, [
                 'label' => 'Pièce jointe (facultatif)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5M',
+                        'maxSize' => '50M',
                         'mimeTypes' => [
                             'application/pdf',
                             'image/*',

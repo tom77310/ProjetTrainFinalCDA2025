@@ -1,0 +1,9 @@
+
+framework:
+    rate_limiter:
+        login:
+            policy: 'sliding_window'   # Fenêtre glissante
+            limit: 5                   # Nombre max de tentatives
+            interval: '1 minute'       # Sur une durée d’1 minute
+
+
