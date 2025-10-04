@@ -51,11 +51,52 @@ h1{
     color: #333;
 }
 
-/* Pour une meilleure responsivité */
-@media (max-width: 768px) {
+/* ---------------------- */
+/* RESPONSIVE DESIGN      */
+/* ---------------------- */
+
+/* Tablettes (≤ 1024px) */
+@media (max-width: 1024px) {
     .imageHaut,
     .imageBas {
-        flex-direction: column;
-        align-items: center;
+        gap: 40px; /* réduire l’espace entre les colonnes */
+        flex-wrap: wrap; /* permet de passer sur plusieurs lignes si besoin */
+    }
+
+    .imageHaut img,
+    .imageBas img {
+        width: 300px; /* réduire un peu la taille */
+    }
+
+    .imageHaut p,
+    .imageBas p {
+        font-size: 15px;
+    }
+}
+
+/* Mobiles (≤ 600px) */
+@media (max-width: 600px) {
+    .imageHaut,
+    .imageBas {
+        flex-direction: column; /* aligner en colonne */
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .imageHaut img,
+    .imageBas img {
+        width: 90%; /* prend presque toute la largeur de l’écran */
+        max-width: 250px; /* limite pour éviter les trop grands écrans */
+    }
+
+    .imageHaut p,
+    .imageBas p {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 }

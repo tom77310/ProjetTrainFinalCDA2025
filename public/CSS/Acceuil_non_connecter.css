@@ -110,4 +110,91 @@ body {
 /* fin section produits populaires */
 
 
-/* Responsive */
+/* ---------------------- */
+/* RESPONSIVE DESIGN      */
+/* ---------------------- */
+
+/* Tablettes (écrans ≤ 1024px) */
+@media (max-width: 1024px) {
+  /* Section principale en colonne */
+  .section_principale {
+    flex-direction: column;
+    text-align: center;
+    padding: 5% 5%;
+  }
+
+  .section_left,
+  .section_right {
+    width: 100%;
+  }
+
+  .section_left h1 {
+    font-size: 1.8em;
+  }
+
+  .section_left p {
+    font-size: 1em;
+  }
+
+  .section_right {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section_right img {
+    width: 80%; /* les images s’adaptent */
+    max-width: 400px;
+  }
+
+  .produits-populaires {
+    padding: 5% 5%;
+  }
+
+  .produits-populaires h2 {
+    font-size: 1.5em;
+  }
+  .cta-button {
+    margin-bottom: 2em; 
+  }
+}
+
+/* Mobiles (écrans ≤ 600px) */
+@media (max-width: 600px) {
+  /* Logo centré */
+  .logo-container {
+    justify-content: center;
+    padding: 1em 0;
+  }
+
+  /* Texte principal plus petit */
+  .section_left h1 {
+    font-size: 1.5em;
+    line-height: 1.2em;
+  }
+
+  .section_left p {
+    font-size: 0.9em;
+  }
+
+  .cta-button {
+    padding: 0.6em 1.2em;
+    font-size: 0.9em;
+    margin-bottom: 2em; 
+  }
+
+  /* Images */
+  .section_right img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Produits populaires */
+  .produits-populaires h2 {
+    font-size: 1.3em;
+    margin-bottom: 1.5em;
+  }
+
+  .produit p {
+    font-size: 0.9em;
+  }
+}
