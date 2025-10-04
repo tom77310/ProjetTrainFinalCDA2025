@@ -262,3 +262,226 @@ left: 20px;
 }
 
 }
+
+/* === Responsive pour les pages produits (sans modifier le carrousel) === */
+
+/* Smartphones Portrait (max-width: 600px) */
+@media (max-width: 600px) {
+    main {
+        width: 95%;
+        margin: auto;
+    }
+
+    .titre {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .titre a {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .droiteGDiesel,
+    .droiteNDiesel,
+    .droiteZDiesel,
+    .droiteHODiesel,
+    .droiteGElec,
+    .droiteNElec,
+    .droiteZElec,
+    .droiteHOElec,
+    .droiteGVapeur,
+    .droiteNVapeur,
+    .droiteZVapeur,
+    .droiteHOVapeur {
+        padding-left: 0;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .descriptionGDiesel,
+    .descriptionNDiesel,
+    .descriptionZDiesel,
+    .descriptionHODiesel,
+    .descriptionGElec,
+    .descriptionNElec,
+    .descriptionZElec,
+    .descriptionHOElec,
+    .descriptionGVapeur,
+    .descriptionNVapeur,
+    .descriptionZVapeur,
+    .descriptionHOVapeur {
+        width: 95%;
+        height: auto;
+        margin: 30px auto;
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+
+    .descriptionGDiesel p,
+    .descriptionNDiesel p,
+    .descriptionZDiesel p,
+    .descriptionHODiesel p,
+    .descriptionGElec p,
+    .descriptionNElec p,
+    .descriptionZElec p,
+    .descriptionHOElec p,
+    .descriptionGVapeur p,
+    .descriptionNVapeur p,
+    .descriptionZVapeur p,
+    .descriptionHOVapeur p {
+        font-size: 16px;
+    }
+
+    /* Images locos */
+    #LocoDieselTailleGVue1,
+    #LocoElecTailleGVue1,
+    #LocoElecTailleHOVue1 {
+        width: 80%;
+    }
+}
+
+/* Tablettes / petits écrans (601px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    main {
+        width: 90%;
+        margin: auto;
+    }
+
+    /* Div droite */
+    .droiteGDiesel,
+    .droiteNDiesel,
+    .droiteZDiesel,
+    .droiteHODiesel,
+    .droiteGElec,
+    .droiteNElec,
+    .droiteZElec,
+    .droiteHOElec,
+    .droiteGVapeur,
+    .droiteNVapeur,
+    .droiteZVapeur,
+    .droiteHOVapeur {
+        padding-left: 20%; /* réduit pour plus de place */
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    /* Description (encadré) */
+    .descriptionGDiesel,
+    .descriptionNDiesel,
+    .descriptionZDiesel,
+    .descriptionHODiesel,
+    .descriptionGElec,
+    .descriptionNElec,
+    .descriptionZElec,
+    .descriptionHOElec,
+    .descriptionGVapeur,
+    .descriptionNVapeur,
+    .descriptionZVapeur,
+    .descriptionHOVapeur {
+        width: 95%;        /* largeur plus grande */
+        padding-left: 10px; /* réduit le padding interne */
+        padding-top: 8px;
+        margin: 40px auto;
+        box-sizing: border-box; /* assure que padding n'ajoute pas à la largeur */
+        height: auto;     /* laisse le texte pousser la hauteur */
+    }
+
+    /* Texte à l'intérieur des descriptions */
+    .descriptionGDiesel p,
+    .descriptionNDiesel p,
+    .descriptionZDiesel p,
+    .descriptionHODiesel p,
+    .descriptionGElec p,
+    .descriptionNElec p,
+    .descriptionZElec p,
+    .descriptionHOElec p,
+    .descriptionGVapeur p,
+    .descriptionNVapeur p,
+    .descriptionZVapeur p,
+    .descriptionHOVapeur p {
+        font-size: 18px; /* réduit légèrement la police pour tenir */
+        word-wrap: break-word; /* force le retour à la ligne si nécessaire */
+    }
+
+    /* Images locos */
+    #LocoDieselTailleGVue1,
+    #LocoElecTailleGVue1,
+    #LocoElecTailleHOVue1 {
+        width: 60%;
+    }
+}
+
+
+/* Grands écrans (993px - 1300px) */
+@media (min-width: 993px) and (max-width: 1300px) {
+    main {
+        width: 80%;
+        margin: auto;
+    }
+
+    /* Div droite */
+    .droiteGDiesel,
+    .droiteNDiesel,
+    .droiteZDiesel,
+    .droiteHODiesel,
+    .droiteGElec,
+    .droiteNElec,
+    .droiteZElec,
+    .droiteHOElec,
+    .droiteGVapeur,
+    .droiteNVapeur,
+    .droiteZVapeur,
+    .droiteHOVapeur {
+        padding-left: 30%; /* légèrement réduit pour plus de place */
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+    /* Description (encadré) */
+    .descriptionGDiesel,
+    .descriptionNDiesel,
+    .descriptionZDiesel,
+    .descriptionHODiesel,
+    .descriptionGElec,
+    .descriptionNElec,
+    .descriptionZElec,
+    .descriptionHOElec,
+    .descriptionGVapeur,
+    .descriptionNVapeur,
+    .descriptionZVapeur,
+    .descriptionHOVapeur {
+        width: 90%;        /* largeur légèrement augmentée */
+        padding-left: 15px; /* réduit le padding interne */
+        padding-top: 10px;
+        margin: 50px auto;
+        box-sizing: border-box; /* padding inclus dans la largeur */
+        height: auto;     /* s’adapte au texte */
+    }
+
+    /* Texte à l'intérieur des descriptions */
+    .descriptionGDiesel p,
+    .descriptionNDiesel p,
+    .descriptionZDiesel p,
+    .descriptionHODiesel p,
+    .descriptionGElec p,
+    .descriptionNElec p,
+    .descriptionZElec p,
+    .descriptionHOElec p,
+    .descriptionGVapeur p,
+    .descriptionNVapeur p,
+    .descriptionZVapeur p,
+    .descriptionHOVapeur p {
+        font-size: 20px; /* réduit légèrement la police si nécessaire */
+        word-wrap: break-word; /* retour à la ligne si le texte est trop long */
+    }
+
+    /* Images locos */
+    #LocoDieselTailleGVue1,
+    #LocoElecTailleGVue1,
+    #LocoElecTailleHOVue1 {
+        width: 50%;
+    }
+}
+
+

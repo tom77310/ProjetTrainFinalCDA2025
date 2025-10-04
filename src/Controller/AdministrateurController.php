@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/compte')]
 final class AdministrateurController extends AbstractController
@@ -28,27 +29,35 @@ final class AdministrateurController extends AbstractController
         ]);
     }
 
-    // ajout d'un nouveau utilisateur
-    #[Route('/administrateur/Ajoututilisateur', name: 'Administrateur_AjoutUtilisateur', methods: ['GET', 'POST'])]
-    public function AjoutUtilisateur(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $Utilisateur = new Utilisateur();
-        $form = $this->createForm(AjoutUtilisateurFormType::class, $Utilisateur);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager->persist($Utilisateur);
-            $entityManager->flush();
+// ajout d'un nouveau utilisateur
+#[Route('/administrateur/Ajoututilisateur', name: 'Administrateur_AjoutUtilisateur', methods: ['GET', 'POST'])]
+public function AjoutUtilisateur(Request $request,EntityManagerInterface $entityManager,UserPasswordHasherInterface $passwordHasher): Response {
+    $Utilisateur = new Utilisateur();
+    $form = $this->createForm(AjoutUtilisateurFormType::class, $Utilisateur);
+    $form->handleRequest($request);
 
-            return $this->redirectToRoute('Administrateur_ListeUtilisateurs', [], Response::HTTP_SEE_OTHER);
-        }
+    if ($form->isSubmitted() && $form->isValid()) {
+        // récupération du mot de passe saisi
+        $plainPassword = $form->get('password')->getData();
 
-        return $this->render('Compte/administrateur/GestionUtilisateurs/AjoutUtilisateur.html.twig', [
-            'Utilisateur' => $Utilisateur,
-            'FormAjout' => $form,
-        ]);
+        // hachage du mot de passe
+        $hashedPassword = $passwordHasher->hashPassword($Utilisateur, $plainPassword);
+        $Utilisateur->setPassword($hashedPassword);
+
+        $entityManager->persist($Utilisateur);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('Administrateur_ListeUtilisateurs', [], Response::HTTP_SEE_OTHER);
     }
+
+    return $this->render('Compte/administrateur/GestionUtilisateurs/AjoutUtilisateur.html.twig', [
+        'Utilisateur' => $Utilisateur,
+        'FormAjout' => $form,
+    ]);
+}
+
 
     // Voir les details du utilisateur selectionné
     #[Route('/administrateur/detailutilisateur/{id}', name: 'Administrateur_DetailUtilisateur', methods: ['GET'])]

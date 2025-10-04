@@ -135,3 +135,196 @@ width: 30%;
 }
 
 
+/* === Responsive pour les pages produits Ponts / Tunnels / Signas === */
+
+/* Smartphones Portrait (max-width: 600px) */
+@media (max-width: 600px) {
+    main {
+        width: 95%;
+        margin: auto;
+    }
+
+    .titre {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .titre a {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .droiteGPonts,
+    .droiteZPonts,
+    .droiteHOPonts,
+    .droiteHO1Tunnels,
+    .droiteHO2Tunnels,
+    .droiteNTunnels,
+    .droiteNSignas,
+    .droiteHOSignas {
+        padding-left: 0;
+        font-size: 18px;
+        margin-top: 20px; /* margin-top entre droite et carrousel */
+    }
+
+    .descriptionGPonts,
+    .descriptionZPonts,
+    .descriptionHOPonts,
+    .descriptionHO1Tunnels,
+    .descriptionHO2Tunnels,
+    .descriptionNTunnels,
+    .descriptionNSignas,
+    .descriptionHOSignas {
+        width: 95%;
+        height: auto;
+        margin: 30px auto;
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+
+    .descriptionGPonts p,
+    .descriptionZPonts p,
+    .descriptionHOPonts p,
+    .descriptionHO1Tunnels p,
+    .descriptionHO2Tunnels p,
+    .descriptionNTunnels p,
+    .descriptionNSignas p,
+    .descriptionHOSignas p {
+        font-size: 16px;
+    }
+
+    /* Images */
+    #PontsTailleGVue1,
+    #PontsTailleZVue1,
+    #PontsTailleHOVue1,
+    #TunnelsTailleHO1Vue1,
+    #TunnelsTailleHO2Vue1,    
+    #TunnelsTailleHO2Vue2,
+    #TunnelsTailleNVue1,
+    #SignasTailleHOVue1,
+    #SignasTailleNVue1 {
+        width: 80%;
+    }
+}
+
+/* Tablettes / petits écrans (601px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    main {
+        width: 90%;
+        margin: auto;
+    }
+
+    .droiteGPonts,
+    .droiteZPonts,
+    .droiteHOPonts,
+    .droiteHO1Tunnels,
+    .droiteHO2Tunnels,
+    .droiteNTunnels,
+    .droiteNSignas,
+    .droiteHOSignas {
+        padding-left: 20%;
+        font-size: 20px;
+        margin-top: 30px; /* margin-top entre droite et carrousel */
+    }
+
+    .descriptionGPonts,
+    .descriptionZPonts,
+    .descriptionHOPonts,
+    .descriptionHO1Tunnels,
+    .descriptionHO2Tunnels,
+    .descriptionNTunnels,
+    .descriptionNSignas,
+    .descriptionHOSignas {
+        width: 95%;
+        padding-left: 10px;
+        padding-top: 8px;
+        margin: 40px auto;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .descriptionGPonts p,
+    .descriptionZPonts p,
+    .descriptionHOPonts p,
+    .descriptionHO1Tunnels p,
+    .descriptionHO2Tunnels p,
+    .descriptionNTunnels p,
+    .descriptionNSignas p,
+    .descriptionHOSignas p {
+        font-size: 18px;
+        word-wrap: break-word;
+    }
+
+    #PontsTailleGVue1,
+    #PontsTailleZVue1,
+    #PontsTailleHOVue1,
+    #TunnelsTailleHO1Vue1,
+    #TunnelsTailleHO2Vue1,
+    #TunnelsTailleHO2Vue2,
+    #TunnelsTailleNVue1,
+    #SignasTailleHOVue1,
+    #SignasTailleNVue1 {
+        width: 60%;
+    }
+}
+
+/* Grands écrans (993px - 1300px) */
+@media (min-width: 993px) and (max-width: 1300px) {
+    main {
+        width: 80%;
+        margin: auto;
+    }
+
+    .droiteGPonts,
+    .droiteZPonts,
+    .droiteHOPonts,
+    .droiteHO1Tunnels,
+    .droiteHO2Tunnels,
+    .droiteNTunnels,
+    .droiteNSignas,
+    .droiteHOSignas {
+        padding-left: 30%;
+        font-size: 22px;
+        margin-bottom: 30px; /* margin-top remplacé par margin-bottom pour grands écrans */
+    }
+
+    .descriptionGPonts,
+    .descriptionZPonts,
+    .descriptionHOPonts,
+    .descriptionHO1Tunnels,
+    .descriptionHO2Tunnels,
+    .descriptionNTunnels,
+    .descriptionNSignas,
+    .descriptionHOSignas {
+        width: 90%;
+        padding-left: 15px;
+        padding-top: 10px;
+        margin: 50px auto;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .descriptionGPonts p,
+    .descriptionZPonts p,
+    .descriptionHOPonts p,
+    .descriptionHO1Tunnels p,
+    .descriptionHO2Tunnels p,
+    .descriptionNTunnels p,
+    .descriptionNSignas p,
+    .descriptionHOSignas p {
+        font-size: 20px;
+        word-wrap: break-word;
+    }
+
+    #PontsTailleGVue1,
+    #PontsTailleZVue1,
+    #PontsTailleHOVue1,
+    #TunnelsTailleHO1Vue1,
+    #TunnelsTailleHO2Vue1,
+    #TunnelsTailleHO2Vue2,
+    #TunnelsTailleNVue1,
+    #SignasTailleHOVue1,
+    #SignasTailleNVue1 {
+        width: 50%;
+    }
+}

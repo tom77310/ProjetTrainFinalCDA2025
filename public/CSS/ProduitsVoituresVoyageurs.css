@@ -158,3 +158,168 @@ left: 20px;
 }
 
 }
+
+
+/* === Responsive pour les pages produits Voitures de Voyageurs === */
+
+/* Smartphones Portrait (max-width: 600px) */
+@media (max-width: 600px) {
+    main {
+        width: 95%;
+        margin: auto;
+    }
+
+    .titre {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .titre a {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .droiteGVoituresVoyageurs,
+    .droiteNVoituresVoyageurs,
+    .droiteZVoituresVoyageurs,
+    .droiteHOVoituresVoyageurs {
+        padding-left: 0;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .descriptionGVoituresVoyageurs,
+    .descriptionNVoituresVoyageurs,
+    .descriptionZVoituresVoyageurs,
+    .descriptionHOVoituresVoyageurs {
+        width: 95%;
+        height: auto;
+        margin: 30px auto;
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+
+    .descriptionGVoituresVoyageurs p,
+    .descriptionNVoituresVoyageurs p,
+    .descriptionZVoituresVoyageurs p,
+    .descriptionHOVoituresVoyageurs p {
+        font-size: 16px;
+    }
+
+    /* Images Voitures */
+    #VoituresVoyageursTailleGVue1,
+    #VoituresVoyageursTailleGVue2,
+    #VoituresVoyageursTailleNVue1,
+    #VoituresVoyageursTailleNVue2,
+    #VoituresVoyageursTailleNVue3,
+    #VoituresVoyageursTailleZVue1,
+    #VoituresVoyageursTailleZVue2,
+    #VoituresVoyageursTailleZVue3,
+    #VoituresVoyageursTailleHOVue1,
+    #VoituresVoyageursTailleHOVue2,
+    #VoituresVoyageursTailleHOVue3 {
+        width: 80%;
+    }
+}
+
+/* Tablettes / petits écrans (601px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    main {
+        width: 90%;
+        margin: auto;
+    }
+
+    .droiteGVoituresVoyageurs,
+    .droiteNVoituresVoyageurs,
+    .droiteZVoituresVoyageurs,
+    .droiteHOVoituresVoyageurs {
+        padding-left: 20%;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    .descriptionGVoituresVoyageurs,
+    .descriptionNVoituresVoyageurs,
+    .descriptionZVoituresVoyageurs,
+    .descriptionHOVoituresVoyageurs {
+        width: 95%;
+        padding-left: 10px;
+        padding-top: 8px;
+        margin: 40px auto;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .descriptionGVoituresVoyageurs p,
+    .descriptionNVoituresVoyageurs p,
+    .descriptionZVoituresVoyageurs p,
+    .descriptionHOVoituresVoyageurs p {
+        font-size: 18px;
+        word-wrap: break-word;
+    }
+
+    #VoituresVoyageursTailleGVue1,
+    #VoituresVoyageursTailleGVue2,
+    #VoituresVoyageursTailleNVue1,
+    #VoituresVoyageursTailleNVue2,
+    #VoituresVoyageursTailleNVue3,
+    #VoituresVoyageursTailleZVue1,
+    #VoituresVoyageursTailleZVue2,
+    #VoituresVoyageursTailleZVue3,
+    #VoituresVoyageursTailleHOVue1,
+    #VoituresVoyageursTailleHOVue2,
+    #VoituresVoyageursTailleHOVue3 {
+        width: 60%;
+    }
+}
+
+/* Grands écrans (993px - 1300px) */
+@media (min-width: 993px) and (max-width: 1300px) {
+    main {
+        width: 80%;
+        margin: auto;
+    }
+
+    .droiteGVoituresVoyageurs,
+    .droiteNVoituresVoyageurs,
+    .droiteZVoituresVoyageurs,
+    .droiteHOVoituresVoyageurs {
+        padding-left: 30%;
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+    .descriptionGVoituresVoyageurs,
+    .descriptionNVoituresVoyageurs,
+    .descriptionZVoituresVoyageurs,
+    .descriptionHOVoituresVoyageurs {
+        width: 90%;
+        padding-left: 15px;
+        padding-top: 10px;
+        margin: 50px auto;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .descriptionGVoituresVoyageurs p,
+    .descriptionNVoituresVoyageurs p,
+    .descriptionZVoituresVoyageurs p,
+    .descriptionHOVoituresVoyageurs p {
+        font-size: 20px;
+        word-wrap: break-word;
+    }
+
+    #VoituresVoyageursTailleGVue1,
+    #VoituresVoyageursTailleGVue2,
+    #VoituresVoyageursTailleNVue1,
+    #VoituresVoyageursTailleNVue2,
+    #VoituresVoyageursTailleNVue3,
+    #VoituresVoyageursTailleZVue1,
+    #VoituresVoyageursTailleZVue2,
+    #VoituresVoyageursTailleZVue3,
+    #VoituresVoyageursTailleHOVue1,
+    #VoituresVoyageursTailleHOVue2,
+    #VoituresVoyageursTailleHOVue3 {
+        width: 50%;
+    }
+}

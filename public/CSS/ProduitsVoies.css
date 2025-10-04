@@ -80,3 +80,145 @@ width: 30%;
 width: 40%;
 }
 
+/* === Responsive pour les pages produits Voies avec margin-top carrousel === */
+
+/* Smartphones Portrait (max-width: 600px) */
+@media (max-width: 600px) {
+    main {
+        width: 95%;
+        margin: auto;
+    }
+
+    .titre {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .titre a {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .droiteGVoies,
+    .droiteNVoies,
+    .droiteZVoies,
+    .droiteHOVoies {
+        padding-left: 0;
+        font-size: 18px;
+        margin-top: 20px; /* margin-top entre droite et carrousel */
+    }
+
+    .descriptionGVoies,
+    .descriptionNVoies,
+    .descriptionZVoies,
+    .descriptionHOVoies {
+        width: 95%;
+        height: auto;
+        margin: 30px auto;
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+
+    .descriptionGVoies p,
+    .descriptionNVoies p,
+    .descriptionZVoies p,
+    .descriptionHOVoies p {
+        font-size: 16px;
+    }
+
+    /* Images */
+    #VoiesTailleGVue1,
+    #VoiesTailleHOVue1,
+    #VoiesTailleNVue1,
+    #VoiesTailleZVue1 {
+        width: 80%;
+    }
+}
+
+/* Tablettes / petits écrans (601px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    main {
+        width: 90%;
+        margin: auto;
+    }
+
+    .droiteGVoies,
+    .droiteNVoies,
+    .droiteZVoies,
+    .droiteHOVoies {
+        padding-left: 20%;
+        font-size: 20px;
+        margin-top: 30px; /* margin-top entre droite et carrousel */
+    }
+
+    .descriptionGVoies,
+    .descriptionNVoies,
+    .descriptionZVoies,
+    .descriptionHOVoies {
+        width: 95%;
+        padding-left: 10px;
+        padding-top: 8px;
+        margin: 40px auto;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .descriptionGVoies p,
+    .descriptionNVoies p,
+    .descriptionZVoies p,
+    .descriptionHOVoies p {
+        font-size: 18px;
+        word-wrap: break-word;
+    }
+
+    #VoiesTailleGVue1,
+    #VoiesTailleHOVue1,
+    #VoiesTailleNVue1,
+    #VoiesTailleZVue1 {
+        width: 60%;
+    }
+}
+
+/* Grands écrans (993px - 1300px) */
+@media (min-width: 993px) and (max-width: 1300px) {
+    main {
+        width: 80%;
+        margin: auto;
+    }
+
+    .droiteGVoies,
+    .droiteNVoies,
+    .droiteZVoies,
+    .droiteHOVoies {
+        padding-left: 30%;
+        font-size: 22px;
+        margin-bottom: 30px; /* margin-top remplacé par margin-bottom pour grands écrans */
+    }
+
+    .descriptionGVoies,
+    .descriptionNVoies,
+    .descriptionZVoies,
+    .descriptionHOVoies {
+        width: 90%;
+        padding-left: 15px;
+        padding-top: 10px;
+        margin: 50px auto;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .descriptionGVoies p,
+    .descriptionNVoies p,
+    .descriptionZVoies p,
+    .descriptionHOVoies p {
+        font-size: 20px;
+        word-wrap: break-word;
+    }
+
+    #VoiesTailleGVue1,
+    #VoiesTailleHOVue1,
+    #VoiesTailleNVue1,
+    #VoiesTailleZVue1 {
+        width: 50%;
+    }
+}
