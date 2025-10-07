@@ -28,39 +28,51 @@
     {% endif %}
 
     <h2 class="DetailCommandeSousTitre">Produits commandés</h2>
-    <table class="DetailCommandeTable">
-        <thead>
+   <table class="DetailCommandeTable">
+    <thead>
+        <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix unitaire (€)</th>
+            <th>Sous-total (€)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set total = 0 %}
+        {% for ligne in commande.ligneDeCommandes %}
+            {% set sousTotal = ligne.quantiteCommande * ligne.prixUnitaireProduit %}
+            {% set total = total + sousTotal %}
             <tr>
-                <th>Produit</th>
-                <th>Quantité</th>
-                <th>Prix unitaire (€)</th>
-                <th>Sous-total (€)</th>
+                <td>
+                    <span class="label">Produit :</span>
+                    <span class="valeur">{{ ligne.produit ? ligne.produit.nomProduit : 'Produit supprimé' }}</span>
+                </td>
+                <td>
+                    <span class="label">Quantité :</span>
+                    <span class="valeur">{{ ligne.quantiteCommande }}</span>
+                </td>
+                <td>
+                    <span class="label">Prix Unitaire :</span>
+                    <span class="valeur">{{ ligne.prixUnitaireProduit }} €</span>
+                </td>
+                <td>
+                    <span class="label">Sous-total :</span>
+                    <span class="valeur">{{ sousTotal }} €</span>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            {% set total = 0 %}
-            {% for ligne in commande.ligneDeCommandes %}
-                {% set sousTotal = ligne.quantiteCommande * ligne.prixUnitaireProduit %}
-                {% set total = total + sousTotal %}
-                <tr>
-                    <td>{{ ligne.produit ? ligne.produit.nomProduit : 'Produit supprimé' }}</td>
-                    <td>{{ ligne.quantiteCommande }}</td>
-                    <td>{{ ligne.prixUnitaireProduit }}</td>
-                    <td>{{ sousTotal }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="4" class="AucunProduit">Aucun produit dans cette commande</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot>
+        {% else %}
             <tr>
-                <th colspan="3" class="TotalLabel">Total :</th>
-                <th class="TotalValeur">{{ total }} €</th>
+                <td colspan="4" class="AucunProduit">Aucun produit dans cette commande</td>
             </tr>
-        </tfoot>
-    </table>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3" class="TotalLabel">Total de la commande :</th>
+            <th class="TotalValeur">{{ total }} €</th>
+        </tr>
+    </tfoot>
+</table>
 
     <div class="Retour">
         {% if is_granted('ROLE_ADMIN') %}

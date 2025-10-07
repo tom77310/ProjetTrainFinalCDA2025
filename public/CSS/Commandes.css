@@ -128,3 +128,146 @@
         }
     /* Fin Detail Commandes */
 /* Fin Style Commandes */
+
+/* Responivité */
+    /* Historique de commande */
+        /* Écrans entre 993px et 1300px */
+        @media screen and (min-width: 993px) and (max-width: 1300px) {
+            .ListeCommandes {
+                font-size: 15px;
+            }
+            .ListeCommandes th,
+            .ListeCommandes td {
+                padding: 8px;
+            }
+            .BouttonVoir a {
+                font-size: 14px;
+                padding: 4px 10px;
+            }
+        }
+
+        /* Écrans entre 768px et 992px */
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            .ListeCommandes {
+                font-size: 14px;
+            }
+            .ListeCommandes th,
+            .ListeCommandes td {
+                padding: 7px;
+            }
+            .BouttonVoir a {
+                font-size: 13px;
+                padding: 3px 8px;
+            }
+        }
+
+        /* Écrans entre 320px et 767px → affichage en liste simple */
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            .ListeCommandes {
+                border: none;
+                font-size: 12px;
+            }
+            .ListeCommandes thead {
+                display: none; /* on supprime l'en-tête */
+            }
+            .ListeCommandes tr {
+                display: block;
+                border: 1px solid #ccc;
+                margin-bottom: 15px;
+                padding: 10px;
+            }
+            .ListeCommandes td {
+                display: block;
+                border: none;
+                text-align: left;
+                padding: 6px 0;
+            }
+            .BouttonVoir a {
+                display: inline-block;
+                font-size: 12px;
+                padding: 3px 7px;
+            }
+        }
+    /* Fin Historique de commandes */
+    /* Page de details de la commandes */
+        /* Écrans entre 993px et 1300px */
+        @media screen and (min-width: 993px) and (max-width: 1300px) {
+            .DetailCommandeTable {
+                font-size: 15px;
+            }
+            .DetailCommandeTable th,
+            .DetailCommandeTable td {
+                padding: 8px;
+            }
+            .BoutonRetour {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+        }
+
+        /* Écrans entre 768px et 992px */
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            .DetailCommandeTable {
+                font-size: 14px;
+            }
+            .DetailCommandeTable th,
+            .DetailCommandeTable td {
+                padding: 7px;
+            }
+            .BoutonRetour {
+                font-size: 13px;
+                padding: 5px 10px;
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            .DetailCommandeTable {
+                border: none;
+                font-size: 12px;
+                width: 95%;
+                margin: 0 auto;
+            }
+            .DetailCommandeTable thead {
+                display: none;
+            }
+            .DetailCommandeTable tr {
+                display: block;
+                border: 1px solid #ccc;
+                margin-bottom: 15px;
+                padding: 10px;
+                background-color: #fafafa;
+                border-radius: 6px;
+            }
+            .DetailCommandeTable td {
+                display: flex;
+                justify-content: space-between;
+                padding: 6px 0;
+                border: none;
+                text-align: left;
+            }
+            .DetailCommandeTable td .label {
+                font-weight: bold;
+            }
+            .DetailCommandeTable td .valeur {
+                text-align: right;
+            }
+            .TotalLabel {
+                display: block;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+            .TotalValeur {
+                display: block;
+                margin-top: 5px;
+            }
+            .BoutonRetour {
+                font-size: 12px;
+                padding: 4px 8px;
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    /* Fin Page details Commandes */
+/* Fin Responsivité */

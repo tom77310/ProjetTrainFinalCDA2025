@@ -1,51 +1,76 @@
-
 {% extends 'base.html.twig' %}
 {% block title %}Liste des Utilisateurs{% endblock %}
 {% block body %}
-    <link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
+<link rel="stylesheet" href={{ asset('CSS/Admin.css') }}>
 
-    {% include 'partials/_navCompte.html.twig' %}
-    <h1>Liste des Utilisateurs</h1>
+{% include 'partials/_navCompte.html.twig' %}
+<h1>Liste des Utilisateurs</h1>
 
+<table class="liste_utilisateurs">
+    <thead>
+        <tr>
+            {# <th>Id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Code Postale</th>
+            <th>Ville</th>
+            <th>Telephone</th>
+            <th>Role</th>
+            <th>Modifier</th>
+            <th>Details</th> #}
+        </tr>
+    </thead>
+    <tbody>
+    {% for utilisateur in Utilisateurs %}
+        <tr>
+            <td>
+                <div><strong>Id:</strong> {{ utilisateur.id }}</div>
+            </td>
+            <td>
+                <div><strong>Nom:</strong> {{ utilisateur.nom }}</div>
+            </td>
+            <td>
+                <div><strong>Prénom:</strong> {{ utilisateur.prenom }}</div>
+            </td>
+            <td>
+                <div><strong>Email:</strong> {{ utilisateur.email }}</div>
+            </td>
+            <td>
+                <div><strong>Adresse:</strong> {{ utilisateur.adresse }}</div>
+            </td>
+            <td>
+                <div><strong>Code Postal:</strong> {{ utilisateur.cp }}</div>
+            </td>
+            <td>
+                <div><strong>Ville:</strong> {{ utilisateur.ville }}</div>
+            </td>
+            <td>
+                <div><strong>Téléphone:</strong> {{ utilisateur.telephone }}</div>
+            </td>
+            <td>
+                <div><strong>Rôle:</strong> {{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</div>
+            </td>
+            <td>
+                <div><strong>Modifier:</strong> 
+                    <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}">Modifier</a>
+                </div>
+            </td>
+            <td>
+                <div><strong>Détails:</strong> 
+                    <a href="{{ path('Administrateur_DetailUtilisateur', {'id': utilisateur.id}) }}">Details</a>
+                </div>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="11" class="CommandesVide">Aucun utilisateur trouvé</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
-    <table class="liste_utilisateurs">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Adresse</th>
-                <th>Code Postale</th>
-                <th>Ville</th>
-                <th>Telephone</th>
-                <th>Role</th>
-                <th>Modifier</th>
-                <th>Details</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for utilisateur in Utilisateurs %}
-            <tr>
-                <td>{{ utilisateur.id }}</td>
-                <td>{{ utilisateur.nom }}</td>
-                <td>{{ utilisateur.prenom }}</td>
-                <td>{{ utilisateur.email }}</td>
-                <td>{{ utilisateur.adresse }}</td>
-                <td>{{ utilisateur.cp }}</td>
-                <td>{{ utilisateur.ville }}</td>
-                <td>{{ utilisateur.telephone }}</td>
-                <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
-                <td> <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}">Modifier</a></td>
-                <td><a href="{{ path('Administrateur_DetailUtilisateur', {'id': utilisateur.id}) }}">Details</a></td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="16">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 <div class="NouveauUtilisateur">
     <a href="{{ path('Administrateur_AjoutUtilisateur') }}">Ajouter un Utilisateur</a>
 </div>

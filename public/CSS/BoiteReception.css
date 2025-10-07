@@ -532,3 +532,393 @@
 /* Fin CSS Boite de reception */
 
 /* Responsive Boite de reception */
+    /* Affichage Boite de reception */
+        /* Écrans entre 993px et 1300px */
+        @media screen and (min-width: 993px) and (max-width: 1300px) {
+            .container-messages {
+                width: 90%;
+                gap: 15px;
+            }
+            .section-messages {
+                flex: 2;
+            }
+            .sidebar-actions {
+                flex: 1;
+            }
+            .message-card {
+                font-size: 15px;
+                padding: 12px;
+            }
+        }
+
+        /* Écrans entre 768px et 992px */
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            .container-messages {
+                width: 95%;
+                gap: 12px;
+            }
+            .section-messages {
+                flex: 2;
+            }
+            .sidebar-actions {
+                flex: 1;
+                padding: 12px;
+            }
+            .message-card {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .onglets-messages li a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        /* Écrans entre 320px et 767px */
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            .container-messages {
+                display: block;
+                width: 95%;
+                margin: auto;
+            }
+            .section-messages {
+                width: 100%;
+            }
+            .sidebar-actions {
+                width: 100%;
+                margin-top: 20px;
+                padding: 10px;
+            }
+            .message-card {
+                font-size: 13px;
+                padding: 8px;
+            }
+            .onglets-messages {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .onglets-messages li a {
+                display: block;
+                text-align: center;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+    /* Fin Affichage Boite de reception */
+    /* Page details du message séléctionné */
+        /* Écrans entre 993px et 1300px */
+        @media screen and (min-width: 993px) and (max-width: 1300px) {
+            .conteneur-message {
+                padding: 20px;
+            }
+            .titre-detail-message {
+                font-size: 32px;
+            }
+            .carte-message {
+                padding: 25px;
+            }
+            .entete-carte {
+                padding: 20px;
+                font-size: 20px;
+            }
+            .corps-carte,
+            .info-expediteur,
+            .zone-description,
+            .piece-jointe,
+            .lien-piece-jointe {
+                font-size: 18px;
+                padding: 20px;
+            }
+            .pied-carte {
+                padding: 20px;
+                gap: 15px;
+            }
+            .btn-repondre,
+            .btn-retour-detail-message {
+                padding: 14px 28px;
+                font-size: 18px;
+            }
+        }
+
+        /* Écrans entre 768px et 992px */
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            .conteneur-message {
+                padding: 15px;
+            }
+            .titre-detail-message {
+                font-size: 28px;
+            }
+            .carte-message {
+                padding: 20px;
+            }
+            .entete-carte {
+                padding: 18px;
+                font-size: 18px;
+            }
+            .corps-carte,
+            .info-expediteur,
+            .zone-description,
+            .piece-jointe,
+            .lien-piece-jointe {
+                font-size: 16px;
+                padding: 15px;
+            }
+            .pied-carte {
+                padding: 15px;
+                gap: 10px;
+            }
+            .btn-repondre,
+            .btn-retour-detail-message {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+
+        /* Écrans entre 320px et 767px */
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            .conteneur-message {
+                padding: 10px;
+            }
+            .titre-detail-message {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .carte-message {
+                width: 100%;
+                padding: 15px;
+            }
+            .entete-carte {
+                padding: 15px;
+                font-size: 16px;
+            }
+            .corps-carte,
+            .info-expediteur,
+            .zone-description,
+            .piece-jointe,
+            .lien-piece-jointe {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .pied-carte {
+                padding: 10px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+            .btn-repondre,
+            .btn-retour-detail-message {
+                width: 100%;
+                padding: 12px 0;
+                font-size: 16px;
+            }
+        }
+    /* Fin Page details message */
+    /* Messages reçus */
+        /* Écrans entre 993px et 1300px */
+        @media screen and (min-width: 993px) and (max-width: 1300px) {
+            .conteneur-messages-recus {
+                padding: 20px;
+            }
+            .titre-messages-recus {
+                font-size: 32px;
+            }
+            .item-message-recu {
+                padding: 25px;
+            }
+            .info-expediteur,
+            .extrait-message-recu,
+            .objet-message-recu,
+            .piece-jointe-recue,
+            .lien-piece-jointe-recue {
+                font-size: 18px;
+            }
+            .zone-boutons-actions {
+                gap: 15px;
+            }
+            .btn-detail-message-recu,
+            .btn-repondre-message-recu,
+            .btn-retour-messages-recus {
+                padding: 14px 28px;
+                font-size: 18px;
+            }
+        }
+
+        /* Écrans entre 768px et 992px */
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            .conteneur-messages-recus {
+                padding: 15px;
+            }
+            .titre-messages-recus {
+                font-size: 28px;
+            }
+            .item-message-recu {
+                padding: 20px;
+            }
+            .info-expediteur,
+            .extrait-message-recu,
+            .objet-message-recu,
+            .piece-jointe-recue,
+            .lien-piece-jointe-recue {
+                font-size: 16px;
+            }
+            .zone-boutons-actions {
+                gap: 12px;
+            }
+            .btn-detail-message-recu,
+            .btn-repondre-message-recu,
+            .btn-retour-messages-recus {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+
+        /* Écrans entre 320px et 767px */
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            .conteneur-messages-recus {
+                padding: 10px;
+            }
+            .titre-messages-recus {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .item-message-recu {
+                width: 100%;
+                padding: 15px;
+            }
+            .info-expediteur,
+            .extrait-message-recu,
+            .objet-message-recu,
+            .piece-jointe-recue,
+            .lien-piece-jointe-recue {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            .zone-boutons-actions {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+                justify-content: flex-start;
+                margin-top: 15px;
+            }
+            .btn-detail-message-recu,
+            .btn-repondre-message-recu,
+            .btn-retour-messages-recus {
+                width: 100%;
+                padding: 12px 0;
+                font-size: 16px;
+            }
+            .aucun-message-recu {
+                width: 95%;
+                font-size: 18px;
+                padding: 20px;
+            }
+            .zone-retour-messages-recus {
+                margin-top: 40px;
+            }
+        }
+    /* Fin messages reçus */
+    /* Messages Envoyer */
+        /* Écrans entre 993px et 1300px */
+        @media screen and (min-width: 993px) and (max-width: 1300px) {
+            .conteneur-messages-envoyes {
+                padding: 20px;
+            }
+            .titre-messages-envoyes {
+                font-size: 32px;
+            }
+            .item-message {
+                padding: 25px;
+            }
+            .info-destinataire,
+            .extrait-message,
+            .objet-message,
+            .piece-jointe-message,
+            .lien-piece-jointe-message {
+                font-size: 18px;
+            }
+            .zone-bouton-detail {
+                gap: 15px;
+            }
+            .btn-detail-message,
+            .btn-repondre-message,
+            .btn-retour-messages {
+                padding: 14px 28px;
+                font-size: 18px;
+            }
+        }
+
+        /* Écrans entre 768px et 992px */
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            .conteneur-messages-envoyes {
+                padding: 15px;
+            }
+            .titre-messages-envoyes {
+                font-size: 28px;
+            }
+            .item-message {
+                padding: 20px;
+            }
+            .info-destinataire,
+            .extrait-message,
+            .objet-message,
+            .piece-jointe-message,
+            .lien-piece-jointe-message {
+                font-size: 16px;
+            }
+            .zone-bouton-detail {
+                gap: 12px;
+            }
+            .btn-detail-message,
+            .btn-repondre-message,
+            .btn-retour-messages {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+
+        /* Écrans entre 320px et 767px */
+        @media screen and (min-width: 320px) and (max-width: 767px) {
+            .conteneur-messages-envoyes {
+                padding: 10px;
+            }
+            .titre-messages-envoyes {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .item-message {
+                width: 100%;
+                padding: 15px;
+            }
+            .info-destinataire,
+            .extrait-message,
+            .objet-message,
+            .piece-jointe-message,
+            .lien-piece-jointe-message {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            .zone-bouton-detail {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+                justify-content: flex-start;
+                margin-top: 15px;
+            }
+            .btn-detail-message,
+            .btn-repondre-message,
+            .btn-retour-messages {
+                width: 100%;
+                padding: 12px 0;
+                font-size: 16px;
+            }
+            .aucun-message {
+                width: 95%;
+                font-size: 18px;
+                padding: 20px;
+            }
+            .zone-retour {
+                margin-top: 40px;
+            }
+        }
+    /* Fin Messages Envoyés */
+/* Fin Responsivité */

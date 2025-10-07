@@ -48,7 +48,7 @@ class AdminMessageFormType extends AbstractType
 
             ->add('description', TextareaType::class, [
                 'label' => 'Description',
-                'constraintes' => [
+                'constraints' => [
                     new Assert\NotBlank(),
                     new Assert\Length(['max' => 2000])
                 ]

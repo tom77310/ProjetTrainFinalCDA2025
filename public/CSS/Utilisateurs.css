@@ -385,4 +385,204 @@
     /* Fin Compte Utilisateurs */
 /* Fin CSS Utilisateurs */
 
-/* Responsivité Page Compte Utilisateurs */
+/* Responsivité */
+    /* Formulaire d'inscription */
+    /* Petits écrans : 320px à 600px */
+    @media (max-width: 600px) {
+        .FormulaireInscription {
+            width: 95%;          /* prend presque toute la largeur */
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        #inscription_utilisateur_form {
+            flex-direction: column;  /* tout en colonne */
+        }
+
+        .FormulaireInscription .form-group,
+        .FormulaireInscription .form-row {
+            width: 100%;         /* un seul champ par ligne */
+            margin-bottom: 15px;
+        }
+
+        .FormulaireInscription .inscription {
+            font-size: 16px;
+            padding: 12px;
+        }
+    }
+
+    /* Écrans moyens : 601px à 992px */
+    @media (min-width: 601px) and (max-width: 992px) {
+        .FormulaireInscription {
+            width: 90%;          /* réduit un peu la largeur */
+            margin: 40px auto;
+        }
+
+        .FormulaireInscription .form-group,
+        .FormulaireInscription .form-row {
+            width: 48%;          /* deux colonnes mais plus compact */
+        }
+    }
+
+    /* Écrans larges intermédiaires : 993px à 1300px */
+    @media (min-width: 993px) and (max-width: 1300px) {
+        .FormulaireInscription {
+            width: 70%;          /* formulaire plus centré et moins large */
+        }
+    }
+    /* Fin Reponsive Formulaire d'inscription */
+
+    /* Formulaire de connexion */
+
+    /* Petits écrans : 320px à 600px */
+    @media (max-width: 600px) {
+        .formulaireconnexion {
+            width: 90%;           /* quasi pleine largeur */
+            margin: 40px auto;    /* marge réduite */
+            padding: 20px;        /* moins de padding pour mobile */
+        }
+
+        .EmailConnexion input,
+        .MdpConnexion input {
+            font-size: 14px;      /* texte légèrement réduit */
+            padding: 10px;
+        }
+
+        .connexion button {
+            font-size: 16px;
+            padding: 12px;
+        }
+
+        .alert {
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+
+    /* Écrans moyens : 601px à 992px */
+    @media (min-width: 601px) and (max-width: 992px) {
+        .formulaireconnexion {
+            width: 70%;           /* formulaire centré mais moins étroit */
+            margin: 60px auto;
+        }
+    }
+
+    /* Écrans larges intermédiaires : 993px à 1300px */
+    @media (min-width: 993px) and (max-width: 1300px) {
+        .formulaireconnexion {
+            width: 50%;           /* un peu plus large mais pas plein écran */
+        }
+    }
+    /* Fin Formulaire de connexion */
+    /* Formulaire de contact  */
+
+    /* Petits écrans : 320px à 600px */
+    @media (max-width: 600px) {
+        .contact-container {
+            width: 90%;            /* prend presque toute la largeur */
+            margin: 30px auto;     /* marge réduite */
+            padding: 20px;         /* padding allégé */
+        }
+
+        .contact-container label {
+            font-size: 14px;       /* texte un peu plus petit */
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .contact-container .btn-submit {
+            font-size: 16px;
+            padding: 12px;
+        }
+
+        .contact-container .flash-success,
+        .contact-container .flash-error {
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+
+    /* Écrans moyens : 601px à 992px */
+    @media (min-width: 601px) and (max-width: 992px) {
+        .contact-container {
+            width: 80%;            /* plus large mais centré */
+            margin: 40px auto;
+        }
+    }
+
+    /* Écrans larges intermédiaires : 993px à 1300px */
+    @media (min-width: 993px) and (max-width: 1300px) {
+        .contact-container {
+            width: 65%;            /* formulaire recentré, pas trop large */
+        }
+    }
+    /* Fin Formulaire de contact */
+
+
+    /* Espace Utilisateur */
+
+        /* Écrans entre 993px et 1300px */
+        @media screen and (min-width: 993px) and (max-width: 1300px) {
+            .CompteHaut,
+            .CompteBas {
+                flex-direction: row;
+            }
+            .CompteHaut img,
+            .CompteBas img {
+                width: 45%;
+            }
+        }
+
+        /* Écrans entre 769px et 992px */
+        @media screen and (min-width: 769px) and (max-width: 992px) {
+            .CompteHaut,
+            .CompteBas {
+                flex-direction: row;
+            }
+            .CompteHaut img,
+            .CompteBas img {
+                width: 60%;
+            }
+        }
+
+        /* Écrans entre 601px et 768px */
+        @media screen and (min-width: 601px) and (max-width: 768px) {
+            .CompteHaut,
+            .CompteBas {
+                flex-direction: column;
+            }
+            .CompteHaut img,
+            .CompteBas img {
+                width: 70%;
+            }
+        }
+
+        /* Écrans entre 481px et 600px */
+        @media screen and (min-width: 481px) and (max-width: 600px) {
+            .CompteHaut,
+            .CompteBas {
+                flex-direction: column;
+            }
+            .CompteHaut img,
+            .CompteBas img {
+                width: 80%;
+            }
+        }
+
+        /* Écrans entre 320px et 480px */
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+            .CompteHaut,
+            .CompteBas {
+                flex-direction: column;
+            }
+            .CompteHaut img,
+            .CompteBas img {
+                width: 90%;
+            }
+        }
+    /* Fin Espace Utilisateur */
+/* Fin Responsivité */
