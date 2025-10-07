@@ -30,7 +30,10 @@
         </a>
     </div>
     <div class="Supprimer">
-        {{ include('Compte/administrateur/GestionUtilisateurs/FormSupprimer.html.twig') }}
+        <div class="Supprimer">
+    {{ include('Compte/administrateur/GestionUtilisateurs/FormSupprimer.html.twig', {'utilisateur': utilisateur}) }}
+</div>
+
     </div>
 </div>
 {% endblock %}

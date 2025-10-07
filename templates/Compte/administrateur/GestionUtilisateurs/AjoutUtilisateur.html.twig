@@ -10,7 +10,7 @@
     {{ form_start(FormAjout, { 'attr': {'class': 'form-ajout-utilisateur'} }) }}
         {{ form_widget(FormAjout) }}
         <div class="ajouter">
-            <button class="btn_ajout">{{ button_label|default('Ajouter') }}</button>
+            <button type="submit" class="btn_ajout">{{ button_label|default('Ajouter') }}</button>
         </div>
     {{ form_end(FormAjout) }}
 </div>

@@ -1,0 +1,100 @@
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>
+			Ajout utilisateur			- Le monde du rail</title>
+								<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+									<link rel="stylesheet" href="/CSS/Footer.css"> 
+            <link rel="stylesheet" href="/CSS/Header.css">
+					</head>
+	<body>
+
+		<!-- Menu principal -->
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0E2E45;">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="/">Le Monde du Rail</a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/">Accueil</a>         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+            Nos produits
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #0E2E45;">
+            <li><a class="dropdown-item text-white" href="/materiel_roulant">Les matériels roulants</a></li>
+            <li><a class="dropdown-item text-white" href="/materiel_roulant/typeLoco">Les locomotives</a></li> 
+            <li><a class="dropdown-item text-white" href="/materiel_roulant/typeVoituresVoyageurs">Les voitures de voyageurs</a></li>
+            <li><a class="dropdown-item text-white" href="/materiel_roulant/typeAutomotrices">Les automotrices</a></li>
+            <li><a class="dropdown-item text-white" href="/materiel_roulant/typeWagonFret">Les wagons de fret</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/materiel_roulant/taillesExistantes">Tailles existantes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/materiel_roulant/typeVoies">Les Voies</a> 
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/materiel_roulant/typeInfra">Les Infrastructures Ferroviaires</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav mb-2 mb-lg-0">
+                  <li class="nav-item">
+            <a class="btn btn-outline-light me-2" href="/utilisateurs/login">Se connecter</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light text-primary" href="/utilisateurs/inscription">S'inscrire</a>
+          </li>
+              </ul>        </div>
+    </div>
+</nav>
+
+		<!-- Contenu du site -->
+		<link rel="stylesheet" href="/CSS/Admin.css">
+<h1 class="titreAjoutUtilisateurs">Ajouter un nouvel Utilisateur</h1>
+
+<div class="formulaireAjoutUtilisateurs">
+    <form name="ajout_utilisateur_form" method="post" class="form-ajout-utilisateur">
+        <div id="ajout_utilisateur_form"><div><label for="ajout_utilisateur_form_civilite">Civilité</label><select id="ajout_utilisateur_form_civilite" name="ajout_utilisateur_form[civilite]"><option value>Sélectionnez</option><option value="Monsieur">Mr</option><option value="Madame">Mme</option><option value="Mademoiselle">Mlle</option></select></div><div><label for="ajout_utilisateur_form_nom" class="required">Nom de famille*</label><input type="text" id="ajout_utilisateur_form_nom" name="ajout_utilisateur_form[nom]" required="required"></div><div><label for="ajout_utilisateur_form_prenom" class="required">Prénom*</label><input type="text" id="ajout_utilisateur_form_prenom" name="ajout_utilisateur_form[prenom]" required="required"></div><div><label for="ajout_utilisateur_form_date_naissance">Date de naissance</label><input type="date" id="ajout_utilisateur_form_date_naissance" name="ajout_utilisateur_form[date_naissance]"></div><div><label for="ajout_utilisateur_form_adresse" class="required">Adresse postale*</label><input type="text" id="ajout_utilisateur_form_adresse" name="ajout_utilisateur_form[adresse]" required="required"></div><div><label for="ajout_utilisateur_form_cp">Code postal</label><input type="text" id="ajout_utilisateur_form_cp" name="ajout_utilisateur_form[cp]" minlength="1" maxlength="5" class="Code_Postale" required="false" inputmode="decimal"></div><div><label for="ajout_utilisateur_form_ville">Ville</label><input type="text" id="ajout_utilisateur_form_ville" name="ajout_utilisateur_form[ville]"></div><div><label for="ajout_utilisateur_form_telephone">Téléphone</label><input type="text" id="ajout_utilisateur_form_telephone" name="ajout_utilisateur_form[telephone]"></div><div><label for="ajout_utilisateur_form_email" class="required">Email*</label><input type="email" id="ajout_utilisateur_form_email" name="ajout_utilisateur_form[email]" required="required"></div><div><label for="ajout_utilisateur_form_login">Nom d'utilisateur</label><input type="text" id="ajout_utilisateur_form_login" name="ajout_utilisateur_form[login]"></div><div><label for="ajout_utilisateur_form_password" class="required">Mot de passe*</label><input type="password" id="ajout_utilisateur_form_password" name="ajout_utilisateur_form[password]" required="required"></div><div><label for="ajout_utilisateur_form_roles" class="required">Roles</label><select id="ajout_utilisateur_form_roles" name="ajout_utilisateur_form[roles][]" required="required" multiple="multiple"><option value="ROLE_ADMIN">Administrateur</option><option value="ROLE_USER" selected="selected">Utilisateur</option></select></div><input type="hidden" id="ajout_utilisateur_form__token" name="ajout_utilisateur_form[_token]" data-controller="csrf-protection" value="csrf-token"></div>
+        <div class="ajouter">
+            <button type="submit" class="btn_ajout">Ajouter</button>
+        </div>
+    </form>
+</div>
+
+<div class="actionsAjoutUtilisateurs">
+    <div class="RetourUtilisateur">
+        <a href="/compte/administrateur/ListeUtilisateurs" class="lienretourListeUtilisateur">
+            Revenir à la liste des Utilisateurs
+        </a>
+    </div>
+</div>
+
+		<!-- Pied de page -->
+		<footer class="footer">
+  <ul class="footer-links">
+    <li><a href="/utilisateurs/contact">Contact</a></li>
+    <li><a href="#">Mentions Légales</a></li>
+    <li><a href="#">Conditions générale de vente</a></li>
+    <li><a href="#">Conditions de Remboursement</a></li>
+    <li><a href="#">Politique de confidentialité</a></li>
+    <li><a href="#">Paiement sécurisé</a></li>
+    <li><a href="#">Plus d'infos</a></li>
+  </ul>
+</footer>
+		<!-- Javascripts -->
+								<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+					
+	</body>
+

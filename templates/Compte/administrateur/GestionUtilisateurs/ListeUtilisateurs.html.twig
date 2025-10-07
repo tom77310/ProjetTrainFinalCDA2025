@@ -26,35 +26,35 @@
     {% for utilisateur in Utilisateurs %}
         <tr>
             <td>
-                <div><strong>Id:</strong> {{ utilisateur.id }}</div>
+                <div data-test-id="{{ utilisateur.id }}"><strong>Id:</strong> {{ utilisateur.id }}</div>
             </td>
             <td>
-                <div><strong>Nom:</strong> {{ utilisateur.nom }}</div>
+                <div data-test-nom="{{ utilisateur.nom }}"><strong>Nom:</strong> {{ utilisateur.nom }}</div>
             </td>
             <td>
-                <div><strong>Prénom:</strong> {{ utilisateur.prenom }}</div>
+                <div data-test-prenom="{{ utilisateur.prenom }}"><strong>Prénom:</strong> {{ utilisateur.prenom }}</div>
             </td>
             <td>
-                <div><strong>Email:</strong> {{ utilisateur.email }}</div>
+                <div data-test-email="{{ utilisateur.email }}"><strong>Email:</strong> {{ utilisateur.email }}</div>
             </td>
             <td>
-                <div><strong>Adresse:</strong> {{ utilisateur.adresse }}</div>
+                <div data-test-adresse="{{ utilisateur.adresse }}"><strong>Adresse:</strong> {{ utilisateur.adresse }}</div>
             </td>
             <td>
-                <div><strong>Code Postal:</strong> {{ utilisateur.cp }}</div>
+                <div data-test-cp="{{ utilisateur.cp }}"><strong>Code Postal:</strong> {{ utilisateur.cp }}</div>
             </td>
             <td>
-                <div><strong>Ville:</strong> {{ utilisateur.ville }}</div>
+                <div data-test-ville="{{ utilisateur.ville }}"><strong>Ville:</strong> {{ utilisateur.ville }}</div>
             </td>
             <td>
-                <div><strong>Téléphone:</strong> {{ utilisateur.telephone }}</div>
+                <div data-test-telephone="{{ utilisateur.telephone }}"><strong>Téléphone:</strong> {{ utilisateur.telephone }}</div>
             </td>
             <td>
-                <div><strong>Rôle:</strong> {{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</div>
+                <div data-test-role="{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}"><strong>Rôle:</strong> {{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</div>
             </td>
             <td>
                 <div><strong>Modifier:</strong> 
-                    <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}">Modifier</a>
+                    <a href="{{ path('Administrateur_ModifUtilisateur', {'id': utilisateur.id}) }}" data-test-modifier>Modifier</a>
                 </div>
             </td>
             <td>
