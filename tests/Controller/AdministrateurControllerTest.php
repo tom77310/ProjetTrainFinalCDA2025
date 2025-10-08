@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Tests fonctionnels côté administrateur
- *
- * Ce fichier teste tous les parcours administrateur pour les utilisateurs et les produits.
- * Il vérifie :
- *   - L'accès aux pages
- *   - L'ajout / modification / suppression
- *   - La validation des formulaires (contraintes)
- *   - L'affichage des détails et des listes
- */
-
 namespace App\Tests\Controller;
 
 use App\Entity\Utilisateur;
@@ -80,8 +69,8 @@ public function testAjoutUtilisateurCorrect(): void
     $form['ajout_utilisateur_form[cp]'] = '75001';
     $form['ajout_utilisateur_form[ville]'] = 'Paris';
     $form['ajout_utilisateur_form[telephone]'] = '0123456789';
-    $form['ajout_utilisateur_form[email]'] = 'testuser3@example.com';
-    $form['ajout_utilisateur_form[login]'] = 'testuser3';
+    $form['ajout_utilisateur_form[email]'] = 'testuser@example.com';
+    $form['ajout_utilisateur_form[login]'] = 'testuser';
     $form['ajout_utilisateur_form[password]'] = 'Tlemaire03022002'; // conforme aux règles
     $form['ajout_utilisateur_form[roles]'] = 'ROLE_USER';
 
@@ -92,13 +81,10 @@ public function testAjoutUtilisateurCorrect(): void
     $this->assertResponseRedirects('/compte/administrateur/ListeUtilisateurs');
 
     // Suit la redirection
-$this->client->followRedirect();
+    $this->client->followRedirect();
 
-// Debug : affiche le HTML complet de la page ListeUtilisateurs
-file_put_contents('debug_output.html', $crawler->html());
-
-// Vérifie que l’utilisateur est bien présent
-$this->assertSelectorTextContains('td div[data-test-email]', 'testuser3@example.com');
+    // Vérifie que l’utilisateur est bien présent
+    $this->assertSelectorTextContains('td div[data-test-email]', 'testuser@example.com');
 }
 
 public function testModificationUtilisateur()
@@ -143,10 +129,11 @@ public function testDetailUtilisateur()
 
 public function testSuppressionUtilisateur()
 {
-    // 1️⃣ Aller sur la liste des utilisateurs
+    // Test : Supprimer le premier utilisateur de la liste
+    // On va sur la liste des utilisateurs
     $crawler = $this->client->request('GET', '/compte/administrateur/ListeUtilisateurs');
 
-    // 2️⃣ Chercher le lien "Details" du premier utilisateur
+    //  On va chercher le lien "Details" du premier utilisateur
     $linkNode = $crawler->filter('a')->reduce(function ($node) {
         return trim($node->text()) === 'Details';
     })->first();
@@ -155,17 +142,17 @@ public function testSuppressionUtilisateur()
 
     $crawler = $this->client->click($linkNode->link());
 
-    // 3️⃣ Vérifier que le formulaire de suppression est bien présent
+    // On va vérifier que le formulaire de suppression est bien présent
     $this->assertGreaterThan(0, $crawler->filter('div.Supprimer form')->count(), 'Le formulaire de suppression doit être présent');
 
-    // 4️⃣ Soumettre le formulaire
+    // On soumet le formulaire
     $form = $crawler->filter('div.Supprimer form')->first()->form();
     $this->client->submit($form);
 
-    // 5️⃣ Vérifier la redirection
+    // On va vérifier la redirection
     $this->assertResponseRedirects('/compte/administrateur/ListeUtilisateurs');
 
-    // 6️⃣ Suivre la redirection
+    // Et enfin on va suivre la redirection
     $crawler = $this->client->followRedirect();
     $this->assertSelectorNotExists('td div[data-test-email]', 'L\'utilisateur supprimé ne doit plus apparaître');
 }

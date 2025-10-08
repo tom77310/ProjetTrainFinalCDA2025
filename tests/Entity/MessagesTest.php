@@ -39,6 +39,7 @@ class MessagesTest extends TestCase
 
     public function testExpediteurDestinataire()
     {
+        // Test : Récupération de l'expéditeur et du destinataire
         $m = new Messages();
         $user = new Utilisateur();
 
