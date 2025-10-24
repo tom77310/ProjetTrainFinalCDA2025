@@ -131,24 +131,15 @@
                 text-decoration: none;
                 }
 
-                /* Conteneur "Retour" */
-                .Retour {
-                margin-top: 18px;
-                margin-bottom: 8px;
-                padding: 8px;
-                border: 1px solid transparent;
-                width: fit-content;
+                /* Conteneur "Supprimer" */
+                .Supprimer {
+                display: block;             /* prend toute la largeur disponible */
+                margin: 20px auto;          /* auto centre horizontalement */
+                padding: 8px 16px;          /* un peu plus large visuellement */
+                width: fit-content;         /* adapte la largeur au texte */
                 border-radius: 4px;
                 }
 
-                /* Conteneur "Supprimer" */
-                .Supprimer {
-                margin-top: 8px;
-                margin-bottom: 18px;
-                padding: 8px;
-                width: fit-content;
-                border-radius: 4px;
-                }
                 /* Titre de la page */
                 .titrePageModifUtilisateur {
                 margin-bottom: 16px;
@@ -164,20 +155,7 @@
                 margin-top: 20px;          /* Espace entre le titre et le formulaire */
                 margin-bottom: 20px;
                 }
-
-                /* Conteneur qui centre les actions Retour et Supprimer */
-                .actions-centrees {
-                display: flex;
-                justify-content: center;   /* centre horizontalement */
-                align-items: center;       /* aligne verticalement sur la même ligne */
-                gap: 20px;                 /* espace entre Retour et Supprimer */
-                margin-top: 20px;          /* espace au-dessus des boutons */
-                }
-
-                .Retour,
-                .Supprimer {
-                margin: 0;                 /* on retire les marges précédentes si besoin */
-                }
+                
             /* Fin Formulaire modif utilisateur par admin */
             /* Detail Utilisateurs */
                 /* Conteneur des détails */
@@ -200,16 +178,10 @@
                 color: #333333;
                 }
 
-                /* Bloc actions : Retour / Modifier / Supprimer */
-                .actionsDetailsUtilisateurs {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;             /* espace entre les actions */
-                margin-top: 20px;
-                }
-
-               
+                .Modifier {
+                    text-align: center;   /* centre le lien à l'intérieur */
+                    margin-top: 20px;     /* espace au-dessus du bouton */
+                }              
 
                 /* Lien "Modifier" */
                 .lienmodifierUtilisateur {
