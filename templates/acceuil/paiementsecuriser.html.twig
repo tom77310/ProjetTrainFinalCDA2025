@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement sécurisé - Le Monde du Rail{% endblock %}
+
+{% block body %}
+<div class="container my-5" style="max-width: 900px;">
+
+    <h1 class="text-center border-bottom border-primary pb-2 mb-4 text-decoration-underline">
+        Paiement sécurisé
+    </h1>
+
+    <p class="text-body lh-lg">
+        Le site <strong>Le Monde du Rail</strong> met en avant la sécurité des transactions pour garantir la protection des informations financières des clients.  
+        Cette page explique le fonctionnement théorique du paiement sécurisé dans le cadre du projet fictif.
+    </p>
+
+    <h2 class="border-bottom border-secondary pb-1 mt-5 mb-3 text-decoration-underline">
+        1. Méthodes de paiement
+    </h2>
+    <p class="text-body lh-lg">
+        Les paiements peuvent être effectués (dans un site réel) via :
+    </p>
+    <ul class="text-body lh-lg">
+        <li>Cartes bancaires (Visa, Mastercard, etc.) ;</li>
+        <li>Services de paiement en ligne sécurisés ;</li>
+        <li>Autres moyens électroniques conformes aux standards de sécurité.</li>
+    </ul>
+    <p class="text-body lh-lg">
+        Sur <strong>Le Monde du Rail</strong>, ces transactions sont purement illustratives et ne génèrent aucun mouvement financier.
+    </p>
+
+    <h2 class="border-bottom border-secondary pb-1 mt-5 mb-3 text-decoration-underline">
+        2. Sécurité des données
+    </h2>
+    <p class="text-body lh-lg">
+        Dans un site réel, toutes les informations sensibles (numéro de carte, code de sécurité) seraient transmises via des connexions sécurisées (HTTPS) et chiffrées selon les normes PCI DSS.  
+        Pour ce projet, aucune donnée de paiement n’est collectée.
+    </p>
+
+    <h2 class="border-bottom border-secondary pb-1 mt-5 mb-3 text-decoration-underline">
+        3. Confidentialité
+    </h2>
+    <p class="text-body lh-lg">
+        Les informations de paiement ne sont jamais stockées sur les serveurs du site.  
+        Toute donnée saisie dans un cadre réel serait utilisée uniquement pour traiter la transaction et serait protégée conformément à la réglementation.
+    </p>
+
+    <h2 class="border-bottom border-secondary pb-1 mt-5 mb-3 text-decoration-underline">
+        4. Contact
+    </h2>
+    <p class="text-body lh-lg">
+        Pour toute question relative à la sécurité des paiements, vous pouvez contacter :  
+        <a href="mailto:contact@lemondedurail.fr" class="text-primary text-decoration-none">contact@lemondedurail.fr</a>
+    </p>
+
+    <p class="mt-5 text-center text-muted lh-sm">
+        <em>Document fictif – Projet de formation réalisé par Thomas Lemaire (2025).</em>
+    </p>
+
+</div>
+{% endblock %}
